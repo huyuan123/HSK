@@ -11,12 +11,16 @@
 
 #import "UrlPath.h"
 #import "UIFont+Adaptation.h"
+#import "User.h"
 
 
 #define TestPaperPackageInfo     @"TestPaperPackageInfo.xml"
 
 #define examination     @"examination"
 
+#define FileName     @"fileName"
+
+#define IpadPath        [@"iPad" pathWithType:Documents]
 
 #define  SideViewWidth    ScreenWidth 
 #define  TabBarHeight      49
@@ -25,6 +29,9 @@
 #define  BuTouchUpInside  UIControlEventTouchUpInside
 
 #define TabBarController  @"TabBarController"
+
+#define TestDataSoure     @"TestDataSoure"
+
 #define  KeyWindow         weakDictionaryObjectForKey(@"window")
 
 #define BanerImage                      @"BanerImage.png"
@@ -91,20 +98,5 @@
 #define FontSizeNormal 15.f
 #define FontSizeSmall 13.f
 
-
-#define CELL_COUNT 30
-#define CELL_IDENTIFIER @"WaterfallCell"
-#define HEADER_IDENTIFIER @"WaterfallHeader"
-#define FOOTER_IDENTIFIER @"WaterfallFooter"
-
-//#define Alert(A) [ShowHUD showOnlyCustomInfoWithString:(A) \
-//configParameter:^(ShowHUD *config) {} duration:2 inView:(((UIViewController *)[WeakDictionary objectForKey:TabBarController]).view)]
-
-#define Alert(A) [WarningView showWarningText:(A)]
-
-#define AlertWindow(A) [ShowHUD showOnlyCustomInfoWithString:(A) \
-configParameter:^(ShowHUD *config) {} duration:3 inView:(((UIViewController *)[WeakDictionary objectForKey:TabBarController]).view)]
-
-#define Toast(msg) AlertWindow(msg)
 
 #endif

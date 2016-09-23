@@ -11,11 +11,14 @@
 #import "TestPaperPackageInfoModel.h"
 #import "SHXMLParser.h"
 #import "ASTModel.h"
-
+#import "NetWorking.h"
 #import "AssessmentSection.h"
 #import "assessmentItemRef.h"
 #import "testPart.h"
-//#import "AssessmentSection.h"
+#import "MainController.h"
+#import "AdvisoryController.h"
+#define ItemWith    230
+#define ItemHeight  170
 
 @interface ViewController ()
 {
@@ -26,66 +29,28 @@
 @end
 
 @implementation ViewController
-
+// 230x170
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
-    model = [[ASTModel alloc] init];
-    [model parseInPath:[[NSBundle mainBundle] pathForResource:@"AST_fe901f32-9968-df11-910b-002219a717d6" ofType:@"xml"]];
-    
-//    NSLog(@"%@",model.testPartArray) ;
-    
-    for (testPart * test in model.testPartArray) {
-        NSLog(@"%@",test) ;
-        for (AssessmentSection * sec in test.assessmentSectionArray) {
-            NSLog(@"%@",sec) ;
 
-            for (assessmentItemRef * ref in sec.assessmentItemRefArray) {
-                NSLog(@"%@",ref) ;
-            }
-        }
+    NSArray * arr = @[@"随身练习",@"考试咨询",@"报名约考",@"我要考试"] ;
+    float x= (screenWith() - 50 - ItemWith*2)/2 ;
+    float y = (screenHeight() - 30 - ItemHeight*2)/2 ;
+    for (int i = 0; i < 4; i++) {
+        UIButton * bu = [[UIButton alloc] initWithFrame:CGRectMake(x + i%2*(ItemWith + 50), y + i/2*(ItemHeight+30) , ItemWith, ItemHeight)];
+        [self.view addSubview:bu];
+        bu.tag = 100 + i ;
+        [bu setTitle:arr[i] forState:BuNormal];
+        [bu setBackgroundColor:[UIColor redColor]];
+        [bu addTarget:self action:@selector(buevent:) forControlEvents:BuTouchUpInside];
     }
-    
-//    NSString * s= ;
-//    NSString *zipPath = [[NSBundle mainBundle] pathForResource:@"HSK二级" ofType:@"zip"];
-//    NSString *destinationPath = [examination pathWithType:Documents] ;
-//    
-//    [SSZipArchive unzipFileAtPath:zipPath toDestination:destinationPath];
-//    
-//    _model = [[TestPaperPackageInfoModel alloc] init];
-//    
-//    [_model parseInPath:[[examination stringByAppendingPathComponent:TestPaperPackageInfo] pathWithType:Documents]];
-//    
-//    NSLog(@"%@",destinationPath);
-    
-//   NSData * data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"AST_fe901f32-9968-df11-910b-002219a717d6" ofType:@"xml"]];
-//    parser = [[SHXMLParser alloc] init];
-//    NSDictionary * dic = [parser parseData:data];
-//    
-//    NSLog(@"%@",dic);
-    
-//    NSString *trimmedPath = [@"ooooooooooooo[]" stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"[]"]];
-//
-//    NSLog(@"%@",trimmedPath) ;
-//    
-//    [];
-    // 压缩
-//    NSString *zippedPath = @"压缩文件路径";
-//    NSArray *inputPaths = [NSArray arrayWithObjects:
-//                           [[NSBundle mainBundle] pathForResource:@"photo1" ofType:@"jpg"],
-//                           [[NSBundle mainBundle] pathForResource:@"photo2" ofType:@"jpg"]
-//                           nil nil];
-//    [SSZipArchive createZipFileAtPath:zippedPath withFilesAtPaths:inputPaths];
-   
-//    NSLog(@"hhhhhhh%@",s) ;
-    
-    
-    UIView  * view = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    [self.view addSubview:view];
-    view.backgroundColor = [UIColor redColor];
-    
+}
 
+- (void)buevent:(UIButton *)bu
+{
+    MainController * mainCon = [[MainController alloc] init];
+    mainCon.selectIndex = (int)bu.tag -100 ;
+    [self.navigationController pushViewController:mainCon animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {

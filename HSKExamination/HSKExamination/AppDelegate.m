@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-
+#import "SSZipArchive.h"
+#import "NetWorking.h"
+#import "ViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,8 +18,143 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    [self checkData];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible] ;
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]] ;
+    
+    
     return YES;
+}
+
+- (void)checkData
+{
+    NSDictionary * dic= UserDefaultObjectForKet(TestDataSoure) ;
+    
+    if (!dic) {
+        NSMutableDictionary * mudic = [NSMutableDictionary dictionaryWithCapacity:6];
+     
+        NSString * sourePath = [[NSBundle mainBundle] pathForResource:@"iPad" ofType:@"zip"];
+        
+        NSString *zipPath = sourePath ;
+        
+        NSString *destinationPath = IpadPath ;
+        
+//        NSLog(@"%@",destinationPath);
+        
+        [SSZipArchive unzipFileAtPath:zipPath toDestination:destinationPath];
+        
+        [destinationPath enumeratorFolder:^(NSString *path) {
+//            NSLog(@"%@",path) ;
+            if ([path isEqualToString:@"H11116"]) {
+                NSMutableArray * arr = [NSMutableArray array];
+                [arr addObject:@{FileName:path,@"id":@"1"}];
+                [mudic setObject:arr forKey:@"1"];
+            }else if  ([path isEqualToString:@"H21116"])
+            {
+                NSMutableArray * arr = [NSMutableArray array];
+                [arr addObject:@{FileName:path,@"id":@"3"}];
+                [mudic setObject:arr forKey:@"2"];
+            
+            }
+            else if  ([path isEqualToString:@"H31114"])
+            {
+                NSMutableArray * arr = [NSMutableArray array];
+                [arr addObject:@{FileName:path,@"id":@"5"}];
+                [mudic setObject:arr forKey:@"3"];
+
+            }
+            else if  ([path isEqualToString:@"H41114"])
+            {
+                NSMutableArray * arr = [NSMutableArray array];
+                [arr addObject:@{FileName:path,@"id":@"7"}];
+                [mudic setObject:arr forKey:@"4"];
+
+            }
+            else if  ([path isEqualToString:@"H51114"])
+            {
+                NSMutableArray * arr = [NSMutableArray array];
+                [arr addObject:@{FileName:path,@"id":@"10"}];
+                [mudic setObject:arr forKey:@"5"];
+
+            }
+            else if  ([path isEqualToString:@"H61114"])
+            {
+                NSMutableArray * arr = [NSMutableArray array];
+                [arr addObject:@{FileName:path,@"id":@"13"}];
+                [mudic setObject:arr forKey:@"6"];
+
+            }
+            
+        }];
+        
+        [UserDefault setObject:mudic forKey:TestDataSoure];
+        [UserDefault synchronize];
+    }
+    
+    [self checkUpData];
+}
+
+- (void)checkUpData
+{
+    [NetWorking downLoadWithUrl:@"http://mnks.cnhsk.org/MnMoblie/json.json" completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+//        NSLog(@"%@",filePath) ;
+        if (error == nil) {
+            NSData * data = [NSData dataWithContentsOfURL:filePath];
+            NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            [User shareInstance].testDownLoadUrl = dic[@"server"]; ;
+        
+            NSArray * arr = dic[@"hsk"];
+            
+            NSDictionary * localData = UserDefaultObjectForKet(TestDataSoure) ;
+            
+            for (NSDictionary * dic in arr) {
+                NSString * level = [NSString stringWithFormat:@"%@", dic[@"level"]] ;
+                NSArray * localPacks = localData[level];
+                NSArray * packages = dic[@"packages"];
+                for (NSDictionary * pack in packages) {
+                    NSString * packId = pack[@"id"] ;
+                    
+                    bool b = NO ;
+                    for (NSDictionary * localPack in localPacks) {
+                        if (packId.intValue == [localPack[@"id"] intValue]) {
+                            b = YES ;
+                            break ;
+                        }
+                    }
+                    
+                    if (!b) {
+                        // 如果本地没有而服务器有，就要下载
+                        [self downLoadPackWithPackName:pack andLevel:level] ;
+                    }
+                }
+            }
+        }
+    }];
+}
+
+- (void)downLoadPackWithPackName:(NSDictionary *)pack andLevel:(NSString *)level
+{
+    
+    [[[UIAlertView alloc] initWithTitle:@"fdfdfd" message:nil delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil] show];
+    
+    [NetWorking downLoadWithUrl:[[User shareInstance].testDownLoadUrl stringByAppendingString:pack[@"name"]] completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        NSMutableDictionary * muDic = [NSMutableDictionary dictionaryWithDictionary:UserDefaultObjectForKet(TestDataSoure)];
+        NSMutableArray * array = [NSMutableArray arrayWithArray:[muDic objectForKey:level]];
+        NSString * packName = [pack[@"name"] componentsSeparatedByString:@"."][0];
+        NSFileManager * manger = [NSFileManager defaultManager];
+        [manger createDirectoryAtPath:[IpadPath stringByAppendingPathComponent:packName] withIntermediateDirectories:YES attributes:nil error:nil];
+        NSString * zipPath = [filePath.absoluteString substringFromIndex:7] ;
+        NSString * destinationPath = [IpadPath stringByAppendingPathComponent:packName] ;
+        [SSZipArchive unzipFileAtPath:zipPath toDestination:destinationPath];
+        [array addObject:@{FileName:packName,@"id":pack[@"id"]}];
+        [muDic setObject:array forKey:level];
+        [UserDefault setObject:muDic forKey:TestDataSoure];
+        [UserDefault synchronize];
+        [manger removeItemAtURL:filePath error:nil];
+    }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

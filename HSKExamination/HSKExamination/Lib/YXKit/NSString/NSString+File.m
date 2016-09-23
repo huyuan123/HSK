@@ -141,6 +141,38 @@
     }
 }
 
+- (void)enumeratorFolder:(void (^)(NSString *path))block
+{
+    BOOL isDirectory = NO;
+    
+    [[NSFileManager defaultManager] fileExistsAtPath:self
+                                         isDirectory:&isDirectory];
+    
+
+    if (isDirectory)
+    {
+        NSArray *storeArray = [NSMutableArray array];
+        
+        NSString *docsDir = self;
+        NSFileManager *localFileManager = [NSFileManager defaultManager];
+//        NSDirectoryEnumerator *dirEnum = [localFileManager enumeratorAtPath:docsDir];
+//        
+//        NSString *file;
+//        while ((file = [dirEnum nextObject]))
+//        {
+//            [storeArray addObject:file];
+//        }
+//
+       storeArray = [localFileManager contentsOfDirectoryAtPath:docsDir error:nil];
+        
+        [storeArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            block(obj);
+        }];
+
+    }
+
+}
+
 - (NSDictionary *)fileInfo
 {
     return [[NSFileManager defaultManager] attributesOfItemAtPath:[NSHomeDirectory() stringByAppendingPathComponent:self]
