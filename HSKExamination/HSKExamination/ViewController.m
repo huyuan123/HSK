@@ -33,6 +33,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    UIImageView * backView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:backView];
+    [backView setImage:[UIImage imageNamed:@"底图.jpg"]];
     NSArray * arr = @[@"随身练习",@"考试咨询",@"报名约考",@"我要考试"] ;
     float x= (screenWith() - 50 - ItemWith*2)/2 ;
     float y = (screenHeight() - 30 - ItemHeight*2)/2 ;
@@ -40,8 +43,9 @@
         UIButton * bu = [[UIButton alloc] initWithFrame:CGRectMake(x + i%2*(ItemWith + 50), y + i/2*(ItemHeight+30) , ItemWith, ItemHeight)];
         [self.view addSubview:bu];
         bu.tag = 100 + i ;
-        [bu setTitle:arr[i] forState:BuNormal];
-        [bu setBackgroundColor:[UIColor redColor]];
+//        [bu setTitle:arr[i] forState:BuNormal];
+//        [bu setBackgroundColor:[UIColor redColor]];
+        [bu setImage:[UIImage imageNamed:arr[i]] forState:BuNormal];
         [bu addTarget:self action:@selector(buevent:) forControlEvents:BuTouchUpInside];
     }
 }

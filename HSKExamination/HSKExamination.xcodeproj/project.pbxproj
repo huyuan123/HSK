@@ -16,6 +16,13 @@
 		F67FDAC21D8F96160064CF3D /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F67FDABB1D8F96160064CF3D /* AFURLResponseSerialization.m */; };
 		F67FDAC31D8F96160064CF3D /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F67FDABD1D8F96160064CF3D /* AFURLSessionManager.m */; };
 		F67FDAC61D8F96930064CF3D /* NetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = F67FDAC51D8F96930064CF3D /* NetWorking.m */; };
+		F6CF0A981D94E2A100903125 /* 底图.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6CF0A971D94E2A100903125 /* 底图.jpg */; };
+		F6CF0A9B1D94F8AC00903125 /* 随身练习@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6CF0A991D94F8AC00903125 /* 随身练习@2x.png */; };
+		F6CF0A9C1D94F8AC00903125 /* 我要考试@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6CF0A9A1D94F8AC00903125 /* 我要考试@2x.png */; };
+		F6CF0A9E1D94F8E100903125 /* 报名约考@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6CF0A9D1D94F8E100903125 /* 报名约考@2x.png */; };
+		F6CF0AA01D94F8E700903125 /* 考试咨询@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6CF0A9F1D94F8E700903125 /* 考试咨询@2x.png */; };
+		F6CF0AA21D94F94900903125 /* 首页logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F6CF0AA11D94F94900903125 /* 首页logo.png */; };
+		F6CF0AA41D94F95B00903125 /* home图标.png in Resources */ = {isa = PBXBuildFile; fileRef = F6CF0AA31D94F95B00903125 /* home图标.png */; };
 		F6D1F87F1D7FFC7E00508F09 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D1F87E1D7FFC7E00508F09 /* main.m */; };
 		F6D1F8821D7FFC7E00508F09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D1F8811D7FFC7E00508F09 /* AppDelegate.m */; };
 		F6D1F8851D7FFC7E00508F09 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D1F8841D7FFC7E00508F09 /* ViewController.m */; };
@@ -121,7 +128,6 @@
 		F6D8F9C61D811488002DC1AF /* SHXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D8F9C51D811488002DC1AF /* SHXMLParser.m */; };
 		F6F833151D868EA000792E59 /* AssessmentSection.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F833141D868EA000792E59 /* AssessmentSection.m */; };
 		F6F833181D86901300792E59 /* assessmentItemRef.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F833171D86901300792E59 /* assessmentItemRef.m */; };
-		F6FDA4361D937BE500C83D58 /* default@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6FDA4351D937BE500C83D58 /* default@2x.jpg */; };
 		F6FDA43A1D93AC5F00C83D58 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FDA4391D93AC5F00C83D58 /* BaseViewController.m */; };
 		F6FDA43D1D93D1C800C83D58 /* SelectLevelController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FDA43C1D93D1C800C83D58 /* SelectLevelController.m */; };
 		F6FDA4401D93D20D00C83D58 /* AdvisoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FDA43F1D93D20D00C83D58 /* AdvisoryController.m */; };
@@ -147,6 +153,13 @@
 		F67FDABD1D8F96160064CF3D /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		F67FDAC41D8F96930064CF3D /* NetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorking.h; sourceTree = "<group>"; };
 		F67FDAC51D8F96930064CF3D /* NetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorking.m; sourceTree = "<group>"; };
+		F6CF0A971D94E2A100903125 /* 底图.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "底图.jpg"; sourceTree = "<group>"; };
+		F6CF0A991D94F8AC00903125 /* 随身练习@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "随身练习@2x.png"; sourceTree = "<group>"; };
+		F6CF0A9A1D94F8AC00903125 /* 我要考试@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我要考试@2x.png"; sourceTree = "<group>"; };
+		F6CF0A9D1D94F8E100903125 /* 报名约考@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "报名约考@2x.png"; sourceTree = "<group>"; };
+		F6CF0A9F1D94F8E700903125 /* 考试咨询@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "考试咨询@2x.png"; sourceTree = "<group>"; };
+		F6CF0AA11D94F94900903125 /* 首页logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页logo.png"; sourceTree = "<group>"; };
+		F6CF0AA31D94F95B00903125 /* home图标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home图标.png"; sourceTree = "<group>"; };
 		F6D1F87A1D7FFC7E00508F09 /* HSKExamination.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSKExamination.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D1F87E1D7FFC7E00508F09 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F6D1F8801D7FFC7E00508F09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -368,7 +381,6 @@
 		F6F833141D868EA000792E59 /* AssessmentSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssessmentSection.m; sourceTree = "<group>"; };
 		F6F833161D86901300792E59 /* assessmentItemRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = assessmentItemRef.h; sourceTree = "<group>"; };
 		F6F833171D86901300792E59 /* assessmentItemRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = assessmentItemRef.m; sourceTree = "<group>"; };
-		F6FDA4351D937BE500C83D58 /* default@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "default@2x.jpg"; sourceTree = "<group>"; };
 		F6FDA4381D93AC5F00C83D58 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		F6FDA4391D93AC5F00C83D58 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		F6FDA43B1D93D1C800C83D58 /* SelectLevelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectLevelController.h; sourceTree = "<group>"; };
@@ -972,7 +984,13 @@
 		F6FDA4341D937B9800C83D58 /* Resoure */ = {
 			isa = PBXGroup;
 			children = (
-				F6FDA4351D937BE500C83D58 /* default@2x.jpg */,
+				F6CF0AA31D94F95B00903125 /* home图标.png */,
+				F6CF0A9F1D94F8E700903125 /* 考试咨询@2x.png */,
+				F6CF0A991D94F8AC00903125 /* 随身练习@2x.png */,
+				F6CF0A9A1D94F8AC00903125 /* 我要考试@2x.png */,
+				F6CF0AA11D94F94900903125 /* 首页logo.png */,
+				F6CF0A9D1D94F8E100903125 /* 报名约考@2x.png */,
+				F6CF0A971D94E2A100903125 /* 底图.jpg */,
 			);
 			path = Resoure;
 			sourceTree = "<group>";
@@ -1049,9 +1067,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6CF0A981D94E2A100903125 /* 底图.jpg in Resources */,
+				F6CF0A9E1D94F8E100903125 /* 报名约考@2x.png in Resources */,
 				F6D1F88A1D7FFC7E00508F09 /* Assets.xcassets in Resources */,
-				F6FDA4361D937BE500C83D58 /* default@2x.jpg in Resources */,
+				F6CF0AA41D94F95B00903125 /* home图标.png in Resources */,
+				F6CF0A9C1D94F8AC00903125 /* 我要考试@2x.png in Resources */,
+				F6CF0AA21D94F94900903125 /* 首页logo.png in Resources */,
+				F6CF0A9B1D94F8AC00903125 /* 随身练习@2x.png in Resources */,
 				F6D1F8D81D80040000508F09 /* Info.plist in Resources */,
+				F6CF0AA01D94F8E700903125 /* 考试咨询@2x.png in Resources */,
 				F661A9361D910FD0003A4DE7 /* iPad.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
