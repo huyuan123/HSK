@@ -7,14 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04F41F6A1D961832007AB37E /* 左标考试点中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F621D961832007AB37E /* 左标考试点中@2x.png */; };
-		04F41F6B1D961832007AB37E /* 左标考试未选@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F631D961832007AB37E /* 左标考试未选@2x.png */; };
-		04F41F6C1D961832007AB37E /* 左标随身点中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F641D961832007AB37E /* 左标随身点中@2x.png */; };
-		04F41F6D1D961832007AB37E /* 左标随身未选@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F651D961832007AB37E /* 左标随身未选@2x.png */; };
-		04F41F6E1D961832007AB37E /* 左标约考点中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F661D961832007AB37E /* 左标约考点中@2x.png */; };
-		04F41F6F1D961832007AB37E /* 左标约考未选@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F671D961832007AB37E /* 左标约考未选@2x.png */; };
-		04F41F701D961832007AB37E /* 左标咨询点中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F681D961832007AB37E /* 左标咨询点中@2x.png */; };
-		04F41F711D961832007AB37E /* 左标咨询未选@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F691D961832007AB37E /* 左标咨询未选@2x.png */; };
+		04F41F7F1D961C1D007AB37E /* LeftSelectBu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F41F7E1D961C1D007AB37E /* LeftSelectBu.m */; };
+		04F41FA01D9625FF007AB37E /* 报名约考@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F831D9625FF007AB37E /* 报名约考@2x.png */; };
+		04F41FA11D9625FF007AB37E /* 底图.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F841D9625FF007AB37E /* 底图.jpg */; };
+		04F41FA31D9625FF007AB37E /* 考试咨询@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F861D9625FF007AB37E /* 考试咨询@2x.png */; };
+		04F41FA51D9625FF007AB37E /* 首页logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F881D9625FF007AB37E /* 首页logo@2x.png */; };
+		04F41FA71D9625FF007AB37E /* 随身练习@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F8A1D9625FF007AB37E /* 随身练习@2x.png */; };
+		04F41FA91D9625FF007AB37E /* 我要考试@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F8C1D9625FF007AB37E /* 我要考试@2x.png */; };
+		04F41FAB1D9625FF007AB37E /* 左标考试点中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F8E1D9625FF007AB37E /* 左标考试点中@2x.png */; };
+		04F41FAD1D9625FF007AB37E /* 左标考试未选@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F901D9625FF007AB37E /* 左标考试未选@2x.png */; };
+		04F41FAF1D9625FF007AB37E /* 左标随身点中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F921D9625FF007AB37E /* 左标随身点中@2x.png */; };
+		04F41FB11D9625FF007AB37E /* 左标随身未选@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F941D9625FF007AB37E /* 左标随身未选@2x.png */; };
+		04F41FB31D9625FF007AB37E /* 左标约考点中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F961D9625FF007AB37E /* 左标约考点中@2x.png */; };
+		04F41FB71D9625FF007AB37E /* 左标咨询点中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F9A1D9625FF007AB37E /* 左标咨询点中@2x.png */; };
+		04F41FB91D9625FF007AB37E /* 左标咨询未选@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F9C1D9625FF007AB37E /* 左标咨询未选@2x.png */; };
+		04F41FBA1D9625FF007AB37E /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41F9D1D9625FF007AB37E /* home.png */; };
+		04F41FBF1D963367007AB37E /* 左标约考未选.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F41FBE1D963367007AB37E /* 左标约考未选.png */; };
+		04F5EB4A1D9678E700A0E47E /* SignUpTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5EB491D9678E700A0E47E /* SignUpTestController.m */; };
+		04F5EB4D1D96792800A0E47E /* FormalExaminationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F5EB4C1D96792800A0E47E /* FormalExaminationController.m */; };
 		F661A9361D910FD0003A4DE7 /* iPad.zip in Resources */ = {isa = PBXBuildFile; fileRef = F661A9351D910FD0003A4DE7 /* iPad.zip */; };
 		F661A9391D913053003A4DE7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F661A9381D913053003A4DE7 /* User.m */; };
 		F67FDABE1D8F96160064CF3D /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F67FDAB21D8F96160064CF3D /* AFHTTPSessionManager.m */; };
@@ -24,13 +34,6 @@
 		F67FDAC21D8F96160064CF3D /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F67FDABB1D8F96160064CF3D /* AFURLResponseSerialization.m */; };
 		F67FDAC31D8F96160064CF3D /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F67FDABD1D8F96160064CF3D /* AFURLSessionManager.m */; };
 		F67FDAC61D8F96930064CF3D /* NetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = F67FDAC51D8F96930064CF3D /* NetWorking.m */; };
-		F6CF0A981D94E2A100903125 /* 底图.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6CF0A971D94E2A100903125 /* 底图.jpg */; };
-		F6CF0A9B1D94F8AC00903125 /* 随身练习@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6CF0A991D94F8AC00903125 /* 随身练习@2x.png */; };
-		F6CF0A9C1D94F8AC00903125 /* 我要考试@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6CF0A9A1D94F8AC00903125 /* 我要考试@2x.png */; };
-		F6CF0A9E1D94F8E100903125 /* 报名约考@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6CF0A9D1D94F8E100903125 /* 报名约考@2x.png */; };
-		F6CF0AA01D94F8E700903125 /* 考试咨询@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6CF0A9F1D94F8E700903125 /* 考试咨询@2x.png */; };
-		F6CF0AA21D94F94900903125 /* 首页logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6CF0AA11D94F94900903125 /* 首页logo@2x.png */; };
-		F6CF0AA41D94F95B00903125 /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6CF0AA31D94F95B00903125 /* home@2x.png */; };
 		F6D1F87F1D7FFC7E00508F09 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D1F87E1D7FFC7E00508F09 /* main.m */; };
 		F6D1F8821D7FFC7E00508F09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D1F8811D7FFC7E00508F09 /* AppDelegate.m */; };
 		F6D1F8851D7FFC7E00508F09 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D1F8841D7FFC7E00508F09 /* ViewController.m */; };
@@ -143,14 +146,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04F41F621D961832007AB37E /* 左标考试点中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左标考试点中@2x.png"; sourceTree = "<group>"; };
-		04F41F631D961832007AB37E /* 左标考试未选@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左标考试未选@2x.png"; sourceTree = "<group>"; };
-		04F41F641D961832007AB37E /* 左标随身点中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左标随身点中@2x.png"; sourceTree = "<group>"; };
-		04F41F651D961832007AB37E /* 左标随身未选@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左标随身未选@2x.png"; sourceTree = "<group>"; };
-		04F41F661D961832007AB37E /* 左标约考点中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左标约考点中@2x.png"; sourceTree = "<group>"; };
-		04F41F671D961832007AB37E /* 左标约考未选@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左标约考未选@2x.png"; sourceTree = "<group>"; };
-		04F41F681D961832007AB37E /* 左标咨询点中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左标咨询点中@2x.png"; sourceTree = "<group>"; };
-		04F41F691D961832007AB37E /* 左标咨询未选@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左标咨询未选@2x.png"; sourceTree = "<group>"; };
+		04F41F7D1D961C1D007AB37E /* LeftSelectBu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSelectBu.h; sourceTree = "<group>"; };
+		04F41F7E1D961C1D007AB37E /* LeftSelectBu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSelectBu.m; sourceTree = "<group>"; };
+		04F41F831D9625FF007AB37E /* 报名约考@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "报名约考@2x.png"; sourceTree = "<group>"; };
+		04F41F841D9625FF007AB37E /* 底图.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "底图.jpg"; sourceTree = "<group>"; };
+		04F41F861D9625FF007AB37E /* 考试咨询@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "考试咨询@2x.png"; sourceTree = "<group>"; };
+		04F41F881D9625FF007AB37E /* 首页logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页logo@2x.png"; sourceTree = "<group>"; };
+		04F41F8A1D9625FF007AB37E /* 随身练习@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "随身练习@2x.png"; sourceTree = "<group>"; };
+		04F41F8C1D9625FF007AB37E /* 我要考试@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我要考试@2x.png"; sourceTree = "<group>"; };
+		04F41F8E1D9625FF007AB37E /* 左标考试点中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左标考试点中@2x.png"; sourceTree = "<group>"; };
+		04F41F901D9625FF007AB37E /* 左标考试未选@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左标考试未选@2x.png"; sourceTree = "<group>"; };
+		04F41F921D9625FF007AB37E /* 左标随身点中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左标随身点中@2x.png"; sourceTree = "<group>"; };
+		04F41F941D9625FF007AB37E /* 左标随身未选@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左标随身未选@2x.png"; sourceTree = "<group>"; };
+		04F41F961D9625FF007AB37E /* 左标约考点中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左标约考点中@2x.png"; sourceTree = "<group>"; };
+		04F41F9A1D9625FF007AB37E /* 左标咨询点中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左标咨询点中@2x.png"; sourceTree = "<group>"; };
+		04F41F9C1D9625FF007AB37E /* 左标咨询未选@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左标咨询未选@2x.png"; sourceTree = "<group>"; };
+		04F41F9D1D9625FF007AB37E /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		04F41FBE1D963367007AB37E /* 左标约考未选.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左标约考未选.png"; sourceTree = "<group>"; };
+		04F5EB481D9678E700A0E47E /* SignUpTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpTestController.h; sourceTree = "<group>"; };
+		04F5EB491D9678E700A0E47E /* SignUpTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpTestController.m; sourceTree = "<group>"; };
+		04F5EB4B1D96792800A0E47E /* FormalExaminationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormalExaminationController.h; sourceTree = "<group>"; };
+		04F5EB4C1D96792800A0E47E /* FormalExaminationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormalExaminationController.m; sourceTree = "<group>"; };
 		F661A9351D910FD0003A4DE7 /* iPad.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = iPad.zip; sourceTree = "<group>"; };
 		F661A9371D913053003A4DE7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		F661A9381D913053003A4DE7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -169,13 +185,6 @@
 		F67FDABD1D8F96160064CF3D /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		F67FDAC41D8F96930064CF3D /* NetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorking.h; sourceTree = "<group>"; };
 		F67FDAC51D8F96930064CF3D /* NetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorking.m; sourceTree = "<group>"; };
-		F6CF0A971D94E2A100903125 /* 底图.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "底图.jpg"; sourceTree = "<group>"; };
-		F6CF0A991D94F8AC00903125 /* 随身练习@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "随身练习@2x.png"; sourceTree = "<group>"; };
-		F6CF0A9A1D94F8AC00903125 /* 我要考试@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我要考试@2x.png"; sourceTree = "<group>"; };
-		F6CF0A9D1D94F8E100903125 /* 报名约考@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "报名约考@2x.png"; sourceTree = "<group>"; };
-		F6CF0A9F1D94F8E700903125 /* 考试咨询@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "考试咨询@2x.png"; sourceTree = "<group>"; };
-		F6CF0AA11D94F94900903125 /* 首页logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页logo@2x.png"; sourceTree = "<group>"; };
-		F6CF0AA31D94F95B00903125 /* home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home@2x.png"; sourceTree = "<group>"; };
 		F6D1F87A1D7FFC7E00508F09 /* HSKExamination.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSKExamination.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D1F87E1D7FFC7E00508F09 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F6D1F8801D7FFC7E00508F09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -419,6 +428,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04F41F7C1D961BEA007AB37E /* subView */ = {
+			isa = PBXGroup;
+			children = (
+				04F41F7D1D961C1D007AB37E /* LeftSelectBu.h */,
+				04F41F7E1D961C1D007AB37E /* LeftSelectBu.m */,
+			);
+			name = subView;
+			sourceTree = "<group>";
+		};
 		F661A2CB1D910C41003A4DE7 /* DataSoure */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,6 +500,7 @@
 				F6D1F8811D7FFC7E00508F09 /* AppDelegate.m */,
 				F661A9371D913053003A4DE7 /* User.h */,
 				F661A9381D913053003A4DE7 /* User.m */,
+				04F41F7C1D961BEA007AB37E /* subView */,
 				F6D1F9EF1D8010C000508F09 /* Model */,
 				F6D1F8981D80038F00508F09 /* Lib */,
 				F6D1F8831D7FFC7E00508F09 /* ViewController.h */,
@@ -1000,21 +1019,21 @@
 		F6FDA4341D937B9800C83D58 /* Resoure */ = {
 			isa = PBXGroup;
 			children = (
-				F6CF0AA31D94F95B00903125 /* home@2x.png */,
-				F6CF0A9F1D94F8E700903125 /* 考试咨询@2x.png */,
-				F6CF0A991D94F8AC00903125 /* 随身练习@2x.png */,
-				F6CF0A9A1D94F8AC00903125 /* 我要考试@2x.png */,
-				F6CF0AA11D94F94900903125 /* 首页logo@2x.png */,
-				F6CF0A9D1D94F8E100903125 /* 报名约考@2x.png */,
-				F6CF0A971D94E2A100903125 /* 底图.jpg */,
-				04F41F621D961832007AB37E /* 左标考试点中@2x.png */,
-				04F41F631D961832007AB37E /* 左标考试未选@2x.png */,
-				04F41F641D961832007AB37E /* 左标随身点中@2x.png */,
-				04F41F651D961832007AB37E /* 左标随身未选@2x.png */,
-				04F41F661D961832007AB37E /* 左标约考点中@2x.png */,
-				04F41F671D961832007AB37E /* 左标约考未选@2x.png */,
-				04F41F681D961832007AB37E /* 左标咨询点中@2x.png */,
-				04F41F691D961832007AB37E /* 左标咨询未选@2x.png */,
+				04F41F831D9625FF007AB37E /* 报名约考@2x.png */,
+				04F41F841D9625FF007AB37E /* 底图.jpg */,
+				04F41F861D9625FF007AB37E /* 考试咨询@2x.png */,
+				04F41F881D9625FF007AB37E /* 首页logo@2x.png */,
+				04F41F8A1D9625FF007AB37E /* 随身练习@2x.png */,
+				04F41F8C1D9625FF007AB37E /* 我要考试@2x.png */,
+				04F41F8E1D9625FF007AB37E /* 左标考试点中@2x.png */,
+				04F41F901D9625FF007AB37E /* 左标考试未选@2x.png */,
+				04F41F921D9625FF007AB37E /* 左标随身点中@2x.png */,
+				04F41F941D9625FF007AB37E /* 左标随身未选@2x.png */,
+				04F41FBE1D963367007AB37E /* 左标约考未选.png */,
+				04F41F961D9625FF007AB37E /* 左标约考点中@2x.png */,
+				04F41F9A1D9625FF007AB37E /* 左标咨询点中@2x.png */,
+				04F41F9C1D9625FF007AB37E /* 左标咨询未选@2x.png */,
+				04F41F9D1D9625FF007AB37E /* home.png */,
 			);
 			path = Resoure;
 			sourceTree = "<group>";
@@ -1026,6 +1045,10 @@
 				F6FDA43C1D93D1C800C83D58 /* SelectLevelController.m */,
 				F6FDA43E1D93D20D00C83D58 /* AdvisoryController.h */,
 				F6FDA43F1D93D20D00C83D58 /* AdvisoryController.m */,
+				04F5EB481D9678E700A0E47E /* SignUpTestController.h */,
+				04F5EB491D9678E700A0E47E /* SignUpTestController.m */,
+				04F5EB4B1D96792800A0E47E /* FormalExaminationController.h */,
+				04F5EB4C1D96792800A0E47E /* FormalExaminationController.m */,
 				F6FDA4411D93D5DD00C83D58 /* MainController.h */,
 				F6FDA4421D93D5DD00C83D58 /* MainController.m */,
 			);
@@ -1091,24 +1114,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6CF0A981D94E2A100903125 /* 底图.jpg in Resources */,
-				04F41F6B1D961832007AB37E /* 左标考试未选@2x.png in Resources */,
-				F6CF0A9E1D94F8E100903125 /* 报名约考@2x.png in Resources */,
-				04F41F6E1D961832007AB37E /* 左标约考点中@2x.png in Resources */,
+				04F41FAD1D9625FF007AB37E /* 左标考试未选@2x.png in Resources */,
+				04F41FA01D9625FF007AB37E /* 报名约考@2x.png in Resources */,
 				F6D1F88A1D7FFC7E00508F09 /* Assets.xcassets in Resources */,
-				F6CF0AA41D94F95B00903125 /* home@2x.png in Resources */,
-				04F41F6F1D961832007AB37E /* 左标约考未选@2x.png in Resources */,
-				F6CF0A9C1D94F8AC00903125 /* 我要考试@2x.png in Resources */,
-				F6CF0AA21D94F94900903125 /* 首页logo@2x.png in Resources */,
-				04F41F711D961832007AB37E /* 左标咨询未选@2x.png in Resources */,
-				04F41F701D961832007AB37E /* 左标咨询点中@2x.png in Resources */,
-				F6CF0A9B1D94F8AC00903125 /* 随身练习@2x.png in Resources */,
+				04F41FBF1D963367007AB37E /* 左标约考未选.png in Resources */,
+				04F41FA31D9625FF007AB37E /* 考试咨询@2x.png in Resources */,
 				F6D1F8D81D80040000508F09 /* Info.plist in Resources */,
-				04F41F6A1D961832007AB37E /* 左标考试点中@2x.png in Resources */,
-				F6CF0AA01D94F8E700903125 /* 考试咨询@2x.png in Resources */,
+				04F41FAB1D9625FF007AB37E /* 左标考试点中@2x.png in Resources */,
+				04F41FB71D9625FF007AB37E /* 左标咨询点中@2x.png in Resources */,
+				04F41FA71D9625FF007AB37E /* 随身练习@2x.png in Resources */,
+				04F41FA51D9625FF007AB37E /* 首页logo@2x.png in Resources */,
+				04F41FA11D9625FF007AB37E /* 底图.jpg in Resources */,
+				04F41FB91D9625FF007AB37E /* 左标咨询未选@2x.png in Resources */,
+				04F41FBA1D9625FF007AB37E /* home.png in Resources */,
+				04F41FB11D9625FF007AB37E /* 左标随身未选@2x.png in Resources */,
+				04F41FAF1D9625FF007AB37E /* 左标随身点中@2x.png in Resources */,
+				04F41FA91D9625FF007AB37E /* 我要考试@2x.png in Resources */,
 				F661A9361D910FD0003A4DE7 /* iPad.zip in Resources */,
-				04F41F6C1D961832007AB37E /* 左标随身点中@2x.png in Resources */,
-				04F41F6D1D961832007AB37E /* 左标随身未选@2x.png in Resources */,
+				04F41FB31D9625FF007AB37E /* 左标约考点中@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1126,6 +1149,7 @@
 				F6D1F8D71D80040000508F09 /* sha1.c in Sources */,
 				F67FDABE1D8F96160064CF3D /* AFHTTPSessionManager.m in Sources */,
 				F67FDAC21D8F96160064CF3D /* AFURLResponseSerialization.m in Sources */,
+				04F5EB4A1D9678E700A0E47E /* SignUpTestController.m in Sources */,
 				F6D8F9C61D811488002DC1AF /* SHXMLParser.m in Sources */,
 				F6D1F9E81D80073500508F09 /* NETWorkPicUpload.m in Sources */,
 				F6D1F8D91D80040000508F09 /* ioapi.c in Sources */,
@@ -1151,6 +1175,7 @@
 				F6D1F9B61D80073500508F09 /* NSObject+Runtime.m in Sources */,
 				F6D1F9CF1D80073500508F09 /* UINavigationController+POP.m in Sources */,
 				F6D1F8851D7FFC7E00508F09 /* ViewController.m in Sources */,
+				04F5EB4D1D96792800A0E47E /* FormalExaminationController.m in Sources */,
 				F6D1F9D01D80073500508F09 /* UITheme.m in Sources */,
 				F6D1F9CA1D80073500508F09 /* UIFont+Adaptation.m in Sources */,
 				F6D1F9B71D80073500508F09 /* NSObject+WeakDictionary.m in Sources */,
@@ -1169,6 +1194,7 @@
 				F6D1F9E61D80073500508F09 /* GCDTimer.m in Sources */,
 				F6D8F9C01D8102E0002DC1AF /* ASTModel.m in Sources */,
 				F6D1F9A71D80073500508F09 /* LoadingRotateView.m in Sources */,
+				04F41F7F1D961C1D007AB37E /* LeftSelectBu.m in Sources */,
 				F6D1F9C61D80073500508F09 /* RotateView.m in Sources */,
 				F661A9391D913053003A4DE7 /* User.m in Sources */,
 				F6D1F9E31D80073500508F09 /* GCDGroup.m in Sources */,

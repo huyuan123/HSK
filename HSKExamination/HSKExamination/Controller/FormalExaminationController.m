@@ -1,27 +1,28 @@
 //
-//  AdvisoryController.m
+//  FormalExaminationController.m
 //  HSKExamination
 //
-//  Created by printer on 9/22/16.
-//  Copyright © 2016 printer. All rights reserved.
+//  Created by hiddy on 16/9/24.
+//  Copyright © 2016年 printer. All rights reserved.
 //
 
-#import "AdvisoryController.h"
+#import "FormalExaminationController.h"
 
-@interface AdvisoryController ()
-{
-    UIWebView * _webView ;
-}
+@interface FormalExaminationController ()
+
 @end
 
-@implementation AdvisoryController
+@implementation FormalExaminationController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:_webView];
-    [_webView loadRequest:[NSURLRequest requestWithURL:UrlString(@"http://www.qq.com")]];
+    // Do any additional setup after loading the view.
+    
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 100)];
+    label.font = Font24 ;
+    label.textColor = [UIColor blackColor];
+    label.text = @"我要考试" ;
+    [self.view addSubview:label];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -9,4 +9,9 @@
 #import "UIFont+Adaptation.h"
 
 @implementation UIFont (Adaptation)
++ (UIFont *)fontWithSizeAdaptation:(int)num
+{
+    return [UIFont systemFontOfSize:num];
+}
+
 @end
