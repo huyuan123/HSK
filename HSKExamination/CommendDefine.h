@@ -12,6 +12,13 @@
 
 //  tools 工具类中的类方法，写成宏，方便调用
 
+#define   UserDefaultObjectForKet(A)  [[NSUserDefaults standardUserDefaults] objectForKey:(A)]
+#define   UserDefault                 [NSUserDefaults standardUserDefaults]
+#define   TouchUpInside               UIControlEventTouchUpInside
+#define   ESKArrayForLevel(A)         [UserDefaultObjectForKet(TestDataSoure) objectForKey:(A)] ;
+
+//#define   UserDefaultObjectForKet(A)  [[NSUserDefaults standardUserDefaults] objectForKey:(A)]
+
 #define   IsLogin                 [[User shareInstance] isLogin]
 #define   UrlString(A)            [NSURL URLWithString:(A)]
 #define   UserTelePhone           @"UserTelePhone"

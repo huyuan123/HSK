@@ -55,6 +55,8 @@ typedef enum {
 // 遍历出文件夹并在block中查看
 - (void)enumeratorFolderEach:(void (^)(NSString *path))block;
 
+- (void)enumeratorFolder:(void (^)(NSString *path))block ;
+
 // 文件信息
 - (NSDictionary *)fileInfo;
 

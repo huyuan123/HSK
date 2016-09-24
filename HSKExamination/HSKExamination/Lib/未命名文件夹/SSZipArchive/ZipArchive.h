@@ -17,3 +17,10 @@ FOUNDATION_EXPORT const unsigned char ZipArchiveVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <ZipArchive/PublicHeader.h>
 
 #import "SSZipArchive.h"
+
+
+//    NSString *zipPath = [[NSBundle mainBundle] pathForResource:@"HSK二级" ofType:@"zip"];
+//    NSString *destinationPath = [examination pathWithType:Documents] ;
+//
+//    [SSZipArchive unzipFileAtPath:zipPath toDestination:destinationPath];
+//
