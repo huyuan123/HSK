@@ -21,6 +21,9 @@
 		040E235C1D97FC10003A2196 /* 写作图标-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 040E23581D97FC10003A2196 /* 写作图标-pre@2x.png */; };
 		040E235F1D97FC1C003A2196 /* 阅读图标-nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 040E235D1D97FC1C003A2196 /* 阅读图标-nor@2x.png */; };
 		040E23601D97FC1C003A2196 /* 阅读图标-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 040E235E1D97FC1C003A2196 /* 阅读图标-pre@2x.png */; };
+		040E23631D980D42003A2196 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040E23621D980D42003A2196 /* AVFoundation.framework */; };
+		040E23661D980D89003A2196 /* AudioManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 040E23651D980D89003A2196 /* AudioManger.m */; };
+		040E23681D9810A0003A2196 /* 听力图标@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 040E23671D9810A0003A2196 /* 听力图标@2x.png */; };
 		04E492881D969EE200201FDA /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E492871D969EE200201FDA /* TestController.m */; };
 		04E4928A1D96A2D900201FDA /* 返回图标.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E492891D96A2D900201FDA /* 返回图标.png */; };
 		04F41F7F1D961C1D007AB37E /* LeftSelectBu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F41F7E1D961C1D007AB37E /* LeftSelectBu.m */; };
@@ -189,6 +192,10 @@
 		040E23581D97FC10003A2196 /* 写作图标-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "写作图标-pre@2x.png"; sourceTree = "<group>"; };
 		040E235D1D97FC1C003A2196 /* 阅读图标-nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "阅读图标-nor@2x.png"; sourceTree = "<group>"; };
 		040E235E1D97FC1C003A2196 /* 阅读图标-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "阅读图标-pre@2x.png"; sourceTree = "<group>"; };
+		040E23621D980D42003A2196 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		040E23641D980D89003A2196 /* AudioManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManger.h; sourceTree = "<group>"; };
+		040E23651D980D89003A2196 /* AudioManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManger.m; sourceTree = "<group>"; };
+		040E23671D9810A0003A2196 /* 听力图标@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "听力图标@2x.png"; sourceTree = "<group>"; };
 		04E492861D969EE200201FDA /* TestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestController.h; sourceTree = "<group>"; };
 		04E492871D969EE200201FDA /* TestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestController.m; sourceTree = "<group>"; };
 		04E492891D96A2D900201FDA /* 返回图标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回图标.png"; sourceTree = "<group>"; };
@@ -474,6 +481,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040E23631D980D42003A2196 /* AVFoundation.framework in Frameworks */,
 				F6D1F8971D8000D100508F09 /* libz.1.1.3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +489,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040E23611D980D42003A2196 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				040E23621D980D42003A2196 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		04F41F7C1D961BEA007AB37E /* subView */ = {
 			isa = PBXGroup;
 			children = (
@@ -557,6 +573,7 @@
 				F6D1F8961D8000D100508F09 /* libz.1.1.3.tbd */,
 				F6D1F87C1D7FFC7E00508F09 /* HSKExamination */,
 				F6D1F87B1D7FFC7E00508F09 /* Products */,
+				040E23611D980D42003A2196 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -607,6 +624,8 @@
 				F6D1F8E21D80073500508F09 /* YXKit */,
 				F6D1F99C1D80073500508F09 /* YXKit.h */,
 				F6D1F8991D8003A300508F09 /* zipArchive */,
+				040E23641D980D89003A2196 /* AudioManger.h */,
+				040E23651D980D89003A2196 /* AudioManger.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -1099,6 +1118,7 @@
 				04F5EB501D96881D00A0E47E /* 选择等级 */,
 				04F41F831D9625FF007AB37E /* 报名约考@2x.png */,
 				04E492891D96A2D900201FDA /* 返回图标.png */,
+				040E23671D9810A0003A2196 /* 听力图标@2x.png */,
 				04F41F841D9625FF007AB37E /* 底图.jpg */,
 				04F41F861D9625FF007AB37E /* 考试咨询@2x.png */,
 				04F41F881D9625FF007AB37E /* 首页logo@2x.png */,
@@ -1231,6 +1251,7 @@
 				04F5EB591D96889500A0E47E /* 3.png in Resources */,
 				04F41FB91D9625FF007AB37E /* 左标咨询未选@2x.png in Resources */,
 				04F41FBA1D9625FF007AB37E /* home.png in Resources */,
+				040E23681D9810A0003A2196 /* 听力图标@2x.png in Resources */,
 				040E23601D97FC1C003A2196 /* 阅读图标-pre@2x.png in Resources */,
 				04F41FB11D9625FF007AB37E /* 左标随身未选@2x.png in Resources */,
 				04F41FAF1D9625FF007AB37E /* 左标随身点中@2x.png in Resources */,
@@ -1263,6 +1284,7 @@
 				040E23441D978911003A2196 /* NumberView.m in Sources */,
 				F6D1F9A21D80073500508F09 /* MBProgressHUD.m in Sources */,
 				F6D1F8DE1D80040000508F09 /* SSZipArchive.m in Sources */,
+				040E23661D980D89003A2196 /* AudioManger.m in Sources */,
 				040E234D1D97E618003A2196 /* Judgement.m in Sources */,
 				F6D1F9D21D80073500508F09 /* UIView+AddToView.m in Sources */,
 				F6D1F9DE1D80073500508F09 /* WeakRelatedDictionary.m in Sources */,

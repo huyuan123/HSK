@@ -13,6 +13,7 @@
 {
     UIView          *     _backView ;
     id                    _model ;
+    UILabel         *     _countLabel ;
 }
 - (id)initWithFrame:(CGRect)frame
 {
@@ -45,6 +46,10 @@
         [shapeLayer setPath:path];
         [self.layer addSublayer:shapeLayer];
         CGPathRelease(path);
+        
+        _countLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 40, 100, 40)];
+        _countLabel.font = [UIFont boldSystemFontOfSize:30] ;
+        _countLabel.textColor = RGBCOLOR(133, 163, 54) ;
     }
     
     return self ;
@@ -62,6 +67,7 @@
         _model = model ;
         [self loadJudgement:model];
     }
+    
 }
 
 
@@ -70,7 +76,12 @@
 //  加载判断题
 - (void)loadJudgement:(Judgement *)judgeModel
 {
-
+    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(40, 40, 40, 35)];
+    imageView.contentMode = UIViewContentModeScaleAspectFit ;
+    [_backView addSubview:imageView];
+    imageView.image = [UIImage imageNamed:@"听力图标"];
+    [_backView addSubview:_countLabel];
+    _countLabel.text = @"1/40" ;
 }
 
 @end

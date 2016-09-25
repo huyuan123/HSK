@@ -76,32 +76,6 @@
     AssessmentSection * secModel = part.assessmentSectionArray[0] ;
     [_exerView loadAssMent:secModel.assessmentItemRefArray[0]];
     
-/*
-    RightBu * allBU = [[RightBu alloc] initWithFrame:CGRectMake(_exerView.width -141, 50, 139, 120)];
-    [_exerView addSubview:allBU];
-    [allBU setImageName:@"全部图标"];
-    [allBU setTitle:@"全部" forState:BuNormal];
-    [allBU setTitleColor:[UIColor grayColor] forState:BuNormal];
-
-    RightBu * allBU = [[RightBu alloc] initWithFrame:CGRectMake(_exerView.width -141, 50, 139, 120)];
-    [_exerView addSubview:allBU];
-    [allBU setImageName:@"全部图标"];
-    [allBU setTitle:@"全部" forState:BuNormal];
-    [allBU setTitleColor:[UIColor grayColor] forState:BuNormal];
-
-    RightBu * allBU = [[RightBu alloc] initWithFrame:CGRectMake(_exerView.width -141, 50, 139, 120)];
-    [_exerView addSubview:allBU];
-    [allBU setImageName:@"全部图标"];
-    [allBU setTitle:@"全部" forState:BuNormal];
-    [allBU setTitleColor:[UIColor grayColor] forState:BuNormal];
-
-    RightBu * allBU = [[RightBu alloc] initWithFrame:CGRectMake(_exerView.width -141, 50, 139, 120)];
-    [_exerView addSubview:allBU];
-    [allBU setImageName:@"全部图标"];
-    [allBU setTitle:@"全部" forState:BuNormal];
-    [allBU setTitleColor:[UIColor grayColor] forState:BuNormal];
-*/
-    
     NSArray * arr = @[@"全部图标",@"听力图标",@"阅读图标",@"写作图标"];
     for (int i = 0; i < 4; i++) {
         RightBu * allBU = [[RightBu alloc] initWithFrame:CGRectMake(_exerView.width - 86, 50, 84, 120)];
