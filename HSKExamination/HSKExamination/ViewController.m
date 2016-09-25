@@ -21,11 +21,7 @@
 #define ItemHeight  170
 
 @interface ViewController ()
-{
-    TestPaperPackageInfoModel * _model ;
-    SHXMLParser                 * parser ;
-    ASTModel * model ;
-}
+
 @end
 
 @implementation ViewController

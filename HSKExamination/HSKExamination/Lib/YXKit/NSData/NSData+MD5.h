@@ -13,6 +13,6 @@
 // 返回字符串MD5值(支持值的大小写)
 - (NSString *)MD5HashLower:(BOOL)lower;
 
-- (NSString *) md5: (NSString *) inPutText ;
+//- (NSString *) md5: (NSString *) inPutText ;
 
 @end

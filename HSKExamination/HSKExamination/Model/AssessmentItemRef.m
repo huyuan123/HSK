@@ -6,9 +6,9 @@
 //  Copyright © 2016 printer. All rights reserved.
 //
 
-#import "assessmentItemRef.h"
+#import "AssessmentItemRef.h"
 
-@implementation assessmentItemRef
+@implementation AssessmentItemRef
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
     //    if([key isEqualToString:@"id"]) {

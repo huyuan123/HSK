@@ -20,5 +20,4 @@
 @property (nonatomic ,strong) NSString * ItemBankSubjectID ;  //
 @property (nonatomic ,strong) NSString * ItemBankSubjectName ;
 
-
 @end

@@ -11,9 +11,9 @@
 #import "testPart.h"
 
 typedef struct {
-    int  textPart ;
-    int  assessmentSection ;
-    int assessmentItemRef ;
+    NSUInteger  textPart ;
+    NSUInteger  assessmentSection ;
+    NSUInteger assessmentItemRef ;
 }ASTIndex ;
 
 @interface ASTModel : XMLBaseModel

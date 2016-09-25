@@ -8,7 +8,7 @@
 
 #import "testPart.h"
 
-@implementation testPart
+@implementation TestPart
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
     //    if([key isEqualToString:@"id"]) {
@@ -38,7 +38,6 @@
         }
     }
     
-    //    _goods_stockout = @"1" ;
     
     return self;
 }

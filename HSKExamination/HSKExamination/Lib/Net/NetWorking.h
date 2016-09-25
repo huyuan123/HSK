@@ -15,6 +15,6 @@
 + (void)postWithUrl:(nonnull NSString *)urlS andParameter:(nullable NSDictionary *)para andSuccess:(nullable void (^)(NSURLSessionDataTask * _Nonnull task, id _Nullable respon))success
             failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error))failure ;
 
-+ (void)downLoadWithUrl:(nonnull NSString *)urlString  completionHandler:(nonnull void (^)(NSURLResponse *response, NSURL *filePath, NSError *error))completionHandler ;
++ (void)downLoadWithUrl:(nonnull NSString *)urlString  completionHandler:(void (^)(NSURLResponse *response, NSURL *filePath, NSError *  error))completionHandler ;
 
 @end

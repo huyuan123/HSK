@@ -17,6 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 100)];
+    label.font = Font24 ;
+    label.textColor = [UIColor blackColor];
+    label.text = @"我要约考" ;
+    [self.view addSubview:label];
 }
 
 - (void)didReceiveMemoryWarning {

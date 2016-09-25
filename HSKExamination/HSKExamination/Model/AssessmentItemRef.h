@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface assessmentItemRef : NSObject
+@interface AssessmentItemRef : NSObject
 @property (nonatomic ,strong) NSString  *  identifier ;
 @property (nonatomic ,strong) NSString  *  href ;
 @property (nonatomic ,strong) NSString  *  type ;

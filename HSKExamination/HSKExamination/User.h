@@ -12,7 +12,8 @@
 
 @property (nonatomic ,strong) NSString *  testDownLoadUrl ;
 
-+ (User *)shareInstance ;
+@property (nonatomic ,strong) NSString *  paperPath ;
 
++ (User *)shareInstance ;
 
 @end

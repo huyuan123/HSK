@@ -10,9 +10,9 @@
 #import "AssessmentSection.h"
 #import "assessmentItemRef.h"
 
-testPart  *  testPartModel ;
+TestPart  *  testPartModel ;
 AssessmentSection  *  assessmentSection         ;
-assessmentItemRef  *  assessmentItem            ;
+AssessmentItemRef  *  assessmentItem            ;
 
 @implementation ASTModel
 {
@@ -37,7 +37,7 @@ assessmentItemRef  *  assessmentItem            ;
         
     }else if ([elementName isEqualToString:@"testPart"])
     {
-        testPartModel = [[testPart alloc] initWithDictionary:attributeDict];
+        testPartModel = [[TestPart alloc] initWithDictionary:attributeDict];
         testPartModel.assessmentSectionArray = [NSMutableArray array];
          [_testPartArray addObject:testPartModel];
         astIndex.textPart = _testPartArray.count ;
@@ -53,7 +53,7 @@ assessmentItemRef  *  assessmentItem            ;
 
     }else if ([elementName isEqualToString:@"assessmentItemRef"])
     {
-        assessmentItem = [[assessmentItemRef alloc] initWithDictionary:attributeDict];
+        assessmentItem = [[AssessmentItemRef alloc] initWithDictionary:attributeDict];
         [assessmentSection.assessmentItemRefArray  addObject:assessmentItem] ;
         astIndex.textPart = _testPartArray.count ;
         astIndex.assessmentSection = 0 ;
@@ -119,7 +119,10 @@ assessmentItemRef  *  assessmentItem            ;
 
 - (void)parseInPath:(NSString *)path
 {
+    path = [IpadPath stringByAppendingPathComponent:path];
     astIndex = (ASTIndex){0,0,0} ;
+    
+    
     _testPartArray = [NSMutableArray arrayWithCapacity:3];
     [super parseInPath:path];
 }
