@@ -1,14 +1,14 @@
 //
-//  testPart.m
+//  Media.m
 //  HSKExamination
 //
-//  Created by printer on 9/8/16.
+//  Created by printer on 9/26/16.
 //  Copyright © 2016 printer. All rights reserved.
 //
 
-#import "testPart.h"
+#import "Media.h"
 
-@implementation testPart
+@implementation Media
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
     //    if([key isEqualToString:@"id"]) {
@@ -38,7 +38,9 @@
         }
     }
     
-    //    _goods_stockout = @"1" ;
+    NSString * path = [[User shareInstance].paperPath stringByAppendingPathComponent:@"AssessmentItems"];
+    
+    _src = [path stringByAppendingPathComponent:_src] ;
     
     return self;
 }

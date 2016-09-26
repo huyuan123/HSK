@@ -19,8 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-
-
+    _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:_webView];
+    [_webView loadRequest:[NSURLRequest requestWithURL:UrlString(@"http://www.qq.com")]];
 }
 
 - (void)didReceiveMemoryWarning {

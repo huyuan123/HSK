@@ -7,11 +7,24 @@
 //
 
 #import "MainController.h"
-
+#import "LeftSelectBu.h"
+#import "AdvisoryController.h"
+#import "SelectLevelController.h"
+#import "SignUpTestController.h"
+#import "FormalExaminationController.h"
 @interface MainController ()
 {
     UIWebView       *       _webView ;
 }
+
+@property (nonatomic ,strong) SelectLevelController         * selectCon ;
+@property (nonatomic ,strong) AdvisoryController            * advisCon ;
+@property (nonatomic ,strong) SignUpTestController          * signUpCon ;
+@property (nonatomic ,strong) FormalExaminationController   * formaCom ;
+
+@property (nonatomic ,strong) NSMutableArray                * controllers ;
+@property (nonatomic ,strong) UIViewController              * currentCon ;
+
 @end
 
 @implementation MainController
@@ -25,36 +38,98 @@
 
 - (void)createView
 {
-    NSArray * arr = @[@"随身练习",@"考试咨询",@"报名约考",@"我要考试"] ;
-    UIButton * backBu = [[UIButton alloc] initWithFrame:CGRectMake(50, 50, 50, 50)];
-    [backBu setTitle:@"返回" forState:BuNormal];
-    [backBu setBackgroundColor:[UIColor redColor]];
-    [self.view addSubview:backBu];
-    [backBu addTarget:self action:@selector(back) forControlEvents:BuTouchUpInside];
+    UIImageView * backView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:backView];
+    [backView setImage:[UIImage imageNamed:@"底图.jpg"]];
+    NSArray * arr = @[@"左标随身",@"左标咨询",@"左标约考",@"左标考试"] ;
+
+    [[self homeBu] addTarget:self action:@selector(back) forControlEvents:BuTouchUpInside];
     
     float y = (screenHeight() - 115*4 - 6)/2 ;
     
     for(int i = 0; i < 4; i++)
     {
-        UIButton * bu = [[UIButton alloc] initWithFrame:CGRectMake(0, y + i*116, 90, 115)];
+        LeftSelectBu * bu = [[LeftSelectBu alloc] initWithFrame:CGRectMake(0, y + i*116, 90, 115)];
         [self.view addSubview:bu];
-        bu.backgroundColor = [UIColor redColor] ;
-        [bu setTitle:arr[i] forState:BuNormal];
+        [bu setImageName:arr[i]];
+        bu.tag = 100 + i ;
+        if (i == _selectIndex) {
+            [bu setIsSelect:YES];
+        }
+        
+        [bu addTarget:self action:@selector(changgeItem:) forControlEvents:BuTouchUpInside];
     }
     
-    _webView = [[UIWebView alloc] initWithFrame:CGRectMake( 100, 50, screenWith() -200, screenHeight() - 100)];
-    [self.view addSubview:_webView];
-    _webView.backgroundColor = [UIColor redColor];
-    [_webView loadRequest:[NSURLRequest requestWithURL:UrlString(@"http://www.cnhsk.org")]];
-    
+    [self setSubController];
 }
 
-- (void)layoutSubViewWithIndex:(int)index
+- (void)setSubController
 {
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(100, 0, screenWith() -100, screenHeight())];
+    [self.view addSubview:view];
+    
+    _selectCon  = [[SelectLevelController alloc] init];
+    _advisCon   = [[AdvisoryController alloc] init];
+    _signUpCon  = [[SignUpTestController alloc] init];
+    _formaCom   = [[FormalExaminationController alloc] init];
+    _selectCon.view.frame = _advisCon.view.frame = _signUpCon.view.frame = _formaCom.view.frame = view.bounds ;
+    
+    [self addChildViewController:_selectCon];
+    [self addChildViewController:_advisCon];
+    [self addChildViewController:_signUpCon];
+    [self addChildViewController:_formaCom];
+
+//    [view addSubview:_selectCon.view];
+//    [view addSubview:_advisCon.view];
+//    [view addSubview:_formaCom.view];
+//    [view addSubview:_formaCom.view];
+    
+    _controllers = [NSMutableArray arrayWithCapacity:4];
+    [_controllers addObject:_selectCon];
+    [_controllers addObject:_advisCon];
+    [_controllers addObject:_signUpCon];
+    [_controllers addObject:_formaCom];
+    
+    
+    _currentCon = _controllers[_selectIndex] ;
+
+    [view addSubview:[_controllers[_selectIndex] view]];
+//    if (_selectIndex != 3) {
+//        [self transitionFromViewController:_formaCom toViewController:_controllers[_selectIndex] duration:0 options:UIViewAnimationOptionLayoutSubviews animations:^{
+//            
+//        } completion:^(BOOL finished) {
+//            _currentCon = _controllers[_selectIndex];
+//        }];
+//    }
 
 }
 
+- (void)changgeItem:(UIButton *)but
+{
+    UIViewController * con = _controllers[but.tag-100];
+    if (con == _currentCon) {
+        NSLog(@"------------") ;
+        return ;
+    }
+    
+    NSLog(@"------------0000000000000") ;
 
+    for (int i = 0; i < 4; i++) {
+        LeftSelectBu * bu = [self.view viewWithTag:100 + i];
+        if (bu == but) {
+            [bu setIsSelect:YES] ;
+        }else
+        {
+            [bu setIsSelect:NO];
+        }
+    }
+    
+    [self transitionFromViewController:_currentCon toViewController:con duration:0 options:UIViewAnimationOptionLayoutSubviews animations:^{
+        
+    } completion:^(BOOL finished) {
+        _currentCon = con ;
+    }];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -9,5 +9,11 @@
 #import "TestPaperPackageInfoModel.h"
 
 @implementation TestPaperPackageInfoModel
+- (void)parseInPath:(NSString *)path
+{
+    path = [NSString stringWithFormat:@"%@/%@/%@",IpadPath,path,@"TestPaperPackageInfo.xml"];
+    [super parseInPath:path];
+}
 
+// TestPaperPackageInfo
 @end

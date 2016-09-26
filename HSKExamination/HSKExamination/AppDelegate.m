@@ -138,7 +138,7 @@
 - (void)downLoadPackWithPackName:(NSDictionary *)pack andLevel:(NSString *)level
 {
     
-    [[[UIAlertView alloc] initWithTitle:@"fdfdfd" message:nil delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil] show];
+
     
     [NetWorking downLoadWithUrl:[[User shareInstance].testDownLoadUrl stringByAppendingString:pack[@"name"]] completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
         NSMutableDictionary * muDic = [NSMutableDictionary dictionaryWithDictionary:UserDefaultObjectForKet(TestDataSoure)];

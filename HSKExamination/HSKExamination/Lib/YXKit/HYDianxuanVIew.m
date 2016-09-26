@@ -54,7 +54,7 @@
 
 - (void)awakeFromNib
 {
-    
+    [super awakeFromNib];
     CGSize size = self.frame.size ;
     imageView = [[UIImageView alloc] initWithFrame:CGRectMake(size.width/2, size.height/2, 20, 20)];
     [self addSubview:imageView];

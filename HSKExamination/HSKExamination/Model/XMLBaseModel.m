@@ -9,16 +9,18 @@
 #import "XMLBaseModel.h"
 
 @implementation XMLBaseModel
-
+{
+//    NSXMLParser * _parser ;
+}
 - (void)parseInPath:(NSString *)path
     {
     
         NSURL *url = [NSURL fileURLWithPath:path];
         
         // 开始解析XML
-        NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:url];
-        parser.delegate = self;
-        [parser parse];
+        _parse = [[NSXMLParser alloc] initWithContentsOfURL:url];
+        _parse.delegate = self;
+        [_parse parse];
         NSLog(@"解析完成。。。");
     }
     

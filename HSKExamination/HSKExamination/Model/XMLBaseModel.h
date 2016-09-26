@@ -10,6 +10,8 @@
 
 @interface XMLBaseModel : NSObject<NSXMLParserDelegate>
 
+@property (nonatomic ,strong) NSXMLParser * parse ;
+
 - (void)parseInPath:(NSString *)path ;
 
 @end

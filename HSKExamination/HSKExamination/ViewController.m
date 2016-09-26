@@ -21,11 +21,7 @@
 #define ItemHeight  170
 
 @interface ViewController ()
-{
-    TestPaperPackageInfoModel * _model ;
-    SHXMLParser                 * parser ;
-    ASTModel * model ;
-}
+
 @end
 
 @implementation ViewController
@@ -48,6 +44,13 @@
         [bu setImage:[UIImage imageNamed:arr[i]] forState:BuNormal];
         [bu addTarget:self action:@selector(buevent:) forControlEvents:BuTouchUpInside];
     }
+    
+    [self homeBu];
+    
+    UIImageView * imageview = [[UIImageView alloc] initWithFrame:CGRectMake(90, self.homeBu.y , 350, 35)];
+    imageview.contentMode = UIViewContentModeScaleAspectFit ;
+    [self.view addSubview:imageview];
+    imageview.image = [UIImage imageNamed:@"首页logo"];
 }
 
 - (void)buevent:(UIButton *)bu

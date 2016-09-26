@@ -15,5 +15,5 @@
 
 // 获取PNG图片元数据
 - (NSDictionary *)PNGmetaData;
-- (UIImage *)fixOrientation ;
+//- (UIImage *)fixOrientation ;
 @end
