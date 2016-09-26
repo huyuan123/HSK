@@ -9,5 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 @interface AudioManger : NSObject<AVAudioPlayerDelegate>
+
+@property (nonatomic ,weak) id <AVAudioPlayerDelegate> delegate ;
+
 - (void)playWithPath:(NSString *)path ;
+
 @end

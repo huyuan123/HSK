@@ -28,6 +28,27 @@ AssessmentItemRef  *  assessmentItem            ;
     return self ;
 }
 
+- (void)parseInPath:(NSString *)path
+{
+    
+    path = [IpadPath stringByAppendingPathComponent:path];
+    astIndex = (ASTIndex){0,0,0} ;
+    
+    _testPartArray = [NSMutableArray arrayWithCapacity:3];
+    
+    NSString * s = [NSString stringWithContentsOfURL:[NSURL fileURLWithPath:path] encoding:NSUTF8StringEncoding error:nil];
+    NSMutableString * muS = [NSMutableString stringWithString:s];
+    
+    [muS replaceOccurrencesOfString:@"&lt;" withString:@"<" options:NSCaseInsensitiveSearch range:NSMakeRange(0, s.length)];
+    
+    [muS replaceOccurrencesOfString:@"&gt;" withString:@">" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length - 20)];
+    
+    self.parse = [[NSXMLParser alloc] initWithData:[muS dataUsingEncoding:NSUTF8StringEncoding]];
+    self.parse.delegate = self ;
+    
+    [self.parse parse];
+}
+
 // 遇到一个开始标签的时候触发
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
 
@@ -117,15 +138,6 @@ AssessmentItemRef  *  assessmentItem            ;
 //    self.notes = nil;
 }
 
-- (void)parseInPath:(NSString *)path
-{
-    path = [IpadPath stringByAppendingPathComponent:path];
-    astIndex = (ASTIndex){0,0,0} ;
-    
-    
-    _testPartArray = [NSMutableArray arrayWithCapacity:3];
-    [super parseInPath:path];
-}
 
 
 @end

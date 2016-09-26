@@ -13,10 +13,12 @@
 #import "ExerciseView.h"
 #import "AssessmentSection.h"
 #import "RightBu.h"
-@interface TestController ()
+#import "AudioManger.h"
+@interface TestController ()<AVAudioPlayerDelegate>
 {
     NumberView      *   _numberView ;
     ExerciseView    *   _exerView ;
+    AudioManger     *   _audioManer ;
 }
 @end
 
@@ -25,14 +27,25 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+
+    [self initAudio];
     
     [self loadExaDataWithLevel:_level];
+    
+//    [_audioManer playWithPath:[[User shareInstance].paperPath stringByAppendingPathComponent:self.astModel.];
     
     [self createView];
 }
 
+- (void)initAudio
+{
+    _audioManer = [[AudioManger alloc] init];
+    _audioManer.delegate = self ;
+}
+
 - (void)createView
 {
+
     self.view.backgroundColor = RGBCOLOR(229, 220, 223) ;
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 100, screenWith(), screenHeight() -100)];
     view.backgroundColor = [UIColor whiteColor];
@@ -70,7 +83,8 @@
 
 - (void)createRightView
 {
-    _exerView = [[ExerciseView alloc] initWithFrame:CGRectMake(245, 130, screenWith() - 275, screenHeight() -160)];
+    _exerView = [[ExerciseView alloc] initWithFrame:CGRectMake(245, 130,screenWith() - 275, screenHeight() -160)];
+    _exerView.manger = _audioManer ;
     [self.view addSubview:_exerView];
     TestPart * part = _astModel.testPartArray[0];
     AssessmentSection * secModel = part.assessmentSectionArray[0] ;
@@ -108,6 +122,12 @@
             [button setIsSelect:NO];
         }
     }
+}
+
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+
 }
 
 - (void)didReceiveMemoryWarning {

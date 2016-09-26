@@ -8,13 +8,17 @@
 
 #import "ExerciseView.h"
 #import "Judgement.h"
+#import "ItemBu.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AudioManger.h"
 @implementation ExerciseView
 {
     UIView          *     _backView ;
     id                    _model ;
     UILabel         *     _countLabel ;
+    UIImageView     *     _typeImageView ;
 }
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -50,6 +54,11 @@
         _countLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 40, 100, 40)];
         _countLabel.font = [UIFont boldSystemFontOfSize:30] ;
         _countLabel.textColor = RGBCOLOR(133, 163, 54) ;
+        
+        _typeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(40, 40, 40, 35)];
+        _typeImageView.contentMode = UIViewContentModeScaleAspectFit ;
+        _typeImageView.image = [UIImage imageNamed:@"听力图标"];
+        
     }
     
     return self ;
@@ -76,12 +85,34 @@
 //  加载判断题
 - (void)loadJudgement:(Judgement *)judgeModel
 {
-    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(40, 40, 40, 35)];
-    imageView.contentMode = UIViewContentModeScaleAspectFit ;
-    [_backView addSubview:imageView];
-    imageView.image = [UIImage imageNamed:@"听力图标"];
+    [_backView addSubview:_typeImageView];
     [_backView addSubview:_countLabel];
     _countLabel.text = @"1/40" ;
+    
+    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, judgeModel.img.width.floatValue, judgeModel.img.height.floatValue)];
+    [_backView addSubview:imageView];
+    
+    
+    imageView.image = [UIImage imageWithContentsOfFile:judgeModel.img.src];
+    CGPoint p = _backView.middlePoint ;
+    imageView.center = CGPointMake(p.x, p.y - 100) ;
+    imageView.contentMode = UIViewContentModeScaleAspectFit ;
+
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake((_backView.width -340)/2, imageView.bottom + 10, 340, 75)];
+    [_backView addSubview:view];
+    view.cornerRadius = 37.5 ;
+    view.backgroundColor = RGBCOLOR(229, 229, 229) ;
+    UIView * line = [[UIView alloc] initWithFrame:CGRectMake(165, 0, 10, 75)];
+    [view addSubview:line];
+    line.backgroundColor = [UIColor whiteColor];
+    for (int i = 0; i < 2; i++) {
+        ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(0 + i*175, 0, 165, 75)];
+        [view addSubview:bu];
+        bu.tag = 1000 + i ;
+        bu.imageName = judgeModel.simpleChoiceArray[i] ;
+    }
+    
+    [_manger playWithPath:judgeModel.media.src];
 }
 
 @end

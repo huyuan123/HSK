@@ -30,9 +30,9 @@
     }
     
     _play = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:nil];
+    _play.delegate = self.delegate ;
     [_play prepareToPlay];
     [_play play];
-    _play.delegate = self ;
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
