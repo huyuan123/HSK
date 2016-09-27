@@ -58,6 +58,7 @@
 		04F5EB5E1D96889C00A0E47E /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5EB5D1D96889C00A0E47E /* 1.png */; };
 		F63CA8131D9A4BAA00DFD07A /* ReadingComprehension.m in Sources */ = {isa = PBXBuildFile; fileRef = F63CA8121D9A4BAA00DFD07A /* ReadingComprehension.m */; };
 		F63CA8161D9A4BFC00DFD07A /* ProblemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F63CA8151D9A4BFC00DFD07A /* ProblemModel.m */; };
+		F63CA8191D9A62B900DFD07A /* SingleChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = F63CA8181D9A62B900DFD07A /* SingleChoice.m */; };
 		F641DE541D9903DE0039CBC9 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = F641DE531D9903DE0039CBC9 /* Media.m */; };
 		F641DE571D9904A60039CBC9 /* Img.m in Sources */ = {isa = PBXBuildFile; fileRef = F641DE561D9904A60039CBC9 /* Img.m */; };
 		F661A9361D910FD0003A4DE7 /* iPad.zip in Resources */ = {isa = PBXBuildFile; fileRef = F661A9351D910FD0003A4DE7 /* iPad.zip */; };
@@ -246,6 +247,8 @@
 		F63CA8121D9A4BAA00DFD07A /* ReadingComprehension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingComprehension.m; sourceTree = "<group>"; };
 		F63CA8141D9A4BFC00DFD07A /* ProblemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemModel.h; sourceTree = "<group>"; };
 		F63CA8151D9A4BFC00DFD07A /* ProblemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProblemModel.m; sourceTree = "<group>"; };
+		F63CA8171D9A62B900DFD07A /* SingleChoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChoice.h; sourceTree = "<group>"; };
+		F63CA8181D9A62B900DFD07A /* SingleChoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChoice.m; sourceTree = "<group>"; };
 		F641DE521D9903DE0039CBC9 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
 		F641DE531D9903DE0039CBC9 /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
 		F641DE551D9904A60039CBC9 /* Img.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Img.h; sourceTree = "<group>"; };
@@ -1149,6 +1152,8 @@
 				040E234C1D97E618003A2196 /* Judgement.m */,
 				F63CA8111D9A4BAA00DFD07A /* ReadingComprehension.h */,
 				F63CA8121D9A4BAA00DFD07A /* ReadingComprehension.m */,
+				F63CA8171D9A62B900DFD07A /* SingleChoice.h */,
+				F63CA8181D9A62B900DFD07A /* SingleChoice.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1405,6 +1410,7 @@
 				F6D1F9B41D80073500508F09 /* NSObject+NSNotificationCenter.m in Sources */,
 				F6D1F9CD1D80073500508F09 /* UIImage+MetaData.m in Sources */,
 				F6D1F9A31D80073500508F09 /* ShowHUD.m in Sources */,
+				F63CA8191D9A62B900DFD07A /* SingleChoice.m in Sources */,
 				F6D1F9AA1D80073500508F09 /* NSArray+Sort.m in Sources */,
 				F6D1F99F1D80073500508F09 /* ConfigAttributedString.m in Sources */,
 				F6D1F9D61D80073500508F09 /* UIView+RectWithImage.m in Sources */,
