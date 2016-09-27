@@ -47,6 +47,8 @@
             [self setValue:obj forKey:key];
         }];
         
+        NSLog(@"解析正在进行啊啊啊啊啊") ;
+
         // elementName是正在解析的元素的名字
         //    _currentTagName = elementName;
         //    // 如果元素名字为Note，取出它的属性id
@@ -93,12 +95,10 @@
     //}
     //
     //// 遇到文档结束时触发
-    //- (void)parserDidEndDocument:(NSXMLParser *)parser {
-    //    // 使用通知机制将数据通过广播通知投送回表示层
-    //    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadViewNotification" object:self.notes userInfo:nil];
-    //    // 解析完成，清理成员变量
-    //    self.notes = nil;
-    //}
+    - (void)parserDidEndDocument:(NSXMLParser *)parser {
+
+        NSLog(@"解析真的完成啦完成啦完成啦完成啦") ;
+    }
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {

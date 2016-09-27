@@ -32,12 +32,19 @@ AssessmentItemRef  *  assessmentItem            ;
 {
     
     path = [IpadPath stringByAppendingPathComponent:path];
+    
+    NSLog(@"试卷路径--------%@",path) ;
+    
     astIndex = (ASTIndex){0,0,0} ;
     
     _testPartArray = [NSMutableArray arrayWithCapacity:3];
     
     NSString * s = [NSString stringWithContentsOfURL:[NSURL fileURLWithPath:path] encoding:NSUTF8StringEncoding error:nil];
-    NSMutableString * muS = [NSMutableString stringWithString:s];
+    
+    NSMutableString * muS = nil ;
+    if (s) {
+        muS = [NSMutableString stringWithString:s];
+    }
     
     [muS replaceOccurrencesOfString:@"&lt;" withString:@"<" options:NSCaseInsensitiveSearch range:NSMakeRange(0, s.length)];
     
@@ -75,10 +82,13 @@ AssessmentItemRef  *  assessmentItem            ;
     }else if ([elementName isEqualToString:@"assessmentItemRef"])
     {
         assessmentItem = [[AssessmentItemRef alloc] initWithDictionary:attributeDict];
-        [assessmentSection.assessmentItemRefArray  addObject:assessmentItem] ;
-        astIndex.textPart = _testPartArray.count ;
-        astIndex.assessmentSection = 0 ;
-        astIndex.assessmentItemRef = 0 ;
+        if (![assessmentItem.isExample isEqualToString:@"true"]) {
+            [assessmentSection.assessmentItemRefArray  addObject:assessmentItem] ;
+            astIndex.textPart = _testPartArray.count ;
+            astIndex.assessmentSection = 0 ;
+            astIndex.assessmentItemRef = 0 ;
+
+        }
     }else if ([elementName isEqualToString:@"rubricBlock"])
     {
         if (astIndex.assessmentSection > 0) {

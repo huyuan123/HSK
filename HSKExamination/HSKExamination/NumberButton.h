@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ASTModel.h"
 @interface NumberButton : UIButton
+
+@property (nonatomic ,assign) ASTIndex index ;
+
 - (void)setIsSelect:(BOOL)b ;
+
 @end

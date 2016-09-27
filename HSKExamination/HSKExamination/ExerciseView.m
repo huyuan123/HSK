@@ -17,6 +17,8 @@
     id                    _model ;
     UILabel         *     _countLabel ;
     UIImageView     *     _typeImageView ;
+    
+    id                    _assessection ; //  题
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -66,6 +68,7 @@
 
 - (void)loadAssMent:(AssessmentItemRef *)assModel
 {
+    _assessection = assModel ;
     [_backView removeFromSuperview];
     _backView = [[UIView alloc] initWithFrame:self.bounds];
     _backView.width -= 85 ;
@@ -76,7 +79,6 @@
         _model = model ;
         [self loadJudgement:model];
     }
-    
 }
 
 
@@ -85,6 +87,7 @@
 //  加载判断题
 - (void)loadJudgement:(Judgement *)judgeModel
 {
+  
     [_backView addSubview:_typeImageView];
     [_backView addSubview:_countLabel];
     _countLabel.text = @"1/40" ;
@@ -110,9 +113,46 @@
         [view addSubview:bu];
         bu.tag = 1000 + i ;
         bu.imageName = judgeModel.simpleChoiceArray[i] ;
+        [bu addTarget:self action:@selector(JudgementEvent:) forControlEvents:BuTouchUpInside];
+    }
+    
+    
+    AssessmentItemRef * model = (AssessmentItemRef *)_assessection ;
+
+    if (isCanUseString(model.userChoice)) {
+        if ([model.userChoice isEqualToString:@"T"]) {
+            ItemBu * bu = [_backView viewWithTag:1000];
+            [bu setIsSelect:YES];
+        }else
+        {
+            ItemBu * bu = [_backView viewWithTag:1001];
+            [bu setIsSelect:YES];
+        }
     }
     
     [_manger playWithPath:judgeModel.media.src];
+}
+
+- (void)JudgementEvent:(UIButton *)bu
+{
+    for(int i = 0 ; i < 2 ; i++)
+    {
+       ItemBu * button = [_backView viewWithTag:1000 +i];
+        if (button == bu) {
+            [button setIsSelect:YES];
+        }else
+        {
+            [button setIsSelect:NO];
+        }
+    }
+    
+    AssessmentItemRef * model = (AssessmentItemRef *)_assessection ;
+    if (bu.tag == 1000) {
+        model.userChoice = @"T" ;
+    }else
+    {
+        model.userChoice = @"F" ;
+    }
 }
 
 @end

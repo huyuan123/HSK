@@ -10,23 +10,6 @@
 
 @implementation Judgement
 
-- (void)parseInPath:(NSString *)path
-{
-//    NSData * data = [[NSData alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path]];
-   NSString * s = [NSString stringWithContentsOfURL:[NSURL fileURLWithPath:path] encoding:NSUTF8StringEncoding error:nil];
-    NSMutableString * muS = [NSMutableString stringWithString:s];
-    
-    [muS replaceOccurrencesOfString:@"&lt;" withString:@"<" options:NSCaseInsensitiveSearch range:NSMakeRange(0, s.length)];
-    
-     [muS replaceOccurrencesOfString:@"&gt;" withString:@">" options:NSCaseInsensitiveSearch range:NSMakeRange(0, s.length - 20)];
-    
-    self.parse = [[NSXMLParser alloc] initWithData:[muS dataUsingEncoding:NSUTF8StringEncoding]];
-    self.parse.delegate = self ;
-
-    [self.parse parse];
-
-}
-
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     if([elementName isEqualToString:@"assessmentItem"])
     {
@@ -51,7 +34,7 @@
         _correctResponse = @"correctResponse" ;
     }
     
-    NSLog(@"-----------%@",elementName) ;
+//    NSLog(@"-----------%@",elementName) ;
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -60,7 +43,7 @@
         _correctResponse = string ;
     }
     
-    NSLog(@"-----------000000000000000%@",string) ;
+//    NSLog(@"-----------000000000000000%@",string) ;
 
 }
 @end

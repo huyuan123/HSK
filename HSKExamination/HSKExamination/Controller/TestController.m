@@ -32,8 +32,6 @@
     
     [self loadExaDataWithLevel:_level];
     
-//    [_audioManer playWithPath:[[User shareInstance].paperPath stringByAppendingPathComponent:self.astModel.];
-    
     [self createView];
 }
 
@@ -75,20 +73,41 @@
 - (void)createLeftView
 {
     _numberView = [[NumberView alloc] initWithFrame:CGRectMake(30, 130, 205, screenHeight() -160)];
-    [self.view addSubview:_numberView];    
-    TestPart * part = _astModel.testPartArray[0];
-    [_numberView loadTestPart:part];
+    [self.view addSubview:_numberView];
+    
+    if(_astModel.testPartArray.count > 0)
+    {
+        TestPart * part = _astModel.testPartArray[0];
+        [_numberView loadTestPart:part];
+    }
+    
+    __weak typeof(self) weakSelf = self ;
+    [_numberView setClickBlock:^(AssessmentItemRef *itemRef) {
+        [weakSelf loadAssessmentItemRef:itemRef];
+    }];
 }
 
+
+- (void)loadAssessmentItemRef:(AssessmentItemRef *)ref
+{
+    [_exerView loadAssMent:ref];
+}
 
 - (void)createRightView
 {
     _exerView = [[ExerciseView alloc] initWithFrame:CGRectMake(245, 130,screenWith() - 275, screenHeight() -160)];
     _exerView.manger = _audioManer ;
     [self.view addSubview:_exerView];
-    TestPart * part = _astModel.testPartArray[0];
-    AssessmentSection * secModel = part.assessmentSectionArray[0] ;
-    [_exerView loadAssMent:secModel.assessmentItemRefArray[0]];
+    
+    if (_astModel.testPartArray.count > 0) {
+        TestPart * part = _astModel.testPartArray[0];
+        if (part.assessmentSectionArray.count > 0) {
+            AssessmentSection * secModel = part.assessmentSectionArray[0] ;
+            if (secModel.assessmentItemRefArray.count > 0) {
+                [_exerView loadAssMent:secModel.assessmentItemRefArray[0]];
+            }
+        }
+    }
     
     NSArray * arr = @[@"全部图标",@"听力图标",@"阅读图标",@"写作图标"];
     for (int i = 0; i < 4; i++) {
@@ -126,6 +145,11 @@
 
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    [self next];
+}
+
+- (void)next
 {
 
 }

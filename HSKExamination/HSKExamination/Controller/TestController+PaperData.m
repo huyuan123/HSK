@@ -17,11 +17,22 @@
     NSDictionary * paperDic = arr[index];
     NSString * paperName = paperDic[FileName];
     
-    [User shareInstance].paperPath = [IpadPath stringByAppendingPathComponent:paperName];
     
-    self.paperInfoModel = [[TestPaperPackageInfoModel alloc] init];
-    [self.paperInfoModel parseInPath:paperName];
-    self.astModel = [[ASTModel alloc] init];
-    [self.astModel parseInPath:[paperName stringByAppendingPathComponent: self.paperInfoModel.href]];
+    NSString *    path = [NSString stringWithFormat:@"%@/%@/%@",IpadPath,paperName,@"TestPaperPackageInfo.xml"];
+    NSFileManager * maner = [NSFileManager defaultManager];
+    if ([maner fileExistsAtPath:path]) {
+        [User shareInstance].paperPath = [IpadPath stringByAppendingPathComponent:paperName];
+        self.paperInfoModel = [[TestPaperPackageInfoModel alloc] init];
+        [self.paperInfoModel parseInPath:paperName];
+        self.astModel = [[ASTModel alloc] init];
+        [self.astModel parseInPath:[paperName stringByAppendingPathComponent: self.paperInfoModel.href]];
+
+    }else
+    {
+        [maner removeItemAtPath:[NSString stringWithFormat:@"%@/%@",IpadPath,paperName] error:nil];
+        
+    }
+
+    
 }
 @end
