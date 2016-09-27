@@ -42,8 +42,6 @@
         
         NSString *destinationPath = IpadPath ;
         
-//        NSLog(@"%@",destinationPath);
-        
         [SSZipArchive unzipFileAtPath:zipPath toDestination:destinationPath];
         
         [destinationPath enumeratorFolder:^(NSString *path) {
@@ -137,23 +135,23 @@
 
 - (void)downLoadPackWithPackName:(NSDictionary *)pack andLevel:(NSString *)level
 {
-    
 
-    
     [NetWorking downLoadWithUrl:[[User shareInstance].testDownLoadUrl stringByAppendingString:pack[@"name"]] completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
-        NSMutableDictionary * muDic = [NSMutableDictionary dictionaryWithDictionary:UserDefaultObjectForKet(TestDataSoure)];
-        NSMutableArray * array = [NSMutableArray arrayWithArray:[muDic objectForKey:level]];
-        NSString * packName = [pack[@"name"] componentsSeparatedByString:@"."][0];
-        NSFileManager * manger = [NSFileManager defaultManager];
-        [manger createDirectoryAtPath:[IpadPath stringByAppendingPathComponent:packName] withIntermediateDirectories:YES attributes:nil error:nil];
-        NSString * zipPath = [filePath.absoluteString substringFromIndex:7] ;
-        NSString * destinationPath = [IpadPath stringByAppendingPathComponent:packName] ;
-        [SSZipArchive unzipFileAtPath:zipPath toDestination:destinationPath];
-        [array addObject:@{FileName:packName,@"id":pack[@"id"]}];
-        [muDic setObject:array forKey:level];
-        [UserDefault setObject:muDic forKey:TestDataSoure];
-        [UserDefault synchronize];
-        [manger removeItemAtURL:filePath error:nil];
+        if (!error) {
+            NSMutableDictionary * muDic = [NSMutableDictionary dictionaryWithDictionary:UserDefaultObjectForKet(TestDataSoure)];
+            NSMutableArray * array = [NSMutableArray arrayWithArray:[muDic objectForKey:level]];
+            NSString * packName = [pack[@"name"] componentsSeparatedByString:@"."][0];
+            NSFileManager * manger = [NSFileManager defaultManager];
+            [manger createDirectoryAtPath:[IpadPath stringByAppendingPathComponent:packName] withIntermediateDirectories:YES attributes:nil error:nil];
+            NSString * zipPath = [filePath.absoluteString substringFromIndex:7] ;
+            NSString * destinationPath = [IpadPath stringByAppendingPathComponent:packName] ;
+            [SSZipArchive unzipFileAtPath:zipPath toDestination:destinationPath];
+            [array addObject:@{FileName:packName,@"id":pack[@"id"]}];
+            [muDic setObject:array forKey:level];
+            [UserDefault setObject:muDic forKey:TestDataSoure];
+            [UserDefault synchronize];
+            [manger removeItemAtURL:filePath error:nil];
+        }
     }];
 }
 

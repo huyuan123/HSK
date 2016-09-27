@@ -41,13 +41,18 @@
     titleLabel.textColor = RGBCOLOR(133, 163, 54) ;
     [self addSubview:titleLabel];
     
+    
+    int partType = -1 ;
     if ([part.identifier isEqualToString:@"P01"]) {
         titleLabel.text = @"听力练习" ;
+        partType = 0 ;
     }else
     if ([part.identifier isEqualToString:@"P02"]) {
+        partType = 1 ;
         titleLabel.text  = @"阅读练习" ;
     }else
     if ([part.identifier isEqualToString:@"P03"]) {
+        partType = 2 ;
         titleLabel.text = @"书写练习" ;
     }
     
@@ -55,12 +60,19 @@
     [self addSubview:_scorView];
     
     int i = 0 ;
+    
+    int section = -1 ;
+    int assrssref = -1 ;
     NSMutableArray * muArray = [NSMutableArray arrayWithCapacity:10];
     for (AssessmentSection * sec in part.assessmentSectionArray) {
+        section++ ;
+        assrssref = 0 ;
         for (AssessmentItemRef * model in sec.assessmentItemRefArray) {
+            assrssref ++ ;
             [muArray addObject:model];
             NumberButton * bu = [[NumberButton alloc] initWithFrame:CGRectMake(5 + i%3*66.6, 0 + i/3*35, 61.6, 25)];
             bu.tag = 100 + i ;
+            bu.index = (ASTIndex){partType,section,assrssref};
             [_scorView addSubview:bu];
             i ++ ;
             [bu setTitle:[NSString stringWithFormat:@"%d",i] forState:BuNormal];
