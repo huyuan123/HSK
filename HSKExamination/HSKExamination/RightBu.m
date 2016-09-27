@@ -18,11 +18,6 @@
     return self ;
 }
 
-- (void)setImageName:(NSString *)imageName
-{
-    _imageName = imageName ;
-    [self setImage:[UIImage imageNamed:[imageName stringByAppendingString:@"-nor"]] forState:BuNormal];
-}
 
 - (CGRect)imageRectForContentRect:(CGRect)contentRect
 {
@@ -36,15 +31,5 @@
     return CGRectMake(0, 33, r.size.width, 30) ;
 }
 
-- (void)setIsSelect:(BOOL)b
-{
-    if (b) {
-        [self setImage:[UIImage imageNamed:[_imageName stringByAppendingString:@"-pre"]] forState:BuNormal];
-    }else
-    {
-        [self setImage:[UIImage imageNamed:[_imageName stringByAppendingString:@"-nor"]] forState:BuNormal];
-    
-    }
-}
 
 @end

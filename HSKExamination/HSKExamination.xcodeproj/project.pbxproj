@@ -24,6 +24,11 @@
 		040E23631D980D42003A2196 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040E23621D980D42003A2196 /* AVFoundation.framework */; };
 		040E23661D980D89003A2196 /* AudioManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 040E23651D980D89003A2196 /* AudioManger.m */; };
 		040E23681D9810A0003A2196 /* 听力图标@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 040E23671D9810A0003A2196 /* 听力图标@2x.png */; };
+		04B41F781D99542F00229BA3 /* F-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F741D99542F00229BA3 /* F-pre@2x.png */; };
+		04B41F791D99542F00229BA3 /* T-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F751D99542F00229BA3 /* T-pre@2x.png */; };
+		04B41F7A1D99542F00229BA3 /* F-nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F761D99542F00229BA3 /* F-nor@2x.png */; };
+		04B41F7B1D99542F00229BA3 /* T-nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F771D99542F00229BA3 /* T-nor@2x.png */; };
+		04B41F7E1D99589B00229BA3 /* ItemBu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B41F7D1D99589B00229BA3 /* ItemBu.m */; };
 		04E492881D969EE200201FDA /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E492871D969EE200201FDA /* TestController.m */; };
 		04E4928A1D96A2D900201FDA /* 返回图标.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E492891D96A2D900201FDA /* 返回图标.png */; };
 		04F41F7F1D961C1D007AB37E /* LeftSelectBu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F41F7E1D961C1D007AB37E /* LeftSelectBu.m */; };
@@ -198,6 +203,12 @@
 		040E23641D980D89003A2196 /* AudioManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManger.h; sourceTree = "<group>"; };
 		040E23651D980D89003A2196 /* AudioManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManger.m; sourceTree = "<group>"; };
 		040E23671D9810A0003A2196 /* 听力图标@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "听力图标@2x.png"; sourceTree = "<group>"; };
+		04B41F741D99542F00229BA3 /* F-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-pre@2x.png"; sourceTree = "<group>"; };
+		04B41F751D99542F00229BA3 /* T-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "T-pre@2x.png"; sourceTree = "<group>"; };
+		04B41F761D99542F00229BA3 /* F-nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-nor@2x.png"; sourceTree = "<group>"; };
+		04B41F771D99542F00229BA3 /* T-nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "T-nor@2x.png"; sourceTree = "<group>"; };
+		04B41F7C1D99589B00229BA3 /* ItemBu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemBu.h; sourceTree = "<group>"; };
+		04B41F7D1D99589B00229BA3 /* ItemBu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemBu.m; sourceTree = "<group>"; };
 		04E492861D969EE200201FDA /* TestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestController.h; sourceTree = "<group>"; };
 		04E492871D969EE200201FDA /* TestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestController.m; sourceTree = "<group>"; };
 		04E492891D96A2D900201FDA /* 返回图标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回图标.png"; sourceTree = "<group>"; };
@@ -514,6 +525,8 @@
 				040E23461D97CDE5003A2196 /* NumberButton.m */,
 				040E23481D97DB92003A2196 /* ExerciseView.h */,
 				040E23491D97DB92003A2196 /* ExerciseView.m */,
+				04B41F7C1D99589B00229BA3 /* ItemBu.h */,
+				04B41F7D1D99589B00229BA3 /* ItemBu.m */,
 				040E234E1D97EA3A003A2196 /* RightBu.h */,
 				040E234F1D97EA3A003A2196 /* RightBu.m */,
 			);
@@ -1136,6 +1149,10 @@
 				04F5EB501D96881D00A0E47E /* 选择等级 */,
 				04F41F831D9625FF007AB37E /* 报名约考@2x.png */,
 				04E492891D96A2D900201FDA /* 返回图标.png */,
+				04B41F741D99542F00229BA3 /* F-pre@2x.png */,
+				04B41F751D99542F00229BA3 /* T-pre@2x.png */,
+				04B41F761D99542F00229BA3 /* F-nor@2x.png */,
+				04B41F771D99542F00229BA3 /* T-nor@2x.png */,
 				040E23671D9810A0003A2196 /* 听力图标@2x.png */,
 				04F41F841D9625FF007AB37E /* 底图.jpg */,
 				04F41F861D9625FF007AB37E /* 考试咨询@2x.png */,
@@ -1249,6 +1266,7 @@
 				040E235F1D97FC1C003A2196 /* 阅读图标-nor@2x.png in Resources */,
 				04F41FAD1D9625FF007AB37E /* 左标考试未选@2x.png in Resources */,
 				04F5EB5B1D96889500A0E47E /* 5.png in Resources */,
+				04B41F7B1D99542F00229BA3 /* T-nor@2x.png in Resources */,
 				04F41FA01D9625FF007AB37E /* 报名约考@2x.png in Resources */,
 				040E23531D97F793003A2196 /* 全部图标-nor@2x.png in Resources */,
 				04F5EB5E1D96889C00A0E47E /* 1.png in Resources */,
@@ -1274,9 +1292,12 @@
 				04F41FB11D9625FF007AB37E /* 左标随身未选@2x.png in Resources */,
 				04F41FAF1D9625FF007AB37E /* 左标随身点中@2x.png in Resources */,
 				04F41FA91D9625FF007AB37E /* 我要考试@2x.png in Resources */,
+				04B41F781D99542F00229BA3 /* F-pre@2x.png in Resources */,
 				04F5EB521D96882E00A0E47E /* 选中色块.png in Resources */,
 				F661A9361D910FD0003A4DE7 /* iPad.zip in Resources */,
 				04F41FB31D9625FF007AB37E /* 左标约考点中@2x.png in Resources */,
+				04B41F7A1D99542F00229BA3 /* F-nor@2x.png in Resources */,
+				04B41F791D99542F00229BA3 /* T-pre@2x.png in Resources */,
 				040E235B1D97FC10003A2196 /* 写作图标-nor@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1393,6 +1414,7 @@
 				F6D8F9C31D81068E002DC1AF /* TestPart.m in Sources */,
 				F6D1F9BB1D80073500508F09 /* NSString+CustomFont.m in Sources */,
 				F6D1F8CF1D80040000508F09 /* aescrypt.c in Sources */,
+				04B41F7E1D99589B00229BA3 /* ItemBu.m in Sources */,
 				F6D1F87F1D7FFC7E00508F09 /* main.m in Sources */,
 				F6D1F9D31D80073500508F09 /* UIView+BackgroundView.m in Sources */,
 				F6D1F9A51D80073500508F09 /* LabelRotateView.m in Sources */,

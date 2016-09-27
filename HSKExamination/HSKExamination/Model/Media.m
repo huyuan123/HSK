@@ -38,10 +38,31 @@
         }
     }
     
-    NSString * path = [[User shareInstance].paperPath stringByAppendingPathComponent:@"AssessmentItems"];
-    
-    _src = [path stringByAppendingPathComponent:_src] ;
-    
     return self;
 }
+
+- (NSString *)src
+{
+    switch (_srcType) {
+        case judgeMent:
+        {
+            NSString * path = [[User shareInstance].paperPath stringByAppendingPathComponent:@"AssessmentItems"];
+            
+            return     [path stringByAppendingPathComponent:_src] ;
+
+         
+        }
+            break;
+            case testPart:
+        {
+        
+            return [[User shareInstance].paperPath stringByAppendingString:_src] ;
+            
+        }
+            break ;
+        default:
+            break;
+    }
+}
+
 @end

@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ItemBu.h"
+@interface RightBu : ItemBu
 
-@interface RightBu : UIButton
-
-@property (nonatomic ,strong) NSString * imageName ;
-
-- (void)setIsSelect:(BOOL)b ;
 
 @end

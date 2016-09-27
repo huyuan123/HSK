@@ -23,7 +23,7 @@
     self.parse = [[NSXMLParser alloc] initWithData:[muS dataUsingEncoding:NSUTF8StringEncoding]];
     self.parse.delegate = self ;
 
-                  [self.parse parse];
+    [self.parse parse];
 
 }
 
@@ -35,6 +35,7 @@
     }else if ([elementName isEqualToString:@"media"])
     {
         _media = [[Media alloc] initWithDictionary:attributeDict];
+        _media.srcType = judgeMent ;
     }else if ([elementName isEqualToString:@"img"])
     {
         _img = [[Img alloc] initWithDictionary:attributeDict];

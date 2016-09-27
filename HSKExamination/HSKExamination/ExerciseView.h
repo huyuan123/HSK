@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "AssessmentItemRef.h"
+#import "AudioManger.h"
 @interface ExerciseView : UIView
+
+@property (nonatomic ,weak) AudioManger * manger ;
+
 - (void)loadAssMent:(AssessmentItemRef *)model ;
+
 @end

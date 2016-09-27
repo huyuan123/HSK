@@ -8,7 +8,9 @@
 
 #import "ExerciseView.h"
 #import "Judgement.h"
+#import "ItemBu.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AudioManger.h"
 @implementation ExerciseView
 {
     UIView          *     _backView ;
@@ -56,6 +58,7 @@
         _typeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(40, 40, 40, 35)];
         _typeImageView.contentMode = UIViewContentModeScaleAspectFit ;
         _typeImageView.image = [UIImage imageNamed:@"听力图标"];
+        
     }
     
     return self ;
@@ -94,11 +97,22 @@
     CGPoint p = _backView.middlePoint ;
     imageView.center = CGPointMake(p.x, p.y - 100) ;
     imageView.contentMode = UIViewContentModeScaleAspectFit ;
-    
-    for(int i = 0 ; i < 2 ; i ++)
-    {
-//        UIButton * bu = [[UIButton alloc] initWithFrame:<#(CGRect)#>];
+
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake((_backView.width -340)/2, imageView.bottom + 10, 340, 75)];
+    [_backView addSubview:view];
+    view.cornerRadius = 37.5 ;
+    view.backgroundColor = RGBCOLOR(229, 229, 229) ;
+    UIView * line = [[UIView alloc] initWithFrame:CGRectMake(165, 0, 10, 75)];
+    [view addSubview:line];
+    line.backgroundColor = [UIColor whiteColor];
+    for (int i = 0; i < 2; i++) {
+        ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(0 + i*175, 0, 165, 75)];
+        [view addSubview:bu];
+        bu.tag = 1000 + i ;
+        bu.imageName = judgeModel.simpleChoiceArray[i] ;
     }
+    
+    [_manger playWithPath:judgeModel.media.src];
 }
 
 @end
