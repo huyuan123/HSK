@@ -70,6 +70,9 @@
 		F67FDAC21D8F96160064CF3D /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F67FDABB1D8F96160064CF3D /* AFURLResponseSerialization.m */; };
 		F67FDAC31D8F96160064CF3D /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F67FDABD1D8F96160064CF3D /* AFURLSessionManager.m */; };
 		F67FDAC61D8F96930064CF3D /* NetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = F67FDAC51D8F96930064CF3D /* NetWorking.m */; };
+		F6A4CCE41D9B875000A27F37 /* 点-nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A4CCE21D9B875000A27F37 /* 点-nor@2x.png */; };
+		F6A4CCE51D9B875000A27F37 /* 点-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A4CCE31D9B875000A27F37 /* 点-pre@2x.png */; };
+		F6A4CCE81D9B8D8B00A27F37 /* ReadingComprehensionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A4CCE71D9B8D8B00A27F37 /* ReadingComprehensionModel.m */; };
 		F6D1F87F1D7FFC7E00508F09 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D1F87E1D7FFC7E00508F09 /* main.m */; };
 		F6D1F8821D7FFC7E00508F09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D1F8811D7FFC7E00508F09 /* AppDelegate.m */; };
 		F6D1F8851D7FFC7E00508F09 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D1F8841D7FFC7E00508F09 /* ViewController.m */; };
@@ -271,6 +274,10 @@
 		F67FDABD1D8F96160064CF3D /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		F67FDAC41D8F96930064CF3D /* NetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorking.h; sourceTree = "<group>"; };
 		F67FDAC51D8F96930064CF3D /* NetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorking.m; sourceTree = "<group>"; };
+		F6A4CCE21D9B875000A27F37 /* 点-nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "点-nor@2x.png"; sourceTree = "<group>"; };
+		F6A4CCE31D9B875000A27F37 /* 点-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "点-pre@2x.png"; sourceTree = "<group>"; };
+		F6A4CCE61D9B8D8B00A27F37 /* ReadingComprehensionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingComprehensionModel.h; sourceTree = "<group>"; };
+		F6A4CCE71D9B8D8B00A27F37 /* ReadingComprehensionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingComprehensionModel.m; sourceTree = "<group>"; };
 		F6D1F87A1D7FFC7E00508F09 /* HSKExamination.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSKExamination.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D1F87E1D7FFC7E00508F09 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F6D1F8801D7FFC7E00508F09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1154,6 +1161,8 @@
 				F63CA8121D9A4BAA00DFD07A /* ReadingComprehension.m */,
 				F63CA8171D9A62B900DFD07A /* SingleChoice.h */,
 				F63CA8181D9A62B900DFD07A /* SingleChoice.m */,
+				F6A4CCE61D9B8D8B00A27F37 /* ReadingComprehensionModel.h */,
+				F6A4CCE71D9B8D8B00A27F37 /* ReadingComprehensionModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1164,6 +1173,8 @@
 				04F5EB501D96881D00A0E47E /* 选择等级 */,
 				04F41F831D9625FF007AB37E /* 报名约考@2x.png */,
 				04E492891D96A2D900201FDA /* 返回图标.png */,
+				F6A4CCE21D9B875000A27F37 /* 点-nor@2x.png */,
+				F6A4CCE31D9B875000A27F37 /* 点-pre@2x.png */,
 				04B41F741D99542F00229BA3 /* F-pre@2x.png */,
 				04B41F751D99542F00229BA3 /* T-pre@2x.png */,
 				04B41F761D99542F00229BA3 /* F-nor@2x.png */,
@@ -1302,6 +1313,7 @@
 				04F5EB591D96889500A0E47E /* 3.png in Resources */,
 				04F41FB91D9625FF007AB37E /* 左标咨询未选@2x.png in Resources */,
 				04F41FBA1D9625FF007AB37E /* home.png in Resources */,
+				F6A4CCE51D9B875000A27F37 /* 点-pre@2x.png in Resources */,
 				040E23681D9810A0003A2196 /* 听力图标@2x.png in Resources */,
 				040E23601D97FC1C003A2196 /* 阅读图标-pre@2x.png in Resources */,
 				04F41FB11D9625FF007AB37E /* 左标随身未选@2x.png in Resources */,
@@ -1313,6 +1325,7 @@
 				04F41FB31D9625FF007AB37E /* 左标约考点中@2x.png in Resources */,
 				04B41F7A1D99542F00229BA3 /* F-nor@2x.png in Resources */,
 				04B41F791D99542F00229BA3 /* T-pre@2x.png in Resources */,
+				F6A4CCE41D9B875000A27F37 /* 点-nor@2x.png in Resources */,
 				040E235B1D97FC10003A2196 /* 写作图标-nor@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1455,6 +1468,7 @@
 				F6D1F9C31D80073500508F09 /* NSString+Telephone.m in Sources */,
 				F6D1F8D21D80040000508F09 /* entropy.c in Sources */,
 				F6D1F9E51D80073500508F09 /* GCDSemaphore.m in Sources */,
+				F6A4CCE81D9B8D8B00A27F37 /* ReadingComprehensionModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

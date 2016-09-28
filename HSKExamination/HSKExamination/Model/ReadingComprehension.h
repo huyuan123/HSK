@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface ReadingComprehension : NSObject
+#import "ProblemModel.h"
+@interface ReadingComprehension : ProblemModel
 
 @end

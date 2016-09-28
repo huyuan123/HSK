@@ -23,10 +23,7 @@
         
     }else if ([elementName isEqualToString:@"img"])
     {
-        if (!_imgArr) {
-            _imgArr = [NSMutableArray arrayWithCapacity:3];
-        }
-        [_imgArr addObject: [[Img alloc] initWithDictionary:attributeDict]] ;
+        _img = [[Img alloc] initWithDictionary:attributeDict] ;
         
     }else if ([elementName isEqualToString:@"simpleChoice"])
     {

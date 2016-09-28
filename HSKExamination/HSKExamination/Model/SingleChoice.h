@@ -12,12 +12,12 @@
 //  单选题
 @interface SingleChoice : ProblemModel
 
-@property (nonatomic ,strong) NSString      *       correctResponse ;
+@property (nonatomic ,strong) NSString              *       correctResponse ;
 
-@property (nonatomic ,strong) NSMutableArray       *       simpleChoiceArray ;
+@property (nonatomic ,strong) NSMutableArray        *       simpleChoiceArray ;
 
-@property (nonatomic ,strong) Media         *       media ;
+@property (nonatomic ,strong) Media                 *       media ;
 
-@property (nonatomic ,strong) Img           *       img ;
+@property (nonatomic ,strong) NSMutableArray        *       imgArr ;
 
 @end

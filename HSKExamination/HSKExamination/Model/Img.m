@@ -27,6 +27,7 @@
     
     [super setValue:value forKey:key];
 }
+
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
