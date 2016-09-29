@@ -18,4 +18,6 @@
 
 @property (nonatomic ,strong) NSMutableArray        *       imgArray ;
 
+@property (nonatomic ,strong) NSMutableArray        *       subItemArr ;
+
 @end

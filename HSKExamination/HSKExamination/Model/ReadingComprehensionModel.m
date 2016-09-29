@@ -8,12 +8,17 @@
 
 #import "ReadingComprehensionModel.h"
 BOOL   isCorrectResponse ;
+
+NSMutableArray    *  array ;
 @implementation ReadingComprehensionModel
+
+
 - (id)init
 {
     self = [super init];
     if (self) {
         _imgArray = [NSMutableArray arrayWithCapacity:6];
+        _subItemArr = [NSMutableArray arrayWithCapacity:5];
     }
     
     return self ;
@@ -37,11 +42,14 @@ BOOL   isCorrectResponse ;
         _media = [[Media alloc] initWithDictionary:attributeDict];
     }else if ([elementName isEqualToString:@"img"])
     {
-//        if (!_imgArray) {
-//            _imgArray = [NSMutableArray arrayWithCapacity:6] ;
-//        }
-        
         [_imgArray addObject:[[Img alloc] initWithDictionary:attributeDict]];
+    }else if ([elementName isEqualToString:@"subItem"])
+    {
+        array = [NSMutableArray arrayWithCapacity:6];
+        [_subItemArr addObject:array];
+    }else if ([elementName isEqualToString:@"simpleChoice"])
+    {
+        [array addObject:attributeDict[@"identifier"]];
     }
 }
 
