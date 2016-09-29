@@ -40,6 +40,7 @@ NSMutableArray    *  array ;
     }else if ([elementName isEqualToString:@"media"])
     {
         _media = [[Media alloc] initWithDictionary:attributeDict];
+        _media.srcType = judgeMent ;
     }else if ([elementName isEqualToString:@"img"])
     {
         [_imgArray addObject:[[Img alloc] initWithDictionary:attributeDict]];

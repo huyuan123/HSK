@@ -19,6 +19,7 @@
     for (NSString * s in arr) {
         ItemBu * item = [[ItemBu alloc] initWithFrame:CGRectMake(i*55, 20, 30, 30)];
         [self addSubview:item];
+        item.imageName = @"点" ;
         [item setTitle:s forState:BuNormal];
         i++ ;
     }
