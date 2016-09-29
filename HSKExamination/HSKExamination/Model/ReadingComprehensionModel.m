@@ -9,6 +9,16 @@
 #import "ReadingComprehensionModel.h"
 BOOL   isCorrectResponse ;
 @implementation ReadingComprehensionModel
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _imgArray = [NSMutableArray arrayWithCapacity:6];
+    }
+    
+    return self ;
+}
+
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     
     
@@ -27,9 +37,9 @@ BOOL   isCorrectResponse ;
         _media = [[Media alloc] initWithDictionary:attributeDict];
     }else if ([elementName isEqualToString:@"img"])
     {
-        if (!_imgArray) {
-            _imgArray = [NSMutableArray arrayWithCapacity:6] ;
-        }
+//        if (!_imgArray) {
+//            _imgArray = [NSMutableArray arrayWithCapacity:6] ;
+//        }
         
         [_imgArray addObject:[[Img alloc] initWithDictionary:attributeDict]];
     }

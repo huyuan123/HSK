@@ -56,7 +56,6 @@
 		04F5EB5B1D96889500A0E47E /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5EB561D96889500A0E47E /* 5.png */; };
 		04F5EB5C1D96889500A0E47E /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5EB571D96889500A0E47E /* 6.png */; };
 		04F5EB5E1D96889C00A0E47E /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5EB5D1D96889C00A0E47E /* 1.png */; };
-		F63CA8131D9A4BAA00DFD07A /* ReadingComprehension.m in Sources */ = {isa = PBXBuildFile; fileRef = F63CA8121D9A4BAA00DFD07A /* ReadingComprehension.m */; };
 		F63CA8161D9A4BFC00DFD07A /* ProblemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F63CA8151D9A4BFC00DFD07A /* ProblemModel.m */; };
 		F63CA8191D9A62B900DFD07A /* SingleChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = F63CA8181D9A62B900DFD07A /* SingleChoice.m */; };
 		F641DE541D9903DE0039CBC9 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = F641DE531D9903DE0039CBC9 /* Media.m */; };
@@ -246,8 +245,6 @@
 		04F5EB561D96889500A0E47E /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
 		04F5EB571D96889500A0E47E /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
 		04F5EB5D1D96889C00A0E47E /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		F63CA8111D9A4BAA00DFD07A /* ReadingComprehension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingComprehension.h; sourceTree = "<group>"; };
-		F63CA8121D9A4BAA00DFD07A /* ReadingComprehension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingComprehension.m; sourceTree = "<group>"; };
 		F63CA8141D9A4BFC00DFD07A /* ProblemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemModel.h; sourceTree = "<group>"; };
 		F63CA8151D9A4BFC00DFD07A /* ProblemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProblemModel.m; sourceTree = "<group>"; };
 		F63CA8171D9A62B900DFD07A /* SingleChoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChoice.h; sourceTree = "<group>"; };
@@ -1157,8 +1154,6 @@
 				F63CA8151D9A4BFC00DFD07A /* ProblemModel.m */,
 				040E234B1D97E618003A2196 /* Judgement.h */,
 				040E234C1D97E618003A2196 /* Judgement.m */,
-				F63CA8111D9A4BAA00DFD07A /* ReadingComprehension.h */,
-				F63CA8121D9A4BAA00DFD07A /* ReadingComprehension.m */,
 				F63CA8171D9A62B900DFD07A /* SingleChoice.h */,
 				F63CA8181D9A62B900DFD07A /* SingleChoice.m */,
 				F6A4CCE61D9B8D8B00A27F37 /* ReadingComprehensionModel.h */,
@@ -1452,7 +1447,6 @@
 				F6D1F9A01D80073500508F09 /* FastCoder.m in Sources */,
 				F67FDAC01D8F96160064CF3D /* AFSecurityPolicy.m in Sources */,
 				F67FDAC61D8F96930064CF3D /* NetWorking.m in Sources */,
-				F63CA8131D9A4BAA00DFD07A /* ReadingComprehension.m in Sources */,
 				F6D1F9C71D80073500508F09 /* Tools.m in Sources */,
 				F6D1F99D1D80073500508F09 /* BackgroundView.m in Sources */,
 				F6D1F9CC1D80073500508F09 /* UIFont+WDCustomLoader.m in Sources */,

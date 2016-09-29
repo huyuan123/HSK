@@ -12,7 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AudioManger.h"
 #import "SingleChoice.h"
-#import "ReadingComprehension.h"
+#import "ReadingComprehensionModel.h"
 @implementation ExerciseView
 {
     UIView          *     _backView ;
@@ -89,7 +89,7 @@
         [self loadSingleChoice:singleChoice];
     }else if([assModel.type isEqualToString:@"readingComprehension"])
     {
-        ReadingComprehension * model = [[ReadingComprehension alloc] init];
+        ReadingComprehensionModel * model = [[ReadingComprehensionModel alloc] init];
         [model parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
         _model = model ;
         [self loadReadModel:model];
@@ -227,8 +227,27 @@
 
 
 #pragma mark------------------------------   加载阅读理解
-- (void)loadReadModel:(ReadingComprehension *)model
+- (void)loadReadModel:(ReadingComprehensionModel *)model
 {
+    float y = 170 ;
+
+    for(int i = 0; i < model.imgArray.count ; i++)
+    {
+        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(30 + i%2*120, y+i/2*135, 100, 115)];
+        imageView.contentMode = UIViewContentModeScaleAspectFit ;
+        imageView.image = [UIImage imageWithContentsOfFile:[model.imgArray[i] src]];
+        [_backView addSubview:imageView];
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(-10, -10, 30, 30)];
+        const char cha = i + 65 ;
+        label.text = [NSString stringWithUTF8String:&cha] ;
+        label.cornerRadius = 15 ;
+        label.backgroundColor = RGBCOLOR(190, 226, 47) ;
+        label.textColor = [UIColor whiteColor] ;
+        [imageView addSubview:label];
+        label.textAlignment = CenterText ;
+        label.font = Font24 ;
+    }
+    
     
 }
 

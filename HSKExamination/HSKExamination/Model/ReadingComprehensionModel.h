@@ -10,7 +10,7 @@
 #import "ProblemModel.h"
 #import "Media.h"
 #import "Img.h"
-@interface ReadingComprehensionModel : NSObject
+@interface ReadingComprehensionModel : ProblemModel
 
 @property (nonatomic ,strong) NSMutableArray        *       correctResponseArray ;
 
