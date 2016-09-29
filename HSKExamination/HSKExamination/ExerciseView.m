@@ -11,6 +11,8 @@
 #import "ItemBu.h"
 #import <QuartzCore/QuartzCore.h>
 #import "AudioManger.h"
+#import "SingleChoice.h"
+#import "ReadingComprehensionModel.h"
 @implementation ExerciseView
 {
     UIView          *     _backView ;
@@ -71,6 +73,7 @@
     _assessection = assModel ;
     [_backView removeFromSuperview];
     _backView = [[UIView alloc] initWithFrame:self.bounds];
+    _backView.clipsToBounds = YES ;
     _backView.width -= 85 ;
     [self addSubview:_backView];
     if ([assModel.type isEqualToString:@"judgement"]) {  // 如果是判断题
@@ -78,12 +81,26 @@
         [model parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
         _model = model ;
         [self loadJudgement:model];
+    }else if ([assModel.type isEqualToString:@"singleChoice"])
+    {
+        SingleChoice * singleChoice = [[SingleChoice alloc] init];
+        [singleChoice parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
+        _model = singleChoice ;
+        [self loadSingleChoice:singleChoice];
+    }else if([assModel.type isEqualToString:@"readingComprehension"])
+    {
+        ReadingComprehensionModel * model = [[ReadingComprehensionModel alloc] init];
+        [model parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
+        _model = model ;
+        [self loadReadModel:model];
     }
 }
 
 
 
 
+
+#pragma mark------------------------------   加载判断题
 //  加载判断题
 - (void)loadJudgement:(Judgement *)judgeModel
 {
@@ -153,6 +170,85 @@
     {
         model.userChoice = @"F" ;
     }
+}
+
+
+#pragma mark------------------------------   加载单选题
+
+- (void)loadSingleChoice:(SingleChoice *)choice
+{
+    AssessmentItemRef * model = (AssessmentItemRef *)_assessection ;
+    [_backView addSubview:_typeImageView];
+    [_backView addSubview:_countLabel];
+    _countLabel.text = @"1/40" ;
+    
+    
+    float x = (_backView.width - 300)/4 ;
+    for (int i = 0; i < choice.imgArr.count; i++) {
+        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(x + i*(100 + x), 200, 100, 100)];
+        [_backView addSubview:imageView];
+        imageView.contentMode = UIViewContentModeScaleAspectFit ;
+        imageView.image = [UIImage imageWithContentsOfFile:[choice.imgArr[i] src]];
+        
+        CGRect r = imageView.frame ;
+        UIButton * bu = [[UIButton alloc] initWithFrame:CGRectMake(r.origin.x, 300, 100, 100)];
+        [_backView addSubview:bu];
+        [bu setTitle:choice.simpleChoiceArray[i]  forState:BuNormal];
+        bu.titleLabel.font = [UIFont boldSystemFontOfSize:30] ;
+        [bu setTitleColor:[UIColor blackColor] forState:BuNormal];
+        bu.tag = 1000 + i ;
+        [bu addTarget:self action:@selector(singleChoiceEvent:) forControlEvents:BuTouchUpInside];
+        if (isCanUseString(model.userChoice)) {
+            if ([model.userChoice isEqualToString:bu.titleLabel.text]) {
+                [bu setTitleColor:[UIColor redColor] forState:BuNormal];
+            }
+        }
+    }
+    [_manger playWithPath:choice.media.src];
+}
+
+- (void)singleChoiceEvent:(UIButton *)bu
+{
+    for (int i = 0; i < 3; i++) {
+        UIButton * button = [_backView viewWithTag:1000 +i];
+        if (button == bu) {
+            [button setTitleColor:[UIColor redColor] forState:BuNormal];
+        }else
+        {
+            [button setTitleColor:[UIColor blackColor] forState:BuNormal];
+        }
+    
+    }
+    
+     AssessmentItemRef * model = (AssessmentItemRef *)_assessection ;
+    model.userChoice = bu.titleLabel.text ;
+    
+}
+
+
+#pragma mark------------------------------   加载阅读理解
+- (void)loadReadModel:(ReadingComprehensionModel *)model
+{
+    float y = 170 ;
+
+    for(int i = 0; i < model.imgArray.count ; i++)
+    {
+        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(30 + i%2*120, y+i/2*135, 100, 115)];
+        imageView.contentMode = UIViewContentModeScaleAspectFit ;
+        imageView.image = [UIImage imageWithContentsOfFile:[model.imgArray[i] src]];
+        [_backView addSubview:imageView];
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(-10, -10, 30, 30)];
+        const char cha = i + 65 ;
+        label.text = [NSString stringWithUTF8String:&cha] ;
+        label.cornerRadius = 15 ;
+        label.backgroundColor = RGBCOLOR(190, 226, 47) ;
+        label.textColor = [UIColor whiteColor] ;
+        [imageView addSubview:label];
+        label.textAlignment = CenterText ;
+        label.font = Font24 ;
+    }
+    
+    
 }
 
 @end

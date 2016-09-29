@@ -16,5 +16,4 @@
 @property (nonatomic ,strong) Media         *       media ;
 @property (nonatomic ,strong) Img           *       img ;
 @property (nonatomic ,strong) NSString      *       correctResponse ;
-
 @end

@@ -13,7 +13,7 @@
 @property (nonatomic ,strong) NSString * height  ;  // 路径
 @property (nonatomic ,strong) NSString * src  ;  // 路径
 @property (nonatomic ,strong) NSString * alt  ;  // 路径
-//@property (nonatomic ,strong) NSString * src  ;  // 路径
+@property (nonatomic ,strong) NSString * charItem  ;  // 路径
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary ;
 
 @end

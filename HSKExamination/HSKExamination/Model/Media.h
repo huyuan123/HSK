@@ -22,7 +22,6 @@ typedef enum {
 @property (nonatomic ,assign) SrcType   srcType  ;  // 路径
 
 
-
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary ;
 
 @end
