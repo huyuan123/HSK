@@ -13,6 +13,7 @@
 #import "AudioManger.h"
 #import "SingleChoice.h"
 #import "ReadingComprehensionModel.h"
+#import "SelectView.h"
 @implementation ExerciseView
 {
     UIView          *     _backView ;
@@ -248,7 +249,15 @@
         label.font = Font24 ;
     }
     
-    
+    for(int i = 0 ; i < model.subItemArr.count ; i++)
+    {
+        SelectView * view = [[SelectView alloc] initWithFrame:CGRectMake(300, 170 + 80*i, 320, 50)];
+        [_backView addSubview:view];
+        [view loadData:model.subItemArr[i] andTitle:[NSString stringWithFormat:@"%d",i]];
+    }
+
+//    view.backgroundColor = [UIColor redColor];
+//    [_manger playWithPath:model.media.src];
 }
 
 @end
