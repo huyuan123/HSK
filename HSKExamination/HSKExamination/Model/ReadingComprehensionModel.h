@@ -20,4 +20,5 @@
 
 @property (nonatomic ,strong) NSMutableArray        *       subItemArr ;
 
+@property (nonatomic ,strong) NSMutableDictionary   *       userResDic ;
 @end
