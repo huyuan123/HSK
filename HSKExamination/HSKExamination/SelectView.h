@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface SelectView : UIView
+
+@property (nonatomic ,strong) NSString      *       userRes ;
+
+@property (nonatomic ,copy) void(^clickBlock)(NSString * num,NSString * select) ;
+
 - (void)loadData:(NSArray *)arr andTitle:(NSString *)title;
+
 @end

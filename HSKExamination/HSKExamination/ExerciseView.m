@@ -252,12 +252,23 @@
     for(int i = 0 ; i < model.subItemArr.count ; i++)
     {
         SelectView * view = [[SelectView alloc] initWithFrame:CGRectMake(300, 170 + 80*i, 320, 50)];
+        if (model.userResDic && model.userResDic[[NSString stringWithFormat:@"%d",i+1]]) {
+            view.userRes =  model.userResDic[[NSString stringWithFormat:@"%d",i+1]] ;
+        }
         [_backView addSubview:view];
-        [view loadData:model.subItemArr[i] andTitle:[NSString stringWithFormat:@"%d",i]];
+        
+        [view loadData:model.subItemArr[i] andTitle:[NSString stringWithFormat:@"%d",i+1]];
+        
+        [view setClickBlock:^(NSString * num, NSString * userRes) {
+            if (model.userResDic == nil) {
+                model.userResDic = [NSMutableDictionary dictionaryWithCapacity:5];
+            }
+            
+            [model.userResDic setObject:userRes forKey:num];
+        }];
     }
 
-//    view.backgroundColor = [UIColor redColor];
-//    [_manger playWithPath:model.media.src];
+
 }
 
 @end
