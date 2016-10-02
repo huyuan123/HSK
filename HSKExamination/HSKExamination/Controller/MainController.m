@@ -79,11 +79,6 @@
     [self addChildViewController:_signUpCon];
     [self addChildViewController:_formaCom];
 
-//    [view addSubview:_selectCon.view];
-//    [view addSubview:_advisCon.view];
-//    [view addSubview:_formaCom.view];
-//    [view addSubview:_formaCom.view];
-    
     _controllers = [NSMutableArray arrayWithCapacity:4];
     [_controllers addObject:_selectCon];
     [_controllers addObject:_advisCon];

@@ -7,6 +7,7 @@
 //
 
 #import "ProblemModel.h"
+#import "SimpleChoice.h"
 #import "Media.h"
 #import "Img.h"
 //  单选题

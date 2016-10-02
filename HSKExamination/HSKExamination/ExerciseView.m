@@ -185,44 +185,85 @@
     
     
     float x = (_backView.width - 300)/4 ;
-    for (int i = 0; i < choice.imgArr.count; i++) {
-        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(x + i*(100 + x), 200, 100, 100)];
-        [_backView addSubview:imageView];
-        imageView.contentMode = UIViewContentModeScaleAspectFit ;
-        imageView.image = [UIImage imageWithContentsOfFile:[choice.imgArr[i] src]];
-        
-        CGRect r = imageView.frame ;
-        UIButton * bu = [[UIButton alloc] initWithFrame:CGRectMake(r.origin.x, 300, 100, 100)];
-        [_backView addSubview:bu];
-        [bu setTitle:choice.simpleChoiceArray[i]  forState:BuNormal];
-        bu.titleLabel.font = [UIFont boldSystemFontOfSize:30] ;
-        [bu setTitleColor:[UIColor blackColor] forState:BuNormal];
-        bu.tag = 1000 + i ;
-        [bu addTarget:self action:@selector(singleChoiceEvent:) forControlEvents:BuTouchUpInside];
-        if (isCanUseString(model.userChoice)) {
-            if ([model.userChoice isEqualToString:bu.titleLabel.text]) {
-                [bu setTitleColor:[UIColor redColor] forState:BuNormal];
+    
+    
+    if (choice.imgArr) {
+        for (int i = 0; i < choice.imgArr.count; i++) {
+            UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(x + i*(100 + x), 200, 100, 100)];
+            [_backView addSubview:imageView];
+            imageView.contentMode = UIViewContentModeScaleAspectFit ;
+            imageView.image = [UIImage imageWithContentsOfFile:[choice.imgArr[i] src]];
+            
+            CGRect r = imageView.frame ;
+            ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(r.origin.x , 300, 100, 100)];
+            [_backView addSubview:bu];
+            [bu setImageName:@"点"];
+            [bu setTitle:[choice.simpleChoiceArray[i] identifier]  forState:BuNormal];
+            bu.titleLabel.font = [UIFont boldSystemFontOfSize:24] ;
+            [bu setTitleColor:[UIColor blackColor] forState:BuNormal];
+            bu.tag = 1000 + i ;
+            [bu addTarget:self action:@selector(singleChoiceEvent:) forControlEvents:BuTouchUpInside];
+            [bu setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -10)];
+            if (isCanUseString(model.userChoice)) {
+                if ([model.userChoice isEqualToString:bu.titleLabel.text]) {
+                    [bu setIsSelect:YES];
+                }
             }
         }
+
+    }else
+    {
+        x = (_backView.width - 450)/4 ;
+        for (int i = 0; i < choice.simpleChoiceArray.count; i++) {
+            UILabel * textLabel = [[UILabel alloc] initWithFrame:CGRectMake(x + i*(150 + x), 220, 150, 100)];
+            [_backView addSubview:textLabel];
+//            textLabel.backgroundColor = [UIColor redColor];
+            SimpleChoice * choiceModel = choice.simpleChoiceArray[i] ;
+            textLabel.numberOfLines = 0 ;
+            textLabel.text = [choiceModel.pinYInString stringByAppendingString:@"\n"] ;
+            textLabel.text = [textLabel.text stringByAppendingString:choiceModel.textString] ;
+            textLabel.textAlignment = CenterText ;
+            [textLabel adjustsFontSizeToFitWidth];
+            
+            CGRect r = textLabel.frame ;
+            ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(r.origin.x , 300, 150, 100)];
+            [_backView addSubview:bu];
+            [bu setImageName:@"点"];
+            [bu setTitle:[choice.simpleChoiceArray[i] identifier]  forState:BuNormal];
+            bu.titleLabel.font = [UIFont boldSystemFontOfSize:24] ;
+            [bu setTitleColor:[UIColor blackColor] forState:BuNormal];
+            bu.tag = 1000 + i ;
+            [bu addTarget:self action:@selector(singleChoiceEvent:) forControlEvents:BuTouchUpInside];
+            [bu setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -10)];
+            if (isCanUseString(model.userChoice)) {
+                if ([model.userChoice isEqualToString:bu.titleLabel.text]) {
+                    [bu setIsSelect:YES];
+                }
+            }
+        }
+
     }
+    
+    
+    
+    
     [_manger playWithPath:choice.media.src];
 }
 
-- (void)singleChoiceEvent:(UIButton *)bu
+- (void)singleChoiceEvent:(ItemBu *)bu
 {
-    for (int i = 0; i < 3; i++) {
-        UIButton * button = [_backView viewWithTag:1000 +i];
-        if (button == bu) {
-            [button setTitleColor:[UIColor redColor] forState:BuNormal];
-        }else
+
+    NSArray * subArr = [_backView subviews];
+    for (ItemBu * view in subArr) {
+        if (view == bu) {
+            [view setIsSelect:YES];
+        }else if([view isKindOfClass:[ItemBu class]])
         {
-            [button setTitleColor:[UIColor blackColor] forState:BuNormal];
+            [view setIsSelect:NO];
         }
-    
     }
-    
      AssessmentItemRef * model = (AssessmentItemRef *)_assessection ;
-    model.userChoice = bu.titleLabel.text ;
+     model.userChoice = bu.titleLabel.text ;
     
 }
 
@@ -249,26 +290,29 @@
         label.font = Font24 ;
     }
     
+    
+    AssessmentItemRef * modelref = (AssessmentItemRef *)_assessection ;
+
     for(int i = 0 ; i < model.subItemArr.count ; i++)
     {
         SelectView * view = [[SelectView alloc] initWithFrame:CGRectMake(300, 170 + 80*i, 320, 50)];
-        if (model.userResDic && model.userResDic[[NSString stringWithFormat:@"%d",i+1]]) {
-            view.userRes =  model.userResDic[[NSString stringWithFormat:@"%d",i+1]] ;
+        if (modelref.userResDic && modelref.userResDic[[NSString stringWithFormat:@"%d",i+1]]) {
+            view.userRes =  modelref.userResDic[[NSString stringWithFormat:@"%d",i+1]] ;
         }
         [_backView addSubview:view];
         
         [view loadData:model.subItemArr[i] andTitle:[NSString stringWithFormat:@"%d",i+1]];
         
         [view setClickBlock:^(NSString * num, NSString * userRes) {
-            if (model.userResDic == nil) {
-                model.userResDic = [NSMutableDictionary dictionaryWithCapacity:5];
+            if (modelref.userResDic == nil) {
+                modelref.userResDic = [NSMutableDictionary dictionaryWithCapacity:5];
             }
             
-            [model.userResDic setObject:userRes forKey:num];
+            [modelref.userResDic setObject:userRes forKey:num];
         }];
     }
 
-
+    [_manger playWithPath:model.media.src] ;
 }
 
 @end

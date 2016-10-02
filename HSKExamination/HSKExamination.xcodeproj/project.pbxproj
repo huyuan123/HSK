@@ -24,6 +24,8 @@
 		040E23631D980D42003A2196 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040E23621D980D42003A2196 /* AVFoundation.framework */; };
 		040E23661D980D89003A2196 /* AudioManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 040E23651D980D89003A2196 /* AudioManger.m */; };
 		040E23681D9810A0003A2196 /* 听力图标@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 040E23671D9810A0003A2196 /* 听力图标@2x.png */; };
+		046D698C1DA0C71F009BCE78 /* SimpleChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D698B1DA0C71F009BCE78 /* SimpleChoice.m */; };
+		046D698F1DA0E0B4009BCE78 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D698E1DA0E0B4009BCE78 /* BaseModel.m */; };
 		04B41F781D99542F00229BA3 /* F-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F741D99542F00229BA3 /* F-pre@2x.png */; };
 		04B41F791D99542F00229BA3 /* T-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F751D99542F00229BA3 /* T-pre@2x.png */; };
 		04B41F7A1D99542F00229BA3 /* F-nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F761D99542F00229BA3 /* F-nor@2x.png */; };
@@ -209,6 +211,10 @@
 		040E23641D980D89003A2196 /* AudioManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManger.h; sourceTree = "<group>"; };
 		040E23651D980D89003A2196 /* AudioManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManger.m; sourceTree = "<group>"; };
 		040E23671D9810A0003A2196 /* 听力图标@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "听力图标@2x.png"; sourceTree = "<group>"; };
+		046D698A1DA0C71F009BCE78 /* SimpleChoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleChoice.h; sourceTree = "<group>"; };
+		046D698B1DA0C71F009BCE78 /* SimpleChoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleChoice.m; sourceTree = "<group>"; };
+		046D698D1DA0E0B4009BCE78 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		046D698E1DA0E0B4009BCE78 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		04B41F741D99542F00229BA3 /* F-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F751D99542F00229BA3 /* T-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "T-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F761D99542F00229BA3 /* F-nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-nor@2x.png"; sourceTree = "<group>"; };
@@ -1143,6 +1149,8 @@
 				F641DE511D9903870039CBC9 /* PaperElement */,
 				F6D1F9F01D80110100508F09 /* TestPaperPackageInfoModel.h */,
 				F6D1F9F11D80110100508F09 /* TestPaperPackageInfoModel.m */,
+				046D698D1DA0E0B4009BCE78 /* BaseModel.h */,
+				046D698E1DA0E0B4009BCE78 /* BaseModel.m */,
 				F6D1F9F31D801B3800508F09 /* XMLBaseModel.h */,
 				F6D1F9F41D801B3800508F09 /* XMLBaseModel.m */,
 				F6D8F9BE1D8102E0002DC1AF /* ASTModel.h */,
@@ -1161,6 +1169,8 @@
 				040E234C1D97E618003A2196 /* Judgement.m */,
 				F63CA8171D9A62B900DFD07A /* SingleChoice.h */,
 				F63CA8181D9A62B900DFD07A /* SingleChoice.m */,
+				046D698A1DA0C71F009BCE78 /* SimpleChoice.h */,
+				046D698B1DA0C71F009BCE78 /* SimpleChoice.m */,
 				F6A4CCE61D9B8D8B00A27F37 /* ReadingComprehensionModel.h */,
 				F6A4CCE71D9B8D8B00A27F37 /* ReadingComprehensionModel.m */,
 			);
@@ -1358,6 +1368,7 @@
 				F6D1F9DE1D80073500508F09 /* WeakRelatedDictionary.m in Sources */,
 				040E23501D97EA3A003A2196 /* RightBu.m in Sources */,
 				F6FDA4431D93D5DD00C83D58 /* MainController.m in Sources */,
+				046D698C1DA0C71F009BCE78 /* SimpleChoice.m in Sources */,
 				F6D1F8D51D80040000508F09 /* prng.c in Sources */,
 				F67FDABF1D8F96160064CF3D /* AFNetworkReachabilityManager.m in Sources */,
 				F6D1F99E1D80073500508F09 /* ChooseOneButton.m in Sources */,
@@ -1436,6 +1447,7 @@
 				F6D1F8821D7FFC7E00508F09 /* AppDelegate.m in Sources */,
 				04E492881D969EE200201FDA /* TestController.m in Sources */,
 				F6D1F9E91D80073500508F09 /* NETWorkRequest.m in Sources */,
+				046D698F1DA0E0B4009BCE78 /* BaseModel.m in Sources */,
 				F6D1F9C41D80073500508F09 /* NSString+UIPasteboard.m in Sources */,
 				F6D1F9B31D80073500508F09 /* NSObject+FastCoder.m in Sources */,
 				F6D1F9C51D80073500508F09 /* NSString+WeakDictionary.m in Sources */,

@@ -18,6 +18,7 @@
 @property (nonatomic ,strong) NSString  *  responseDuration ;
 @property (nonatomic ,strong) NSString  *  promptShowDuration ;
 @property (nonatomic ,strong) NSString  *  userChoice ;
+@property (nonatomic ,strong) NSMutableDictionary   *       userResDic ;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary ;
 

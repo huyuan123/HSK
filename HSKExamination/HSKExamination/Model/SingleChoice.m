@@ -7,10 +7,12 @@
 //
 
 #import "SingleChoice.h"
-
+SimpleChoice * _model ;
+NSString     * _currentElement ;
 @implementation SingleChoice
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     
+    _currentElement = elementName ;
     if([elementName isEqualToString:@"assessmentItem"])
     {
         [self setValuesForKeysWithDictionary:attributeDict];
@@ -19,7 +21,7 @@
     {
         _media = [[Media alloc] initWithDictionary:attributeDict];
         _media.srcType = judgeMent ;
-//
+
     }else if ([elementName isEqualToString:@"img"])
     {
         if (!_imgArr) {
@@ -33,7 +35,10 @@
         {
             _simpleChoiceArray = [NSMutableArray arrayWithCapacity:2];
         }
-        [_simpleChoiceArray addObject:attributeDict[@"identifier"]];
+        
+        _model = [[SimpleChoice alloc] initWithDictionary:attributeDict];
+        _model.textString = _model.pinYInString = @"" ;
+        [_simpleChoiceArray addObject: _model];
         
     }else if ([elementName isEqualToString:@"correctResponse"])
     {
@@ -46,7 +51,23 @@
 {
     if ([_correctResponse isEqualToString:@"correctResponse"]) {
         _correctResponse = string ;
+    }else if (_model && [_currentElement isEqualToString:@"rt"])
+    {
+        _model.pinYInString = [_model.pinYInString stringByAppendingString:[string stringByAppendingString:@" "]];
+    }else if (_model && ([_currentElement isEqualToString:@"rb"] || [_currentElement isEqualToString:@"simpleChoice"]))
+    {
+        _model.textString = [_model.textString stringByAppendingString:[string stringByAppendingString:@"  "]];
     }
 }
+
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName
+{
+    if ([elementName isEqualToString:@"simpleChoice"])
+    {
+        _model = nil ;
+    }
+
+}
+
 
 @end
