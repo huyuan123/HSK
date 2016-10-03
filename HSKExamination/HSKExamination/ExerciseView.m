@@ -14,15 +14,12 @@
 #import "SingleChoice.h"
 #import "ReadingComprehensionModel.h"
 #import "SelectView.h"
+#import "ExerciseView+Read.h"
+#import "ReadingComprehensionModel2.h"
 @implementation ExerciseView
-{
-    UIView          *     _backView ;
-    id                    _model ;
-    UILabel         *     _countLabel ;
-    UIImageView     *     _typeImageView ;
-    
-    id                    _assessection ; //  题
-}
+//{
+//    id                    _assessection ; //  题
+//}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -78,27 +75,36 @@
     _backView.width -= 85 ;
     [self addSubview:_backView];
     if ([assModel.type isEqualToString:@"judgement"]) {  // 如果是判断题
+
         Judgement * model = [[Judgement alloc] init];
         [model parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
-        _model = model ;
-        [self loadJudgement:model];
+
+        if (assModel.astIndex.textPart == 1) {
+            [self loadJudgement:model];
+
+        }else if (assModel.astIndex.textPart == 2)
+        {
+            [self loadReadJudgement:model];
+        }
     }else if ([assModel.type isEqualToString:@"singleChoice"])
     {
         SingleChoice * singleChoice = [[SingleChoice alloc] init];
         [singleChoice parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
-        _model = singleChoice ;
         [self loadSingleChoice:singleChoice];
     }else if([assModel.type isEqualToString:@"readingComprehension"])
     {
-        ReadingComprehensionModel * model = [[ReadingComprehensionModel alloc] init];
-        [model parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
-        _model = model ;
-        [self loadReadModel:model];
+        if (assModel.astIndex.textPart == 4) {
+            ReadingComprehensionModel2 * model = [[ReadingComprehensionModel2 alloc] init];
+            [model parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
+            [self loadReadModel2:model];
+        }else
+        {
+            ReadingComprehensionModel * model = [[ReadingComprehensionModel alloc] init];
+            [model parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
+            [self loadReadModel:model];
+        }
     }
 }
-
-
-
 
 
 #pragma mark------------------------------   加载判断题
@@ -271,23 +277,44 @@
 #pragma mark------------------------------   加载阅读理解
 - (void)loadReadModel:(ReadingComprehensionModel *)model
 {
-    float y = 170 ;
 
-    for(int i = 0; i < model.imgArray.count ; i++)
+    if (model.imgArray.count) {
+        
+        float y = 170 ;
+
+        for(int i = 0; i < model.imgArray.count ; i++)
+        {
+            UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(30 + i%2*120, y+i/2*135, 100, 115)];
+            imageView.contentMode = UIViewContentModeScaleAspectFit ;
+            imageView.image = [UIImage imageWithContentsOfFile:[model.imgArray[i] src]];
+            [_backView addSubview:imageView];
+            UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(-10, -10, 30, 30)];
+            const char cha = i + 65 ;
+            label.text = [NSString stringWithUTF8String:&cha] ;
+            label.cornerRadius = 15 ;
+            label.backgroundColor = RGBCOLOR(190, 226, 47) ;
+            label.textColor = [UIColor whiteColor] ;
+            [imageView addSubview:label];
+            label.textAlignment = CenterText ;
+            label.font = Font24 ;
+        }
+
+    }else if (model.topicArray.count)  // 阅读理解力没有图片的那种
     {
-        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(30 + i%2*120, y+i/2*135, 100, 115)];
-        imageView.contentMode = UIViewContentModeScaleAspectFit ;
-        imageView.image = [UIImage imageWithContentsOfFile:[model.imgArray[i] src]];
-        [_backView addSubview:imageView];
-        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(-10, -10, 30, 30)];
-        const char cha = i + 65 ;
-        label.text = [NSString stringWithUTF8String:&cha] ;
-        label.cornerRadius = 15 ;
-        label.backgroundColor = RGBCOLOR(190, 226, 47) ;
-        label.textColor = [UIColor whiteColor] ;
-        [imageView addSubview:label];
-        label.textAlignment = CenterText ;
-        label.font = Font24 ;
+        for (int i = 0; i < model.topicArray.count  ; i++) {
+            SimpleChoice * choice = model.topicArray[i] ;
+            UILabel *  label1 = [[UILabel alloc] initWithFrame:CGRectMake(30, 170 + 60*i, 30, 30)];
+            [_backView addSubview:label1];
+            label1.text = [model.topicArray[i] identifier] ;
+
+            UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(50, 170 + 60*i, 220, 40)];
+            label.numberOfLines = 0 ;
+            [_backView addSubview:label];
+            label.text = [choice.pinYInString stringByAppendingString:@"\n"] ;
+            label.text = [label.text stringByAppendingString:choice.textString];
+            [label adjustsFontSizeToFitWidth];
+            label1.font = label.font = Font14 ;
+        }
     }
     
     
@@ -301,7 +328,7 @@
         }
         [_backView addSubview:view];
         
-        [view loadData:model.subItemArr[i] andTitle:[NSString stringWithFormat:@"%d",i+1]];
+        [view loadData:[model.subItemArr[i] array] andTitle:[NSString stringWithFormat:@"%d",i+1]];
         
         [view setClickBlock:^(NSString * num, NSString * userRes) {
             if (modelref.userResDic == nil) {
@@ -310,9 +337,25 @@
             
             [modelref.userResDic setObject:userRes forKey:num];
         }];
+        
+        if (modelref.astIndex.textPart == 2) {
+            [view loadsimpleChoice:model.subItemArr[i]];
+        }
     }
 
-    [_manger playWithPath:model.media.src] ;
+    if (modelref.astIndex.textPart == 1) {
+        [_manger playWithPath:model.media.src] ;
+    }else
+    {
+        [_manger stop];
+    }
+}
+
+
+#pragma mark------------------------------   加载第二种阅读理解
+- (void)loadReadModel2:(ReadingComprehensionModel2 *)model
+{
+
 }
 
 @end

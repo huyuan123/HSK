@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "ASTModel.h"
 @interface AssessmentItemRef : NSObject
 @property (nonatomic ,strong) NSString  *  identifier ;
 @property (nonatomic ,strong) NSString  *  href ;
@@ -20,6 +20,7 @@
 @property (nonatomic ,strong) NSString  *  userChoice ;
 @property (nonatomic ,strong) NSMutableDictionary   *       userResDic ;
 
+@property (nonatomic ,assign) ASTIndex      astIndex ;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary ;
 
 @end

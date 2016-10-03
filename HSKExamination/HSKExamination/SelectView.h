@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SimpleChoice.h"
 @interface SelectView : UIView
 
 @property (nonatomic ,strong) NSString      *       userRes ;
@@ -16,4 +16,5 @@
 
 - (void)loadData:(NSArray *)arr andTitle:(NSString *)title;
 
+- (void)loadsimpleChoice:(SimpleChoice *)model ;
 @end

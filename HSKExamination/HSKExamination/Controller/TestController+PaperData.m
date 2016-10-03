@@ -17,7 +17,6 @@
     NSDictionary * paperDic = arr[index];
     NSString * paperName = paperDic[FileName];
     
-    
     NSString *    path = [NSString stringWithFormat:@"%@/%@/%@",IpadPath,paperName,@"TestPaperPackageInfo.xml"];
     NSFileManager * maner = [NSFileManager defaultManager];
     if ([maner fileExistsAtPath:path]) {
@@ -30,9 +29,6 @@
     }else
     {
         [maner removeItemAtPath:[NSString stringWithFormat:@"%@/%@",IpadPath,paperName] error:nil];
-        
     }
-
-    
 }
 @end

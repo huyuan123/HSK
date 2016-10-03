@@ -7,8 +7,7 @@
 //
 
 #import "SingleChoice.h"
-SimpleChoice * _model ;
-NSString     * _currentElement ;
+
 @implementation SingleChoice
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     

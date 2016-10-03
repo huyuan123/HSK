@@ -1,23 +1,19 @@
 //
-//  ReadingComprehensionModel.m
+//  ReadingComprehensionModel2.m
 //  HSKExamination
 //
-//  Created by printer on 9/28/16.
-//  Copyright © 2016 printer. All rights reserved.
+//  Created by hiddy on 16/10/3.
+//  Copyright © 2016年 printer. All rights reserved.
 //
 
-#import "ReadingComprehensionModel.h"
-#import "SimpleChoice.h"
+#import "ReadingComprehensionModel2.h"
 
-NSMutableArray    *  array ;
-@implementation ReadingComprehensionModel
-
+@implementation ReadingComprehensionModel2
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        _imgArray = [NSMutableArray arrayWithCapacity:6];
         _subItemArr = [NSMutableArray arrayWithCapacity:5];
     }
     
@@ -39,8 +35,8 @@ NSMutableArray    *  array ;
     [muS replaceOccurrencesOfString:@"&gt;" withString:@">" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     
     [muS replaceOccurrencesOfString:@"nbsp" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
-//
-//    [muS replaceOccurrencesOfString:@";" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
+    //
+    //    [muS replaceOccurrencesOfString:@";" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     
     self.parse = [[NSXMLParser alloc] initWithData:[muS dataUsingEncoding:NSUTF8StringEncoding]];
     self.parse.delegate = self ;
@@ -63,21 +59,16 @@ NSMutableArray    *  array ;
             _correctResponseArray = [NSMutableArray array];
         }
         isCorrectResponse = YES ;
-    }else if ([elementName isEqualToString:@"media"])
-    {
-        _media = [[Media alloc] initWithDictionary:attributeDict];
-        _media.srcType = judgeMent ;
-    }else if ([elementName isEqualToString:@"img"])
-    {
-        [_imgArray addObject:[[Img alloc] initWithDictionary:attributeDict]];
-        
-    }else if ([elementName isEqualToString:@"subItem"])
+    }
+    /*
+    else if ([elementName isEqualToString:@"subItem"])
     {
         array = [NSMutableArray arrayWithCapacity:6];
         _model = [[SimpleChoice alloc] init];
         [_subItemArr addObject:_model];
         _model.array = array ;
-    }else if ([elementName isEqualToString:@"simpleChoice"])
+    }*/
+     else if ([elementName isEqualToString:@"simpleChoice"])
     {
         [_model.array addObject:attributeDict[@"identifier"]];
         
@@ -121,13 +112,13 @@ NSMutableArray    *  array ;
         if (string.isCharacter && ![_currentElement isEqualToString:@"rt"] && ![_currentElement isEqualToString:@"rb"]) {
             if(!_topicArray) _topicArray = [NSMutableArray arrayWithCapacity:5];
             SimpleChoice * model = [[SimpleChoice alloc] init];
-            model.identifier = string ;
+            model.identifier = [string substringToIndex:1] ;
             [_topicArray addObject:model];
         }
         
         SimpleChoice * choice = [_topicArray lastObject];
         if ([_currentElement isEqualToString:@"rt"]) {
-         
+            
             choice.pinYInString = [choice.pinYInString stringByAppendingString:string];
         }else if ([_currentElement isEqualToString:@"rb"])
         {
@@ -145,7 +136,7 @@ NSMutableArray    *  array ;
     {
         _model.textString = [_model.textString stringByAppendingString:string];
     }
-
+    
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName
@@ -154,6 +145,4 @@ NSMutableArray    *  array ;
         _model = nil ;
     }
 }
-
-
 @end

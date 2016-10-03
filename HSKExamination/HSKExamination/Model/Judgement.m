@@ -9,9 +9,19 @@
 #import "Judgement.h"
 
 @implementation Judgement
-
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _pinyinString = @"" ;
+        _textString = @"" ;
+    }
+    
+    return self ;
+}
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     
+    _currentElement = elementName ;
     if([elementName isEqualToString:@"assessmentItem"])
     {
         [self setValuesForKeysWithDictionary:attributeDict];
@@ -43,7 +53,14 @@
 {
     if ([_correctResponse isEqualToString:@"correctResponse"]) {
         _correctResponse = string ;
+    }else if ([_currentElement isEqualToString:@"rt"])
+    {
+        _pinyinString = [_pinyinString stringByAppendingString:[string stringByAppendingString:@" "]];
+    }else if ([_currentElement isEqualToString:@"rb"] )
+    {
+        _textString = [_textString stringByAppendingString:[string stringByAppendingString:@"  "]];
     }
+
 }
 
 @end

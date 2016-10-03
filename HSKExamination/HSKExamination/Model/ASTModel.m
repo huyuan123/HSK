@@ -85,9 +85,9 @@ AssessmentItemRef  *  assessmentItem            ;
         if (![assessmentItem.isExample isEqualToString:@"true"]) {
             [assessmentSection.assessmentItemRefArray  addObject:assessmentItem] ;
             astIndex.textPart = _testPartArray.count ;
-            astIndex.assessmentSection = 0 ;
-            astIndex.assessmentItemRef = 0 ;
-
+            astIndex.assessmentSection = testPartModel.assessmentSectionArray.count ;
+            astIndex.assessmentItemRef = assessmentSection.assessmentItemRefArray.count ;
+            assessmentItem.astIndex = astIndex ;
         }
     }else if ([elementName isEqualToString:@"rubricBlock"])
     {

@@ -14,4 +14,5 @@
 
 - (void)playWithPath:(NSString *)path ;
 
+- (void)stop ;
 @end

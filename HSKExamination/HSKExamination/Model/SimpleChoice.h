@@ -13,4 +13,6 @@
 @property (nonatomic , strong) NSString         *       textString ;
 @property (nonatomic , strong) NSString         *       pinYInString ;
 
+@property (nonatomic , strong) NSMutableArray   *       array ;
+
 @end

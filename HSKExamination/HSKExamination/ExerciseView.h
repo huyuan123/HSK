@@ -14,6 +14,14 @@
 
 @property (nonatomic ,weak) AudioManger * manger ;
 
+@property (nonatomic ,strong) UIView     *  backView ;
+
+@property (nonatomic ,strong) UILabel    *  countLabel ;
+
+@property (nonatomic ,strong) UIImageView*  typeImageView ;
+
+@property (nonatomic ,strong) id            assessection ;
+
 - (void)loadAssMent:(AssessmentItemRef *)model ;
 
 @end

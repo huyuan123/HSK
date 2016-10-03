@@ -38,6 +38,7 @@
 #import "NSString+Telephone.h"                    // 判断字符串是否是合法的手机号码,直接根据字符串打电话
 #import "NSString+NetString.h"                    // 转换成网络字符串
 #import "NSString+Appending.h"                    // 追加字符串
+#import "NSString+Chara.h"
 
 // UIImage
 #import "UIImage+MetaData.h"                      // 获取UIImage的MetaData

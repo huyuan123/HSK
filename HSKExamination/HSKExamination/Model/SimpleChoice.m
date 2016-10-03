@@ -9,5 +9,13 @@
 #import "SimpleChoice.h"
 
 @implementation SimpleChoice
-
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _pinYInString = _textString = @"" ;
+    }
+    
+    return self ;
+}
 @end

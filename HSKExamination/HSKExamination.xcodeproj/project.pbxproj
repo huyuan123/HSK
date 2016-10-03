@@ -26,6 +26,9 @@
 		040E23681D9810A0003A2196 /* 听力图标@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 040E23671D9810A0003A2196 /* 听力图标@2x.png */; };
 		046D698C1DA0C71F009BCE78 /* SimpleChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D698B1DA0C71F009BCE78 /* SimpleChoice.m */; };
 		046D698F1DA0E0B4009BCE78 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D698E1DA0E0B4009BCE78 /* BaseModel.m */; };
+		046D69951DA1D8B9009BCE78 /* ExerciseView+Read.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D69941DA1D8B9009BCE78 /* ExerciseView+Read.m */; };
+		046D69981DA23DC0009BCE78 /* NSString+Chara.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D69971DA23DC0009BCE78 /* NSString+Chara.m */; };
+		046D699B1DA2621A009BCE78 /* ReadingComprehensionModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D699A1DA2621A009BCE78 /* ReadingComprehensionModel2.m */; };
 		04B41F781D99542F00229BA3 /* F-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F741D99542F00229BA3 /* F-pre@2x.png */; };
 		04B41F791D99542F00229BA3 /* T-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F751D99542F00229BA3 /* T-pre@2x.png */; };
 		04B41F7A1D99542F00229BA3 /* F-nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F761D99542F00229BA3 /* F-nor@2x.png */; };
@@ -215,6 +218,12 @@
 		046D698B1DA0C71F009BCE78 /* SimpleChoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleChoice.m; sourceTree = "<group>"; };
 		046D698D1DA0E0B4009BCE78 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		046D698E1DA0E0B4009BCE78 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		046D69931DA1D8B9009BCE78 /* ExerciseView+Read.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ExerciseView+Read.h"; sourceTree = "<group>"; };
+		046D69941DA1D8B9009BCE78 /* ExerciseView+Read.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ExerciseView+Read.m"; sourceTree = "<group>"; };
+		046D69961DA23DC0009BCE78 /* NSString+Chara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Chara.h"; sourceTree = "<group>"; };
+		046D69971DA23DC0009BCE78 /* NSString+Chara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Chara.m"; sourceTree = "<group>"; };
+		046D69991DA2621A009BCE78 /* ReadingComprehensionModel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingComprehensionModel2.h; sourceTree = "<group>"; };
+		046D699A1DA2621A009BCE78 /* ReadingComprehensionModel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingComprehensionModel2.m; sourceTree = "<group>"; };
 		04B41F741D99542F00229BA3 /* F-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F751D99542F00229BA3 /* T-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "T-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F761D99542F00229BA3 /* F-nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-nor@2x.png"; sourceTree = "<group>"; };
@@ -547,6 +556,8 @@
 				040E23461D97CDE5003A2196 /* NumberButton.m */,
 				040E23481D97DB92003A2196 /* ExerciseView.h */,
 				040E23491D97DB92003A2196 /* ExerciseView.m */,
+				046D69931DA1D8B9009BCE78 /* ExerciseView+Read.h */,
+				046D69941DA1D8B9009BCE78 /* ExerciseView+Read.m */,
 				04B41F7C1D99589B00229BA3 /* ItemBu.h */,
 				04B41F7D1D99589B00229BA3 /* ItemBu.m */,
 				040E234E1D97EA3A003A2196 /* RightBu.h */,
@@ -947,6 +958,8 @@
 				F6D1F93E1D80073500508F09 /* NSString+UIPasteboard.m */,
 				F6D1F93F1D80073500508F09 /* NSString+WeakDictionary.h */,
 				F6D1F9401D80073500508F09 /* NSString+WeakDictionary.m */,
+				046D69961DA23DC0009BCE78 /* NSString+Chara.h */,
+				046D69971DA23DC0009BCE78 /* NSString+Chara.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -1173,6 +1186,8 @@
 				046D698B1DA0C71F009BCE78 /* SimpleChoice.m */,
 				F6A4CCE61D9B8D8B00A27F37 /* ReadingComprehensionModel.h */,
 				F6A4CCE71D9B8D8B00A27F37 /* ReadingComprehensionModel.m */,
+				046D69991DA2621A009BCE78 /* ReadingComprehensionModel2.h */,
+				046D699A1DA2621A009BCE78 /* ReadingComprehensionModel2.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1444,6 +1459,7 @@
 				F6D1F9E11D80073500508F09 /* Easing.c in Sources */,
 				F6FDA4401D93D20D00C83D58 /* AdvisoryController.m in Sources */,
 				F6D1F9BE1D80073500508F09 /* NSString+File.m in Sources */,
+				046D699B1DA2621A009BCE78 /* ReadingComprehensionModel2.m in Sources */,
 				F6D1F8821D7FFC7E00508F09 /* AppDelegate.m in Sources */,
 				04E492881D969EE200201FDA /* TestController.m in Sources */,
 				F6D1F9E91D80073500508F09 /* NETWorkRequest.m in Sources */,
@@ -1464,6 +1480,7 @@
 				F6D1F9BD1D80073500508F09 /* NSString+DES.m in Sources */,
 				F6D1F9A01D80073500508F09 /* FastCoder.m in Sources */,
 				F67FDAC01D8F96160064CF3D /* AFSecurityPolicy.m in Sources */,
+				046D69981DA23DC0009BCE78 /* NSString+Chara.m in Sources */,
 				F67FDAC61D8F96930064CF3D /* NetWorking.m in Sources */,
 				F6D1F9C71D80073500508F09 /* Tools.m in Sources */,
 				F6D1F99D1D80073500508F09 /* BackgroundView.m in Sources */,
@@ -1481,6 +1498,7 @@
 				F6D1F8D21D80040000508F09 /* entropy.c in Sources */,
 				F6D1F9E51D80073500508F09 /* GCDSemaphore.m in Sources */,
 				F6A4CCE81D9B8D8B00A27F37 /* ReadingComprehensionModel.m in Sources */,
+				046D69951DA1D8B9009BCE78 /* ExerciseView+Read.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
