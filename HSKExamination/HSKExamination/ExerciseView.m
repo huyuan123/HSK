@@ -74,6 +74,11 @@
     _backView.clipsToBounds = YES ;
     _backView.width -= 85 ;
     [self addSubview:_backView];
+    
+    [_backView addSubview:_typeImageView];
+    [_backView addSubview:_countLabel];
+    _countLabel.text = @"1/40" ;
+
     if ([assModel.type isEqualToString:@"judgement"]) {  // 如果是判断题
 
         Judgement * model = [[Judgement alloc] init];
@@ -93,7 +98,7 @@
         [self loadSingleChoice:singleChoice];
     }else if([assModel.type isEqualToString:@"readingComprehension"])
     {
-        if (assModel.astIndex.textPart == 4) {
+        if (assModel.astIndex.assessmentSection == 4) {
             ReadingComprehensionModel2 * model = [[ReadingComprehensionModel2 alloc] init];
             [model parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
             [self loadReadModel2:model];
@@ -112,9 +117,6 @@
 - (void)loadJudgement:(Judgement *)judgeModel
 {
   
-    [_backView addSubview:_typeImageView];
-    [_backView addSubview:_countLabel];
-    _countLabel.text = @"1/40" ;
     
     UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, judgeModel.img.width.floatValue, judgeModel.img.height.floatValue)];
     [_backView addSubview:imageView];
@@ -355,7 +357,35 @@
 #pragma mark------------------------------   加载第二种阅读理解
 - (void)loadReadModel2:(ReadingComprehensionModel2 *)model
 {
-
+    NSString * string = @"" ;
+    for (int i = 0; i < model.topicArray.count; i++) {
+        string = [string stringByAppendingFormat:@"       %@",[model.topicArray[i] identifier]];
+        string = [string stringByAppendingFormat:@" %@",[model.topicArray[i] textString]];
+    }
+    
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, _backView.width, 30)];
+    [_backView addSubview:label];
+    label.text = string ;
+    label.textAlignment = CenterText ;
+    
+    
+    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 200, _backView.width, _backView.height - 200)];
+    [_backView addSubview:scro];
+    
+    NSArray * titleArray = @[@"A",@"B",@"C",@"D",@"E",@"F"] ;
+    for (int i = 0; i < model.subItemArr.count; i++) {
+        UILabel * topicLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, i*80, _backView.width -80, 30)];
+        topicLabel.text = [model.subItemArr[i] textString] ;
+        topicLabel.text = [[NSString stringWithFormat:@"%d. ",i +1] stringByAppendingString:topicLabel.text];
+        [scro addSubview:topicLabel];
+        
+        SelectView * view = [[SelectView alloc] initWithFrame:CGRectMake(40, topicLabel.bottom -20, topicLabel.width, 60)];
+        [scro addSubview:view];
+        [view loadData:titleArray andTitle:@""];
+        [view setClickBlock:^(NSString * num, NSString * select) {
+            
+        }];
+    }
 }
 
 @end

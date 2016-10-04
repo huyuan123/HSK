@@ -61,5 +61,23 @@
     }
 }
 
+- (NSString *)isContainCharater
+{
+    if (self.length == 1 && [self isCharacter]) {
+        return self ;
+    }else
+    {
+        for (int i = 0; i < self.length; i++) {
+            NSString * s = [self substringWithRange:NSMakeRange(i, 1)];
+            if (s.isCharacter) {
+                return s ;
+            }
+        }
+        
+        return nil ;
+    }
+}
+
+
 
 @end

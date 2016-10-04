@@ -17,4 +17,6 @@
 - (BOOL)isChinese ;
 
 - (NSString *)isContainNum ;
+
+- (NSString *)isContainCharater ;
 @end

@@ -34,8 +34,19 @@
     
     [muS replaceOccurrencesOfString:@"&gt;" withString:@">" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     
-    [muS replaceOccurrencesOfString:@"nbsp" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
-    //
+    
+    NSString * ss = @"（&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;）" ;
+   [muS  replaceOccurrencesOfString:@"nbsp;" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
+    
+    
+    [muS replaceOccurrencesOfString:@"&amp;" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
+
+    [muS replaceOccurrencesOfString:@"（）" withString:@"*" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
+
+
+    
+    NSLog(@"%@",muS) ;
+    
     //    [muS replaceOccurrencesOfString:@";" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     
     self.parse = [[NSXMLParser alloc] initWithData:[muS dataUsingEncoding:NSUTF8StringEncoding]];
@@ -60,14 +71,14 @@
         }
         isCorrectResponse = YES ;
     }
-    /*
+    
     else if ([elementName isEqualToString:@"subItem"])
     {
-        array = [NSMutableArray arrayWithCapacity:6];
+        NSMutableArray *  array = [NSMutableArray arrayWithCapacity:6];
         _model = [[SimpleChoice alloc] init];
         [_subItemArr addObject:_model];
         _model.array = array ;
-    }*/
+    }
      else if ([elementName isEqualToString:@"simpleChoice"])
     {
         [_model.array addObject:attributeDict[@"identifier"]];
@@ -107,13 +118,18 @@
     if (isCorrectResponse == YES) {
         [_correctResponseArray addObject:string];
         isCorrectResponse = NO ;
-    }else if (_index == 100)
+    }else if ([string rangeOfString:@"例如"].length)
     {
-        if (string.isCharacter && ![_currentElement isEqualToString:@"rt"] && ![_currentElement isEqualToString:@"rb"]) {
+        _index ++ ;
+    }
+    else if (_index == 100)
+    {
+        if (string.isContainCharater && ![_currentElement isEqualToString:@"rt"] && ![_currentElement isEqualToString:@"rb"]) {
             if(!_topicArray) _topicArray = [NSMutableArray arrayWithCapacity:5];
             SimpleChoice * model = [[SimpleChoice alloc] init];
-            model.identifier = [string substringToIndex:1] ;
+            model.identifier = string.isContainCharater ;
             [_topicArray addObject:model];
+            
         }
         
         SimpleChoice * choice = [_topicArray lastObject];
@@ -132,9 +148,18 @@
     {
         _model.pinYInString = [_model.pinYInString stringByAppendingString:string];
         
-    }else if (_model && ([_currentElement isEqualToString:@"rb"] || [_currentElement isEqualToString:@"simpleChoice"]))
+    }else if (_model && ([_currentElement isEqualToString:@"rb"] || [_currentElement isEqualToString:@"simpleChoice"] ))
     {
         _model.textString = [_model.textString stringByAppendingString:string];
+    }else if (string.isNumber && _model)
+    {
+        _model.textString = [_model.textString stringByAppendingString:string];
+
+    }
+    else if (_model && [string rangeOfString:@"*"].length )
+    {
+        NSString * s = [string stringByReplacingOccurrencesOfString:@"*" withString:@"(  )"];
+        _model.textString = [_model.textString stringByAppendingString:s];
     }
     
 }
