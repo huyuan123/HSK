@@ -42,7 +42,14 @@
     }else if ([elementName isEqualToString:@"correctResponse"])
     {
         _correctResponse = @"correctResponse" ;
+    }else if (_model && [_currentElement isEqualToString:@"rt"])
+    {
+        _model.pinYInString = [_model.pinYInString stringByAppendingString:@" "];
+    }else if (_model && ([_currentElement isEqualToString:@"rb"] || [_currentElement isEqualToString:@"simpleChoice"]))
+    {
+        _model.textString = [_model.textString stringByAppendingString:@" "];
     }
+
     
 }
 
@@ -52,10 +59,10 @@
         _correctResponse = string ;
     }else if (_model && [_currentElement isEqualToString:@"rt"])
     {
-        _model.pinYInString = [_model.pinYInString stringByAppendingString:[string stringByAppendingString:@" "]];
+        _model.pinYInString = [_model.pinYInString stringByAppendingString:string];
     }else if (_model && ([_currentElement isEqualToString:@"rb"] || [_currentElement isEqualToString:@"simpleChoice"]))
     {
-        _model.textString = [_model.textString stringByAppendingString:[string stringByAppendingString:@"  "]];
+        _model.textString = [_model.textString stringByAppendingString:string];
     }
 }
 

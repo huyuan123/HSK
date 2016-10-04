@@ -148,6 +148,9 @@ AssessmentItemRef  *  assessmentItem            ;
 //    self.notes = nil;
 }
 
-
+- (void)dealloc
+{
+    NSLog(@"astModel 释放了---------------") ;
+}
 
 @end

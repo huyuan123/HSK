@@ -98,7 +98,11 @@
         [self loadSingleChoice:singleChoice];
     }else if([assModel.type isEqualToString:@"readingComprehension"])
     {
-        if (assModel.astIndex.assessmentSection == 4) {
+        int level = [User shareInstance].level ;
+        
+        BOOL  b1 = level == 1 && assModel.astIndex.assessmentSection == 4 ;  // 等级为一的时候的条件
+        BOOL  b2 = level == 2 && assModel.astIndex.assessmentSection == 2 ;  //  等级为2的时候的条件
+        if (b1||b2) {
             ReadingComprehensionModel2 * model = [[ReadingComprehensionModel2 alloc] init];
             [model parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
             [self loadReadModel2:model];
@@ -324,7 +328,7 @@
 
     for(int i = 0 ; i < model.subItemArr.count ; i++)
     {
-        SelectView * view = [[SelectView alloc] initWithFrame:CGRectMake(300, 170 + 80*i, 320, 50)];
+        SelectView * view = [[SelectView alloc] initWithFrame:CGRectMake(270, 170 + 80*i, 380, 50)];
         if (modelref.userResDic && modelref.userResDic[[NSString stringWithFormat:@"%d",i+1]]) {
             view.userRes =  modelref.userResDic[[NSString stringWithFormat:@"%d",i+1]] ;
         }
@@ -373,6 +377,9 @@
     [_backView addSubview:scro];
     
     NSArray * titleArray = @[@"A",@"B",@"C",@"D",@"E",@"F"] ;
+    
+    AssessmentItemRef * modelref = (AssessmentItemRef *)_assessection ;
+
     for (int i = 0; i < model.subItemArr.count; i++) {
         UILabel * topicLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, i*80, _backView.width -80, 30)];
         topicLabel.text = [model.subItemArr[i] textString] ;
@@ -380,11 +387,26 @@
         [scro addSubview:topicLabel];
         
         SelectView * view = [[SelectView alloc] initWithFrame:CGRectMake(40, topicLabel.bottom -20, topicLabel.width, 60)];
+        
+        NSString * userRes = [modelref.userResDic objectForKey:[NSString stringWithFormat:@"%d",i+1]] ;
+        if (isCanUseString(userRes)) {
+            view.userRes = userRes  ;
+        }
         [scro addSubview:view];
-        [view loadData:titleArray andTitle:@""];
+        [view loadData:titleArray andTitle:[NSString stringWithFormat:@"%d",i+1]];
+        
+        
+
         [view setClickBlock:^(NSString * num, NSString * select) {
+            if (!modelref.userResDic) {
+               modelref.userResDic =  [NSMutableDictionary dictionary] ;
+            }
             
+            [modelref.userResDic setObject:select forKey:num];
         }];
+        
+        [view hiddenNumber];
+
     }
 }
 

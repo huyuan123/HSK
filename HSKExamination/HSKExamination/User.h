@@ -14,6 +14,8 @@
 
 @property (nonatomic ,strong) NSString *  paperPath ;
 
+@property (nonatomic ,assign) int   level ;      //  等级
+
 + (User *)shareInstance ;
 
 @end

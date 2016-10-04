@@ -119,7 +119,8 @@
     l1.textColor = l2.textColor = RGBCOLOR(133, 154, 53) ;
 
     TestController * testCon = [[TestController alloc] init];
-    testCon.level = bu.tag - 999 ;
+    testCon.level = (int)bu.tag - 999 ;
+    [User shareInstance].level = testCon.level;
     [self.navigationController pushViewController:testCon animated:YES];
 }
 

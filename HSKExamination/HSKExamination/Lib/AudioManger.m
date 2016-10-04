@@ -43,7 +43,7 @@
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
-
+    [_play stop];
 }
 
 

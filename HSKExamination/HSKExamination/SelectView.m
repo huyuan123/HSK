@@ -50,6 +50,12 @@
 }
 
 
+- (void)hiddenNumber
+{
+    [[self viewWithTag:10] setHidden:YES];
+}
+
+
 - (void)buEvent:(UIButton *)button
 {
     NSArray * arr = [self subviews];
