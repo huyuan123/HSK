@@ -35,7 +35,6 @@
     [muS replaceOccurrencesOfString:@"&gt;" withString:@">" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     
     
-    NSString * ss = @"（&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;）" ;
    [muS  replaceOccurrencesOfString:@"nbsp;" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     
     
@@ -83,7 +82,11 @@
     {
         [_model.array addObject:attributeDict[@"identifier"]];
         
-    }else if ([elementName isEqualToString:@"itemBody"])
+    }else if ([elementName isEqualToString:@"choiceInteraction"])
+    {
+        _index = 49 ;
+    }
+     else if ([elementName isEqualToString:@"itemBody"])
     {
         _index = 99 ;
     }else if ([elementName isEqualToString:@"prompt"])
@@ -118,12 +121,20 @@
     if (isCorrectResponse == YES) {
         [_correctResponseArray addObject:string];
         isCorrectResponse = NO ;
-    }else if ([string rangeOfString:@"例如"].length)
+    }else if (_model && [string rangeOfString:@"*"].length )
+    {
+        NSString * s = [string stringByReplacingOccurrencesOfString:@"*" withString:@"(  )"];
+        _model.textString = [_model.textString stringByAppendingString:s];
+    }
+    
+    else if ([string rangeOfString:@"例"].length)
     {
         _index ++ ;
     }
     else if (_index == 100)
     {
+        
+        NSLog(@"9999999999999999999---------%@",string) ;
         if (string.isContainCharater && ![_currentElement isEqualToString:@"rt"] && ![_currentElement isEqualToString:@"rb"]) {
             if(!_topicArray) _topicArray = [NSMutableArray arrayWithCapacity:5];
             SimpleChoice * model = [[SimpleChoice alloc] init];
@@ -133,16 +144,26 @@
         }
         
         SimpleChoice * choice = [_topicArray lastObject];
-        if ([_currentElement isEqualToString:@"rt"]) {
+        
+        if ((string.isCharacter)) {
+            
+        }else   if ([_currentElement isEqualToString:@"rt"]) {
             
             choice.pinYInString = [choice.pinYInString stringByAppendingString:string];
-        }else if ([_currentElement isEqualToString:@"rb"])
+        }else
         {
             choice.textString = [choice.textString stringByAppendingString:string];
-        }else if (string.isContainNum)
+        }
+        /*
+        else if (string.isContainNum)
         {
             choice.textString = [choice.textString stringByAppendingString:string.isContainNum];
         }
+         */
+    }
+    else if (_index == 50)
+    {
+        _model.textString = [_model.textString stringByAppendingString:string];
     }
     else if (_model && [_currentElement isEqualToString:@"rt"])
     {
@@ -156,11 +177,7 @@
         _model.textString = [_model.textString stringByAppendingString:string];
 
     }
-    else if (_model && [string rangeOfString:@"*"].length )
-    {
-        NSString * s = [string stringByReplacingOccurrencesOfString:@"*" withString:@"(  )"];
-        _model.textString = [_model.textString stringByAppendingString:s];
-    }
+    
     
 }
 
@@ -168,6 +185,9 @@
 {
     if ([elementName isEqualToString:@"subItem"]) {
         _model = nil ;
+    }else if ([elementName isEqualToString:@"prompt"])
+    {
+        _index = 0 ;
     }
 }
 @end

@@ -84,13 +84,15 @@
         Judgement * model = [[Judgement alloc] init];
         [model parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
 
-        if (assModel.astIndex.textPart == 1) {
+        
+        if (assModel.astIndex.textPart == 1 && [User shareInstance].level > 3) {
             [self loadJudgement:model];
 
-        }else if (assModel.astIndex.textPart == 2)
+        }else
         {
             [self loadReadJudgement:model];
         }
+        
     }else if ([assModel.type isEqualToString:@"singleChoice"])
     {
         SingleChoice * singleChoice = [[SingleChoice alloc] init];
@@ -102,7 +104,12 @@
         
         BOOL  b1 = level == 1 && assModel.astIndex.assessmentSection == 4 ;  // 等级为一的时候的条件
         BOOL  b2 = level == 2 && assModel.astIndex.assessmentSection == 2 ;  //  等级为2的时候的条件
-        if (b1||b2) {
+        BOOL  b3 = level == 2 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 4 ;
+        BOOL  b4 = level == 3 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection <3  ;
+        
+        NSLog(@"b1=%d   b2= %d   b3=%d    b4= %d",b1,b2,b3,b4) ;
+        
+        if (b1||b2 || b3 || b4) {
             ReadingComprehensionModel2 * model = [[ReadingComprehensionModel2 alloc] init];
             [model parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
             [self loadReadModel2:model];
@@ -362,26 +369,47 @@
 - (void)loadReadModel2:(ReadingComprehensionModel2 *)model
 {
     NSString * string = @"" ;
+    
+    
+    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, _backView.width, _backView.height)];
+    [_backView addSubview:scro];
+
+
+    int level = [User shareInstance].level ;
+    
+    BOOL  b = level > 1 ;
+    
     for (int i = 0; i < model.topicArray.count; i++) {
+        
         string = [string stringByAppendingFormat:@"       %@",[model.topicArray[i] identifier]];
         string = [string stringByAppendingFormat:@" %@",[model.topicArray[i] textString]];
+        
+        if (b) {
+            string = [string stringByAppendingString:@"\n"];
+        }
     }
     
-    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, _backView.width, 30)];
-    [_backView addSubview:label];
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, _backView.width, 3000)];
+    [scro addSubview:label];
     label.text = string ;
-    label.textAlignment = CenterText ;
     
+    if (b) {
+        label.textAlignment = NSTextAlignmentLeft ;
+    }else{
+        label.textAlignment = CenterText ;
+    }
+    label.numberOfLines = 0 ;
+    [label sizeToFit];
     
-    UIScrollView * scro = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 200, _backView.width, _backView.height - 200)];
-    [_backView addSubview:scro];
     
     NSArray * titleArray = @[@"A",@"B",@"C",@"D",@"E",@"F"] ;
     
     AssessmentItemRef * modelref = (AssessmentItemRef *)_assessection ;
 
+    CGFloat y = label.bottom ;
+    
     for (int i = 0; i < model.subItemArr.count; i++) {
-        UILabel * topicLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, i*80, _backView.width -80, 30)];
+        UILabel * topicLabel = [[UILabel alloc] initWithFrame:CGRectMake(40,y + i*80, _backView.width -80, 30)];
         topicLabel.text = [model.subItemArr[i] textString] ;
         topicLabel.text = [[NSString stringWithFormat:@"%d. ",i +1] stringByAppendingString:topicLabel.text];
         [scro addSubview:topicLabel];
@@ -408,6 +436,16 @@
         [view hiddenNumber];
 
     }
+    
+        scro.contentSize = CGSizeMake(10, y + model.subItemArr.count * 80) ;
+
+//    if (modelref.astIndex.textPart == 1) {
+//        [_manger playWithPath:modelref.media.src] ;
+//    }else
+//    {
+        [_manger stop];
+//    }
+    
 }
 
 @end

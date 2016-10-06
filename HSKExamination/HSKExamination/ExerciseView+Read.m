@@ -20,24 +20,38 @@
     [self.backView addSubview:self.countLabel];
     self.countLabel.text = @"1/40" ;
     
-    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, judgeModel.img.width.floatValue, judgeModel.img.height.floatValue)];
-    [self.backView addSubview:imageView];
+    UIImageView * imageView = nil ;
+    if (judgeModel.img) {
+        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, judgeModel.img.width.floatValue, judgeModel.img.height.floatValue)];
+        [self.backView addSubview:imageView];
+        
+        imageView.backgroundColor = [UIColor redColor];
+        imageView.image = [UIImage imageWithContentsOfFile:judgeModel.img.src];
+        CGPoint p = self.backView.middlePoint ;
+        imageView.center = CGPointMake(p.x, p.y - 100) ;
+        imageView.contentMode = UIViewContentModeScaleAspectFit ;
+    }
+  
     
-    imageView.backgroundColor = [UIColor redColor];
-    imageView.image = [UIImage imageWithContentsOfFile:judgeModel.img.src];
-    CGPoint p = self.backView.middlePoint ;
-    imageView.center = CGPointMake(p.x, p.y - 100) ;
-    imageView.contentMode = UIViewContentModeScaleAspectFit ;
-    
-    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, imageView.bottom + 10, self.backView.width, 100)];
+    CGRect rect = judgeModel.img?CGRectMake(0, imageView.bottom + 10, self.backView.width, 100):CGRectMake(20, 80, self.backView.width - 40, 200) ;
+    UILabel * label = [[UILabel alloc] initWithFrame:rect];
     [self.backView addSubview:label];
     label.textAlignment = CenterText ;
-    label.font = Font24 ;
+    label.font = judgeModel.img?Font24:Font18 ;
     label.numberOfLines = 0 ;
-    label.text = [judgeModel.pinyinString stringByAppendingString:@"\n"];
-    label.text = [label.text stringByAppendingString:judgeModel.textString] ;
     
-    UIView * view = [[UIView alloc] initWithFrame:CGRectMake((self.backView.width -340)/2, imageView.bottom + 110, 340, 75)];
+    if (judgeModel.img) {
+        label.text = [judgeModel.pinyinString stringByAppendingString:@"\n"];
+        label.text = [label.text stringByAppendingString:judgeModel.textString] ;
+
+    }else
+    {
+        label.text = judgeModel.textString ;
+        label.textAlignment = NSTextAlignmentLeft ;
+    }
+    
+    
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake((self.backView.width -340)/2, label.bottom + 10, 340, 75)];
     [self.backView addSubview:view];
     view.cornerRadius = 37.5 ;
     view.backgroundColor = RGBCOLOR(229, 229, 229) ;
@@ -65,7 +79,10 @@
             [bu setIsSelect:YES];
         }
     }
-    
+
+    if (judgeModel.media) {
+        [self.manger playWithPath:judgeModel.media.src];
+    }
 }
 
 - (void)JudgementEvent:(UIButton *)bu

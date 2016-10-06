@@ -126,15 +126,19 @@ NSMutableArray    *  array ;
         }
         
         SimpleChoice * choice = [_topicArray lastObject];
-        if ([_currentElement isEqualToString:@"rt"]) {
+        
+        if (string.isCharacter) {
+            
+        }else   if ([_currentElement isEqualToString:@"rt"]) {
          
             choice.pinYInString = [choice.pinYInString stringByAppendingString:string];
-        }else if ([_currentElement isEqualToString:@"rb"])
+        }else //if ([_currentElement isEqualToString:@"rb"])
         {
             choice.textString = [choice.textString stringByAppendingString:string];
-        }else if (string.isContainNum)
-        {
-            choice.textString = [choice.textString stringByAppendingString:string.isContainNum];
+            
+//        }else if (string.isContainNum)
+//        {
+//            choice.textString = [choice.textString stringByAppendingString:string.isContainNum];
         }
     }
     else if (_model && [_currentElement isEqualToString:@"rt"])
