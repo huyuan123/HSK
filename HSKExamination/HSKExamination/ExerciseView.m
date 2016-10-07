@@ -16,10 +16,9 @@
 #import "SelectView.h"
 #import "ExerciseView+Read.h"
 #import "ReadingComprehensionModel2.h"
+#import "Header.h"
+
 @implementation ExerciseView
-//{
-//    id                    _assessection ; //  题
-//}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -78,37 +77,56 @@
     [_backView addSubview:_typeImageView];
     [_backView addSubview:_countLabel];
     _countLabel.text = @"1/40" ;
-
+    if (self.manger) {
+        [self.manger stop];
+    }
+    
+    int         level   = [User shareInstance].level ;
+    NSString   *path    = [[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href] ;
     if ([assModel.type isEqualToString:@"judgement"]) {  // 如果是判断题
 
-        Judgement * model = [[Judgement alloc] init];
-        [model parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
-
-        
-        if (assModel.astIndex.textPart == 1 && [User shareInstance].level > 3) {
-            [self loadJudgement:model];
-
-        }else
-        {
-            [self loadReadJudgement:model];
+        BOOL b = level == 2 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 3 ;
+        if (b) {
+            level ++ ;
         }
-        
+        Judgement * model = [Judgement createChildWithLevel:level];
+        [model parseInPath:path];
+        [self loadJudgement:model];
+
     }else if ([assModel.type isEqualToString:@"singleChoice"])
     {
-        SingleChoice * singleChoice = [[SingleChoice alloc] init];
-        [singleChoice parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
+        SingleChoice * singleChoice = [SingleChoice createChildWithLevel:level];
+        [singleChoice parseInPath:path];
         [self loadSingleChoice:singleChoice];
+        
     }else if([assModel.type isEqualToString:@"readingComprehension"])
     {
-        int level = [User shareInstance].level ;
-        
         BOOL  b1 = level == 1 && assModel.astIndex.assessmentSection == 4 ;  // 等级为一的时候的条件
-        BOOL  b2 = level == 2 && assModel.astIndex.assessmentSection == 2 ;  //  等级为2的时候的条件
-        BOOL  b3 = level == 2 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 4 ;
-        BOOL  b4 = level == 3 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection <3  ;
+        BOOL  b4 = level == 2 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 4 ;
+        if (b1 || b4) {
+            level ++ ;
+        }
         
-        NSLog(@"b1=%d   b2= %d   b3=%d    b4= %d",b1,b2,b3,b4) ;
+        BOOL b2 = level == 2 && assModel.astIndex.textPart == 1 && assModel.astIndex.assessmentSection == 2 ;
+        BOOL b3 = level == 2 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 1 ;
+
+        if (b2 || b3) {
+            level -- ;
+        }
         
+        ReadingComprehensionModel * readModel = [ReadingComprehensionModel createChildWithLevel:level] ;
+        [readModel parseInPath:path];
+        [self loadReadModel:readModel];
+        
+//        int level = [User shareInstance].level ;
+        
+//        BOOL  b2 = level == 2 && assModel.astIndex.assessmentSection == 2 ;  //  等级为2的时候的条件
+//        BOOL  b3 = level == 2 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 4 ;
+//        BOOL  b4 = level == 3 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection <3  ;
+//        
+//        NSLog(@"b1=%d   b2= %d   b3=%d    b4= %d",b1,b2,b3,b4) ;
+        
+        /*
         if (b1||b2 || b3 || b4) {
             ReadingComprehensionModel2 * model = [[ReadingComprehensionModel2 alloc] init];
             [model parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
@@ -119,6 +137,7 @@
             [model parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
             [self loadReadModel:model];
         }
+         */
     }
 }
 
@@ -128,7 +147,13 @@
 - (void)loadJudgement:(Judgement *)judgeModel
 {
   
-    
+    if ([judgeModel isKindOfClass:[Judgement1 class]]) {
+        [self loadJudgeMent1:(Judgement1 *)judgeModel];
+    }else if ([judgeModel isKindOfClass:[Judgement3 class]])
+    {
+        [self loadJudgeMent3:(Judgement3 *)judgeModel];
+    }
+    /*
     UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, judgeModel.img.width.floatValue, judgeModel.img.height.floatValue)];
     [_backView addSubview:imageView];
     
@@ -168,6 +193,7 @@
     }
     
     [_manger playWithPath:judgeModel.media.src];
+     */
 }
 
 - (void)JudgementEvent:(UIButton *)bu
@@ -197,6 +223,10 @@
 
 - (void)loadSingleChoice:(SingleChoice *)choice
 {
+    if ([choice isKindOfClass:[SingleChoice1 class]]) {
+        [self loadSingleChoice1:(SingleChoice1 *)choice];
+    }
+    /*
     AssessmentItemRef * model = (AssessmentItemRef *)_assessection ;
     [_backView addSubview:_typeImageView];
     [_backView addSubview:_countLabel];
@@ -267,6 +297,7 @@
     
     
     [_manger playWithPath:choice.media.src];
+     */
 }
 
 - (void)singleChoiceEvent:(ItemBu *)bu
@@ -290,7 +321,16 @@
 #pragma mark------------------------------   加载阅读理解
 - (void)loadReadModel:(ReadingComprehensionModel *)model
 {
-
+    if ([model isKindOfClass:[ReadingComprehensionModel1 class]]) {
+        [self loadReadingComprehensionModel1:(ReadingComprehensionModel1 *)model];
+    }else if ([model isMemberOfClass:[ReadingComprehensionModel2 class]])
+    {
+        [self loadReadingComprehensionModel2:(ReadingComprehensionModel2 *)model];
+    }else if ([model isKindOfClass:[ReadingComprehensionModel3 class]])
+    {
+        [self loadReadingComprehensionModel3:(ReadingComprehensionModel3 *)model];
+    }
+    /*
     if (model.imgArray.count) {
         
         float y = 170 ;
@@ -362,9 +402,10 @@
     {
         [_manger stop];
     }
+     */
 }
 
-
+/*
 #pragma mark------------------------------   加载第二种阅读理解
 - (void)loadReadModel2:(ReadingComprehensionModel2 *)model
 {
@@ -439,13 +480,9 @@
     
         scro.contentSize = CGSizeMake(10, y + model.subItemArr.count * 80) ;
 
-//    if (modelref.astIndex.textPart == 1) {
-//        [_manger playWithPath:modelref.media.src] ;
-//    }else
-//    {
         [_manger stop];
-//    }
     
 }
+*/
 
 @end

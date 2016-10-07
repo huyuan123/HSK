@@ -15,6 +15,7 @@
 //  加载判断题
 - (void)loadReadJudgement:(Judgement *)judgeModel 
 {
+    /*
     [self.manger stop] ;
     [self.backView addSubview:self.typeImageView];
     [self.backView addSubview:self.countLabel];
@@ -83,6 +84,7 @@
     if (judgeModel.media) {
         [self.manger playWithPath:judgeModel.media.src];
     }
+     */
 }
 
 - (void)JudgementEvent:(UIButton *)bu
@@ -111,6 +113,7 @@
 
 - (void)loadReadReadModel:(ReadingComprehensionModel *)model
 {
+    /*
     [self.manger stop];
     
     float y = 170 ;
@@ -153,6 +156,6 @@
             [modelref.userResDic setObject:userRes forKey:num];
         }];
     }
-    
+    */
 }
 @end

@@ -1,19 +1,19 @@
 //
-//  ReadingComprehensionModel2.m
+//  ReadingComprehensionModel1.m
 //  HSKExamination
 //
-//  Created by hiddy on 16/10/3.
+//  Created by hiddy on 16/10/7.
 //  Copyright © 2016年 printer. All rights reserved.
 //
 
-#import "ReadingComprehensionModel2.h"
+#import "ReadingComprehensionModel1.h"
 
-@implementation ReadingComprehensionModel2
-
+@implementation ReadingComprehensionModel1
 - (id)init
 {
     self = [super init];
     if (self) {
+        _imgArray = [NSMutableArray arrayWithCapacity:6];
         _subItemArr = [NSMutableArray arrayWithCapacity:5];
     }
     
@@ -34,23 +34,16 @@
     
     [muS replaceOccurrencesOfString:@"&gt;" withString:@">" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     
+//    [muS replaceOccurrencesOfString:@"&amp;" withString:@" " options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     
-   [muS  replaceOccurrencesOfString:@"nbsp;" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
-    
-    
-    [muS replaceOccurrencesOfString:@"&amp;" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
+    [muS replaceOccurrencesOfString:@"nbsp;" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
 
-    [muS replaceOccurrencesOfString:@"（）" withString:@"*" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
-
-    [muS replaceOccurrencesOfString:@")" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
-//
+    
     [muS replaceOccurrencesOfString:@"(" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
 
-    
+    [muS replaceOccurrencesOfString:@")" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
+
     NSLog(@"%@",muS) ;
-    
-    //    [muS replaceOccurrencesOfString:@";" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
-    
     self.parse = [[NSXMLParser alloc] initWithData:[muS dataUsingEncoding:NSUTF8StringEncoding]];
     self.parse.delegate = self ;
     
@@ -60,6 +53,7 @@
 
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
+    
     
     _currentElement = elementName ;
     if([elementName isEqualToString:@"assessmentItem"])
@@ -72,21 +66,25 @@
             _correctResponseArray = [NSMutableArray array];
         }
         _index = 10 ;
-    }
-    
-    else if ([elementName isEqualToString:@"subItem"])
+    }else if ([elementName isEqualToString:@"media"])
     {
-        NSMutableArray *  array = [NSMutableArray arrayWithCapacity:6];
+        _media = [[Media alloc] initWithDictionary:attributeDict];
+        _media.srcType = judgeMent ;
+    }else if ([elementName isEqualToString:@"img"])
+    {
+        [_imgArray addObject:[[Img alloc] initWithDictionary:attributeDict]];
+        
+    }else if ([elementName isEqualToString:@"subItem"])
+    {
+        NSMutableArray * array = [NSMutableArray arrayWithCapacity:6];
         _model = [[SimpleChoice alloc] init];
         [_subItemArr addObject:_model];
         _model.array = array ;
-    }
-     else if ([elementName isEqualToString:@"simpleChoice"])
+    }else if ([elementName isEqualToString:@"simpleChoice"])
     {
         [_model.array addObject:attributeDict[@"identifier"]];
         
-    }
-     else if ([elementName isEqualToString:@"itemBody"])
+    }else if ([elementName isEqualToString:@"itemBody"])
     {
         _index = 99 ;
     }else if ([elementName isEqualToString:@"prompt"])
@@ -118,64 +116,50 @@
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
+    if ([string containsString:@"例"]) {
+        _index ++ ;
+    }else
     if (_index == 10) {
         [_correctResponseArray addObject:string];
         _index ++ ;
-    }else if (_model && [string rangeOfString:@"*"].length )
+    }else if (_index == 100)
     {
-        NSString * s = [string stringByReplacingOccurrencesOfString:@"*" withString:@"(  )"];
-        _model.textString = [_model.textString stringByAppendingString:s];
-    }
-    
-    else if ([string rangeOfString:@"例"].length)
-    {
-        _index ++ ;
-    }
-    else if (_index == 100)
-    {
-        
-        if (string.isContainCharater && ![_currentElement isEqualToString:@"rt"] && ![_currentElement isEqualToString:@"rb"]) {
+        if (string.isCharacter && ![_currentElement isEqualToString:@"rt"] && ![_currentElement isEqualToString:@"rb"]) {
             if(!_topicArray) _topicArray = [NSMutableArray arrayWithCapacity:5];
             SimpleChoice * model = [[SimpleChoice alloc] init];
-            model.identifier = string.isContainCharater ;
+            model.identifier = string ;
             [_topicArray addObject:model];
             return ;
-            
         }
         
         SimpleChoice * choice = [_topicArray lastObject];
         
-        if ((string.isCharacter)) {
-            
-        }else   if ([_currentElement isEqualToString:@"rt"]) {
+        if ([_currentElement isEqualToString:@"rt"]) {
             
             choice.pinYInString = [choice.pinYInString stringByAppendingString:string];
-        }else
+            
+        }else if(![string containsString:@"&"])
         {
             choice.textString = [choice.textString stringByAppendingString:string];
         }
-
+        
+        NSLog(@"-------------%@",string) ;
     }
-    else if (_model)
+    else if (_model && [_currentElement isEqualToString:@"rt"])
     {
-        if ([_currentElement isEqualToString:@"rt"]) {
-            _model.pinYInString = [_model.pinYInString stringByAppendingString:string];
-        }else
-        {
-            _model.textString = [_model.textString stringByAppendingString:string];
-
-        }
+        _model.pinYInString = [_model.pinYInString stringByAppendingString:string];
+        
+    }else if (_model && ([_currentElement isEqualToString:@"rb"] || [_currentElement isEqualToString:@"simpleChoice"]))
+    {
+        _model.textString = [_model.textString stringByAppendingString:string];
     }
+    
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName
 {
     if ([elementName isEqualToString:@"subItem"]) {
         _model = nil ;
-    }else if ([elementName isEqualToString:@"prompt"])
-    {
-        _index = 0 ;
     }
 }
-
 @end

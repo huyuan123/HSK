@@ -12,13 +12,13 @@
 NSMutableArray    *  array ;
 @implementation ReadingComprehensionModel
 
-
+/*
 - (id)init
 {
     self = [super init];
     if (self) {
-        _imgArray = [NSMutableArray arrayWithCapacity:6];
-        _subItemArr = [NSMutableArray arrayWithCapacity:5];
+//        _imgArray = [NSMutableArray arrayWithCapacity:6];
+//        _subItemArr = [NSMutableArray arrayWithCapacity:5];
     }
     
     return self ;
@@ -51,6 +51,7 @@ NSMutableArray    *  array ;
 
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
+    
     
     _currentElement = elementName ;
     if([elementName isEqualToString:@"assessmentItem"])
@@ -158,6 +159,6 @@ NSMutableArray    *  array ;
         _model = nil ;
     }
 }
-
+*/
 
 @end

@@ -1,19 +1,15 @@
 //
-//  SingleChoice.h
+//  SingleChoice1.h
 //  HSKExamination
 //
-//  Created by printer on 9/27/16.
-//  Copyright © 2016 printer. All rights reserved.
+//  Created by hiddy on 16/10/7.
+//  Copyright © 2016年 printer. All rights reserved.
 //
 
-#import "ProblemModel.h"
-#import "SimpleChoice.h"
-#import "Media.h"
-#import "Img.h"
-//  单选题
-@interface SingleChoice : ProblemModel
+#import "SingleChoice.h"
 
-/*
+@interface SingleChoice1 : SingleChoice
+
 @property (nonatomic ,strong) NSString              *       correctResponse ;
 
 @property (nonatomic ,strong) NSMutableArray        *       simpleChoiceArray ;
@@ -22,5 +18,8 @@
 
 @property (nonatomic ,strong) NSMutableArray        *       imgArr ;
 
-*/
+@end
+
+@interface SingleChoice2 : SingleChoice1
+
 @end

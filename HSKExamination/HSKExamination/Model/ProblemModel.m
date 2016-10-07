@@ -10,7 +10,6 @@
 NSString            *           _currentElement ;
 SimpleChoice        *           _model ;
 int                             _index ;
-BOOL                            isCorrectResponse ;
 
 @implementation ProblemModel
 - (void)parseInPath:(NSString *)path
@@ -33,4 +32,15 @@ BOOL                            isCorrectResponse ;
     [self.parse parse];
     
 }
+
+
++ (id)createChildWithLevel:(int)level
+{
+    
+    NSString * classString =  [NSStringFromClass(self.class) stringByAppendingFormat:@"%d",level];
+    
+    return [[NSClassFromString(classString) alloc] init] ;
+}
+
+
 @end

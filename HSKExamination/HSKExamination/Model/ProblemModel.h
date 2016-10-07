@@ -19,4 +19,7 @@ extern BOOL   isCorrectResponse ;
 @property (nonatomic ,strong) NSString      *       identifier ;
 @property (nonatomic ,strong) NSString      *       title ;
 
+
++ (id)createChildWithLevel:(int)level ;
+
 @end

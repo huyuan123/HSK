@@ -1,15 +1,14 @@
 //
-//  SingleChoice.m
+//  SingleChoice1.m
 //  HSKExamination
 //
-//  Created by printer on 9/27/16.
-//  Copyright © 2016 printer. All rights reserved.
+//  Created by hiddy on 16/10/7.
+//  Copyright © 2016年 printer. All rights reserved.
 //
 
-#import "SingleChoice.h"
-#import "Header.h"
-@implementation SingleChoice
-/*
+#import "SingleChoice1.h"
+
+@implementation SingleChoice1
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     
     _currentElement = elementName ;
@@ -21,7 +20,7 @@
     {
         _media = [[Media alloc] initWithDictionary:attributeDict];
         _media.srcType = judgeMent ;
-
+        
     }else if ([elementName isEqualToString:@"img"])
     {
         if (!_imgArr) {
@@ -50,7 +49,7 @@
     {
         _model.textString = [_model.textString stringByAppendingString:@" "];
     }
-
+    
     
 }
 
@@ -73,7 +72,10 @@
     {
         _model = nil ;
     }
-
+    
 }
-*/
+@end
+
+
+@implementation SingleChoice2
 @end
