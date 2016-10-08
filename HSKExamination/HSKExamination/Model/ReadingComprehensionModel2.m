@@ -35,10 +35,10 @@
     [muS replaceOccurrencesOfString:@"&gt;" withString:@">" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     
     
-    [muS  replaceOccurrencesOfString:@"nbsp;" withString:@"+" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
+    [muS  replaceOccurrencesOfString:@"nbsp;" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     
     
-//    [muS replaceOccurrencesOfString:@"&amp;" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
+    [muS replaceOccurrencesOfString:@"&amp;" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
 
     [muS replaceOccurrencesOfString:@"（）" withString:@"*" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
 
@@ -119,7 +119,8 @@
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
     
-    NSLog(@"--------------------%@",string) ;
+    string = [string stringByReplacingOccurrencesOfString:@"+" withString:@""];
+    
     if (_index == 10) {
         [_correctResponseArray addObject:string];
         _index ++ ;

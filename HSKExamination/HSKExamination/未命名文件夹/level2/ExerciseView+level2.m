@@ -46,7 +46,7 @@
         [scro addSubview:topicLabel];
         topicLabel.numberOfLines = 0 ;
         [topicLabel sizeToFit] ;
-        SelectView * view = [[SelectView alloc] initWithFrame:CGRectMake(40, topicLabel.bottom -20, topicLabel.width, 60)];
+        SelectView * view = [[SelectView alloc] initWithFrame:CGRectMake(40, topicLabel.bottom -20, self.backView.width -40, 60)];
         
         NSString * userRes = [modelref.userResDic objectForKey:[NSString stringWithFormat:@"%d",i+1]] ;
         if (isCanUseString(userRes)) {
