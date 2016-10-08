@@ -75,6 +75,11 @@
     }else if ([elementName isEqualToString:@"prompt"])
     {
         _index ++ ;
+    }else if ([elementName isEqualToString:@"media"])
+    {
+        _media = [[Media alloc] initWithDictionary:attributeDict];
+        _media.srcType = judgeMent ;
+
     }
     
     

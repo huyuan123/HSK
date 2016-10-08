@@ -103,17 +103,25 @@
     {
         BOOL  b1 = level == 1 && assModel.astIndex.assessmentSection == 4 ;  // 等级为一的时候的条件
         BOOL  b4 = level == 2 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 4 ;
+        
         if (b1 || b4) {
             level ++ ;
         }
         
         BOOL b2 = level == 2 && assModel.astIndex.textPart == 1 && assModel.astIndex.assessmentSection == 2 ;
         BOOL b3 = level == 2 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 1 ;
+        BOOL b5 = level == 3 && assModel.astIndex.textPart == 1 && assModel.astIndex.assessmentSection == 1 ;
 
-        if (b2 || b3) {
-            level -- ;
+        if (b2 || b3 || b5) {
+            level = 1 ;
         }
         
+        BOOL b6 = level == 3&& assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 2 ;
+        
+        if (b6) {
+            level = 2 ;
+        }
+                
         ReadingComprehensionModel * readModel = [ReadingComprehensionModel createChildWithLevel:level] ;
         [readModel parseInPath:path];
         [self loadReadModel:readModel];
