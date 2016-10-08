@@ -1,23 +1,20 @@
 //
-//  Judgement.m
+//  Judgement3.m
 //  HSKExamination
 //
-//  Created by hiddy on 16/9/25.
+//  Created by hiddy on 16/10/7.
 //  Copyright © 2016年 printer. All rights reserved.
 //
 
-#import "Judgement.h"
+#import "Judgement3.h"
 
-@implementation Judgement
-/*
+@implementation Judgement3
 - (id)init
 {
     self = [super init];
     if (self) {
-        _pinyinString = @"" ;
-        _textString = @"" ;
+        self.pinyinString = self.textString = @"" ;
     }
-    
     return self ;
 }
 
@@ -35,17 +32,17 @@
     
     [muS replaceOccurrencesOfString:@"&gt;" withString:@">" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     
-    [muS replaceOccurrencesOfString:@"&amp;" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
-
-    [muS replaceOccurrencesOfString:@")" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     [muS replaceOccurrencesOfString:@"(" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
+    
+    [muS replaceOccurrencesOfString:@")" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
 
+    [muS replaceOccurrencesOfString:@"&amp;" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     [muS replaceOccurrencesOfString:@"nbsp;" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
 
     [muS replaceOccurrencesOfString:@"播放音频" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
-
-
+    
     NSLog(@"%@",muS) ;
+    
     self.parse = [[NSXMLParser alloc] initWithData:[muS dataUsingEncoding:NSUTF8StringEncoding]];
     self.parse.delegate = self ;
     
@@ -61,63 +58,45 @@
     {
         [self setValuesForKeysWithDictionary:attributeDict];
         
-    }else if ([elementName isEqualToString:@"media"])
-    {
-        _media = [[Media alloc] initWithDictionary:attributeDict];
-        _media.srcType = judgeMent ;
-        
-    }else if ([elementName isEqualToString:@"img"])
-    {
-        _img = [[Img alloc] initWithDictionary:attributeDict] ;
-        
     }else if ([elementName isEqualToString:@"simpleChoice"])
     {
-        if(!_simpleChoiceArray)
+        if(!self.simpleChoiceArray)
         {
-            _simpleChoiceArray = [NSMutableArray arrayWithCapacity:2];
+            self.simpleChoiceArray = [NSMutableArray arrayWithCapacity:2];
         }
-        [_simpleChoiceArray addObject:attributeDict[@"identifier"]];
+        [self.simpleChoiceArray addObject:attributeDict[@"identifier"]];
         
     }else if ([elementName isEqualToString:@"correctResponse"])
     {
-        _correctResponse = @"correctResponse" ;
+        _index = 10 ;
     }else if ([elementName isEqualToString:@"itemBody"])
     {
         _index = 99 ;
     }else if ([elementName isEqualToString:@"prompt"])
     {
         _index ++ ;
-    
-    }if (_index == 100) {
-        if ([_currentElement isEqualToString:@"rt"])
-        {
-            _pinyinString = [_pinyinString stringByAppendingString:@"  "];
-        }else if ([_currentElement isEqualToString:@"rb"] )
-        {
-            _textString = [_textString stringByAppendingString:@"  "];
-        }
-
     }
-
-
+    
+    
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
-    if ([_correctResponse isEqualToString:@"correctResponse"]) {
-        _correctResponse = string ;
+    if (_index == 10) {
+        self.correctResponse = string ;
+        _index ++ ;
     }else if (_index == 100)
     {
-         if ([_currentElement isEqualToString:@"rt"])
+        if ([_currentElement isEqualToString:@"rt"])
         {
-            _pinyinString = [_pinyinString stringByAppendingString:string];
+            self.pinyinString = [self.pinyinString stringByAppendingString:string];
         }else if ([string isEqualToString:@"★"])
         {
-            _textString = [_textString stringByAppendingFormat:@"\n\n%@",string];
+            self.textString = [self.textString stringByAppendingFormat:@"\n\n%@",string];
         }
-         else
+        else
         {
-            _textString = [_textString stringByAppendingString:string];
+            self.textString = [self.textString stringByAppendingString:string];
         }
     }
 }
@@ -128,8 +107,5 @@
         _index ++ ;
     }
 }
-
- */
-
 
 @end

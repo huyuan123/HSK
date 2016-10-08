@@ -17,8 +17,9 @@
 @interface TestController ()<AVAudioPlayerDelegate>
 {
     NumberView      *   _numberView ;
-    ExerciseView    *   _exerView ;
+    ExerciseView    *   _exerView ;      //  听力的view
     AudioManger     *   _audioManer ;
+//    int                 _testPartIndex ;    // 0 听力   1  阅读
 }
 @end
 
@@ -90,7 +91,7 @@
 
 - (void)loadAssessmentItemRef:(AssessmentItemRef *)ref
 {
-    [_exerView loadAssMent:ref];
+        [_exerView loadAssMent:ref] ;
 }
 
 - (void)createRightView
@@ -110,11 +111,12 @@
     }
     
     NSArray * arr = @[@"全部图标",@"听力图标",@"阅读图标",@"写作图标"];
+    NSArray * titleArr = @[@"全部",@"听力",@"阅读",@"书写"] ;
     for (int i = 0; i < 4; i++) {
         RightBu * allBU = [[RightBu alloc] initWithFrame:CGRectMake(_exerView.width - 86, 50, 84, 120)];
         [_exerView addSubview:allBU];
         [allBU setImageName:arr[i]];
-        [allBU setTitle:@"全部" forState:BuNormal];
+        [allBU setTitle:titleArr[i] forState:BuNormal];
         [allBU setTitleColor:[UIColor grayColor] forState:BuNormal];
         allBU.tag = 2000 + i ;
         
@@ -141,6 +143,29 @@
             [button setIsSelect:NO];
         }
     }
+    
+
+    int index = 0 ;
+    if (bu.tag == 2001) {
+        [_numberView loadTestPart:_astModel.testPartArray[0]];
+    }else if (bu.tag == 2002)
+    {
+        [_numberView loadTestPart:_astModel.testPartArray[1]];
+        index = 1 ;
+    }
+
+    
+    if (_astModel.testPartArray.count > index) {
+        TestPart * part = _astModel.testPartArray[index];
+        if (part.assessmentSectionArray.count > 0) {
+            AssessmentSection * secModel = part.assessmentSectionArray[0] ;
+            if (secModel.assessmentItemRefArray.count > 0) {
+                [_exerView loadAssMent:secModel.assessmentItemRefArray[0]];
+            }
+        }
+    }
+    
+
 }
 
 
@@ -158,5 +183,10 @@
     [super didReceiveMemoryWarning];
 }
 
+
+- (void)dealloc
+{
+    NSLog(@"-----------------测试页面释放了") ;
+}
 
 @end

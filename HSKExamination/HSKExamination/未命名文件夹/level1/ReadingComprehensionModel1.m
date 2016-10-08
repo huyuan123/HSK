@@ -1,24 +1,20 @@
 //
-//  ReadingComprehensionModel.m
+//  ReadingComprehensionModel1.m
 //  HSKExamination
 //
-//  Created by printer on 9/28/16.
-//  Copyright © 2016 printer. All rights reserved.
+//  Created by hiddy on 16/10/7.
+//  Copyright © 2016年 printer. All rights reserved.
 //
 
-#import "ReadingComprehensionModel.h"
-#import "SimpleChoice.h"
+#import "ReadingComprehensionModel1.h"
 
-NSMutableArray    *  array ;
-@implementation ReadingComprehensionModel
-
-/*
+@implementation ReadingComprehensionModel1
 - (id)init
 {
     self = [super init];
     if (self) {
-//        _imgArray = [NSMutableArray arrayWithCapacity:6];
-//        _subItemArr = [NSMutableArray arrayWithCapacity:5];
+        _imgArray = [NSMutableArray arrayWithCapacity:6];
+        _subItemArr = [NSMutableArray arrayWithCapacity:5];
     }
     
     return self ;
@@ -38,10 +34,16 @@ NSMutableArray    *  array ;
     
     [muS replaceOccurrencesOfString:@"&gt;" withString:@">" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     
-    [muS replaceOccurrencesOfString:@"nbsp" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
-//
-//    [muS replaceOccurrencesOfString:@";" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
+//    [muS replaceOccurrencesOfString:@"&amp;" withString:@" " options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     
+    [muS replaceOccurrencesOfString:@"nbsp;" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
+
+    
+    [muS replaceOccurrencesOfString:@"(" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
+
+    [muS replaceOccurrencesOfString:@")" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
+
+    NSLog(@"%@",muS) ;
     self.parse = [[NSXMLParser alloc] initWithData:[muS dataUsingEncoding:NSUTF8StringEncoding]];
     self.parse.delegate = self ;
     
@@ -63,7 +65,7 @@ NSMutableArray    *  array ;
         if (!_correctResponseArray) {
             _correctResponseArray = [NSMutableArray array];
         }
-        isCorrectResponse = YES ;
+        _index = 10 ;
     }else if ([elementName isEqualToString:@"media"])
     {
         _media = [[Media alloc] initWithDictionary:attributeDict];
@@ -74,7 +76,7 @@ NSMutableArray    *  array ;
         
     }else if ([elementName isEqualToString:@"subItem"])
     {
-        array = [NSMutableArray arrayWithCapacity:6];
+        NSMutableArray * array = [NSMutableArray arrayWithCapacity:6];
         _model = [[SimpleChoice alloc] init];
         [_subItemArr addObject:_model];
         _model.array = array ;
@@ -114,9 +116,12 @@ NSMutableArray    *  array ;
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
-    if (isCorrectResponse == YES) {
+    if ([string containsString:@"例"]) {
+        _index ++ ;
+    }else
+    if (_index == 10) {
         [_correctResponseArray addObject:string];
-        isCorrectResponse = NO ;
+        _index ++ ;
     }else if (_index == 100)
     {
         if (string.isCharacter && ![_currentElement isEqualToString:@"rt"] && ![_currentElement isEqualToString:@"rb"]) {
@@ -124,23 +129,21 @@ NSMutableArray    *  array ;
             SimpleChoice * model = [[SimpleChoice alloc] init];
             model.identifier = string ;
             [_topicArray addObject:model];
+            return ;
         }
         
         SimpleChoice * choice = [_topicArray lastObject];
         
-        if (string.isCharacter) {
+        if ([_currentElement isEqualToString:@"rt"]) {
             
-        }else   if ([_currentElement isEqualToString:@"rt"]) {
-         
             choice.pinYInString = [choice.pinYInString stringByAppendingString:string];
-        }else //if ([_currentElement isEqualToString:@"rb"])
+            
+        }else if(![string containsString:@"&"])
         {
             choice.textString = [choice.textString stringByAppendingString:string];
-            
-//        }else if (string.isContainNum)
-//        {
-//            choice.textString = [choice.textString stringByAppendingString:string.isContainNum];
         }
+        
+        NSLog(@"-------------%@",string) ;
     }
     else if (_model && [_currentElement isEqualToString:@"rt"])
     {
@@ -150,7 +153,7 @@ NSMutableArray    *  array ;
     {
         _model.textString = [_model.textString stringByAppendingString:string];
     }
-
+    
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName
@@ -159,6 +162,4 @@ NSMutableArray    *  array ;
         _model = nil ;
     }
 }
-*/
-
 @end

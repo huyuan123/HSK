@@ -39,7 +39,7 @@
     titleLabel.font = Font20 ;
     titleLabel.textAlignment = CenterText ;
     titleLabel.textColor = RGBCOLOR(133, 163, 54) ;
-    [self addSubview:titleLabel];
+    [_backView addSubview:titleLabel];
     
     
     int partType = -1 ;
@@ -57,7 +57,7 @@
     }
     
     _scorView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 85, self.width, self.height - 95)];
-    [self addSubview:_scorView];
+    [_backView addSubview:_scorView];
     
     int i = 0 ;
     

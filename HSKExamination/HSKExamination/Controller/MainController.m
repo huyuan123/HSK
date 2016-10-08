@@ -73,17 +73,12 @@
     _signUpCon  = [[SignUpTestController alloc] init];
     _formaCom   = [[FormalExaminationController alloc] init];
     _selectCon.view.frame = _advisCon.view.frame = _signUpCon.view.frame = _formaCom.view.frame = view.bounds ;
-    
+//
     [self addChildViewController:_selectCon];
     [self addChildViewController:_advisCon];
     [self addChildViewController:_signUpCon];
     [self addChildViewController:_formaCom];
 
-//    [view addSubview:_selectCon.view];
-//    [view addSubview:_advisCon.view];
-//    [view addSubview:_formaCom.view];
-//    [view addSubview:_formaCom.view];
-    
     _controllers = [NSMutableArray arrayWithCapacity:4];
     [_controllers addObject:_selectCon];
     [_controllers addObject:_advisCon];
@@ -94,13 +89,6 @@
     _currentCon = _controllers[_selectIndex] ;
 
     [view addSubview:[_controllers[_selectIndex] view]];
-//    if (_selectIndex != 3) {
-//        [self transitionFromViewController:_formaCom toViewController:_controllers[_selectIndex] duration:0 options:UIViewAnimationOptionLayoutSubviews animations:^{
-//            
-//        } completion:^(BOOL finished) {
-//            _currentCon = _controllers[_selectIndex];
-//        }];
-//    }
 
 }
 
@@ -136,6 +124,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+- (void)dealloc
+{
+    NSLog(@"选择等级释放了------------------") ;
+}
 
 @end

@@ -24,6 +24,19 @@
 		040E23631D980D42003A2196 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040E23621D980D42003A2196 /* AVFoundation.framework */; };
 		040E23661D980D89003A2196 /* AudioManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 040E23651D980D89003A2196 /* AudioManger.m */; };
 		040E23681D9810A0003A2196 /* 听力图标@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 040E23671D9810A0003A2196 /* 听力图标@2x.png */; };
+		0423699B1DA743D500814AB8 /* Judgement1.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423699A1DA743D500814AB8 /* Judgement1.m */; };
+		0423699F1DA7442200814AB8 /* ExerciseView+level1.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423699E1DA7442200814AB8 /* ExerciseView+level1.m */; };
+		042369A21DA74A6100814AB8 /* SingleChoice1.m in Sources */ = {isa = PBXBuildFile; fileRef = 042369A11DA74A6100814AB8 /* SingleChoice1.m */; };
+		042369A51DA74F7D00814AB8 /* ReadingComprehensionModel1.m in Sources */ = {isa = PBXBuildFile; fileRef = 042369A41DA74F7D00814AB8 /* ReadingComprehensionModel1.m */; };
+		042369AF1DA7970C00814AB8 /* ExerciseView+level2.m in Sources */ = {isa = PBXBuildFile; fileRef = 042369AE1DA7970C00814AB8 /* ExerciseView+level2.m */; };
+		042369B61DA7A31C00814AB8 /* ExerciseView+level3.m in Sources */ = {isa = PBXBuildFile; fileRef = 042369B51DA7A31C00814AB8 /* ExerciseView+level3.m */; };
+		042369B91DA7A5E800814AB8 /* Judgement3.m in Sources */ = {isa = PBXBuildFile; fileRef = 042369B81DA7A5E800814AB8 /* Judgement3.m */; };
+		042369BC1DA7CAA400814AB8 /* ReadingComprehensionModel3.m in Sources */ = {isa = PBXBuildFile; fileRef = 042369BB1DA7CAA400814AB8 /* ReadingComprehensionModel3.m */; };
+		046D698C1DA0C71F009BCE78 /* SimpleChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D698B1DA0C71F009BCE78 /* SimpleChoice.m */; };
+		046D698F1DA0E0B4009BCE78 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D698E1DA0E0B4009BCE78 /* BaseModel.m */; };
+		046D69951DA1D8B9009BCE78 /* ExerciseView+Read.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D69941DA1D8B9009BCE78 /* ExerciseView+Read.m */; };
+		046D69981DA23DC0009BCE78 /* NSString+Chara.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D69971DA23DC0009BCE78 /* NSString+Chara.m */; };
+		046D699B1DA2621A009BCE78 /* ReadingComprehensionModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D699A1DA2621A009BCE78 /* ReadingComprehensionModel2.m */; };
 		04B41F781D99542F00229BA3 /* F-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F741D99542F00229BA3 /* F-pre@2x.png */; };
 		04B41F791D99542F00229BA3 /* T-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F751D99542F00229BA3 /* T-pre@2x.png */; };
 		04B41F7A1D99542F00229BA3 /* F-nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F761D99542F00229BA3 /* F-nor@2x.png */; };
@@ -209,6 +222,33 @@
 		040E23641D980D89003A2196 /* AudioManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManger.h; sourceTree = "<group>"; };
 		040E23651D980D89003A2196 /* AudioManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManger.m; sourceTree = "<group>"; };
 		040E23671D9810A0003A2196 /* 听力图标@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "听力图标@2x.png"; sourceTree = "<group>"; };
+		042369991DA743D500814AB8 /* Judgement1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Judgement1.h; sourceTree = "<group>"; };
+		0423699A1DA743D500814AB8 /* Judgement1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Judgement1.m; sourceTree = "<group>"; };
+		0423699C1DA743F100814AB8 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		0423699D1DA7442200814AB8 /* ExerciseView+level1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ExerciseView+level1.h"; sourceTree = "<group>"; };
+		0423699E1DA7442200814AB8 /* ExerciseView+level1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ExerciseView+level1.m"; sourceTree = "<group>"; };
+		042369A01DA74A6100814AB8 /* SingleChoice1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChoice1.h; sourceTree = "<group>"; };
+		042369A11DA74A6100814AB8 /* SingleChoice1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChoice1.m; sourceTree = "<group>"; };
+		042369A31DA74F7D00814AB8 /* ReadingComprehensionModel1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingComprehensionModel1.h; sourceTree = "<group>"; };
+		042369A41DA74F7D00814AB8 /* ReadingComprehensionModel1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingComprehensionModel1.m; sourceTree = "<group>"; };
+		042369AD1DA7970C00814AB8 /* ExerciseView+level2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ExerciseView+level2.h"; sourceTree = "<group>"; };
+		042369AE1DA7970C00814AB8 /* ExerciseView+level2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ExerciseView+level2.m"; sourceTree = "<group>"; };
+		042369B41DA7A31C00814AB8 /* ExerciseView+level3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ExerciseView+level3.h"; sourceTree = "<group>"; };
+		042369B51DA7A31C00814AB8 /* ExerciseView+level3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ExerciseView+level3.m"; sourceTree = "<group>"; };
+		042369B71DA7A5E800814AB8 /* Judgement3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Judgement3.h; sourceTree = "<group>"; };
+		042369B81DA7A5E800814AB8 /* Judgement3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Judgement3.m; sourceTree = "<group>"; };
+		042369BA1DA7CAA400814AB8 /* ReadingComprehensionModel3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingComprehensionModel3.h; sourceTree = "<group>"; };
+		042369BB1DA7CAA400814AB8 /* ReadingComprehensionModel3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingComprehensionModel3.m; sourceTree = "<group>"; };
+		046D698A1DA0C71F009BCE78 /* SimpleChoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleChoice.h; sourceTree = "<group>"; };
+		046D698B1DA0C71F009BCE78 /* SimpleChoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleChoice.m; sourceTree = "<group>"; };
+		046D698D1DA0E0B4009BCE78 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		046D698E1DA0E0B4009BCE78 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		046D69931DA1D8B9009BCE78 /* ExerciseView+Read.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ExerciseView+Read.h"; sourceTree = "<group>"; };
+		046D69941DA1D8B9009BCE78 /* ExerciseView+Read.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ExerciseView+Read.m"; sourceTree = "<group>"; };
+		046D69961DA23DC0009BCE78 /* NSString+Chara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Chara.h"; sourceTree = "<group>"; };
+		046D69971DA23DC0009BCE78 /* NSString+Chara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Chara.m"; sourceTree = "<group>"; };
+		046D69991DA2621A009BCE78 /* ReadingComprehensionModel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReadingComprehensionModel2.h; path = ../../Model/ReadingComprehensionModel2.h; sourceTree = "<group>"; };
+		046D699A1DA2621A009BCE78 /* ReadingComprehensionModel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReadingComprehensionModel2.m; path = ../../Model/ReadingComprehensionModel2.m; sourceTree = "<group>"; };
 		04B41F741D99542F00229BA3 /* F-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F751D99542F00229BA3 /* T-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "T-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F761D99542F00229BA3 /* F-nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-nor@2x.png"; sourceTree = "<group>"; };
@@ -530,6 +570,57 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		042369971DA73ACD00814AB8 /* 分级别处理页面 */ = {
+			isa = PBXGroup;
+			children = (
+				042369981DA73B0D00814AB8 /* level1 */,
+				042369A61DA795F300814AB8 /* level2 */,
+				042369B01DA7A2D600814AB8 /* level3 */,
+				0423699C1DA743F100814AB8 /* Header.h */,
+			);
+			name = "分级别处理页面";
+			path = "未命名文件夹";
+			sourceTree = "<group>";
+		};
+		042369981DA73B0D00814AB8 /* level1 */ = {
+			isa = PBXGroup;
+			children = (
+				042369991DA743D500814AB8 /* Judgement1.h */,
+				0423699A1DA743D500814AB8 /* Judgement1.m */,
+				042369A01DA74A6100814AB8 /* SingleChoice1.h */,
+				042369A11DA74A6100814AB8 /* SingleChoice1.m */,
+				042369A31DA74F7D00814AB8 /* ReadingComprehensionModel1.h */,
+				042369A41DA74F7D00814AB8 /* ReadingComprehensionModel1.m */,
+				0423699D1DA7442200814AB8 /* ExerciseView+level1.h */,
+				0423699E1DA7442200814AB8 /* ExerciseView+level1.m */,
+			);
+			path = level1;
+			sourceTree = "<group>";
+		};
+		042369A61DA795F300814AB8 /* level2 */ = {
+			isa = PBXGroup;
+			children = (
+				046D69991DA2621A009BCE78 /* ReadingComprehensionModel2.h */,
+				046D699A1DA2621A009BCE78 /* ReadingComprehensionModel2.m */,
+				042369AD1DA7970C00814AB8 /* ExerciseView+level2.h */,
+				042369AE1DA7970C00814AB8 /* ExerciseView+level2.m */,
+			);
+			path = level2;
+			sourceTree = "<group>";
+		};
+		042369B01DA7A2D600814AB8 /* level3 */ = {
+			isa = PBXGroup;
+			children = (
+				042369B41DA7A31C00814AB8 /* ExerciseView+level3.h */,
+				042369B51DA7A31C00814AB8 /* ExerciseView+level3.m */,
+				042369B71DA7A5E800814AB8 /* Judgement3.h */,
+				042369B81DA7A5E800814AB8 /* Judgement3.m */,
+				042369BA1DA7CAA400814AB8 /* ReadingComprehensionModel3.h */,
+				042369BB1DA7CAA400814AB8 /* ReadingComprehensionModel3.m */,
+			);
+			path = level3;
+			sourceTree = "<group>";
+		};
 		04F41F7C1D961BEA007AB37E /* subView */ = {
 			isa = PBXGroup;
 			children = (
@@ -541,6 +632,8 @@
 				040E23461D97CDE5003A2196 /* NumberButton.m */,
 				040E23481D97DB92003A2196 /* ExerciseView.h */,
 				040E23491D97DB92003A2196 /* ExerciseView.m */,
+				046D69931DA1D8B9009BCE78 /* ExerciseView+Read.h */,
+				046D69941DA1D8B9009BCE78 /* ExerciseView+Read.m */,
 				04B41F7C1D99589B00229BA3 /* ItemBu.h */,
 				04B41F7D1D99589B00229BA3 /* ItemBu.m */,
 				040E234E1D97EA3A003A2196 /* RightBu.h */,
@@ -640,6 +733,7 @@
 				F6D1F8811D7FFC7E00508F09 /* AppDelegate.m */,
 				F661A9371D913053003A4DE7 /* User.h */,
 				F661A9381D913053003A4DE7 /* User.m */,
+				042369971DA73ACD00814AB8 /* 分级别处理页面 */,
 				04F41F7C1D961BEA007AB37E /* subView */,
 				F6D1F9EF1D8010C000508F09 /* Model */,
 				F6D1F8981D80038F00508F09 /* Lib */,
@@ -941,6 +1035,8 @@
 				F6D1F93E1D80073500508F09 /* NSString+UIPasteboard.m */,
 				F6D1F93F1D80073500508F09 /* NSString+WeakDictionary.h */,
 				F6D1F9401D80073500508F09 /* NSString+WeakDictionary.m */,
+				046D69961DA23DC0009BCE78 /* NSString+Chara.h */,
+				046D69971DA23DC0009BCE78 /* NSString+Chara.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -1143,6 +1239,8 @@
 				F641DE511D9903870039CBC9 /* PaperElement */,
 				F6D1F9F01D80110100508F09 /* TestPaperPackageInfoModel.h */,
 				F6D1F9F11D80110100508F09 /* TestPaperPackageInfoModel.m */,
+				046D698D1DA0E0B4009BCE78 /* BaseModel.h */,
+				046D698E1DA0E0B4009BCE78 /* BaseModel.m */,
 				F6D1F9F31D801B3800508F09 /* XMLBaseModel.h */,
 				F6D1F9F41D801B3800508F09 /* XMLBaseModel.m */,
 				F6D8F9BE1D8102E0002DC1AF /* ASTModel.h */,
@@ -1161,6 +1259,8 @@
 				040E234C1D97E618003A2196 /* Judgement.m */,
 				F63CA8171D9A62B900DFD07A /* SingleChoice.h */,
 				F63CA8181D9A62B900DFD07A /* SingleChoice.m */,
+				046D698A1DA0C71F009BCE78 /* SimpleChoice.h */,
+				046D698B1DA0C71F009BCE78 /* SimpleChoice.m */,
 				F6A4CCE61D9B8D8B00A27F37 /* ReadingComprehensionModel.h */,
 				F6A4CCE71D9B8D8B00A27F37 /* ReadingComprehensionModel.m */,
 			);
@@ -1353,11 +1453,13 @@
 				F6D1F8DE1D80040000508F09 /* SSZipArchive.m in Sources */,
 				F63080041D9D01AF00241D16 /* SelectView.m in Sources */,
 				040E23661D980D89003A2196 /* AudioManger.m in Sources */,
+				042369AF1DA7970C00814AB8 /* ExerciseView+level2.m in Sources */,
 				040E234D1D97E618003A2196 /* Judgement.m in Sources */,
 				F6D1F9D21D80073500508F09 /* UIView+AddToView.m in Sources */,
 				F6D1F9DE1D80073500508F09 /* WeakRelatedDictionary.m in Sources */,
 				040E23501D97EA3A003A2196 /* RightBu.m in Sources */,
 				F6FDA4431D93D5DD00C83D58 /* MainController.m in Sources */,
+				046D698C1DA0C71F009BCE78 /* SimpleChoice.m in Sources */,
 				F6D1F8D51D80040000508F09 /* prng.c in Sources */,
 				F67FDABF1D8F96160064CF3D /* AFNetworkReachabilityManager.m in Sources */,
 				F6D1F99E1D80073500508F09 /* ChooseOneButton.m in Sources */,
@@ -1369,6 +1471,7 @@
 				F6D1F8DA1D80040000508F09 /* mztools.c in Sources */,
 				F6D1F9AE1D80073500508F09 /* NSData+MetaData.m in Sources */,
 				F6D1F8D31D80040000508F09 /* fileenc.c in Sources */,
+				042369A51DA74F7D00814AB8 /* ReadingComprehensionModel1.m in Sources */,
 				F6D1F8DB1D80040000508F09 /* unzip.c in Sources */,
 				F6D1F9DC1D80073500508F09 /* UIWindow+Window.m in Sources */,
 				F6D1F9D71D80073500508F09 /* UIView+RelativeToUIScreen.m in Sources */,
@@ -1383,6 +1486,7 @@
 				F6D1F9A11D80073500508F09 /* FontInfo.m in Sources */,
 				040E23471D97CDE5003A2196 /* NumberButton.m in Sources */,
 				F6D1F9DD1D80073500508F09 /* WeakDictionary.m in Sources */,
+				0423699F1DA7442200814AB8 /* ExerciseView+level1.m in Sources */,
 				F6D1F9B01D80073500508F09 /* NSDictionary+JSON.m in Sources */,
 				F6D1F8D11D80040000508F09 /* aestab.c in Sources */,
 				F6D1F9A61D80073500508F09 /* LemonRotateView.m in Sources */,
@@ -1390,8 +1494,10 @@
 				F6D1F9DF1D80073500508F09 /* WxHxD.m in Sources */,
 				F6D1F9AF1D80073500508F09 /* NSData+String.m in Sources */,
 				F6D1F9D51D80073500508F09 /* UIView+Init.m in Sources */,
+				042369B61DA7A31C00814AB8 /* ExerciseView+level3.m in Sources */,
 				040E23411D977D68003A2196 /* TestController+PaperData.m in Sources */,
 				F6D1F9D41D80073500508F09 /* UIView+ConvertRect.m in Sources */,
+				042369BC1DA7CAA400814AB8 /* ReadingComprehensionModel3.m in Sources */,
 				F67FDAC31D8F96160064CF3D /* AFURLSessionManager.m in Sources */,
 				F6D1F9E61D80073500508F09 /* GCDTimer.m in Sources */,
 				F6D8F9C01D8102E0002DC1AF /* ASTModel.m in Sources */,
@@ -1409,6 +1515,7 @@
 				F6D1F9D91D80073500508F09 /* UIViewController+CurrentController.m in Sources */,
 				F6D1F8DC1D80040000508F09 /* zip.c in Sources */,
 				F6D1F9A91D80073500508F09 /* NSArray+JSON.m in Sources */,
+				042369B91DA7A5E800814AB8 /* Judgement3.m in Sources */,
 				F6D1F9BA1D80073500508F09 /* NSString+Binary.m in Sources */,
 				F641DE571D9904A60039CBC9 /* Img.m in Sources */,
 				F6FDA43D1D93D1C800C83D58 /* SelectLevelController.m in Sources */,
@@ -1431,11 +1538,14 @@
 				F6D1F9AB1D80073500508F09 /* NSData+Binary.m in Sources */,
 				F6D1F9AC1D80073500508F09 /* NSData+JSON.m in Sources */,
 				F6D1F9E11D80073500508F09 /* Easing.c in Sources */,
+				042369A21DA74A6100814AB8 /* SingleChoice1.m in Sources */,
 				F6FDA4401D93D20D00C83D58 /* AdvisoryController.m in Sources */,
 				F6D1F9BE1D80073500508F09 /* NSString+File.m in Sources */,
+				046D699B1DA2621A009BCE78 /* ReadingComprehensionModel2.m in Sources */,
 				F6D1F8821D7FFC7E00508F09 /* AppDelegate.m in Sources */,
 				04E492881D969EE200201FDA /* TestController.m in Sources */,
 				F6D1F9E91D80073500508F09 /* NETWorkRequest.m in Sources */,
+				046D698F1DA0E0B4009BCE78 /* BaseModel.m in Sources */,
 				F6D1F9C41D80073500508F09 /* NSString+UIPasteboard.m in Sources */,
 				F6D1F9B31D80073500508F09 /* NSObject+FastCoder.m in Sources */,
 				F6D1F9C51D80073500508F09 /* NSString+WeakDictionary.m in Sources */,
@@ -1452,6 +1562,7 @@
 				F6D1F9BD1D80073500508F09 /* NSString+DES.m in Sources */,
 				F6D1F9A01D80073500508F09 /* FastCoder.m in Sources */,
 				F67FDAC01D8F96160064CF3D /* AFSecurityPolicy.m in Sources */,
+				046D69981DA23DC0009BCE78 /* NSString+Chara.m in Sources */,
 				F67FDAC61D8F96930064CF3D /* NetWorking.m in Sources */,
 				F6D1F9C71D80073500508F09 /* Tools.m in Sources */,
 				F6D1F99D1D80073500508F09 /* BackgroundView.m in Sources */,
@@ -1466,9 +1577,11 @@
 				F6D1F8D01D80040000508F09 /* aeskey.c in Sources */,
 				040E234A1D97DB92003A2196 /* ExerciseView.m in Sources */,
 				F6D1F9C31D80073500508F09 /* NSString+Telephone.m in Sources */,
+				0423699B1DA743D500814AB8 /* Judgement1.m in Sources */,
 				F6D1F8D21D80040000508F09 /* entropy.c in Sources */,
 				F6D1F9E51D80073500508F09 /* GCDSemaphore.m in Sources */,
 				F6A4CCE81D9B8D8B00A27F37 /* ReadingComprehensionModel.m in Sources */,
+				046D69951DA1D8B9009BCE78 /* ExerciseView+Read.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

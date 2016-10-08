@@ -8,6 +8,7 @@
 
 #import "SelectView.h"
 #import "ItemBu.h"
+
 @implementation SelectView
 - (void)loadData:(NSArray *)arr andTitle:(NSString *)title
 {
@@ -36,6 +37,24 @@
     }
     
 }
+
+- (void)loadsimpleChoice:(SimpleChoice *)model
+{
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(20, -20, self.width, 40)];
+    [self addSubview:label];
+    label.numberOfLines = 0 ;
+    label.text = [model.pinYInString stringByAppendingString:@"\n"];
+    label.text = [label.text stringByAppendingString:model.textString];
+    label.textColor = [UIColor blackColor];
+    label.font = [UIFont boldSystemFontOfSize:15];
+}
+
+
+- (void)hiddenNumber
+{
+    [[self viewWithTag:10] setHidden:YES];
+}
+
 
 - (void)buEvent:(UIButton *)button
 {

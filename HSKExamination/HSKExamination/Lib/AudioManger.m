@@ -35,9 +35,15 @@
     [_play play];
 }
 
+
+- (void)stop
+{
+    [_play stop] ;
+}
+
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
-
+    [_play stop];
 }
 
 
