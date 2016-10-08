@@ -78,7 +78,7 @@
         
     }
     
-    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, self.backView.width -200 , 3000)];
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(50, 100, self.backView.width -200 , 3000)];
     [scro addSubview:label];
     label.text = string ;
     

@@ -9,6 +9,4 @@
 #import "ReadingComprehensionModel2.h"
 @interface ReadingComprehensionModel3 : ReadingComprehensionModel2
 
-- (void)loadReadingComprehensionModel3:(ReadingComprehensionModel3 *)model ;
-
 @end

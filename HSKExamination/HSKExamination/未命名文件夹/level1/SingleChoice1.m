@@ -50,7 +50,6 @@
         _model.textString = [_model.textString stringByAppendingString:@" "];
     }
     
-    
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -72,10 +71,12 @@
     {
         _model = nil ;
     }
-    
 }
 @end
 
 
 @implementation SingleChoice2
+@end
+
+@implementation SingleChoice3
 @end

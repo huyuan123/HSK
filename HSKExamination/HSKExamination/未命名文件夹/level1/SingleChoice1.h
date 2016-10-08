@@ -23,3 +23,7 @@
 @interface SingleChoice2 : SingleChoice1
 
 @end
+
+@interface SingleChoice3 : SingleChoice1
+
+@end
