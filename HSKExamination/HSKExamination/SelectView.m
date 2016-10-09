@@ -22,6 +22,7 @@
     for (NSString * s in arr) {
         ItemBu * item = [[ItemBu alloc] initWithFrame:CGRectMake(i*60, 20, 34, 30)];
         [self addSubview:item];
+        
         item.imageName = @"点" ;
         [item setTitle:s forState:BuNormal];
         [item setTitleColor:[UIColor blackColor] forState:BuNormal];
@@ -36,6 +37,8 @@
         }
     }
     
+//    self.backgroundColor = [UIColor yellowColor];
+//    label.backgroundColor = [UIColor blueColor];
 }
 
 - (void)loadsimpleChoice:(SimpleChoice *)model

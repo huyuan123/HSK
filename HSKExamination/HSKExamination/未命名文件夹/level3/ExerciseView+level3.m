@@ -72,13 +72,12 @@
     [self.backView addSubview:scro];
     
     for (int i = 0; i < model.topicArray.count; i++) {
-        //        string = [string stringByAppendingFormat:@"       \n%@",[model.topicArray[i] pinYInString]];
         string = [string stringByAppendingFormat:@"%@",[model.topicArray[i] identifier]];
         string = [string stringByAppendingFormat:@" %@\n\n",[model.topicArray[i] textString]];
         
     }
     
-    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(50, 100, self.backView.width -200 , 3000)];
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(50, 120, self.backView.width -200 , 3000)];
     [scro addSubview:label];
     label.text = string ;
     
@@ -101,7 +100,7 @@
         [scro addSubview:topicLabel];
         topicLabel.numberOfLines = 0 ;
         [topicLabel sizeToFit] ;
-        SelectView * view = [[SelectView alloc] initWithFrame:CGRectMake(40, topicLabel.bottom -20, topicLabel.width, 60)];
+        SelectView * view = [[SelectView alloc] initWithFrame:CGRectMake(40, topicLabel.bottom -20, self.backView.width -80, 60)];
         
         NSString * userRes = [modelref.userResDic objectForKey:[NSString stringWithFormat:@"%d",i+1]] ;
         if (isCanUseString(userRes)) {

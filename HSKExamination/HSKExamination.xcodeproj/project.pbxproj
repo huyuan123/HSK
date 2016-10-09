@@ -42,6 +42,7 @@
 		04B41F7A1D99542F00229BA3 /* F-nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F761D99542F00229BA3 /* F-nor@2x.png */; };
 		04B41F7B1D99542F00229BA3 /* T-nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F771D99542F00229BA3 /* T-nor@2x.png */; };
 		04B41F7E1D99589B00229BA3 /* ItemBu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B41F7D1D99589B00229BA3 /* ItemBu.m */; };
+		04CA94041DA9259C00259995 /* ReadingComprehensionModel4.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CA94031DA9259C00259995 /* ReadingComprehensionModel4.m */; };
 		04E492881D969EE200201FDA /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E492871D969EE200201FDA /* TestController.m */; };
 		04E4928A1D96A2D900201FDA /* 返回图标.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E492891D96A2D900201FDA /* 返回图标.png */; };
 		04F41F7F1D961C1D007AB37E /* LeftSelectBu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F41F7E1D961C1D007AB37E /* LeftSelectBu.m */; };
@@ -255,6 +256,8 @@
 		04B41F771D99542F00229BA3 /* T-nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "T-nor@2x.png"; sourceTree = "<group>"; };
 		04B41F7C1D99589B00229BA3 /* ItemBu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemBu.h; sourceTree = "<group>"; };
 		04B41F7D1D99589B00229BA3 /* ItemBu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemBu.m; sourceTree = "<group>"; };
+		04CA94021DA9259C00259995 /* ReadingComprehensionModel4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingComprehensionModel4.h; sourceTree = "<group>"; };
+		04CA94031DA9259C00259995 /* ReadingComprehensionModel4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingComprehensionModel4.m; sourceTree = "<group>"; };
 		04E492861D969EE200201FDA /* TestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestController.h; sourceTree = "<group>"; };
 		04E492871D969EE200201FDA /* TestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestController.m; sourceTree = "<group>"; };
 		04E492891D96A2D900201FDA /* 返回图标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回图标.png"; sourceTree = "<group>"; };
@@ -576,6 +579,7 @@
 				042369981DA73B0D00814AB8 /* level1 */,
 				042369A61DA795F300814AB8 /* level2 */,
 				042369B01DA7A2D600814AB8 /* level3 */,
+				04CA94011DA9258300259995 /* level4 */,
 				0423699C1DA743F100814AB8 /* Header.h */,
 			);
 			name = "分级别处理页面";
@@ -619,6 +623,15 @@
 				042369BB1DA7CAA400814AB8 /* ReadingComprehensionModel3.m */,
 			);
 			path = level3;
+			sourceTree = "<group>";
+		};
+		04CA94011DA9258300259995 /* level4 */ = {
+			isa = PBXGroup;
+			children = (
+				04CA94021DA9259C00259995 /* ReadingComprehensionModel4.h */,
+				04CA94031DA9259C00259995 /* ReadingComprehensionModel4.m */,
+			);
+			path = level4;
 			sourceTree = "<group>";
 		};
 		04F41F7C1D961BEA007AB37E /* subView */ = {
@@ -1509,6 +1522,7 @@
 				F6D1F9C81D80073500508F09 /* TransformDictionary.m in Sources */,
 				F6F833181D86901300792E59 /* AssessmentItemRef.m in Sources */,
 				F6D1F9E71D80073500508F09 /* NETWorkConnection.m in Sources */,
+				04CA94041DA9259C00259995 /* ReadingComprehensionModel4.m in Sources */,
 				F6D1F9B11D80073500508F09 /* NSDictionary+Sort.m in Sources */,
 				F6D1F9F51D801B3800508F09 /* XMLBaseModel.m in Sources */,
 				F6D1F9B51D80073500508F09 /* NSObject+Properties.m in Sources */,
