@@ -24,6 +24,3 @@
 
 @end
 
-@interface SingleChoice3 : SingleChoice1
-
-@end

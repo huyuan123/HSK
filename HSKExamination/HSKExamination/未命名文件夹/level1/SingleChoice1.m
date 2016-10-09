@@ -78,5 +78,3 @@
 @implementation SingleChoice2
 @end
 
-@implementation SingleChoice3
-@end
