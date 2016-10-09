@@ -169,8 +169,9 @@
     
     
     
-    
-    [self.manger playWithPath:choice.media.src];
+    if (choice.media) {
+        [self.manger playWithPath:choice.media.src];
+    }
 
 }
 

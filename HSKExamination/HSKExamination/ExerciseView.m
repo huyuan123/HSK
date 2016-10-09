@@ -95,6 +95,12 @@
 
     }else if ([assModel.type isEqualToString:@"singleChoice"])
     {
+        BOOL b = level == 3 && assModel.astIndex.textPart == 1  ;
+        
+        if (b) {
+            level -- ;
+        }
+        
         SingleChoice * singleChoice = [SingleChoice createChildWithLevel:level];
         [singleChoice parseInPath:path];
         [self loadSingleChoice:singleChoice];
@@ -103,15 +109,15 @@
     {
         BOOL  b1 = level == 1 && assModel.astIndex.assessmentSection == 4 ;  // 等级为一的时候的条件
         BOOL  b4 = level == 2 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 4 ;
-        
-        if (b1 || b4) {
+        BOOL  b7 = level == 3 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 2 ;
+        if (b1 || b4 || b7) {
             level ++ ;
         }
         
         BOOL b2 = level == 2 && assModel.astIndex.textPart == 1 && assModel.astIndex.assessmentSection == 2 ;
         BOOL b3 = level == 2 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 1 ;
         BOOL b5 = level == 3 && assModel.astIndex.textPart == 1 && assModel.astIndex.assessmentSection == 1 ;
-
+        
         if (b2 || b3 || b5) {
             level = 1 ;
         }
@@ -337,7 +343,13 @@
     }else if ([model isKindOfClass:[ReadingComprehensionModel3 class]])
     {
         [self loadReadingComprehensionModel3:(ReadingComprehensionModel3 *)model];
+    }else if ([model isKindOfClass:[ReadingComprehensionModel4 class]])
+    {
+        [self loadReadingComprehensionModel2:(ReadingComprehensionModel2 *)model];
     }
+    
+    
+    
     /*
     if (model.imgArray.count) {
         

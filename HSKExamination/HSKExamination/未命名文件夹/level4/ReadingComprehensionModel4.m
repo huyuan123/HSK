@@ -35,6 +35,9 @@
     //
     [muS replaceOccurrencesOfString:@"(" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     
+    [muS replaceOccurrencesOfString:@"ldquo;" withString:@"rdquo;" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
+    [muS replaceOccurrencesOfString:@"(" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
+
     
     NSLog(@"%@",muS) ;
     
@@ -46,4 +49,16 @@
     [self.parse parse];
     
 }
+
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+    string = [string stringByReplacingOccurrencesOfString:@"&amp" withString:@""];
+    string = [string stringByReplacingOccurrencesOfString:@"nbsp;" withString:@""];
+    string = [string stringByReplacingOccurrencesOfString:@"&" withString:@""];
+
+    [super parser:parser foundCharacters:string];
+}
+
+
+
 @end

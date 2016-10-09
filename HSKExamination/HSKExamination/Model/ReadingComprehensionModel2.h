@@ -16,4 +16,6 @@
 
 @property (nonatomic ,strong) NSMutableArray        *       correctResponseArray ;  // 大案数组
 
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string ;
+
 @end
