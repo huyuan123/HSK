@@ -37,6 +37,7 @@
 		046D69951DA1D8B9009BCE78 /* ExerciseView+Read.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D69941DA1D8B9009BCE78 /* ExerciseView+Read.m */; };
 		046D69981DA23DC0009BCE78 /* NSString+Chara.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D69971DA23DC0009BCE78 /* NSString+Chara.m */; };
 		046D699B1DA2621A009BCE78 /* ReadingComprehensionModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D699A1DA2621A009BCE78 /* ReadingComprehensionModel2.m */; };
+		0474B4A11DAA823500D4A2AF /* ExerciseView+level4.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4A01DAA823500D4A2AF /* ExerciseView+level4.m */; };
 		04B41F781D99542F00229BA3 /* F-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F741D99542F00229BA3 /* F-pre@2x.png */; };
 		04B41F791D99542F00229BA3 /* T-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F751D99542F00229BA3 /* T-pre@2x.png */; };
 		04B41F7A1D99542F00229BA3 /* F-nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F761D99542F00229BA3 /* F-nor@2x.png */; };
@@ -251,6 +252,8 @@
 		046D69971DA23DC0009BCE78 /* NSString+Chara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Chara.m"; sourceTree = "<group>"; };
 		046D69991DA2621A009BCE78 /* ReadingComprehensionModel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReadingComprehensionModel2.h; path = ../../Model/ReadingComprehensionModel2.h; sourceTree = "<group>"; };
 		046D699A1DA2621A009BCE78 /* ReadingComprehensionModel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReadingComprehensionModel2.m; path = ../../Model/ReadingComprehensionModel2.m; sourceTree = "<group>"; };
+		0474B49F1DAA823500D4A2AF /* ExerciseView+level4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ExerciseView+level4.h"; sourceTree = "<group>"; };
+		0474B4A01DAA823500D4A2AF /* ExerciseView+level4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ExerciseView+level4.m"; sourceTree = "<group>"; };
 		04B41F741D99542F00229BA3 /* F-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F751D99542F00229BA3 /* T-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "T-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F761D99542F00229BA3 /* F-nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-nor@2x.png"; sourceTree = "<group>"; };
@@ -635,6 +638,8 @@
 			children = (
 				04CA94021DA9259C00259995 /* ReadingComprehensionModel4.h */,
 				04CA94031DA9259C00259995 /* ReadingComprehensionModel4.m */,
+				0474B49F1DAA823500D4A2AF /* ExerciseView+level4.h */,
+				0474B4A01DAA823500D4A2AF /* ExerciseView+level4.m */,
 			);
 			path = level4;
 			sourceTree = "<group>";
@@ -1485,6 +1490,7 @@
 				F6D1F9CE1D80073500508F09 /* UINavigationController+Hide.m in Sources */,
 				F6D1F9E01D80073500508F09 /* YXCrypto.m in Sources */,
 				F6D1F9DA1D80073500508F09 /* UIViewController+TitleTextAttributes.m in Sources */,
+				0474B4A11DAA823500D4A2AF /* ExerciseView+level4.m in Sources */,
 				F6D1F9C01D80073500508F09 /* NSString+NetString.m in Sources */,
 				F6D1F8D61D80040000508F09 /* pwd2key.c in Sources */,
 				F6D1F8DA1D80040000508F09 /* mztools.c in Sources */,

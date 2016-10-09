@@ -89,16 +89,24 @@
         if (b) {
             level ++ ;
         }
+        
+        BOOL b1 = level == 4 && assModel.astIndex.textPart == 1 ;
+        
+        if (b1) {
+            level -- ;
+        }
+        
         Judgement * model = [Judgement createChildWithLevel:level];
         [model parseInPath:path];
         [self loadJudgement:model];
 
     }else if ([assModel.type isEqualToString:@"singleChoice"])
     {
-        BOOL b = level == 3 && assModel.astIndex.textPart == 1  ;
-        
-        if (b) {
-            level -- ;
+        BOOL b = level == 3 && assModel.astIndex.textPart == 1 ;
+        BOOL b1 = level == 4 && assModel.astIndex.textPart == 1 && assModel.astIndex.assessmentSection == 2 ;
+
+        if (b || b1) {
+            level = 1 ;
         }
         
         SingleChoice * singleChoice = [SingleChoice createChildWithLevel:level];
@@ -238,8 +246,17 @@
 - (void)loadSingleChoice:(SingleChoice *)choice
 {
     if ([choice isKindOfClass:[SingleChoice1 class]]) {
-        [self loadSingleChoice1:(SingleChoice1 *)choice];
+        if ([User shareInstance].level == 4) {
+            [self loadSingleChoice4:(SingleChoice1 *)choice];
+        }else
+        {
+            [self loadSingleChoice1:(SingleChoice1 *)choice];
+        }
+    }else if ([choice isKindOfClass:[SingleChoice3 class]])
+    {
+        [self loadSingleChoice3:(SingleChoice3 *)choice];
     }
+    
     /*
     AssessmentItemRef * model = (AssessmentItemRef *)_assessection ;
     [_backView addSubview:_typeImageView];

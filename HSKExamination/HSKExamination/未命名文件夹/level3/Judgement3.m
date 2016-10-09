@@ -41,6 +41,9 @@
 
     [muS replaceOccurrencesOfString:@"播放音频" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     
+    [muS replaceOccurrencesOfString:@"播放录音" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
+
+    
     NSLog(@"%@",muS) ;
     
     self.parse = [[NSXMLParser alloc] initWithData:[muS dataUsingEncoding:NSUTF8StringEncoding]];

@@ -128,4 +128,58 @@
 }
 
 
+- (void)loadSingleChoice3:(SingleChoice3 *)choice
+{
+    AssessmentItemRef * model = (AssessmentItemRef *)self.assessection ;
+    self.countLabel.text = @"1/40" ;
+    
+    float x = (self.backView.width - 300)/4 ;
+    
+    
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(50, 100, self.backView.width - 100, 100)];
+    [self.backView addSubview:label];
+    label.numberOfLines = 0 ;
+    label.text = choice.textString ;
+    label.textColor = [UIColor blackColor];
+//    label.backgroundColor = [UIColor redColor];
+    
+    {
+        x = (self.backView.width - 450)/4 ;
+        for (int i = 0; i < choice.simpleChoiceArray.count; i++) {
+            UILabel * textLabel = [[UILabel alloc] initWithFrame:CGRectMake(x + i*(150 + x), 260, 150, 100)];
+            [self.backView addSubview:textLabel];
+            //            textLabel.backgroundColor = [UIColor redColor];
+            SimpleChoice * choiceModel = choice.simpleChoiceArray[i] ;
+            textLabel.numberOfLines = 0 ;
+            textLabel.text = choiceModel.textString ;
+            textLabel.textAlignment = CenterText ;
+            [textLabel adjustsFontSizeToFitWidth];
+            
+            CGRect r = textLabel.frame ;
+            ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(r.origin.x , 300, 150, 100)];
+            [self.backView addSubview:bu];
+            [bu setImageName:@"点"];
+            [bu setTitle:[choice.simpleChoiceArray[i] identifier]  forState:BuNormal];
+            bu.titleLabel.font = [UIFont boldSystemFontOfSize:24] ;
+            [bu setTitleColor:[UIColor blackColor] forState:BuNormal];
+            bu.tag = 1000 + i ;
+            [bu addTarget:self action:@selector(singleChoiceEvent:) forControlEvents:BuTouchUpInside];
+            [bu setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -10)];
+            if (isCanUseString(model.userChoice)) {
+                if ([model.userChoice isEqualToString:bu.titleLabel.text]) {
+                    [bu setIsSelect:YES];
+                }
+            }
+        }
+        
+    }
+    
+    
+    
+    if (choice.media) {
+        [self.manger playWithPath:choice.media.src];
+    }
+}
+
+
 @end

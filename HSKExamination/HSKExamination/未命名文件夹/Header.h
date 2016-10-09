@@ -13,4 +13,5 @@
 #import "ExerciseView+level1.h"
 #import "ExerciseView+level2.h"
 #import "ExerciseView+level3.h"
+#import "ExerciseView+level4.h"
 #endif /* Header_h */
