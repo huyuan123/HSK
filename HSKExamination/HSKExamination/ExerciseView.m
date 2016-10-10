@@ -104,9 +104,15 @@
     {
         BOOL b = level == 3 && assModel.astIndex.textPart == 1 ;
         BOOL b1 = level == 4 && assModel.astIndex.textPart == 1 && assModel.astIndex.assessmentSection == 2 ;
+        BOOL b2 = level == 4 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 3 ;
 
-        if (b || b1) {
+        
+        if (b || b1 ) {
             level = 1 ;
+        }
+        
+        if (b2) {
+            level = 3 ;
         }
         
         SingleChoice * singleChoice = [SingleChoice createChildWithLevel:level];
@@ -160,9 +166,22 @@
             [self loadReadModel:model];
         }
          */
+    }else if ([assModel.type isEqualToString:@"textEntry"])
+    {
+        TextEntry * model = [[TextEntry alloc] init];
+        [model parseInPath:path];
+        [self loadTextEntry:model];
     }
 }
 
+
+
+#pragma mark------------------------------   加载排序
+
+- (void)loadTextEntry:(TextEntry *)entry
+{
+
+}
 
 #pragma mark------------------------------   加载判断题
 //  加载判断题

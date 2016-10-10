@@ -84,4 +84,41 @@
     }
 }
 
+
+- (void)loadTextEntry:(TextEntry *)entry
+{
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 130, self.backView.width, 30)];
+    [self.backView addSubview:label];
+    label.textColor = RGBCOLOR(188, 225, 84) ;
+    label.text = @"将题干中的句子，排列顺序，组成一句完成的话" ;
+    label.textAlignment = CenterText ;
+    
+    for (int i = 0; i < entry.simpleChoiceArray.count; i++) {
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(230,i *35+ 230, self.backView.width - 230, 20)];
+        [self.backView addSubview:label];
+        SimpleChoice * model = entry.simpleChoiceArray[i] ;
+        label.text = [NSString stringWithFormat:@"%@.%@",model.identifier,model.textString];
+    }
+    
+    
+    UITextField * textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 140, 50)];
+    textField.center = CGPointMake(self.backView.middleX, 385) ;
+    [self.backView addSubview:textField];
+    textField.cornerRadius = 25 ;
+    textField.textAlignment = NSTextAlignmentCenter ;
+    textField.backgroundColor = RGBCOLOR(188, 225, 84) ;
+    
+    textField.delegate = self ;
+    
+}
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    AssessmentItemRef * model = (AssessmentItemRef *)self.assessection ;
+    model.userChoice = textField.text ;
+    return YES ;
+}// return NO to not change text
+
+
 @end

@@ -38,6 +38,7 @@
 		046D69981DA23DC0009BCE78 /* NSString+Chara.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D69971DA23DC0009BCE78 /* NSString+Chara.m */; };
 		046D699B1DA2621A009BCE78 /* ReadingComprehensionModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D699A1DA2621A009BCE78 /* ReadingComprehensionModel2.m */; };
 		0474B4A11DAA823500D4A2AF /* ExerciseView+level4.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4A01DAA823500D4A2AF /* ExerciseView+level4.m */; };
+		0474B4A41DABCA8800D4A2AF /* TextEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4A31DABCA8800D4A2AF /* TextEntry.m */; };
 		04B41F781D99542F00229BA3 /* F-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F741D99542F00229BA3 /* F-pre@2x.png */; };
 		04B41F791D99542F00229BA3 /* T-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F751D99542F00229BA3 /* T-pre@2x.png */; };
 		04B41F7A1D99542F00229BA3 /* F-nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F761D99542F00229BA3 /* F-nor@2x.png */; };
@@ -255,6 +256,8 @@
 		046D699A1DA2621A009BCE78 /* ReadingComprehensionModel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReadingComprehensionModel2.m; path = ../../Model/ReadingComprehensionModel2.m; sourceTree = "<group>"; };
 		0474B49F1DAA823500D4A2AF /* ExerciseView+level4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ExerciseView+level4.h"; sourceTree = "<group>"; };
 		0474B4A01DAA823500D4A2AF /* ExerciseView+level4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ExerciseView+level4.m"; sourceTree = "<group>"; };
+		0474B4A21DABCA8800D4A2AF /* TextEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEntry.h; sourceTree = "<group>"; };
+		0474B4A31DABCA8800D4A2AF /* TextEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEntry.m; sourceTree = "<group>"; };
 		04B41F741D99542F00229BA3 /* F-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F751D99542F00229BA3 /* T-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "T-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F761D99542F00229BA3 /* F-nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-nor@2x.png"; sourceTree = "<group>"; };
@@ -645,6 +648,8 @@
 				0474B4A01DAA823500D4A2AF /* ExerciseView+level4.m */,
 				F60825191DAB7FDB004FE433 /* SingleChoice4.h */,
 				F608251A1DAB7FDB004FE433 /* SingleChoice4.m */,
+				0474B4A21DABCA8800D4A2AF /* TextEntry.h */,
+				0474B4A31DABCA8800D4A2AF /* TextEntry.m */,
 			);
 			path = level4;
 			sourceTree = "<group>";
@@ -1574,6 +1579,7 @@
 				F608251B1DAB7FDB004FE433 /* SingleChoice4.m in Sources */,
 				F6D1F9BE1D80073500508F09 /* NSString+File.m in Sources */,
 				046D699B1DA2621A009BCE78 /* ReadingComprehensionModel2.m in Sources */,
+				0474B4A41DABCA8800D4A2AF /* TextEntry.m in Sources */,
 				F6D1F8821D7FFC7E00508F09 /* AppDelegate.m in Sources */,
 				04E492881D969EE200201FDA /* TestController.m in Sources */,
 				F6D1F9E91D80073500508F09 /* NETWorkRequest.m in Sources */,
