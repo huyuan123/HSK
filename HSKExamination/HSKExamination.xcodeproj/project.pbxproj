@@ -71,6 +71,7 @@
 		04F5EB5B1D96889500A0E47E /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5EB561D96889500A0E47E /* 5.png */; };
 		04F5EB5C1D96889500A0E47E /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5EB571D96889500A0E47E /* 6.png */; };
 		04F5EB5E1D96889C00A0E47E /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F5EB5D1D96889C00A0E47E /* 1.png */; };
+		F608251B1DAB7FDB004FE433 /* SingleChoice4.m in Sources */ = {isa = PBXBuildFile; fileRef = F608251A1DAB7FDB004FE433 /* SingleChoice4.m */; };
 		F62D920B1DAA0311000A1837 /* SingleChoice3.m in Sources */ = {isa = PBXBuildFile; fileRef = F62D920A1DAA0311000A1837 /* SingleChoice3.m */; };
 		F63080041D9D01AF00241D16 /* SelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = F63080031D9D01AF00241D16 /* SelectView.m */; };
 		F63CA8161D9A4BFC00DFD07A /* ProblemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F63CA8151D9A4BFC00DFD07A /* ProblemModel.m */; };
@@ -293,6 +294,8 @@
 		04F5EB561D96889500A0E47E /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
 		04F5EB571D96889500A0E47E /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
 		04F5EB5D1D96889C00A0E47E /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		F60825191DAB7FDB004FE433 /* SingleChoice4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChoice4.h; sourceTree = "<group>"; };
+		F608251A1DAB7FDB004FE433 /* SingleChoice4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChoice4.m; sourceTree = "<group>"; };
 		F62D92091DAA0311000A1837 /* SingleChoice3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChoice3.h; sourceTree = "<group>"; };
 		F62D920A1DAA0311000A1837 /* SingleChoice3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChoice3.m; sourceTree = "<group>"; };
 		F63080021D9D01AF00241D16 /* SelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectView.h; sourceTree = "<group>"; };
@@ -640,6 +643,8 @@
 				04CA94031DA9259C00259995 /* ReadingComprehensionModel4.m */,
 				0474B49F1DAA823500D4A2AF /* ExerciseView+level4.h */,
 				0474B4A01DAA823500D4A2AF /* ExerciseView+level4.m */,
+				F60825191DAB7FDB004FE433 /* SingleChoice4.h */,
+				F608251A1DAB7FDB004FE433 /* SingleChoice4.m */,
 			);
 			path = level4;
 			sourceTree = "<group>";
@@ -1566,6 +1571,7 @@
 				F6D1F9E11D80073500508F09 /* Easing.c in Sources */,
 				042369A21DA74A6100814AB8 /* SingleChoice1.m in Sources */,
 				F6FDA4401D93D20D00C83D58 /* AdvisoryController.m in Sources */,
+				F608251B1DAB7FDB004FE433 /* SingleChoice4.m in Sources */,
 				F6D1F9BE1D80073500508F09 /* NSString+File.m in Sources */,
 				046D699B1DA2621A009BCE78 /* ReadingComprehensionModel2.m in Sources */,
 				F6D1F8821D7FFC7E00508F09 /* AppDelegate.m in Sources */,
