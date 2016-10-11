@@ -124,7 +124,8 @@
         BOOL  b1 = level == 1 && assModel.astIndex.assessmentSection == 4 ;  // 等级为一的时候的条件
         BOOL  b4 = level == 2 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 4 ;
         BOOL  b7 = level == 3 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 2 ;
-        if (b1 || b4 || b7) {
+        BOOL  b8 = level == 4 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 3;
+        if (b1 || b4 || b7 || b8) {
             level ++ ;
         }
         
@@ -382,6 +383,9 @@
     }else if ([model isKindOfClass:[ReadingComprehensionModel4 class]])
     {
         [self loadReadingComprehensionModel2:(ReadingComprehensionModel2 *)model];
+    }else if ([model isKindOfClass:[ReadingComprehensionModel5 class]])
+    {
+        [self loadReadingComprehensionModel5:(ReadingComprehensionModel5 *)model];
     }
     
     

@@ -136,17 +136,19 @@
     float x = (self.backView.width - 300)/4 ;
     
     
-    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(50, 100, self.backView.width - 100, 100)];
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(50, 100, self.backView.width - 100, 1000)];
     [self.backView addSubview:label];
     label.numberOfLines = 0 ;
     label.text = choice.textString ;
     label.textColor = [UIColor blackColor];
-//    label.backgroundColor = [UIColor redColor];
+    [label sizeToFit];
     
+    
+    int count = (int)choice.simpleChoiceArray.count ;
     {
-        x = (self.backView.width - 450)/4 ;
+        x = (self.backView.width - 100*count)/(count +1) ;
         for (int i = 0; i < choice.simpleChoiceArray.count; i++) {
-            UILabel * textLabel = [[UILabel alloc] initWithFrame:CGRectMake(x + i*(150 + x), 260, 150, 100)];
+            UILabel * textLabel = [[UILabel alloc] initWithFrame:CGRectMake(x + i*(100 + x), 260, 100, 100)];
             [self.backView addSubview:textLabel];
             //            textLabel.backgroundColor = [UIColor redColor];
             SimpleChoice * choiceModel = choice.simpleChoiceArray[i] ;
@@ -156,7 +158,7 @@
             [textLabel adjustsFontSizeToFitWidth];
             
             CGRect r = textLabel.frame ;
-            ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(r.origin.x , 300, 150, 100)];
+            ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(r.origin.x , 300, 100, 100)];
             [self.backView addSubview:bu];
             [bu setImageName:@"点"];
             [bu setTitle:[choice.simpleChoiceArray[i] identifier]  forState:BuNormal];

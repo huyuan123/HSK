@@ -9,6 +9,16 @@
 #import "SingleChoice3.h"
 
 @implementation SingleChoice3
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _textString = @"" ;
+    }
+    
+    return self ;
+}
+
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     
     _currentElement = elementName ;
@@ -35,7 +45,6 @@
     }else if ([elementName isEqualToString:@"itemBody"])
     {
         _index = 99 ;
-        _textString = @"" ;
     }else if ([elementName isEqualToString:@"prompt"])
     {
         _index ++ ;
@@ -45,18 +54,26 @@
         _index = 10 ;
     }
     
-    
+    NSLog(@"---------------%d",_index) ;
+
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
     string = [string stringByReplacingOccurrencesOfString:@"&" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"nbsp;" withString:@""];
-    
+    string = [string stringByReplacingOccurrencesOfString:@"mdash;" withString:@""];
+
+    NSLog(@"---------------%@",string) ;
+
     if ([string isEqualToString:@"★"]) {
         string = [@"\n\n" stringByAppendingString:string];
     }
 
+    if (_index == 100)
+    {
+        _textString = [_textString stringByAppendingString:string];
+    }else
     if (_index == 10) {
         _correctResponse = string ;
         _index ++ ;
@@ -64,10 +81,7 @@
     {
         _model.textString = [_model.textString stringByAppendingString:string];
     }
-    else if (_index == 100)
-    {
-        _textString = [_textString stringByAppendingString:string];
-    }
+    
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName
@@ -75,6 +89,10 @@
     if ([elementName isEqualToString:@"simpleChoice"])
     {
         _model = nil ;
+        
+    }else if ([elementName isEqualToString:@"prompt"])
+    {
+        _index ++ ;
     }
     
 }

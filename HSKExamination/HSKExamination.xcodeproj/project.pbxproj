@@ -81,6 +81,8 @@
 		F641DE571D9904A60039CBC9 /* Img.m in Sources */ = {isa = PBXBuildFile; fileRef = F641DE561D9904A60039CBC9 /* Img.m */; };
 		F661A9361D910FD0003A4DE7 /* iPad.zip in Resources */ = {isa = PBXBuildFile; fileRef = F661A9351D910FD0003A4DE7 /* iPad.zip */; };
 		F661A9391D913053003A4DE7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F661A9381D913053003A4DE7 /* User.m */; };
+		F6660DEB1DAC87B9004F55E7 /* ReadingComprehensionModel5.m in Sources */ = {isa = PBXBuildFile; fileRef = F6660DEA1DAC87B9004F55E7 /* ReadingComprehensionModel5.m */; };
+		F6660DEE1DACB79A004F55E7 /* ExerciseView+level5.m in Sources */ = {isa = PBXBuildFile; fileRef = F6660DED1DACB79A004F55E7 /* ExerciseView+level5.m */; };
 		F67FDABE1D8F96160064CF3D /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F67FDAB21D8F96160064CF3D /* AFHTTPSessionManager.m */; };
 		F67FDABF1D8F96160064CF3D /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F67FDAB51D8F96160064CF3D /* AFNetworkReachabilityManager.m */; };
 		F67FDAC01D8F96160064CF3D /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = F67FDAB71D8F96160064CF3D /* AFSecurityPolicy.m */; };
@@ -314,6 +316,10 @@
 		F661A9351D910FD0003A4DE7 /* iPad.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = iPad.zip; sourceTree = "<group>"; };
 		F661A9371D913053003A4DE7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		F661A9381D913053003A4DE7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		F6660DE91DAC87B9004F55E7 /* ReadingComprehensionModel5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingComprehensionModel5.h; sourceTree = "<group>"; };
+		F6660DEA1DAC87B9004F55E7 /* ReadingComprehensionModel5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingComprehensionModel5.m; sourceTree = "<group>"; };
+		F6660DEC1DACB79A004F55E7 /* ExerciseView+level5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ExerciseView+level5.h"; sourceTree = "<group>"; };
+		F6660DED1DACB79A004F55E7 /* ExerciseView+level5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ExerciseView+level5.m"; sourceTree = "<group>"; };
 		F67FDAB11D8F96160064CF3D /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		F67FDAB21D8F96160064CF3D /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		F67FDAB31D8F96160064CF3D /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -592,6 +598,7 @@
 				042369A61DA795F300814AB8 /* level2 */,
 				042369B01DA7A2D600814AB8 /* level3 */,
 				04CA94011DA9258300259995 /* level4 */,
+				F6660DE81DAC8780004F55E7 /* level5 */,
 				0423699C1DA743F100814AB8 /* Header.h */,
 			);
 			name = "分级别处理页面";
@@ -708,6 +715,17 @@
 				F661A9351D910FD0003A4DE7 /* iPad.zip */,
 			);
 			path = DataSoure;
+			sourceTree = "<group>";
+		};
+		F6660DE81DAC8780004F55E7 /* level5 */ = {
+			isa = PBXGroup;
+			children = (
+				F6660DE91DAC87B9004F55E7 /* ReadingComprehensionModel5.h */,
+				F6660DEA1DAC87B9004F55E7 /* ReadingComprehensionModel5.m */,
+				F6660DEC1DACB79A004F55E7 /* ExerciseView+level5.h */,
+				F6660DED1DACB79A004F55E7 /* ExerciseView+level5.m */,
+			);
+			path = level5;
 			sourceTree = "<group>";
 		};
 		F67FDAAF1D8F96160064CF3D /* Net */ = {
@@ -1527,6 +1545,7 @@
 				F6D1F9A61D80073500508F09 /* LemonRotateView.m in Sources */,
 				F6D1F9B81D80073500508F09 /* NSObject+WeakRelated.m in Sources */,
 				F6D1F9DF1D80073500508F09 /* WxHxD.m in Sources */,
+				F6660DEB1DAC87B9004F55E7 /* ReadingComprehensionModel5.m in Sources */,
 				F6D1F9AF1D80073500508F09 /* NSData+String.m in Sources */,
 				F6D1F9D51D80073500508F09 /* UIView+Init.m in Sources */,
 				042369B61DA7A31C00814AB8 /* ExerciseView+level3.m in Sources */,
@@ -1592,6 +1611,7 @@
 				F6D1F9BC1D80073500508F09 /* NSString+Data.m in Sources */,
 				F6D8F9C31D81068E002DC1AF /* TestPart.m in Sources */,
 				F6D1F9BB1D80073500508F09 /* NSString+CustomFont.m in Sources */,
+				F6660DEE1DACB79A004F55E7 /* ExerciseView+level5.m in Sources */,
 				F6D1F8CF1D80040000508F09 /* aescrypt.c in Sources */,
 				04B41F7E1D99589B00229BA3 /* ItemBu.m in Sources */,
 				F6D1F87F1D7FFC7E00508F09 /* main.m in Sources */,
