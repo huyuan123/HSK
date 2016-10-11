@@ -77,6 +77,7 @@
     [_backView addSubview:_typeImageView];
     [_backView addSubview:_countLabel];
     _countLabel.text = @"1/40" ;
+    
     if (self.manger) {
         [self.manger stop];
     }
@@ -103,7 +104,7 @@
     }else if ([assModel.type isEqualToString:@"singleChoice"])
     {
         BOOL b = level == 3 && assModel.astIndex.textPart == 1 ;
-        BOOL b1 = level == 4 && assModel.astIndex.textPart == 1 && assModel.astIndex.assessmentSection == 2 ;
+        BOOL b1 = level == 4 && assModel.astIndex.textPart == 1 ;
         BOOL b2 = level == 4 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 3 ;
 
         
@@ -125,7 +126,9 @@
         BOOL  b4 = level == 2 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 4 ;
         BOOL  b7 = level == 3 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 2 ;
         BOOL  b8 = level == 4 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 3;
-        if (b1 || b4 || b7 || b8) {
+        BOOL  b9 = level == 4 && assModel.astIndex.textPart == 1 && assModel.astIndex.assessmentSection == 3;
+
+        if (b1 || b4 || b7 || b8 || b9) {
             level ++ ;
         }
         
@@ -147,6 +150,8 @@
         [readModel parseInPath:path];
         [self loadReadModel:readModel];
         
+        
+        
 //        int level = [User shareInstance].level ;
         
 //        BOOL  b2 = level == 2 && assModel.astIndex.assessmentSection == 2 ;  //  等级为2的时候的条件
@@ -167,6 +172,8 @@
             [self loadReadModel:model];
         }
          */
+        
+        
     }else if ([assModel.type isEqualToString:@"textEntry"])
     {
         TextEntry * model = [[TextEntry alloc] init];
@@ -195,6 +202,7 @@
     {
         [self loadJudgeMent3:(Judgement3 *)judgeModel];
     }
+    
     /*
     UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, judgeModel.img.width.floatValue, judgeModel.img.height.floatValue)];
     [_backView addSubview:imageView];

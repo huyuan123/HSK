@@ -7,12 +7,12 @@
 //
 
 #import "ReadingComprehensionModel.h"
-
+#import "Media.h"
 @interface ReadingComprehensionModel5 : ReadingComprehensionModel
 
 @property (nonatomic ,strong) NSMutableArray        *       subItemArr ;  //  选项数组
 
-//@property (nonatomic ,strong) NSMutableArray        *       topicArray ;
+@property (nonatomic ,strong) Media                 *       media ;
 
 @property (nonatomic ,strong) NSMutableArray        *       correctResponseArray ;  // 答案数组
 

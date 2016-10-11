@@ -30,8 +30,6 @@
         
         UIView * view = [[UIView alloc] initWithFrame:CGRectMake(90, 310 + i*160, self.backView.width -180, 80)];
         [self.backView addSubview:view];
-//        view.backgroundColor = [UIColor redColor];
-        
         
         CGFloat width = view.width ;
         for (int j = 0; j < modelChoice.array.count; j++) {
@@ -43,8 +41,17 @@
             [bu setTitle:[NSString stringWithFormat:@"%@.",jModel.identifier] forState:BuNormal];
             bu.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -20) ;
             [bu setTitleColor:[UIColor blackColor] forState:BuNormal];
+        
+            UILabel * ll = [[UILabel alloc] initWithFrame:CGRectMake(bu.right, bu.top, view.width/2, 30)];
+            ll.text = jModel.textString ;
+            [view addSubview:ll];
+            ll.textColor = [UIColor blackColor] ;
         }
     }
     
+    if(model.media)
+    {
+        [self.manger playWithPath:model.media.src];
+    }
 }
 @end

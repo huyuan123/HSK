@@ -37,6 +37,9 @@
     {
         [_model.array addObject:[[SimpleChoice alloc] initWithDictionary:attributeDict]];
         _index = 20 ;
+    }else if ([elementName isEqualToString:@"media"])
+    {
+        _media = [[Media alloc] initWithDictionary:attributeDict];
     }
 }
 
@@ -58,6 +61,7 @@
     {
         SimpleChoice * choice = [_model.array lastObject];
         choice.textString = [choice.textString stringByAppendingString:string];
+        _index ++ ;
     }
 }
 

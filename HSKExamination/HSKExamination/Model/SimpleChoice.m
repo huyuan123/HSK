@@ -9,6 +9,16 @@
 #import "SimpleChoice.h"
 
 @implementation SimpleChoice
+- (id)initWithDictionary:(NSDictionary *)dictionary
+{
+    self = [super initWithDictionary:dictionary];
+    if (self) {
+        _pinYInString = _textString = @"" ;
+    }
+    
+    return self ;
+}
+
 - (id)init
 {
     self = [super init];
@@ -18,4 +28,5 @@
     
     return self ;
 }
+
 @end
