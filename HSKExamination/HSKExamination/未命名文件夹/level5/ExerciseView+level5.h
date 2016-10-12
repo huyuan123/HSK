@@ -14,4 +14,5 @@
 - (void)loadReadingComprehensionModel5:(ReadingComprehensionModel5 *)model ;
 
 - (void)loadCloze:(Cloze *)model ;
+
 @end

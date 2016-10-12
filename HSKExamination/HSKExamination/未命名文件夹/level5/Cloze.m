@@ -47,7 +47,9 @@
 {
     string = [string stringByReplacingOccurrencesOfString:@"nbsp;" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"&" withString:@""];
-    
+    string = [string stringByReplacingOccurrencesOfString:@"ldquo;" withString:@""];
+    string = [string stringByReplacingOccurrencesOfString:@"rdquo;" withString:@""];
+
     if (_index == 10) {
         [_correctResponseArray addObject:string];
         _index ++ ;

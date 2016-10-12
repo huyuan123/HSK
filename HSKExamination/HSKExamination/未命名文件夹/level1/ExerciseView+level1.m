@@ -105,10 +105,7 @@
     [self.backView addSubview:self.typeImageView];
     [self.backView addSubview:self.countLabel];
     self.countLabel.text = @"1/40" ;
-    
-    
     float x = (self.backView.width - 300)/4 ;
-    
     
     if (choice.imgArr) {
         for (int i = 0; i < choice.imgArr.count; i++) {
