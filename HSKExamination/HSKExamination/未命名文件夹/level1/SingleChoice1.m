@@ -54,6 +54,11 @@
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
+    string = [string stringByReplacingOccurrencesOfString:@"ldquo;" withString:@""];
+    string = [string stringByReplacingOccurrencesOfString:@"rdquo;" withString:@""];
+    string = [string stringByReplacingOccurrencesOfString:@"&" withString:@""];
+
+    
     if ([_correctResponse isEqualToString:@"correctResponse"]) {
         _correctResponse = string ;
     }else if (_model && [_currentElement isEqualToString:@"rt"])

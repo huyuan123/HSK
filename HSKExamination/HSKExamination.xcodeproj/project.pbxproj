@@ -39,6 +39,7 @@
 		046D699B1DA2621A009BCE78 /* ReadingComprehensionModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D699A1DA2621A009BCE78 /* ReadingComprehensionModel2.m */; };
 		0474B4A11DAA823500D4A2AF /* ExerciseView+level4.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4A01DAA823500D4A2AF /* ExerciseView+level4.m */; };
 		0474B4A41DABCA8800D4A2AF /* TextEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4A31DABCA8800D4A2AF /* TextEntry.m */; };
+		0474B4A81DAE6B7500D4A2AF /* ExerciseView+level6.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4A71DAE6B7500D4A2AF /* ExerciseView+level6.m */; };
 		04B41F781D99542F00229BA3 /* F-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F741D99542F00229BA3 /* F-pre@2x.png */; };
 		04B41F791D99542F00229BA3 /* T-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F751D99542F00229BA3 /* T-pre@2x.png */; };
 		04B41F7A1D99542F00229BA3 /* F-nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F761D99542F00229BA3 /* F-nor@2x.png */; };
@@ -261,6 +262,8 @@
 		0474B4A01DAA823500D4A2AF /* ExerciseView+level4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ExerciseView+level4.m"; sourceTree = "<group>"; };
 		0474B4A21DABCA8800D4A2AF /* TextEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEntry.h; sourceTree = "<group>"; };
 		0474B4A31DABCA8800D4A2AF /* TextEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEntry.m; sourceTree = "<group>"; };
+		0474B4A61DAE6B7500D4A2AF /* ExerciseView+level6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ExerciseView+level6.h"; sourceTree = "<group>"; };
+		0474B4A71DAE6B7500D4A2AF /* ExerciseView+level6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ExerciseView+level6.m"; sourceTree = "<group>"; };
 		04B41F741D99542F00229BA3 /* F-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F751D99542F00229BA3 /* T-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "T-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F761D99542F00229BA3 /* F-nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-nor@2x.png"; sourceTree = "<group>"; };
@@ -602,6 +605,7 @@
 				042369B01DA7A2D600814AB8 /* level3 */,
 				04CA94011DA9258300259995 /* level4 */,
 				F6660DE81DAC8780004F55E7 /* level5 */,
+				0474B4A51DAE6B6300D4A2AF /* level6 */,
 				0423699C1DA743F100814AB8 /* Header.h */,
 			);
 			name = "分级别处理页面";
@@ -647,6 +651,15 @@
 				F62D920A1DAA0311000A1837 /* SingleChoice3.m */,
 			);
 			path = level3;
+			sourceTree = "<group>";
+		};
+		0474B4A51DAE6B6300D4A2AF /* level6 */ = {
+			isa = PBXGroup;
+			children = (
+				0474B4A61DAE6B7500D4A2AF /* ExerciseView+level6.h */,
+				0474B4A71DAE6B7500D4A2AF /* ExerciseView+level6.m */,
+			);
+			path = level6;
 			sourceTree = "<group>";
 		};
 		04CA94011DA9258300259995 /* level4 */ = {
@@ -1583,6 +1596,7 @@
 				F6D1F9D11D80073500508F09 /* UITableViewCell+Line.m in Sources */,
 				F6D1F9EA1D80073500508F09 /* YXTimer.m in Sources */,
 				F6D1F9CB1D80073500508F09 /* UIFont+CustomFont.m in Sources */,
+				0474B4A81DAE6B7500D4A2AF /* ExerciseView+level6.m in Sources */,
 				F67FDAC11D8F96160064CF3D /* AFURLRequestSerialization.m in Sources */,
 				F641DE541D9903DE0039CBC9 /* Media.m in Sources */,
 				F6D1F9D81D80073500508F09 /* UIView+SetRect.m in Sources */,

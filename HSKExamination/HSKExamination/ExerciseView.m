@@ -107,9 +107,10 @@
         BOOL b1 = level == 4 && assModel.astIndex.textPart == 1 ;
         BOOL b2 = level == 4 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 3 ;
         BOOL b3 = level == 5 && assModel.astIndex.textPart == 1 ;
+        BOOL b4 = level == 6 && assModel.astIndex.textPart == 1 && assModel.astIndex.assessmentSection == 1 ;
 
         
-        if (b || b1 ) {
+        if (b || b1 || b4) {
             level = 1 ;
         }
         
@@ -258,7 +259,11 @@
     if ([choice isKindOfClass:[SingleChoice1 class]]) {
         if ([User shareInstance].level == 4 || [User shareInstance].level == 5) {
             [self loadSingleChoice4:(SingleChoice1 *)choice];
-        }else
+        }else if ([User shareInstance].level == 6)
+        {
+            [self loadSingleChoice6:(SingleChoice1 *)choice];
+        }
+        else
         {
             [self loadSingleChoice1:(SingleChoice1 *)choice];
         }
