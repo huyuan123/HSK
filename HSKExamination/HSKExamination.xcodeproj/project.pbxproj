@@ -79,6 +79,7 @@
 		F63CA8191D9A62B900DFD07A /* SingleChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = F63CA8181D9A62B900DFD07A /* SingleChoice.m */; };
 		F641DE541D9903DE0039CBC9 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = F641DE531D9903DE0039CBC9 /* Media.m */; };
 		F641DE571D9904A60039CBC9 /* Img.m in Sources */ = {isa = PBXBuildFile; fileRef = F641DE561D9904A60039CBC9 /* Img.m */; };
+		F6462EA71DADDB35006FE2B4 /* Cloze.m in Sources */ = {isa = PBXBuildFile; fileRef = F6462EA61DADDB35006FE2B4 /* Cloze.m */; };
 		F661A9361D910FD0003A4DE7 /* iPad.zip in Resources */ = {isa = PBXBuildFile; fileRef = F661A9351D910FD0003A4DE7 /* iPad.zip */; };
 		F661A9391D913053003A4DE7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F661A9381D913053003A4DE7 /* User.m */; };
 		F6660DEB1DAC87B9004F55E7 /* ReadingComprehensionModel5.m in Sources */ = {isa = PBXBuildFile; fileRef = F6660DEA1DAC87B9004F55E7 /* ReadingComprehensionModel5.m */; };
@@ -313,6 +314,8 @@
 		F641DE531D9903DE0039CBC9 /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
 		F641DE551D9904A60039CBC9 /* Img.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Img.h; sourceTree = "<group>"; };
 		F641DE561D9904A60039CBC9 /* Img.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Img.m; sourceTree = "<group>"; };
+		F6462EA51DADDB35006FE2B4 /* Cloze.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cloze.h; sourceTree = "<group>"; };
+		F6462EA61DADDB35006FE2B4 /* Cloze.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cloze.m; sourceTree = "<group>"; };
 		F661A9351D910FD0003A4DE7 /* iPad.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = iPad.zip; sourceTree = "<group>"; };
 		F661A9371D913053003A4DE7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		F661A9381D913053003A4DE7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -724,6 +727,8 @@
 				F6660DEA1DAC87B9004F55E7 /* ReadingComprehensionModel5.m */,
 				F6660DEC1DACB79A004F55E7 /* ExerciseView+level5.h */,
 				F6660DED1DACB79A004F55E7 /* ExerciseView+level5.m */,
+				F6462EA51DADDB35006FE2B4 /* Cloze.h */,
+				F6462EA61DADDB35006FE2B4 /* Cloze.m */,
 			);
 			path = level5;
 			sourceTree = "<group>";
@@ -1626,6 +1631,7 @@
 				F6D1F99D1D80073500508F09 /* BackgroundView.m in Sources */,
 				F6D1F9CC1D80073500508F09 /* UIFont+WDCustomLoader.m in Sources */,
 				F6D1F9BF1D80073500508F09 /* NSString+MD5.m in Sources */,
+				F6462EA71DADDB35006FE2B4 /* Cloze.m in Sources */,
 				F6D1F8D41D80040000508F09 /* hmac.c in Sources */,
 				F6D1F9B91D80073500508F09 /* NSString+Appending.m in Sources */,
 				F6D1F9C91D80073500508F09 /* UIButton+Init.m in Sources */,

@@ -8,8 +8,10 @@
 
 #import "ExerciseView.h"
 #import "ReadingComprehensionModel5.h"
+#import "Cloze.h"
 @interface ExerciseView (level5)
 
 - (void)loadReadingComprehensionModel5:(ReadingComprehensionModel5 *)model ;
 
+- (void)loadCloze:(Cloze *)model ;
 @end

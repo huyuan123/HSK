@@ -63,7 +63,10 @@
     string = [string stringByReplacingOccurrencesOfString:@"&" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"nbsp;" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"mdash;" withString:@""];
+    string = [string stringByReplacingOccurrencesOfString:@"播放音频" withString:@""];
 
+    
+    
     NSLog(@"---------------%@",string) ;
 
     if ([string isEqualToString:@"★"]) {

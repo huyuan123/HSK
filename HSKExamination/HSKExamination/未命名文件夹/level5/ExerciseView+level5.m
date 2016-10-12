@@ -12,10 +12,14 @@
 @implementation ExerciseView (level5)
 - (void)loadReadingComprehensionModel5:(ReadingComprehensionModel5 *)model
 {
+    
+    UIScrollView * scroView = [[UIScrollView alloc] initWithFrame:self.backView.bounds];
+    [self.backView addSubview:scroView];
+    
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(50, 100, self.backView.width -100, 1000)];
     label.text = model.textString ;
     label.numberOfLines = 0 ;
-    [self.backView addSubview:label];
+    [scroView addSubview:label];
     [label sizeToFit];
     
     
@@ -23,13 +27,13 @@
     {
         SimpleChoice * modelChoice = model.subItemArr[i] ;
         UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(90, 260 + i*160, self.backView.width - 60, 30)];
-        [self.backView addSubview:label];
+        [scroView addSubview:label];
         label.textColor = RGBCOLOR(190, 226, 47) ;
         label.text = modelChoice.textString ;
         
         
         UIView * view = [[UIView alloc] initWithFrame:CGRectMake(90, 310 + i*160, self.backView.width -180, 80)];
-        [self.backView addSubview:view];
+        [scroView addSubview:view];
         
         CGFloat width = view.width ;
         for (int j = 0; j < modelChoice.array.count; j++) {
@@ -46,7 +50,11 @@
             ll.text = jModel.textString ;
             [view addSubview:ll];
             ll.textColor = [UIColor blackColor] ;
+            
+            
         }
+        
+        scroView.contentSize = CGSizeMake(10, view.bottom + 10 );
     }
     
     if(model.media)
@@ -54,4 +62,11 @@
         [self.manger playWithPath:model.media.src];
     }
 }
+
+
+- (void)loadCloze:(Cloze *)model
+{
+    self.backView.backgroundColor = [UIColor redColor];
+}
+
 @end

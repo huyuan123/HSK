@@ -106,13 +106,14 @@
         BOOL b = level == 3 && assModel.astIndex.textPart == 1 ;
         BOOL b1 = level == 4 && assModel.astIndex.textPart == 1 ;
         BOOL b2 = level == 4 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 3 ;
+        BOOL b3 = level == 5 && assModel.astIndex.textPart == 1 ;
 
         
         if (b || b1 ) {
             level = 1 ;
         }
         
-        if (b2) {
+        if (b2 || b3) {
             level = 3 ;
         }
         
@@ -149,36 +150,17 @@
         ReadingComprehensionModel * readModel = [ReadingComprehensionModel createChildWithLevel:level] ;
         [readModel parseInPath:path];
         [self loadReadModel:readModel];
-        
-        
-        
-//        int level = [User shareInstance].level ;
-        
-//        BOOL  b2 = level == 2 && assModel.astIndex.assessmentSection == 2 ;  //  等级为2的时候的条件
-//        BOOL  b3 = level == 2 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 4 ;
-//        BOOL  b4 = level == 3 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection <3  ;
-//        
-//        NSLog(@"b1=%d   b2= %d   b3=%d    b4= %d",b1,b2,b3,b4) ;
-        
-        /*
-        if (b1||b2 || b3 || b4) {
-            ReadingComprehensionModel2 * model = [[ReadingComprehensionModel2 alloc] init];
-            [model parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
-            [self loadReadModel2:model];
-        }else
-        {
-            ReadingComprehensionModel * model = [[ReadingComprehensionModel alloc] init];
-            [model parseInPath:[[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href]];
-            [self loadReadModel:model];
-        }
-         */
-        
-        
+
     }else if ([assModel.type isEqualToString:@"textEntry"])
     {
         TextEntry * model = [[TextEntry alloc] init];
         [model parseInPath:path];
         [self loadTextEntry:model];
+    }else if ([assModel.type isEqualToString:@"cloze"])
+    {
+        Cloze * model = [[Cloze alloc] init];
+        [model parseInPath:path];
+        [self loadCloze:model];
     }
 }
 
@@ -274,7 +256,7 @@
 - (void)loadSingleChoice:(SingleChoice *)choice
 {
     if ([choice isKindOfClass:[SingleChoice1 class]]) {
-        if ([User shareInstance].level == 4) {
+        if ([User shareInstance].level == 4 || [User shareInstance].level == 5) {
             [self loadSingleChoice4:(SingleChoice1 *)choice];
         }else
         {

@@ -32,7 +32,7 @@
     [muS replaceOccurrencesOfString:@"（）" withString:@"*" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     
     [muS replaceOccurrencesOfString:@")" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
-    //
+    
     [muS replaceOccurrencesOfString:@"(" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     
     [muS replaceOccurrencesOfString:@"ldquo;" withString:@"rdquo;" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
