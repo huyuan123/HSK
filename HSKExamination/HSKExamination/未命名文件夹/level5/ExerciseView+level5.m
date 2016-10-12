@@ -77,14 +77,14 @@
 
     for(int i = 0 ; i < model.subItemArr.count ; i++)
     {
-        SelectView * view = [[SelectView alloc] initWithFrame:CGRectMake(270, 170 + 80*i, 380, 50)];
+        SelectView * view = [[SelectView alloc] initWithFrame:CGRectMake(360, 170 + 80*i, scor.width -370, 50)];
         if (modelref.userResDic && modelref.userResDic[[NSString stringWithFormat:@"%d",i+1]]) {
             view.userRes =  modelref.userResDic[[NSString stringWithFormat:@"%d",i+1]] ;
         }
         
         [self.backView addSubview:view];
         
-        [view loadData:[model.subItemArr[i] array] andTitle:[NSString stringWithFormat:@"%d",i+1]];
+        [view loadSubItem:[model.subItemArr[i] array] andTitle:[NSString stringWithFormat:@"%d",i+1]];
         
         [view setClickBlock:^(NSString * num, NSString * userRes) {
             if (modelref.userResDic == nil) {
