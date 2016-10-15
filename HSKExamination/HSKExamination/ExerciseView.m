@@ -270,6 +270,9 @@
     }else if ([choice isKindOfClass:[SingleChoice3 class]])
     {
         [self loadSingleChoice3:(SingleChoice3 *)choice];
+    }else if ([choice isKindOfClass:[SingleChoice6 class]])
+    {
+        [self loadSingle6:(SingleChoice6 *)choice];
     }
     
     /*
@@ -381,6 +384,9 @@
     }else if ([model isKindOfClass:[ReadingComprehensionModel5 class]])
     {
         [self loadReadingComprehensionModel5:(ReadingComprehensionModel5 *)model];
+    }else if ([model isKindOfClass:[ReadingComprehensionModel6 class]])
+    {
+        [self loadReadingComprehensionModel6:(ReadingComprehensionModel6 *)model];
     }
     
     

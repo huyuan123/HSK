@@ -40,6 +40,8 @@
 		0474B4A11DAA823500D4A2AF /* ExerciseView+level4.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4A01DAA823500D4A2AF /* ExerciseView+level4.m */; };
 		0474B4A41DABCA8800D4A2AF /* TextEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4A31DABCA8800D4A2AF /* TextEntry.m */; };
 		0474B4A81DAE6B7500D4A2AF /* ExerciseView+level6.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4A71DAE6B7500D4A2AF /* ExerciseView+level6.m */; };
+		0474B4AB1DB1C60C00D4A2AF /* ReadingComprehensionModel6.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4AA1DB1C60C00D4A2AF /* ReadingComprehensionModel6.m */; };
+		0474B4AE1DB1F05800D4A2AF /* SingleChoice6.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4AD1DB1F05800D4A2AF /* SingleChoice6.m */; };
 		04B41F781D99542F00229BA3 /* F-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F741D99542F00229BA3 /* F-pre@2x.png */; };
 		04B41F791D99542F00229BA3 /* T-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F751D99542F00229BA3 /* T-pre@2x.png */; };
 		04B41F7A1D99542F00229BA3 /* F-nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F761D99542F00229BA3 /* F-nor@2x.png */; };
@@ -264,6 +266,10 @@
 		0474B4A31DABCA8800D4A2AF /* TextEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEntry.m; sourceTree = "<group>"; };
 		0474B4A61DAE6B7500D4A2AF /* ExerciseView+level6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ExerciseView+level6.h"; sourceTree = "<group>"; };
 		0474B4A71DAE6B7500D4A2AF /* ExerciseView+level6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ExerciseView+level6.m"; sourceTree = "<group>"; };
+		0474B4A91DB1C60C00D4A2AF /* ReadingComprehensionModel6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingComprehensionModel6.h; sourceTree = "<group>"; };
+		0474B4AA1DB1C60C00D4A2AF /* ReadingComprehensionModel6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingComprehensionModel6.m; sourceTree = "<group>"; };
+		0474B4AC1DB1F05800D4A2AF /* SingleChoice6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChoice6.h; sourceTree = "<group>"; };
+		0474B4AD1DB1F05800D4A2AF /* SingleChoice6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChoice6.m; sourceTree = "<group>"; };
 		04B41F741D99542F00229BA3 /* F-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F751D99542F00229BA3 /* T-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "T-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F761D99542F00229BA3 /* F-nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-nor@2x.png"; sourceTree = "<group>"; };
@@ -658,6 +664,10 @@
 			children = (
 				0474B4A61DAE6B7500D4A2AF /* ExerciseView+level6.h */,
 				0474B4A71DAE6B7500D4A2AF /* ExerciseView+level6.m */,
+				0474B4A91DB1C60C00D4A2AF /* ReadingComprehensionModel6.h */,
+				0474B4AA1DB1C60C00D4A2AF /* ReadingComprehensionModel6.m */,
+				0474B4AC1DB1F05800D4A2AF /* SingleChoice6.h */,
+				0474B4AD1DB1F05800D4A2AF /* SingleChoice6.m */,
 			);
 			path = level6;
 			sourceTree = "<group>";
@@ -1603,6 +1613,7 @@
 				F6D1F9C11D80073500508F09 /* NSString+RichText.m in Sources */,
 				F6D1F9A81D80073500508F09 /* NCTitleAttribute.m in Sources */,
 				F6D1F9B41D80073500508F09 /* NSObject+NSNotificationCenter.m in Sources */,
+				0474B4AE1DB1F05800D4A2AF /* SingleChoice6.m in Sources */,
 				F6D1F9CD1D80073500508F09 /* UIImage+MetaData.m in Sources */,
 				F6D1F9A31D80073500508F09 /* ShowHUD.m in Sources */,
 				F63CA8191D9A62B900DFD07A /* SingleChoice.m in Sources */,
@@ -1625,6 +1636,7 @@
 				F6D1F9C41D80073500508F09 /* NSString+UIPasteboard.m in Sources */,
 				F6D1F9B31D80073500508F09 /* NSObject+FastCoder.m in Sources */,
 				F6D1F9C51D80073500508F09 /* NSString+WeakDictionary.m in Sources */,
+				0474B4AB1DB1C60C00D4A2AF /* ReadingComprehensionModel6.m in Sources */,
 				F6D1F9A41D80073500508F09 /* HYDianxuanVIew.m in Sources */,
 				F63CA8161D9A4BFC00DFD07A /* ProblemModel.m in Sources */,
 				F6D1F9BC1D80073500508F09 /* NSString+Data.m in Sources */,
