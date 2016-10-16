@@ -10,4 +10,10 @@
 
 @interface ReadingComprehensionModel7 : ReadingComprehensionModel
 
+@property (nonatomic ,strong) NSMutableArray *  correctResponseArray ;
+
+@property (nonatomic ,strong) NSMutableArray *  subItemArray ;
+
+@property (nonatomic ,strong) NSString       *  textString ;
+
 @end

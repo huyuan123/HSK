@@ -16,6 +16,4 @@
 
 @property (nonatomic ,strong) Media          *   media ;
 
-//@property (nonatomic ,strong) NSMutableDictionary          *   userResDic ;
-
 @end

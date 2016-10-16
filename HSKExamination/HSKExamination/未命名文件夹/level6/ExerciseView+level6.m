@@ -160,7 +160,7 @@
         [bu setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 0)];
         [bu setTitleColor:[UIColor blackColor] forState:BuNormal];
         
-        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(90, bu.y +5 , 800, 100)];
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(90, bu.y +5 , 500, 100)];
         [self.backView addSubview:label];
         label.text = choiceModel.textString ;
         label.numberOfLines = 0 ;
@@ -189,4 +189,80 @@
     AssessmentItemRef * model = (AssessmentItemRef *)self.assessection ;
     model.userChoice = bu.titleLabel.text ;
 }
+
+
+#pragma 阅读理解，另一种形式
+
+- (void)loadReadingComprehensionModel7:(ReadingComprehensionModel7 *)model
+{
+    UIScrollView * scor = [[UIScrollView alloc] initWithFrame:self.backView.bounds];
+    [self.backView addSubview:scor];
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(50, 50, 300, 3000)];
+    label.numberOfLines = 0 ;
+    [label setText:model.textString];
+    [label sizeToFit];
+    [scor addSubview:label];
+    label.font = Font16 ;
+    scor.contentSize = CGSizeMake(10, label.height + 70) ;
+
+    
+    AssessmentItemRef * modelRef = (AssessmentItemRef *)self.assessection ;
+    NSDictionary * resDic = [modelRef userResDic];
+
+    
+    for (int i = 0; i < model.subItemArray.count ; i++) {
+        SimpleChoice * choiceModel = model.subItemArray[i] ;
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(360,80 + i*160 , self.backView.width -370, 30)];
+        [scor addSubview:label];
+        
+        label.text = [NSString stringWithFormat:@"%d %@",i+1,choiceModel.textString];
+        label.adjustsFontSizeToFitWidth = YES ;
+        
+        UIView * view = [[UIView alloc] initWithFrame:CGRectMake(360, 110 + i*160, label.width, 130)];
+        [scor addSubview:view];
+        view.tag = 200 + i ;
+        
+        NSString * s = resDic[[NSString stringWithFormat:@"%ld",view.tag -200]] ;
+
+        for (int j = 0; j < choiceModel.array.count ; j++) {
+            SimpleChoice * choice = choiceModel.array[j] ;
+            ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(0, j * 30, 60, 30)];
+            [bu setImageName:@"点"];
+            [bu setTitle:choice.identifier forState:BuNormal];
+            [bu setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 0)];
+            [view addSubview:bu];
+            [bu setTitleColor:[UIColor blackColor] forState:BuNormal];
+            [bu addTarget:self action:@selector(buReadEvent:) forControlEvents:BuTouchUpInside];
+            
+            UILabel * detailLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, bu.y, 200, 30)];
+            [view addSubview:detailLabel];
+            detailLabel.text = choice.textString ;
+            detailLabel.adjustsFontSizeToFitWidth = YES ;
+            if ([s isEqualToString:choice.identifier]) {
+                [bu setIsSelect:YES];
+            }
+
+        }
+    }
+}
+
+- (void)loadExtendedText:(ExtendedText *)model
+{
+    CGSize size = self.backView.bounds.size ;
+
+    UIScrollView * scroView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height -20)];
+    [self.backView addSubview:scroView];
+    
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, size.width -200, 30000)];
+    [scroView addSubview:label];
+    label.numberOfLines = 0 ;
+    label.font = Font16 ;
+    label.textColor = [UIColor blackColor];
+    label.text = model.textString ;
+    [label sizeToFit];
+    
+    scroView.contentSize = CGSizeMake(10, label.height + 140) ;
+}
+
+
 @end

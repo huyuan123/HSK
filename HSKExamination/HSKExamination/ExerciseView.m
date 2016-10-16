@@ -130,7 +130,9 @@
         BOOL  b8 = level == 4 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 3;
         BOOL  b9 = level == 4 && assModel.astIndex.textPart == 1 && assModel.astIndex.assessmentSection == 3;
 
-        if (b1 || b4 || b7 || b8 || b9) {
+        BOOL b10 = level == 6 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 4 ;
+
+        if (b1 || b4 || b7 || b8 || b9 || b10) {
             level ++ ;
         }
         
@@ -147,7 +149,8 @@
         if (b6) {
             level = 2 ;
         }
-                
+        
+        
         ReadingComprehensionModel * readModel = [ReadingComprehensionModel createChildWithLevel:level] ;
         [readModel parseInPath:path];
         [self loadReadModel:readModel];
@@ -162,10 +165,19 @@
         Cloze * model = [[Cloze alloc] init];
         [model parseInPath:path];
         [self loadCloze:model];
+    }else if ([assModel.type isEqualToString:@"extendedText"])
+    {
+        ExtendedText * extendModel = [[ExtendedText alloc] init] ;
+        [extendModel parseInPath:path];
+        [self loadWrite:extendModel];
     }
 }
 
-
+#pragma mark------------------------------   加载写作
+- (void)loadWrite:(ExtendedText *)model
+{
+    [self loadExtendedText:model];
+}
 
 #pragma mark------------------------------   加载排序
 
@@ -387,9 +399,12 @@
     }else if ([model isKindOfClass:[ReadingComprehensionModel6 class]])
     {
         [self loadReadingComprehensionModel6:(ReadingComprehensionModel6 *)model];
+    }else if ([model isKindOfClass:[ReadingComprehensionModel7 class]])
+    {
+        [self loadReadingComprehensionModel7:(ReadingComprehensionModel7 *)model];
     }
-    
-    
+}
+
     
     /*
     if (model.imgArray.count) {
@@ -464,7 +479,7 @@
         [_manger stop];
     }
      */
-}
+//}
 
 /*
 #pragma mark------------------------------   加载第二种阅读理解
