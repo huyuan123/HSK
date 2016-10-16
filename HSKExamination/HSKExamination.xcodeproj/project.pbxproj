@@ -42,6 +42,9 @@
 		0474B4A81DAE6B7500D4A2AF /* ExerciseView+level6.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4A71DAE6B7500D4A2AF /* ExerciseView+level6.m */; };
 		0474B4AB1DB1C60C00D4A2AF /* ReadingComprehensionModel6.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4AA1DB1C60C00D4A2AF /* ReadingComprehensionModel6.m */; };
 		0474B4AE1DB1F05800D4A2AF /* SingleChoice6.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4AD1DB1F05800D4A2AF /* SingleChoice6.m */; };
+		0474B4B11DB320F800D4A2AF /* ReadingComprehensionModel7.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4B01DB320F800D4A2AF /* ReadingComprehensionModel7.m */; };
+		0474B4B31DB3258F00D4A2AF /* yk1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0474B4B21DB3258F00D4A2AF /* yk1@2x.png */; };
+		0474B4B51DB325FE00D4A2AF /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0474B4B41DB325FE00D4A2AF /* logo@2x.png */; };
 		04B41F781D99542F00229BA3 /* F-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F741D99542F00229BA3 /* F-pre@2x.png */; };
 		04B41F791D99542F00229BA3 /* T-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F751D99542F00229BA3 /* T-pre@2x.png */; };
 		04B41F7A1D99542F00229BA3 /* F-nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F761D99542F00229BA3 /* F-nor@2x.png */; };
@@ -270,6 +273,10 @@
 		0474B4AA1DB1C60C00D4A2AF /* ReadingComprehensionModel6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingComprehensionModel6.m; sourceTree = "<group>"; };
 		0474B4AC1DB1F05800D4A2AF /* SingleChoice6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChoice6.h; sourceTree = "<group>"; };
 		0474B4AD1DB1F05800D4A2AF /* SingleChoice6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChoice6.m; sourceTree = "<group>"; };
+		0474B4AF1DB320F800D4A2AF /* ReadingComprehensionModel7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingComprehensionModel7.h; sourceTree = "<group>"; };
+		0474B4B01DB320F800D4A2AF /* ReadingComprehensionModel7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingComprehensionModel7.m; sourceTree = "<group>"; };
+		0474B4B21DB3258F00D4A2AF /* yk1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yk1@2x.png"; sourceTree = "<group>"; };
+		0474B4B41DB325FE00D4A2AF /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		04B41F741D99542F00229BA3 /* F-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F751D99542F00229BA3 /* T-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "T-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F761D99542F00229BA3 /* F-nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-nor@2x.png"; sourceTree = "<group>"; };
@@ -668,6 +675,8 @@
 				0474B4AA1DB1C60C00D4A2AF /* ReadingComprehensionModel6.m */,
 				0474B4AC1DB1F05800D4A2AF /* SingleChoice6.h */,
 				0474B4AD1DB1F05800D4A2AF /* SingleChoice6.m */,
+				0474B4AF1DB320F800D4A2AF /* ReadingComprehensionModel7.h */,
+				0474B4B01DB320F800D4A2AF /* ReadingComprehensionModel7.m */,
 			);
 			path = level6;
 			sourceTree = "<group>";
@@ -1349,6 +1358,8 @@
 		F6FDA4341D937B9800C83D58 /* Resoure */ = {
 			isa = PBXGroup;
 			children = (
+				0474B4B21DB3258F00D4A2AF /* yk1@2x.png */,
+				0474B4B41DB325FE00D4A2AF /* logo@2x.png */,
 				04F5EB501D96881D00A0E47E /* 选择等级 */,
 				04F41F831D9625FF007AB37E /* 报名约考@2x.png */,
 				04E492891D96A2D900201FDA /* 返回图标.png */,
@@ -1495,6 +1506,7 @@
 				F6A4CCE51D9B875000A27F37 /* 点-pre@2x.png in Resources */,
 				040E23681D9810A0003A2196 /* 听力图标@2x.png in Resources */,
 				040E23601D97FC1C003A2196 /* 阅读图标-pre@2x.png in Resources */,
+				0474B4B51DB325FE00D4A2AF /* logo@2x.png in Resources */,
 				04F41FB11D9625FF007AB37E /* 左标随身未选@2x.png in Resources */,
 				04F41FAF1D9625FF007AB37E /* 左标随身点中@2x.png in Resources */,
 				04F41FA91D9625FF007AB37E /* 我要考试@2x.png in Resources */,
@@ -1504,6 +1516,7 @@
 				04F41FB31D9625FF007AB37E /* 左标约考点中@2x.png in Resources */,
 				04B41F7A1D99542F00229BA3 /* F-nor@2x.png in Resources */,
 				04B41F791D99542F00229BA3 /* T-pre@2x.png in Resources */,
+				0474B4B31DB3258F00D4A2AF /* yk1@2x.png in Resources */,
 				F6A4CCE41D9B875000A27F37 /* 点-nor@2x.png in Resources */,
 				040E235B1D97FC10003A2196 /* 写作图标-nor@2x.png in Resources */,
 			);
@@ -1605,6 +1618,7 @@
 				F6F833151D868EA000792E59 /* AssessmentSection.m in Sources */,
 				F6D1F9D11D80073500508F09 /* UITableViewCell+Line.m in Sources */,
 				F6D1F9EA1D80073500508F09 /* YXTimer.m in Sources */,
+				0474B4B11DB320F800D4A2AF /* ReadingComprehensionModel7.m in Sources */,
 				F6D1F9CB1D80073500508F09 /* UIFont+CustomFont.m in Sources */,
 				0474B4A81DAE6B7500D4A2AF /* ExerciseView+level6.m in Sources */,
 				F67FDAC11D8F96160064CF3D /* AFURLRequestSerialization.m in Sources */,

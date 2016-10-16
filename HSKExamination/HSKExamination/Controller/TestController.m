@@ -19,7 +19,6 @@
     NumberView      *   _numberView ;
     ExerciseView    *   _exerView ;      //  听力的view
     AudioManger     *   _audioManer ;
-//    int                 _testPartIndex ;    // 0 听力   1  阅读
 }
 @end
 

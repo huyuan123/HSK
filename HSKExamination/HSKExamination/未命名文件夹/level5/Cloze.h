@@ -19,6 +19,8 @@
 
 @property (nonatomic ,strong) Media             *       media ;
 
+@property (nonatomic ,assign) int                       i ;
+
 @end
 
 

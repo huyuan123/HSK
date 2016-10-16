@@ -135,10 +135,20 @@
 
 - (void)loadSingle6:(SingleChoice6 *)model
 {
-    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 150, self.backView.width, 30)];
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(30, 110, self.backView.width - 60, 3000)];
     label.text = model.simpleModel.textString ;
     [self.backView addSubview:label];
-    label.textAlignment = CenterText ;
+    label.numberOfLines = 0 ;
+    if (label.text.length < 20) {
+        label.height = 30 ;
+        label.textAlignment = CenterText ;
+
+    }else
+    {
+        [label sizeToFit];
+    }
+    AssessmentItemRef * modelRef = (AssessmentItemRef *)self.assessection ;
+
     
     NSArray * array = [model.simpleModel array];
     for (int i = 0; i < array.count ; i++) {
@@ -150,13 +160,17 @@
         [bu setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 0)];
         [bu setTitleColor:[UIColor blackColor] forState:BuNormal];
         
-        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(90, bu.y , 500, 100)];
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(90, bu.y +5 , 800, 100)];
         [self.backView addSubview:label];
         label.text = choiceModel.textString ;
         label.numberOfLines = 0 ;
         [label sizeToFit];
         
         [bu addTarget:self action:@selector(buSingChoiceEvent:) forControlEvents:BuTouchUpInside];
+        
+        if ([modelRef.userChoice isEqualToString:choiceModel.identifier]) {
+            [bu setIsSelect:YES] ;
+        }
     }
     
 }
@@ -166,7 +180,7 @@
 {
     NSArray * arr = [self.backView subviews];
     for (ItemBu * itemBu in arr) {
-        if ([itemBu isKindOfClass:[itemBu class]]) {
+        if ([itemBu isKindOfClass:[ItemBu class]]) {
             [itemBu setIsSelect:NO];
         }
     }

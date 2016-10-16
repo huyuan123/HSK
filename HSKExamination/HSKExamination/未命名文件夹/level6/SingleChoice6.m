@@ -42,8 +42,10 @@
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
 
+    string = [string stringByReplacingOccurrencesOfString:@"rdquo;" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"ldquo;" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"&" withString:@""];
+    string = [string stringByReplacingOccurrencesOfString:@"nbsp;" withString:@" "];
 
     
     if (_index == 10) {

@@ -72,6 +72,8 @@
     [label setText:model.textString];
     [label sizeToFit];
     [scor addSubview:label];
+    label.font = Font16 ;
+    scor.contentSize = CGSizeMake(10, label.height + 170) ;
     
     AssessmentItemRef * modelref = (AssessmentItemRef *)self.assessection ;
 
@@ -93,6 +95,8 @@
             
             [modelref.userResDic setObject:userRes forKey:num];
         }];
+        
+        
         
         if (modelref.astIndex.textPart == 2) {
             [view loadsimpleChoice:model.subItemArr[i]];
