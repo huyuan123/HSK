@@ -16,5 +16,5 @@
 
 - (void)loadCloze:(Cloze *)model ;
 
-- (void)loadSingleChoice3:(SingleChoice3 *)model ;
+- (void)loadSingleChoice5:(SingleChoice3 *)model ;
 @end

@@ -48,6 +48,9 @@
     string = [string stringByReplacingOccurrencesOfString:@"nbsp;" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"&" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"播放音频" withString:@""];
+    string = [string stringByReplacingOccurrencesOfString:@"rdquo;" withString:@"" ];
+    string = [string stringByReplacingOccurrencesOfString:@"ldquo;" withString:@"" ];
+
 
     if (_index == 10) {
         [_correctResponseArray addObject:string];

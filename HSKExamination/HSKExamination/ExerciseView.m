@@ -288,7 +288,7 @@
         BOOL b5 = level == 5 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 2 ;
 
         if (b5) {
-            []
+            [self loadSingleChoice5:choice];
         }else
         {
             [self loadSingleChoice3:(SingleChoice3 *)choice];
