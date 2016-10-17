@@ -32,6 +32,11 @@
         label.textColor = RGBCOLOR(190, 226, 47) ;
         label.text = modelChoice.textString ;
         
+        UILabel * tiHaoLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 290+i*160, 100, 30)];
+        [scroView addSubview:tiHaoLabel];
+        tiHaoLabel.font = [UIFont boldSystemFontOfSize:20];
+        tiHaoLabel.text = [NSString stringWithFormat:@"%d.",i+1];
+        tiHaoLabel.textColor = [UIColor blackColor];
         
         UIView * view = [[UIView alloc] initWithFrame:CGRectMake(90, 310 + i*160, self.backView.width -180, 80)];
         [scroView addSubview:view];
@@ -67,7 +72,7 @@
 {
     UIScrollView * scor = [[UIScrollView alloc] initWithFrame:self.backView.bounds];
     [self.backView addSubview:scor];
-    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(50, 150, 300, 3000)];
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(50, 120, 270, 3000)];
     label.numberOfLines = 0 ;
     [label setText:model.textString];
     [label sizeToFit];
@@ -77,33 +82,58 @@
     
     AssessmentItemRef * modelref = (AssessmentItemRef *)self.assessection ;
 
+    float height = 0 ;
     for(int i = 0 ; i < model.subItemArr.count ; i++)
     {
-        SelectView * view = [[SelectView alloc] initWithFrame:CGRectMake(360, 170 + 80*i, scor.width -370, 50)];
-        if (modelref.userResDic && modelref.userResDic[[NSString stringWithFormat:@"%d",i+1]]) {
-            view.userRes =  modelref.userResDic[[NSString stringWithFormat:@"%d",i+1]] ;
-        }
+        UILabel * tiHaoLabel = [[UILabel alloc] initWithFrame:CGRectMake(360, 120 + i*150, scor.width -390, 30)];
+        [scor addSubview:tiHaoLabel];
+        tiHaoLabel.text = [NSString stringWithFormat:@"%d",i + 1];
+        UIView * view = [[UIView alloc] initWithFrame:CGRectMake(360, 150 + i*150, scor.width - 390, 120)];
+        [scor addSubview:view];
+        height = view.bottom ;
         
-        [self.backView addSubview:view];
-        
-        [view loadSubItem:[model.subItemArr[i] array] andTitle:[NSString stringWithFormat:@"%d",i+1]];
-        
-        [view setClickBlock:^(NSString * num, NSString * userRes) {
-            if (modelref.userResDic == nil) {
-                modelref.userResDic = [NSMutableDictionary dictionaryWithCapacity:5];
-            }
+        SimpleChoice * choice = [model.subItemArr objectAtIndex:i];
+
+        for (int j = 0; j < choice.array.count; j++) {
+            SimpleChoice * choiceModel = choice.array[j] ;
+            ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(0, 30*j, 60, 30)];
+            [view addSubview:bu];
+            [bu setImageName:@"点"];
+            [bu setTitle:choiceModel.identifier forState:BuNormal];
+            [bu setTitleColor:[UIColor blackColor] forState:BuNormal];
+            bu.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0) ;
             
-            [modelref.userResDic setObject:userRes forKey:num];
-        }];
-        
-        
-        
-        if (modelref.astIndex.textPart == 2) {
-            [view loadsimpleChoice:model.subItemArr[i]];
+            UILabel * topLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, bu.y, 200, 30)];
+            [view addSubview:topLabel];
+            topLabel.text = choiceModel.textString ;
+            [bu addTarget:self action:@selector(clozeEvent:) forControlEvents:BuTouchUpInside];
+            
         }
     }
     
+    scor.contentSize = CGSizeMake(10, label.bottom>height?label.bottom:height + 30) ;
 
+}
+
+- (void)clozeEvent:(ItemBu *)bu
+{
+    NSArray * arr = [bu.superview subviews];
+    for (ItemBu * button in arr) {
+        if ([button isKindOfClass:[ItemBu class]]) {
+            [button setIsSelect:NO];
+        }
+    }
+    
+    [bu setIsSelect:YES];
+}
+
+
+
+
+#pragma mark--------------加载单选
+- (void)loadSingleChoice3:(SingleChoice3 *)model
+{
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)];
 }
 
 @end
