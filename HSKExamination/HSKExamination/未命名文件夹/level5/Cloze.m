@@ -22,6 +22,7 @@
     {
         _index = 99 ;
         _textString = @"" ;
+        _tiHao = 1 ;
     }else if ([elementName isEqualToString:@"prompt"])
     {
         _index ++ ;
@@ -40,6 +41,9 @@
     }else if ([elementName isEqualToString:@"media"])
     {
         _media = [[Media alloc] initWithDictionary:attributeDict];
+    }else if ([elementName isEqualToString:@"clozeGap"])
+    {
+        _textString = [_textString stringByAppendingString:[NSString stringWithFormat:@"( %d )",_tiHao ++ ]];
     }
 }
 
