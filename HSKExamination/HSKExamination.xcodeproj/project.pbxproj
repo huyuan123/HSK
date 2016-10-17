@@ -49,6 +49,7 @@
 		0474B4BB1DB351D500D4A2AF /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4BA1DB351D500D4A2AF /* CityModel.m */; };
 		0474B4BE1DB3522F00D4A2AF /* TestCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4BD1DB3522F00D4A2AF /* TestCenter.m */; };
 		0474B4C11DB360BC00D4A2AF /* CityPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4C01DB360BC00D4A2AF /* CityPickView.m */; };
+		0474B4C41DB37C1C00D4A2AF /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4C31DB37C1C00D4A2AF /* Order.m */; };
 		04B41F781D99542F00229BA3 /* F-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F741D99542F00229BA3 /* F-pre@2x.png */; };
 		04B41F791D99542F00229BA3 /* T-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F751D99542F00229BA3 /* T-pre@2x.png */; };
 		04B41F7A1D99542F00229BA3 /* F-nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F761D99542F00229BA3 /* F-nor@2x.png */; };
@@ -289,6 +290,8 @@
 		0474B4BD1DB3522F00D4A2AF /* TestCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCenter.m; sourceTree = "<group>"; };
 		0474B4BF1DB360BC00D4A2AF /* CityPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityPickView.h; sourceTree = "<group>"; };
 		0474B4C01DB360BC00D4A2AF /* CityPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityPickView.m; sourceTree = "<group>"; };
+		0474B4C21DB37C1C00D4A2AF /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		0474B4C31DB37C1C00D4A2AF /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
 		04B41F741D99542F00229BA3 /* F-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F751D99542F00229BA3 /* T-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "T-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F761D99542F00229BA3 /* F-nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-nor@2x.png"; sourceTree = "<group>"; };
@@ -1371,6 +1374,8 @@
 				0474B4BA1DB351D500D4A2AF /* CityModel.m */,
 				0474B4BC1DB3522F00D4A2AF /* TestCenter.h */,
 				0474B4BD1DB3522F00D4A2AF /* TestCenter.m */,
+				0474B4C21DB37C1C00D4A2AF /* Order.h */,
+				0474B4C31DB37C1C00D4A2AF /* Order.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1621,6 +1626,7 @@
 				F6D1F9A71D80073500508F09 /* LoadingRotateView.m in Sources */,
 				04F41F7F1D961C1D007AB37E /* LeftSelectBu.m in Sources */,
 				F6D1F9C61D80073500508F09 /* RotateView.m in Sources */,
+				0474B4C41DB37C1C00D4A2AF /* Order.m in Sources */,
 				F661A9391D913053003A4DE7 /* User.m in Sources */,
 				F6D1F9E31D80073500508F09 /* GCDGroup.m in Sources */,
 				F6D1F9C81D80073500508F09 /* TransformDictionary.m in Sources */,
