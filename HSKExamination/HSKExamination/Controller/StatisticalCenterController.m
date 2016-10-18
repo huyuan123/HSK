@@ -76,6 +76,21 @@
     titleLabel.font = [UIFont systemFontOfSize:20] ;
     
     
+    UILabel * middleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 50, 200, 30)];
+    [view addSubview:middleLabel];
+    middleLabel.textColor = titleLabel.textColor ;
+    middleLabel.textAlignment = CenterText ;
+    middleLabel.centerX = view.middleX ;
+    middleLabel.text = @"正确 / 题目总数" ;
+    middleLabel.font = Font20 ;
+    
+    
+    UILabel *  rightL = [[UILabel alloc] initWithFrame:CGRectMake(view.width -150, 55, 150, 30)];
+    [view addSubview:rightL];
+    rightL.textColor = middleLabel.textColor ;
+    rightL.text = @"正确率" ;
+    rightL.font = Font20 ;
+    
    NSArray * arr  = @[@"听力",@"阅读",@"写作"] ;
     for (int i = 0; i < 3; i++) {
         UIImageView * imageV = [[UIImageView alloc] initWithFrame:CGRectMake(100, 145 + i*100, 30, 30)];
@@ -122,7 +137,7 @@
     [button setTitleColor:[UIColor whiteColor] forState:BuNormal];
     button.backgroundColor = RGBCOLOR(143, 170, 74) ;
     
-    
+    [self loadBili];
 }
 
 - (void)didReceiveMemoryWarning {
