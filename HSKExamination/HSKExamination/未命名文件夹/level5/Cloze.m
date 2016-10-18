@@ -9,6 +9,16 @@
 #import "Cloze.h"
 
 @implementation Cloze
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _textString = @"" ;
+    }
+    
+    return self ;
+}
+
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     _currentElement = elementName ;
     if([elementName isEqualToString:@"correctResponse"])
@@ -22,7 +32,6 @@
     {
         _index = 99 ;
         _textString = @"" ;
-        _tiHao = 1 ;
     }else if ([elementName isEqualToString:@"prompt"])
     {
         _index ++ ;
@@ -43,16 +52,22 @@
         _media = [[Media alloc] initWithDictionary:attributeDict];
     }else if ([elementName isEqualToString:@"clozeGap"])
     {
-        _textString = [_textString stringByAppendingString:[NSString stringWithFormat:@"( %d )",_tiHao ++ ]];
+      _textString =  [_textString stringByAppendingFormat:@"(_%d_)",_i++];
     }
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
+    string = [string stringByReplacingOccurrencesOfString:@"hellip;" withString:@""];
+
     string = [string stringByReplacingOccurrencesOfString:@"nbsp;" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"&" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"ldquo;" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"rdquo;" withString:@""];
+    
+    if ([string isCharacter]) {
+        string = [NSString stringWithFormat:@"\n\n%@ ",string];
+    }
 
     if (_index == 10) {
         [_correctResponseArray addObject:string];

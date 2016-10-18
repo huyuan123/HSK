@@ -96,12 +96,9 @@
 {
     UIViewController * con = _controllers[but.tag-100];
     if (con == _currentCon) {
-        NSLog(@"------------") ;
         return ;
     }
     
-    NSLog(@"------------0000000000000") ;
-
     for (int i = 0; i < 4; i++) {
         LeftSelectBu * bu = [self.view viewWithTag:100 + i];
         if (bu == but) {
@@ -116,6 +113,13 @@
         
     } completion:^(BOOL finished) {
         _currentCon = con ;
+        if (_currentCon == _advisCon) {
+//            [_advisCon showContents];
+        }else
+        {
+            [_advisCon hiddenContents];
+        }
+        
     }];
 }
 

@@ -16,6 +16,8 @@
 
 - (void)loadData:(NSArray *)arr andTitle:(NSString *)title;
 
+- (void)loadSubItem:(NSArray *)arr andTitle:(NSString *)title;
+
 - (void)loadsimpleChoice:(SimpleChoice *)model ;
 
 - (void)hiddenNumber ;

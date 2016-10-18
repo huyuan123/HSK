@@ -72,33 +72,36 @@
     [label setText:model.textString];
     [label sizeToFit];
     [scor addSubview:label];
+    label.font = Font16 ;
+    scor.contentSize = CGSizeMake(10, label.height + 170) ;
     
     AssessmentItemRef * modelref = (AssessmentItemRef *)self.assessection ;
 
-//    for(int i = 0 ; i < model.subItemArr.count ; i++)
-//    {
-//        SelectView * view = [[SelectView alloc] initWithFrame:CGRectMake(270, 170 + 80*i, 380, 50)];
-//        if (modelref.userResDic && modelref.userResDic[[NSString stringWithFormat:@"%d",i+1]]) {
-//            view.userRes =  modelref.userResDic[[NSString stringWithFormat:@"%d",i+1]] ;
-//        }
-//        
-//        [self.backView addSubview:view];
-//        
-//        [view loadData:[model.subItemArr[i] array] andTitle:[NSString stringWithFormat:@"%d",i+1]];
-//        
-//        [view setClickBlock:^(NSString * num, NSString * userRes) {
-//            if (modelref.userResDic == nil) {
-//                modelref.userResDic = [NSMutableDictionary dictionaryWithCapacity:5];
-//            }
-//            
-//            [modelref.userResDic setObject:userRes forKey:num];
-//        }];
-//        
-//        if (modelref.astIndex.textPart == 2) {
-//            [view loadsimpleChoice:model.subItemArr[i]];
-//        }
-//    }
-    
+    for(int i = 0 ; i < model.subItemArr.count ; i++)
+    {
+        SelectView * view = [[SelectView alloc] initWithFrame:CGRectMake(360, 170 + 80*i, scor.width -370, 50)];
+        if (modelref.userResDic && modelref.userResDic[[NSString stringWithFormat:@"%d",i+1]]) {
+            view.userRes =  modelref.userResDic[[NSString stringWithFormat:@"%d",i+1]] ;
+        }
+        
+        [self.backView addSubview:view];
+        
+        [view loadSubItem:[model.subItemArr[i] array] andTitle:[NSString stringWithFormat:@"%d",i+1]];
+        
+        [view setClickBlock:^(NSString * num, NSString * userRes) {
+            if (modelref.userResDic == nil) {
+                modelref.userResDic = [NSMutableDictionary dictionaryWithCapacity:5];
+            }
+            
+            [modelref.userResDic setObject:userRes forKey:num];
+        }];
+        
+        
+        
+        if (modelref.astIndex.textPart == 2) {
+            [view loadsimpleChoice:model.subItemArr[i]];
+        }
+    }
 
 }
 

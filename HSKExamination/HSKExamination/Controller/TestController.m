@@ -19,7 +19,6 @@
     NumberView      *   _numberView ;
     ExerciseView    *   _exerView ;      //  听力的view
     AudioManger     *   _audioManer ;
-//    int                 _testPartIndex ;    // 0 听力   1  阅读
 }
 @end
 
@@ -112,7 +111,12 @@
     
     NSArray * arr = @[@"全部图标",@"听力图标",@"阅读图标",@"写作图标"];
     NSArray * titleArr = @[@"全部",@"听力",@"阅读",@"书写"] ;
-    for (int i = 0; i < 4; i++) {
+    
+    int count = 4 ;
+    if (_level < 3) {
+        count -- ;
+    }
+    for (int i = 0; i < count ; i++) {
         RightBu * allBU = [[RightBu alloc] initWithFrame:CGRectMake(_exerView.width - 86, 50, 84, 120)];
         [_exerView addSubview:allBU];
         [allBU setImageName:arr[i]];
@@ -152,6 +156,10 @@
     {
         [_numberView loadTestPart:_astModel.testPartArray[1]];
         index = 1 ;
+    }else if (bu.tag == 2003)
+    {
+        [_numberView loadTestPart:_astModel.testPartArray[2]];
+        index = 2 ;
     }
 
     

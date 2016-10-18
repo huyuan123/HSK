@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface AdvisoryController : BaseViewController
-
+- (void)showContents ;
+- (void)hiddenContents ;
 @end

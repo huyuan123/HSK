@@ -19,15 +19,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:_webView];
-//    [_webView loadRequest:[NSURLRequest requestWithURL:UrlString(@"http://www.hanban.edu.cn/")]];
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (void)showContents
+{
+    _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:_webView];
+    [_webView loadRequest:[NSURLRequest requestWithURL:UrlString(@"http://cnhsk.org/hskpad")]];
+
+}
+
+- (void)hiddenContents
+{
+    
+    [_webView removeFromSuperview];
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+
+}
 
 @end

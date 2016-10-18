@@ -39,6 +39,16 @@
 		046D699B1DA2621A009BCE78 /* ReadingComprehensionModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 046D699A1DA2621A009BCE78 /* ReadingComprehensionModel2.m */; };
 		0474B4A11DAA823500D4A2AF /* ExerciseView+level4.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4A01DAA823500D4A2AF /* ExerciseView+level4.m */; };
 		0474B4A41DABCA8800D4A2AF /* TextEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4A31DABCA8800D4A2AF /* TextEntry.m */; };
+		0474B4A81DAE6B7500D4A2AF /* ExerciseView+level6.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4A71DAE6B7500D4A2AF /* ExerciseView+level6.m */; };
+		0474B4AB1DB1C60C00D4A2AF /* ReadingComprehensionModel6.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4AA1DB1C60C00D4A2AF /* ReadingComprehensionModel6.m */; };
+		0474B4AE1DB1F05800D4A2AF /* SingleChoice6.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4AD1DB1F05800D4A2AF /* SingleChoice6.m */; };
+		0474B4B11DB320F800D4A2AF /* ReadingComprehensionModel7.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4B01DB320F800D4A2AF /* ReadingComprehensionModel7.m */; };
+		0474B4B31DB3258F00D4A2AF /* yk1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0474B4B21DB3258F00D4A2AF /* yk1@2x.png */; };
+		0474B4B51DB325FE00D4A2AF /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0474B4B41DB325FE00D4A2AF /* logo@2x.png */; };
+		0474B4B81DB34F1700D4A2AF /* ExtendedText.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4B71DB34F1700D4A2AF /* ExtendedText.m */; };
+		0474B4BB1DB351D500D4A2AF /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4BA1DB351D500D4A2AF /* CityModel.m */; };
+		0474B4BE1DB3522F00D4A2AF /* TestCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4BD1DB3522F00D4A2AF /* TestCenter.m */; };
+		0474B4C11DB360BC00D4A2AF /* CityPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474B4C01DB360BC00D4A2AF /* CityPickView.m */; };
 		04B41F781D99542F00229BA3 /* F-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F741D99542F00229BA3 /* F-pre@2x.png */; };
 		04B41F791D99542F00229BA3 /* T-pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F751D99542F00229BA3 /* T-pre@2x.png */; };
 		04B41F7A1D99542F00229BA3 /* F-nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F761D99542F00229BA3 /* F-nor@2x.png */; };
@@ -261,6 +271,24 @@
 		0474B4A01DAA823500D4A2AF /* ExerciseView+level4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ExerciseView+level4.m"; sourceTree = "<group>"; };
 		0474B4A21DABCA8800D4A2AF /* TextEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEntry.h; sourceTree = "<group>"; };
 		0474B4A31DABCA8800D4A2AF /* TextEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEntry.m; sourceTree = "<group>"; };
+		0474B4A61DAE6B7500D4A2AF /* ExerciseView+level6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ExerciseView+level6.h"; sourceTree = "<group>"; };
+		0474B4A71DAE6B7500D4A2AF /* ExerciseView+level6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ExerciseView+level6.m"; sourceTree = "<group>"; };
+		0474B4A91DB1C60C00D4A2AF /* ReadingComprehensionModel6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingComprehensionModel6.h; sourceTree = "<group>"; };
+		0474B4AA1DB1C60C00D4A2AF /* ReadingComprehensionModel6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingComprehensionModel6.m; sourceTree = "<group>"; };
+		0474B4AC1DB1F05800D4A2AF /* SingleChoice6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChoice6.h; sourceTree = "<group>"; };
+		0474B4AD1DB1F05800D4A2AF /* SingleChoice6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChoice6.m; sourceTree = "<group>"; };
+		0474B4AF1DB320F800D4A2AF /* ReadingComprehensionModel7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingComprehensionModel7.h; sourceTree = "<group>"; };
+		0474B4B01DB320F800D4A2AF /* ReadingComprehensionModel7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingComprehensionModel7.m; sourceTree = "<group>"; };
+		0474B4B21DB3258F00D4A2AF /* yk1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yk1@2x.png"; sourceTree = "<group>"; };
+		0474B4B41DB325FE00D4A2AF /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		0474B4B61DB34F1700D4A2AF /* ExtendedText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendedText.h; sourceTree = "<group>"; };
+		0474B4B71DB34F1700D4A2AF /* ExtendedText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendedText.m; sourceTree = "<group>"; };
+		0474B4B91DB351D500D4A2AF /* CityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
+		0474B4BA1DB351D500D4A2AF /* CityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
+		0474B4BC1DB3522F00D4A2AF /* TestCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCenter.h; sourceTree = "<group>"; };
+		0474B4BD1DB3522F00D4A2AF /* TestCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCenter.m; sourceTree = "<group>"; };
+		0474B4BF1DB360BC00D4A2AF /* CityPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityPickView.h; sourceTree = "<group>"; };
+		0474B4C01DB360BC00D4A2AF /* CityPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityPickView.m; sourceTree = "<group>"; };
 		04B41F741D99542F00229BA3 /* F-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F751D99542F00229BA3 /* T-pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "T-pre@2x.png"; sourceTree = "<group>"; };
 		04B41F761D99542F00229BA3 /* F-nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-nor@2x.png"; sourceTree = "<group>"; };
@@ -602,6 +630,7 @@
 				042369B01DA7A2D600814AB8 /* level3 */,
 				04CA94011DA9258300259995 /* level4 */,
 				F6660DE81DAC8780004F55E7 /* level5 */,
+				0474B4A51DAE6B6300D4A2AF /* level6 */,
 				0423699C1DA743F100814AB8 /* Header.h */,
 			);
 			name = "分级别处理页面";
@@ -649,6 +678,23 @@
 			path = level3;
 			sourceTree = "<group>";
 		};
+		0474B4A51DAE6B6300D4A2AF /* level6 */ = {
+			isa = PBXGroup;
+			children = (
+				0474B4A61DAE6B7500D4A2AF /* ExerciseView+level6.h */,
+				0474B4A71DAE6B7500D4A2AF /* ExerciseView+level6.m */,
+				0474B4A91DB1C60C00D4A2AF /* ReadingComprehensionModel6.h */,
+				0474B4AA1DB1C60C00D4A2AF /* ReadingComprehensionModel6.m */,
+				0474B4AC1DB1F05800D4A2AF /* SingleChoice6.h */,
+				0474B4AD1DB1F05800D4A2AF /* SingleChoice6.m */,
+				0474B4AF1DB320F800D4A2AF /* ReadingComprehensionModel7.h */,
+				0474B4B01DB320F800D4A2AF /* ReadingComprehensionModel7.m */,
+				0474B4B61DB34F1700D4A2AF /* ExtendedText.h */,
+				0474B4B71DB34F1700D4A2AF /* ExtendedText.m */,
+			);
+			path = level6;
+			sourceTree = "<group>";
+		};
 		04CA94011DA9258300259995 /* level4 */ = {
 			isa = PBXGroup;
 			children = (
@@ -683,6 +729,8 @@
 				040E234F1D97EA3A003A2196 /* RightBu.m */,
 				F63080021D9D01AF00241D16 /* SelectView.h */,
 				F63080031D9D01AF00241D16 /* SelectView.m */,
+				0474B4BF1DB360BC00D4A2AF /* CityPickView.h */,
+				0474B4C01DB360BC00D4A2AF /* CityPickView.m */,
 			);
 			name = subView;
 			sourceTree = "<group>";
@@ -1319,6 +1367,10 @@
 				046D698B1DA0C71F009BCE78 /* SimpleChoice.m */,
 				F6A4CCE61D9B8D8B00A27F37 /* ReadingComprehensionModel.h */,
 				F6A4CCE71D9B8D8B00A27F37 /* ReadingComprehensionModel.m */,
+				0474B4B91DB351D500D4A2AF /* CityModel.h */,
+				0474B4BA1DB351D500D4A2AF /* CityModel.m */,
+				0474B4BC1DB3522F00D4A2AF /* TestCenter.h */,
+				0474B4BD1DB3522F00D4A2AF /* TestCenter.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1326,6 +1378,8 @@
 		F6FDA4341D937B9800C83D58 /* Resoure */ = {
 			isa = PBXGroup;
 			children = (
+				0474B4B21DB3258F00D4A2AF /* yk1@2x.png */,
+				0474B4B41DB325FE00D4A2AF /* logo@2x.png */,
 				04F5EB501D96881D00A0E47E /* 选择等级 */,
 				04F41F831D9625FF007AB37E /* 报名约考@2x.png */,
 				04E492891D96A2D900201FDA /* 返回图标.png */,
@@ -1472,6 +1526,7 @@
 				F6A4CCE51D9B875000A27F37 /* 点-pre@2x.png in Resources */,
 				040E23681D9810A0003A2196 /* 听力图标@2x.png in Resources */,
 				040E23601D97FC1C003A2196 /* 阅读图标-pre@2x.png in Resources */,
+				0474B4B51DB325FE00D4A2AF /* logo@2x.png in Resources */,
 				04F41FB11D9625FF007AB37E /* 左标随身未选@2x.png in Resources */,
 				04F41FAF1D9625FF007AB37E /* 左标随身点中@2x.png in Resources */,
 				04F41FA91D9625FF007AB37E /* 我要考试@2x.png in Resources */,
@@ -1481,6 +1536,7 @@
 				04F41FB31D9625FF007AB37E /* 左标约考点中@2x.png in Resources */,
 				04B41F7A1D99542F00229BA3 /* F-nor@2x.png in Resources */,
 				04B41F791D99542F00229BA3 /* T-pre@2x.png in Resources */,
+				0474B4B31DB3258F00D4A2AF /* yk1@2x.png in Resources */,
 				F6A4CCE41D9B875000A27F37 /* 点-nor@2x.png in Resources */,
 				040E235B1D97FC10003A2196 /* 写作图标-nor@2x.png in Resources */,
 			);
@@ -1506,6 +1562,7 @@
 				F6D1F9E81D80073500508F09 /* NETWorkPicUpload.m in Sources */,
 				F6D1F8D91D80040000508F09 /* ioapi.c in Sources */,
 				040E23441D978911003A2196 /* NumberView.m in Sources */,
+				0474B4BB1DB351D500D4A2AF /* CityModel.m in Sources */,
 				F6D1F9A21D80073500508F09 /* MBProgressHUD.m in Sources */,
 				F6D1F8DE1D80040000508F09 /* SSZipArchive.m in Sources */,
 				F63080041D9D01AF00241D16 /* SelectView.m in Sources */,
@@ -1518,6 +1575,7 @@
 				F6FDA4431D93D5DD00C83D58 /* MainController.m in Sources */,
 				046D698C1DA0C71F009BCE78 /* SimpleChoice.m in Sources */,
 				F6D1F8D51D80040000508F09 /* prng.c in Sources */,
+				0474B4B81DB34F1700D4A2AF /* ExtendedText.m in Sources */,
 				F67FDABF1D8F96160064CF3D /* AFNetworkReachabilityManager.m in Sources */,
 				F6D1F99E1D80073500508F09 /* ChooseOneButton.m in Sources */,
 				F6D1F9CE1D80073500508F09 /* UINavigationController+Hide.m in Sources */,
@@ -1582,13 +1640,16 @@
 				F6F833151D868EA000792E59 /* AssessmentSection.m in Sources */,
 				F6D1F9D11D80073500508F09 /* UITableViewCell+Line.m in Sources */,
 				F6D1F9EA1D80073500508F09 /* YXTimer.m in Sources */,
+				0474B4B11DB320F800D4A2AF /* ReadingComprehensionModel7.m in Sources */,
 				F6D1F9CB1D80073500508F09 /* UIFont+CustomFont.m in Sources */,
+				0474B4A81DAE6B7500D4A2AF /* ExerciseView+level6.m in Sources */,
 				F67FDAC11D8F96160064CF3D /* AFURLRequestSerialization.m in Sources */,
 				F641DE541D9903DE0039CBC9 /* Media.m in Sources */,
 				F6D1F9D81D80073500508F09 /* UIView+SetRect.m in Sources */,
 				F6D1F9C11D80073500508F09 /* NSString+RichText.m in Sources */,
 				F6D1F9A81D80073500508F09 /* NCTitleAttribute.m in Sources */,
 				F6D1F9B41D80073500508F09 /* NSObject+NSNotificationCenter.m in Sources */,
+				0474B4AE1DB1F05800D4A2AF /* SingleChoice6.m in Sources */,
 				F6D1F9CD1D80073500508F09 /* UIImage+MetaData.m in Sources */,
 				F6D1F9A31D80073500508F09 /* ShowHUD.m in Sources */,
 				F63CA8191D9A62B900DFD07A /* SingleChoice.m in Sources */,
@@ -1611,6 +1672,7 @@
 				F6D1F9C41D80073500508F09 /* NSString+UIPasteboard.m in Sources */,
 				F6D1F9B31D80073500508F09 /* NSObject+FastCoder.m in Sources */,
 				F6D1F9C51D80073500508F09 /* NSString+WeakDictionary.m in Sources */,
+				0474B4AB1DB1C60C00D4A2AF /* ReadingComprehensionModel6.m in Sources */,
 				F6D1F9A41D80073500508F09 /* HYDianxuanVIew.m in Sources */,
 				F63CA8161D9A4BFC00DFD07A /* ProblemModel.m in Sources */,
 				F6D1F9BC1D80073500508F09 /* NSString+Data.m in Sources */,
@@ -1619,10 +1681,12 @@
 				F6660DEE1DACB79A004F55E7 /* ExerciseView+level5.m in Sources */,
 				F6D1F8CF1D80040000508F09 /* aescrypt.c in Sources */,
 				04B41F7E1D99589B00229BA3 /* ItemBu.m in Sources */,
+				0474B4C11DB360BC00D4A2AF /* CityPickView.m in Sources */,
 				F6D1F87F1D7FFC7E00508F09 /* main.m in Sources */,
 				F6D1F9D31D80073500508F09 /* UIView+BackgroundView.m in Sources */,
 				F6D1F9A51D80073500508F09 /* LabelRotateView.m in Sources */,
 				F6D1F9BD1D80073500508F09 /* NSString+DES.m in Sources */,
+				0474B4BE1DB3522F00D4A2AF /* TestCenter.m in Sources */,
 				F6D1F9A01D80073500508F09 /* FastCoder.m in Sources */,
 				F67FDAC01D8F96160064CF3D /* AFSecurityPolicy.m in Sources */,
 				046D69981DA23DC0009BCE78 /* NSString+Chara.m in Sources */,

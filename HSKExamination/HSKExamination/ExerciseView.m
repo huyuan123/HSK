@@ -107,9 +107,10 @@
         BOOL b1 = level == 4 && assModel.astIndex.textPart == 1 ;
         BOOL b2 = level == 4 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 3 ;
         BOOL b3 = level == 5 && assModel.astIndex.textPart == 1 ;
+        BOOL b4 = level == 6 && assModel.astIndex.textPart == 1 && assModel.astIndex.assessmentSection == 1 ;
 
         
-        if (b || b1 ) {
+        if (b || b1 || b4) {
             level = 1 ;
         }
         
@@ -129,7 +130,9 @@
         BOOL  b8 = level == 4 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 3;
         BOOL  b9 = level == 4 && assModel.astIndex.textPart == 1 && assModel.astIndex.assessmentSection == 3;
 
-        if (b1 || b4 || b7 || b8 || b9) {
+        BOOL b10 = level == 6 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 4 ;
+
+        if (b1 || b4 || b7 || b8 || b9 || b10) {
             level ++ ;
         }
         
@@ -146,7 +149,8 @@
         if (b6) {
             level = 2 ;
         }
-                
+        
+        
         ReadingComprehensionModel * readModel = [ReadingComprehensionModel createChildWithLevel:level] ;
         [readModel parseInPath:path];
         [self loadReadModel:readModel];
@@ -161,10 +165,19 @@
         Cloze * model = [[Cloze alloc] init];
         [model parseInPath:path];
         [self loadCloze:model];
+    }else if ([assModel.type isEqualToString:@"extendedText"])
+    {
+        ExtendedText * extendModel = [[ExtendedText alloc] init] ;
+        [extendModel parseInPath:path];
+        [self loadWrite:extendModel];
     }
 }
 
-
+#pragma mark------------------------------   加载写作
+- (void)loadWrite:(ExtendedText *)model
+{
+    [self loadExtendedText:model];
+}
 
 #pragma mark------------------------------   加载排序
 
@@ -258,13 +271,20 @@
     if ([choice isKindOfClass:[SingleChoice1 class]]) {
         if ([User shareInstance].level == 4 || [User shareInstance].level == 5) {
             [self loadSingleChoice4:(SingleChoice1 *)choice];
-        }else
+        }else if ([User shareInstance].level == 6)
+        {
+            [self loadSingleChoice6:(SingleChoice1 *)choice];
+        }
+        else
         {
             [self loadSingleChoice1:(SingleChoice1 *)choice];
         }
     }else if ([choice isKindOfClass:[SingleChoice3 class]])
     {
         [self loadSingleChoice3:(SingleChoice3 *)choice];
+    }else if ([choice isKindOfClass:[SingleChoice6 class]])
+    {
+        [self loadSingle6:(SingleChoice6 *)choice];
     }
     
     /*
@@ -376,9 +396,15 @@
     }else if ([model isKindOfClass:[ReadingComprehensionModel5 class]])
     {
         [self loadReadingComprehensionModel5:(ReadingComprehensionModel5 *)model];
+    }else if ([model isKindOfClass:[ReadingComprehensionModel6 class]])
+    {
+        [self loadReadingComprehensionModel6:(ReadingComprehensionModel6 *)model];
+    }else if ([model isKindOfClass:[ReadingComprehensionModel7 class]])
+    {
+        [self loadReadingComprehensionModel7:(ReadingComprehensionModel7 *)model];
     }
-    
-    
+}
+
     
     /*
     if (model.imgArray.count) {
@@ -453,7 +479,7 @@
         [_manger stop];
     }
      */
-}
+//}
 
 /*
 #pragma mark------------------------------   加载第二种阅读理解

@@ -74,9 +74,18 @@
             bu.tag = 100 + i ;
             bu.index = (ASTIndex){partType,section,assrssref};
             [_scorView addSubview:bu];
-            i ++ ;
-            [bu setTitle:[NSString stringWithFormat:@"%d",i] forState:BuNormal];
+            
             [bu addTarget:self action:@selector(clickBu:) forControlEvents:BuTouchUpInside] ;
+            i ++ ;
+
+//            if ([model.type isEqualToString:@"readingComprehension"] || [model.type isEqualToString:@"Cloze"]) {
+//                
+//                [bu setTitle:[NSString stringWithFormat:@"%d~%d",i,i+4] forState:BuNormal];
+//                i += 4 ;
+//                continue ;
+//            }
+            
+            [bu setTitle:[NSString stringWithFormat:@"%d",i] forState:BuNormal];
         }
     }
     

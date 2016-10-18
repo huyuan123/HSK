@@ -36,9 +36,6 @@
             [item setIsSelect:YES];
         }
     }
-    
-//    self.backgroundColor = [UIColor yellowColor];
-//    label.backgroundColor = [UIColor blueColor];
 }
 
 - (void)loadsimpleChoice:(SimpleChoice *)model
@@ -79,5 +76,37 @@
         _clickBlock(s,_userRes) ;
     }
 }
+
+- (void)loadSubItem:(NSArray *)arr andTitle:(NSString *)title
+{
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
+    [self addSubview:label];
+    label.text = title ;
+    label.textColor = [UIColor blackColor];
+    label.font = [UIFont boldSystemFontOfSize:15];
+    label.tag = 10 ;
+    int i = 0 ;
+    
+    for (SimpleChoice * s in arr) {
+        ItemBu * item = [[ItemBu alloc] initWithFrame:CGRectMake(i*60, 20, 34, 30)];
+        [self addSubview:item];
+        
+        item.imageName = @"点" ;
+//        [item setTitle:s.textString forState:BuNormal];
+        [item setTitleColor:[UIColor blackColor] forState:BuNormal];
+        item.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -10)  ;
+        [item addTarget:self action:@selector(buEvent:) forControlEvents:BuTouchUpInside];
+        i++ ;
+        [item setTitle:s.identifier forState:BuNormal];
+        [item setTitleColor:[UIColor blackColor] forState:BuNormal];
+        item.tag = 100 + i ;
+        
+        if (_userRes && [_userRes isEqualToString:s.identifier]) {
+            [item setIsSelect:YES];
+        }
+    }
+
+}
+
 
 @end
