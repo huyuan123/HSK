@@ -131,6 +131,8 @@
             
         }
         
+        field.textAlignment = CenterText ;
+        
     }
     
     
@@ -159,7 +161,7 @@
     NSString * name = [[self.view viewWithTag:100] text];
 
     NSString * level = [[self.view viewWithTag:104] text];
-//    NSString * old = [[self.view viewWithTag:100] text];
+    NSString * old = [[self.view viewWithTag:102] text];
     NSString * phone = [[self.view viewWithTag:105] text];
     NSString * email = [[self.view viewWithTag:106] text];
 
@@ -186,6 +188,11 @@
 
     }
 
+    if (!isCanUseString(old)) {
+        [[[UIAlertView alloc] initWithTitle:@"请输入年龄" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show] ;
+        
+    }
+
     if (!_center) {
         [[[UIAlertView alloc] initWithTitle:@"请输入考点" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show] ;
 
@@ -197,7 +204,8 @@
                                                      @"city" : _center.centerId,
                                                      @"level":level,
                                                      @"phone": phone,
-                                                     @"email" : email
+                                                     @"email" : email,
+                                                     @"age"   : old
                                                      } andSuccess:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable respon) {
                                                          
                                                          UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"信息已经提交，请耐心等待。我们会通知最近的考点与您联系" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];

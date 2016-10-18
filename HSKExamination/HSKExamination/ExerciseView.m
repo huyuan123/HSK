@@ -108,13 +108,14 @@
         BOOL b2 = level == 4 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 3 ;
         BOOL b3 = level == 5 && assModel.astIndex.textPart == 1 ;
         BOOL b4 = level == 6 && assModel.astIndex.textPart == 1 && assModel.astIndex.assessmentSection == 1 ;
+        BOOL b5 = level == 5 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 2 ;
 
         
-        if (b || b1 || b4) {
+        if (b || b1 || b4 ) {
             level = 1 ;
         }
         
-        if (b2 || b3) {
+        if (b2 || b3 || b5) {
             level = 3 ;
         }
         
@@ -268,10 +269,13 @@
 
 - (void)loadSingleChoice:(SingleChoice *)choice
 {
+    int level = [User shareInstance].level ;
+    AssessmentItemRef * assModel = (AssessmentItemRef *)_assessection ;
+    
     if ([choice isKindOfClass:[SingleChoice1 class]]) {
-        if ([User shareInstance].level == 4 || [User shareInstance].level == 5) {
+        if (level == 4 || level == 5) {
             [self loadSingleChoice4:(SingleChoice1 *)choice];
-        }else if ([User shareInstance].level == 6)
+        }else if (level == 6)
         {
             [self loadSingleChoice6:(SingleChoice1 *)choice];
         }
@@ -281,7 +285,14 @@
         }
     }else if ([choice isKindOfClass:[SingleChoice3 class]])
     {
-        [self loadSingleChoice3:(SingleChoice3 *)choice];
+        BOOL b5 = level == 5 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 2 ;
+
+        if (b5) {
+            [self loadSingleChoice5:choice];
+        }else
+        {
+            [self loadSingleChoice3:(SingleChoice3 *)choice];
+        }
     }else if ([choice isKindOfClass:[SingleChoice6 class]])
     {
         [self loadSingle6:(SingleChoice6 *)choice];
