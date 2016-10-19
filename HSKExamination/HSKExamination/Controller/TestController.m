@@ -105,6 +105,7 @@
     _exerView = [[ExerciseView alloc] initWithFrame:CGRectMake(245, 130,screenWith() - 275, screenHeight() -160)];
     _exerView.manger = _audioManer ;
     [self.view addSubview:_exerView];
+    _exerView.delegate = self ;
     
 //    if (_astModel.testPartArray.count > 0) {
 //        TestPart * part = _astModel.testPartArray[0];
@@ -194,12 +195,12 @@
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
-    [self next];
+//    [self next];
 }
 
 - (void)next
 {
-
+    [_numberView next];
 }
 
 - (void)didReceiveMemoryWarning {

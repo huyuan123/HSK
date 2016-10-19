@@ -10,7 +10,14 @@
 #import "AssessmentItemRef.h"
 #import "AudioManger.h"
 
-@interface ExerciseView : UIView
+@protocol ExerciseViewDelegate <NSObject>
+
+- (void)next ;
+
+@end
+
+
+@interface ExerciseView : UIView<UIAlertViewDelegate>
 
 @property (nonatomic ,weak) AudioManger * manger ;
 
@@ -21,6 +28,9 @@
 @property (nonatomic ,strong) UIImageView*  typeImageView ;
 
 @property (nonatomic ,strong) id            assessection ;
+
+@property (nonatomic ,assign) id     <ExerciseViewDelegate>       delegate ;
+
 
 - (void)loadAssMent:(AssessmentItemRef *)model ;
 
