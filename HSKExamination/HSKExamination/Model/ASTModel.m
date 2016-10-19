@@ -18,11 +18,20 @@ AssessmentItemRef  *  assessmentItem            ;
 {
     ASTIndex   astIndex ;
 }
+
 - (id)init
 {
     self = [super init];
     if (self) {
-        
+        TestPart * part = [[TestPart alloc] init];
+        part.identifier = @"随机练习" ;
+        _testPartArray = [NSMutableArray arrayWithCapacity:3];
+//        _allArray = [NSMutableArray arrayWithCapacity:50];
+        [_testPartArray addObject:part];
+        part.assessmentSectionArray = [NSMutableArray array];
+        AssessmentSection * sec = [[AssessmentSection alloc] init];
+        [part.assessmentSectionArray addObject:sec];
+        sec.assessmentItemRefArray = _allArray = [NSMutableArray arrayWithCapacity:50];
     }
    
     return self ;
@@ -37,7 +46,7 @@ AssessmentItemRef  *  assessmentItem            ;
     
     astIndex = (ASTIndex){0,0,0} ;
     
-    _testPartArray = [NSMutableArray arrayWithCapacity:3];
+//    _testPartArray = [NSMutableArray arrayWithCapacity:3];
     
     NSString * s = [NSString stringWithContentsOfURL:[NSURL fileURLWithPath:path] encoding:NSUTF8StringEncoding error:nil];
     
@@ -48,7 +57,7 @@ AssessmentItemRef  *  assessmentItem            ;
     
     [muS replaceOccurrencesOfString:@"&lt;" withString:@"<" options:NSCaseInsensitiveSearch range:NSMakeRange(0, s.length)];
     
-    [muS replaceOccurrencesOfString:@"&gt;" withString:@">" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length - 20)];
+    [muS replaceOccurrencesOfString:@"&gt;" withString:@">" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
     
     self.parse = [[NSXMLParser alloc] initWithData:[muS dataUsingEncoding:NSUTF8StringEncoding]];
     self.parse.delegate = self ;
@@ -84,6 +93,7 @@ AssessmentItemRef  *  assessmentItem            ;
         assessmentItem = [[AssessmentItemRef alloc] initWithDictionary:attributeDict];
         if (![assessmentItem.isExample isEqualToString:@"true"]) {
             [assessmentSection.assessmentItemRefArray  addObject:assessmentItem] ;
+            [_allArray addObject:assessmentItem];
             astIndex.textPart = _testPartArray.count ;
             astIndex.assessmentSection = testPartModel.assessmentSectionArray.count ;
             astIndex.assessmentItemRef = assessmentSection.assessmentItemRefArray.count ;
@@ -142,10 +152,11 @@ AssessmentItemRef  *  assessmentItem            ;
 
 // 遇到文档结束时触发
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
-    // 使用通知机制将数据通过广播通知投送回表示层
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadViewNotification" object:self.notes userInfo:nil];
-//    // 解析完成，清理成员变量
-//    self.notes = nil;
+//    AssessmentSection * sec = [_testPartArray[0] assessmentSectionArray][0];
+    for (int i = 0; i < _allArray.count; i++) {
+        int m = (arc4random() % (_allArray.count - i)) + i;
+        [_allArray exchangeObjectAtIndex:i withObjectAtIndex:m];
+    }
 }
 
 - (void)dealloc

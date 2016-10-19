@@ -12,8 +12,12 @@
 //  练习部分左侧的目录view
 @interface NumberView : UIView
 
+
 @property (nonatomic ,copy) void(^ClickBlock)(AssessmentItemRef * itemRef) ;
+
+- (id)initWithFrame:(CGRect)frame andBlock:(void(^)(AssessmentItemRef * itemRef))ClickBlock ;
 
 - (void)loadTestPart:(TestPart *)part ;
 
+- (void)next ;
 @end

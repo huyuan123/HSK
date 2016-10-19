@@ -10,20 +10,25 @@
 #import "assessmentItemRef.h"
 #import "AssessmentSection.h"
 #import "NumberButton.h"
+#import "Header.h"
 @implementation NumberView
 {
     UIView          * _backView ;
     NSArray         * _titleArray ; // 题目序号集合
     UIScrollView    * _scorView ;
+    int               _buttonIndex ;
 }
 
-- (id)initWithFrame:(CGRect)frame
+
+
+- (id)initWithFrame:(CGRect)frame andBlock:(void(^)(AssessmentItemRef * itemRef))ClickBlock 
 {
     self = [super initWithFrame:frame];
     if (self) {
         self.layer.borderColor = RGBCOLOR(133, 163, 54).CGColor ;
         self.layer.borderWidth = 2 ;
         self.cornerRadius = 20 ;
+        _ClickBlock = ClickBlock ;
     }
     
     return self ;
@@ -31,6 +36,9 @@
 
 - (void)loadTestPart:(TestPart *)part
 {
+    
+    _buttonIndex = -1 ;
+
     [_backView removeFromSuperview];
     _backView = [[UIView alloc] initWithFrame:self.bounds];
     [self addSubview:_backView];
@@ -60,9 +68,9 @@
     [_backView addSubview:_scorView];
     
     int i = 0 ;
-    
     int section = -1 ;
     int assrssref = -1 ;
+
     NSMutableArray * muArray = [NSMutableArray arrayWithCapacity:10];
     for (AssessmentSection * sec in part.assessmentSectionArray) {
         section++ ;
@@ -75,15 +83,8 @@
             bu.index = (ASTIndex){partType,section,assrssref};
             [_scorView addSubview:bu];
             
-            [bu addTarget:self action:@selector(clickBu:) forControlEvents:BuTouchUpInside] ;
+//            [bu addTarget:self action:@selector(clickBu:) forControlEvents:BuTouchUpInside] ;
             i ++ ;
-
-//            if ([model.type isEqualToString:@"readingComprehension"] || [model.type isEqualToString:@"Cloze"]) {
-//                
-//                [bu setTitle:[NSString stringWithFormat:@"%d~%d",i,i+4] forState:BuNormal];
-//                i += 4 ;
-//                continue ;
-//            }
             
             [bu setTitle:[NSString stringWithFormat:@"%d",i] forState:BuNormal];
         }
@@ -95,9 +96,15 @@
     _titleArray = muArray ;
     
     _scorView.contentSize = CGSizeMake(10,35 + i/3*35) ;
+    
+    
+    [self next];
+    
+    
 }
 
 
+/*
 - (void)clickBu:(UIButton *)bu
 {
     for(int i = 0; i < _titleArray.count ; i++)
@@ -115,5 +122,41 @@
         _ClickBlock(_titleArray[bu.tag -100]) ;
     }
 }
+*/
+
+- (void)next
+{
+
+    if (_buttonIndex > -1) {
+        AssessmentItemRef * model = _titleArray[_buttonIndex] ;
+        
+        NSString * type = nil ;
+        if (model.astIndex.textPart == 1) {
+            type = hearTest ;
+        }else if (model.astIndex.textPart == 2)
+        {
+            type = readTest ;
+        }else if (model.astIndex.textPart == 3)
+        {
+            type = whriteTest ;
+        }
+        
+        if (!model.userChoice && !model.userResDic) {
+            [User setStatisticsWithType:type andIScorrect:NO];
+        }
+        
+    }
+    
+    _buttonIndex ++ ;
+    
+    NumberButton * numBu = [_scorView viewWithTag:_buttonIndex + 100];
+    [numBu setIsSelect:YES];
+
+    if (_ClickBlock) {
+        _ClickBlock(_titleArray[_buttonIndex]) ;
+    }
+
+}
+
 
 @end

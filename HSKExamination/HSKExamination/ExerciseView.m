@@ -223,13 +223,6 @@
         model.userChoice = @"F" ;
     }
 
-//    AssessmentItemRef * model = (AssessmentItemRef *)self.assessection ;
-//    if (bu.tag == 1000) {
-//        model.userChoice = @"T" ;
-//    }else
-//    {
-//        model.userChoice = @"F" ;
-//    }
     
     NSString * type = nil ;
     if (model.astIndex.textPart == 1) {
