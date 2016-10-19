@@ -55,6 +55,7 @@
 		04B41F7A1D99542F00229BA3 /* F-nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F761D99542F00229BA3 /* F-nor@2x.png */; };
 		04B41F7B1D99542F00229BA3 /* T-nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B41F771D99542F00229BA3 /* T-nor@2x.png */; };
 		04B41F7E1D99589B00229BA3 /* ItemBu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B41F7D1D99589B00229BA3 /* ItemBu.m */; };
+		04B823D81DB6343800E5B590 /* StatisticalCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823D71DB6343800E5B590 /* StatisticalCenterController.m */; };
 		04CA94041DA9259C00259995 /* ReadingComprehensionModel4.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CA94031DA9259C00259995 /* ReadingComprehensionModel4.m */; };
 		04E492881D969EE200201FDA /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E492871D969EE200201FDA /* TestController.m */; };
 		04E4928A1D96A2D900201FDA /* 返回图标.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E492891D96A2D900201FDA /* 返回图标.png */; };
@@ -298,6 +299,8 @@
 		04B41F771D99542F00229BA3 /* T-nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "T-nor@2x.png"; sourceTree = "<group>"; };
 		04B41F7C1D99589B00229BA3 /* ItemBu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemBu.h; sourceTree = "<group>"; };
 		04B41F7D1D99589B00229BA3 /* ItemBu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemBu.m; sourceTree = "<group>"; };
+		04B823D61DB6343800E5B590 /* StatisticalCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticalCenterController.h; sourceTree = "<group>"; };
+		04B823D71DB6343800E5B590 /* StatisticalCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticalCenterController.m; sourceTree = "<group>"; };
 		04CA94021DA9259C00259995 /* ReadingComprehensionModel4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingComprehensionModel4.h; sourceTree = "<group>"; };
 		04CA94031DA9259C00259995 /* ReadingComprehensionModel4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingComprehensionModel4.m; sourceTree = "<group>"; };
 		04E492861D969EE200201FDA /* TestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestController.h; sourceTree = "<group>"; };
@@ -1438,6 +1441,8 @@
 				04F5EB4C1D96792800A0E47E /* FormalExaminationController.m */,
 				F6FDA4411D93D5DD00C83D58 /* MainController.h */,
 				F6FDA4421D93D5DD00C83D58 /* MainController.m */,
+				04B823D61DB6343800E5B590 /* StatisticalCenterController.h */,
+				04B823D71DB6343800E5B590 /* StatisticalCenterController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1589,6 +1594,7 @@
 				0474B4A11DAA823500D4A2AF /* ExerciseView+level4.m in Sources */,
 				F6D1F9C01D80073500508F09 /* NSString+NetString.m in Sources */,
 				F6D1F8D61D80040000508F09 /* pwd2key.c in Sources */,
+				04B823D81DB6343800E5B590 /* StatisticalCenterController.m in Sources */,
 				F6D1F8DA1D80040000508F09 /* mztools.c in Sources */,
 				F6D1F9AE1D80073500508F09 /* NSData+MetaData.m in Sources */,
 				F6D1F8D31D80040000508F09 /* fileenc.c in Sources */,
