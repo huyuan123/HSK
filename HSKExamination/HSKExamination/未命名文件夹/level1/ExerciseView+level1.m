@@ -58,6 +58,7 @@
     
     
     AssessmentItemRef * model = (AssessmentItemRef *)self.assessection ;
+    model.correctResponse = judgeModel.correctResponse ;
     
     if (isCanUseString(model.userChoice)) {
         if ([model.userChoice isEqualToString:@"T"]) {
@@ -76,27 +77,19 @@
     }
 }
 
-- (void)JudgementEvent:(UIButton *)bu
-{
-    for(int i = 0 ; i < 2 ; i++)
-    {
-        ItemBu * button = [self.backView viewWithTag:1000 +i];
-        if (button == bu) {
-            [button setIsSelect:YES];
-        }else
-        {
-            [button setIsSelect:NO];
-        }
-    }
-    
-    AssessmentItemRef * model = (AssessmentItemRef *)self.assessection ;
-    if (bu.tag == 1000) {
-        model.userChoice = @"T" ;
-    }else
-    {
-        model.userChoice = @"F" ;
-    }
-}
+//- (void)JudgementEvent:(UIButton *)bu
+//{
+//    for(int i = 0 ; i < 2 ; i++)
+//    {
+//        ItemBu * button = [self.backView viewWithTag:1000 +i];
+//        if (button == bu) {
+//            [button setIsSelect:YES];
+//        }else
+//        {
+//            [button setIsSelect:NO];
+//        }
+//    }
+//}
 
 
 - (void)loadSingleChoice1:(SingleChoice1 *)choice
