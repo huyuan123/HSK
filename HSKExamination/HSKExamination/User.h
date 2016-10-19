@@ -16,6 +16,11 @@
 
 @property (nonatomic ,assign) int   level ;      //  等级
 
+
 + (User *)shareInstance ;
 
+
++ (NSMutableDictionary *)dictionaryWithLevel:(int)level ;
+
++ (void)setStatisticsWithType:(NSString *)type andIScorrect:(BOOL)b ;
 @end

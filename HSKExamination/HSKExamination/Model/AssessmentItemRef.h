@@ -20,6 +20,10 @@
 @property (nonatomic ,strong) NSString  *  userChoice ;
 @property (nonatomic ,strong) NSMutableDictionary   *       userResDic ;
 
+
+@property (nonatomic ,strong) NSString      *       correctResponse ;
+
+
 @property (nonatomic ,assign) ASTIndex      astIndex ;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary ;
 
