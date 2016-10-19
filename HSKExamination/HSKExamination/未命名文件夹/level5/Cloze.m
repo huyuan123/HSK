@@ -14,6 +14,7 @@
     self = [super init];
     if (self) {
         _textString = @"" ;
+        _i = 1 ;
     }
     
     return self ;
