@@ -118,7 +118,7 @@
     
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGesture:)];
     //设置轻扫的方向
-    swipeGesture.direction = UISwipeGestureRecognizerDirectionDown; //默认向右
+    swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft; //默认向右
     [_exerView addGestureRecognizer:swipeGesture];
     
     NSArray * arr = @[@"全部图标",@"听力图标",@"阅读图标",@"写作图标"];

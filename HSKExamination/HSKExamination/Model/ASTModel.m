@@ -23,15 +23,9 @@ AssessmentItemRef  *  assessmentItem            ;
 {
     self = [super init];
     if (self) {
-        TestPart * part = [[TestPart alloc] init];
-        part.identifier = @"随机练习" ;
         _testPartArray = [NSMutableArray arrayWithCapacity:3];
-//        _allArray = [NSMutableArray arrayWithCapacity:50];
-        [_testPartArray addObject:part];
-        part.assessmentSectionArray = [NSMutableArray array];
-        AssessmentSection * sec = [[AssessmentSection alloc] init];
-        [part.assessmentSectionArray addObject:sec];
-        sec.assessmentItemRefArray = _allArray = [NSMutableArray arrayWithCapacity:50];
+        _allArray = [NSMutableArray arrayWithCapacity:50];
+//        [_testPartArray addObject:part];
     }
    
     return self ;
@@ -157,6 +151,16 @@ AssessmentItemRef  *  assessmentItem            ;
         int m = (arc4random() % (_allArray.count - i)) + i;
         [_allArray exchangeObjectAtIndex:i withObjectAtIndex:m];
     }
+    
+    TestPart * part = [[TestPart alloc] init];
+    part.identifier = @"P04" ;
+    
+    part.assessmentSectionArray = [NSMutableArray array];
+    AssessmentSection * sec = [[AssessmentSection alloc] init];
+    [part.assessmentSectionArray addObject:sec];
+    sec.assessmentItemRefArray = _allArray ;
+    [_testPartArray insertObject:part atIndex:0];
+
 }
 
 - (void)dealloc

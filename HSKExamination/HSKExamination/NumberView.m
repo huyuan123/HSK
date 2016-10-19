@@ -62,8 +62,11 @@
     if ([part.identifier isEqualToString:@"P03"]) {
         partType = 2 ;
         titleLabel.text = @"书写练习" ;
-    }
-    
+    }else
+        if ([part.identifier isEqualToString:@"P04"]) {
+            partType = 2 ;
+            titleLabel.text = @"随机练习" ;
+        }
     _scorView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 85, self.width, self.height - 95)];
     [_backView addSubview:_scorView];
     
