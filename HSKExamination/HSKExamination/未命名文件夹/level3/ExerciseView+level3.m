@@ -44,7 +44,7 @@
     
     
     AssessmentItemRef * model = (AssessmentItemRef *)self.assessection ;
-    
+    model.correctResponse = judgeModel.correctResponse ;
     if (isCanUseString(model.userChoice)) {
         if ([model.userChoice isEqualToString:@"T"]) {
             ItemBu * bu = [self.backView viewWithTag:1000];
@@ -90,7 +90,7 @@
     NSArray * titleArray = @[@"A",@"B",@"C",@"D",@"E",@"F"] ;
     
     AssessmentItemRef * modelref = (AssessmentItemRef *)self.assessection ;
-    
+    modelref.correctArr = model.correctResponseArray ;
     CGFloat y = label.bottom ;
     
     for (int i = 0; i < model.subItemArr.count; i++) {
@@ -117,6 +117,8 @@
             }
             
             [modelref.userResDic setObject:select forKey:num];
+            
+            [User setStatisticsWithAssessmentItemRef:modelref andIndex:num];
         }];
         
         [view hiddenNumber];
@@ -133,6 +135,7 @@
     AssessmentItemRef * model = (AssessmentItemRef *)self.assessection ;
     self.countLabel.text = @"1/40" ;
     
+    model.correctResponse = choice.correctResponse ;
     float x = (self.backView.width - 300)/4 ;
     
     

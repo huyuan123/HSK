@@ -143,12 +143,15 @@
     _buttonIndex ++ ;
     
     NumberButton * numBu = [_scorView viewWithTag:_buttonIndex + 100];
-    [numBu setIsSelect:YES];
+    
+    if(numBu)
+    {
+        [numBu setIsSelect:YES];
 
-    if (_ClickBlock) {
-        _ClickBlock(_titleArray[_buttonIndex]) ;
+        if (_ClickBlock) {
+            _ClickBlock(_titleArray[_buttonIndex]) ;
+        }
     }
-
 }
 
 

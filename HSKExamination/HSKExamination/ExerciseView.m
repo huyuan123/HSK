@@ -277,7 +277,7 @@
     }
      AssessmentItemRef * model = (AssessmentItemRef *)_assessection ;
      model.userChoice = bu.titleLabel.text ;
-    
+    [User setStatisticsWithAssessmentItemRef:model];
 }
 
 

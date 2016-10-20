@@ -13,6 +13,8 @@
 @implementation ExerciseView (level5)
 - (void)loadReadingComprehensionModel5:(ReadingComprehensionModel5 *)model
 {
+    AssessmentItemRef * modelRef = (AssessmentItemRef *)self.assessection ;
+    modelRef.correctArr = model.correctResponseArray ;
     model.textString = [model.textString stringByReplacingOccurrencesOfString:@"rsquo;" withString:@"" ];
     model.textString = [model.textString stringByReplacingOccurrencesOfString:@"lsquo;" withString:@"" ];
 
@@ -29,10 +31,6 @@
     for(int i = 0 ; i < model.subItemArr.count ; i++)
     {
         SimpleChoice * modelChoice = model.subItemArr[i] ;
-//        UILabel * label1 = [[UILabel alloc] initWithFrame:CGRectMake(90, label.bottom + 10 + i*160, self.backView.width - 60, 30)];
-//        [scroView addSubview:label1];
-//        label1.textColor = RGBCOLOR(190, 226, 47) ;
-//        label1.text = modelChoice.textString ;
         
         UILabel * tiHaoLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, label.bottom + 40 + i*160, 600, 30)];
         [scroView addSubview:tiHaoLabel];
@@ -42,9 +40,9 @@
         
         UIView * view = [[UIView alloc] initWithFrame:CGRectMake(90, tiHaoLabel.bottom + 20, self.backView.width -180, 80)];
         [scroView addSubview:view];
-//        view.backgroundColor = [UIColor redColor];
         
         CGFloat width = view.width ;
+        view.tag = 100 + i ;
         for (int j = 0; j < modelChoice.array.count; j++) {
             SimpleChoice * jModel = modelChoice.array[j] ;
             ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(j%2*width/2, j/2*40, 60, 30)];
@@ -85,7 +83,8 @@
     scor.contentSize = CGSizeMake(10, label.height + 170) ;
     
     AssessmentItemRef * modelref = (AssessmentItemRef *)self.assessection ;
-
+    modelref.correctArr = model.correctResponseArray ;
+    
     float height = 0 ;
     for(int i = 0 ; i < model.subItemArr.count ; i++)
     {
@@ -95,6 +94,7 @@
         UIView * view = [[UIView alloc] initWithFrame:CGRectMake(360, 150 + i*150, scor.width - 390, 120)];
         [scor addSubview:view];
         height = view.bottom ;
+        view.tag = 100 + i ;
         
         SimpleChoice * choice = [model.subItemArr objectAtIndex:i];
 
@@ -129,6 +129,24 @@
     }
     
     [bu setIsSelect:YES];
+    
+    NSString * text  = bu.titleLabel.text ;
+    
+    AssessmentItemRef * modelref = (AssessmentItemRef *)self.assessection ;
+
+    if (!modelref.userResDic) {
+        modelref.userResDic = [NSMutableDictionary dictionaryWithCapacity:1];
+    }
+    NSString * num = [NSString stringWithFormat:@"%ld",bu.superview.tag -99];
+    
+    if (modelref.correctResponse) {
+        [User setStatisticsWithAssessmentItemRef:modelref];
+    }else
+    {
+    
+        [modelref.userResDic setObject:text forKey:num];
+        [User setStatisticsWithAssessmentItemRef:modelref andIndex:num];
+    }
 }
 
 
@@ -137,6 +155,8 @@
 #pragma mark--------------加载单选
 - (void)loadSingleChoice5:(SingleChoice3 *)model
 {
+    AssessmentItemRef * modelref = (AssessmentItemRef *)self.assessection ;
+    modelref.correctResponse = model.correctResponse ;
     
     model.textString = [model.textString stringByReplacingOccurrencesOfString:@"rdquo;" withString:@"" ];
     model.textString = [model.textString stringByReplacingOccurrencesOfString:@"ldquo;" withString:@"" ];
