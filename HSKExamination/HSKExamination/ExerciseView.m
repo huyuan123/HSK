@@ -222,29 +222,7 @@
     {
         model.userChoice = @"F" ;
     }
-
-    
-    NSString * type = nil ;
-    if (model.astIndex.textPart == 1) {
-        type = hearTest ;
-    }else if (model.astIndex.textPart == 2)
-    {
-        type = readTest ;
-    }else if (model.astIndex.textPart == 3)
-    {
-        type = whriteTest ;
-    }
-    
-    if([model.correctResponse isEqualToString:model.userChoice])
-    {
-        [User playWithCorOrFalse:YES];
-        [User setStatisticsWithType:type andIScorrect:YES];
-    }else
-    {
-        [User playWithCorOrFalse:NO];
-        [User setStatisticsWithType:type andIScorrect:NO];
-
-    }
+    [User setStatisticsWithAssessmentItemRef:model];
 
 }
 
@@ -329,10 +307,6 @@
     }
 }
 
-- (void)loadIsCorrect:(BOOL)b
-{
-    [User playWithCorOrFalse:b];
-}
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex NS_DEPRECATED_IOS(2_0, 9_0)
 {

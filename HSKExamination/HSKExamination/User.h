@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "AssessmentItemRef.h"
 @interface User : NSObject
 
 @property (nonatomic ,strong) NSString *  testDownLoadUrl ;
@@ -19,11 +19,10 @@
 
 + (User *)shareInstance ;
 
-+ (void)playWithCorOrFalse:(BOOL)b ;
-
 + (NSMutableDictionary *)dictionaryWithLevel:(int)level ;
 
-+ (void)setStatisticsWithType:(NSString *)type andIScorrect:(BOOL)b ;
++ (void)setStatisticsWithAssessmentItemRef:(AssessmentItemRef *)model ;
 
++ (void)setStatisticsWithAssessmentItemRef:(AssessmentItemRef *)model andIndex:(NSString *)index;
 
 @end

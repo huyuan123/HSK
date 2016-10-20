@@ -17,11 +17,13 @@
 @property (nonatomic ,strong) NSString  *  prepareDuration ;
 @property (nonatomic ,strong) NSString  *  responseDuration ;
 @property (nonatomic ,strong) NSString  *  promptShowDuration ;
+
 @property (nonatomic ,strong) NSString  *  userChoice ;
 @property (nonatomic ,strong) NSMutableDictionary   *       userResDic ;
 
 
 @property (nonatomic ,strong) NSString      *       correctResponse ;
+@property (nonatomic ,strong) NSArray       *       correctArr ;
 
 
 @property (nonatomic ,assign) ASTIndex      astIndex ;

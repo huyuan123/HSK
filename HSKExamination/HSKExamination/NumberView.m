@@ -133,19 +133,9 @@
     if (_buttonIndex > -1) {
         AssessmentItemRef * model = _titleArray[_buttonIndex] ;
         
-        NSString * type = nil ;
-        if (model.astIndex.textPart == 1) {
-            type = hearTest ;
-        }else if (model.astIndex.textPart == 2)
-        {
-            type = readTest ;
-        }else if (model.astIndex.textPart == 3)
-        {
-            type = whriteTest ;
-        }
         
         if (!model.userChoice && !model.userResDic) {
-            [User setStatisticsWithType:type andIScorrect:NO];
+            [User setStatisticsWithAssessmentItemRef:model];
         }
         
     }

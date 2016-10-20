@@ -32,8 +32,44 @@
     }
 }
 
-+ (void)setStatisticsWithType:(NSString *)type andIScorrect:(BOOL)b
++ (void)setStatisticsWithAssessmentItemRef:(AssessmentItemRef *)model ;
 {
+    BOOL b = NO ; ;
+
+    if (isCanUseString(model.correctResponse) && isCanUseString(model.userChoice)) {
+        b = [model.correctResponse isEqualToString:model.userChoice];
+    }
+    
+    [self loadIsCorrect:b andRef:model];
+    
+}
+
++ (void)setStatisticsWithAssessmentItemRef:(AssessmentItemRef *)model andIndex:(NSString *)index
+{
+    BOOL b = NO ;
+    if (model.correctArr && model.userResDic) {
+        if ([model.userResDic[index] isEqualToString:model.correctArr[index.intValue -1]]) {
+            b = YES ;
+        }
+    }
+    
+    [self loadIsCorrect:b andRef:model];
+}
+
+
++ (void)loadIsCorrect:(BOOL)b andRef:(AssessmentItemRef *)model
+{
+    NSString * type = nil ;
+    if (model.astIndex.textPart == 1) {
+        type = hearTest ;
+    }else if (model.astIndex.textPart == 2)
+    {
+        type = readTest ;
+    }else if (model.astIndex.textPart == 3)
+    {
+        type = whriteTest ;
+    }
+    
     NSMutableDictionary * dic= [self dictionaryWithLevel:[User shareInstance].level] ;
     NSDictionary * typeDic = dic[type];
     if (!typeDic) {
@@ -52,13 +88,15 @@
         corr ++ ;
     }
     
-
+    
     [typeDic setValue:[NSString stringWithFormat:@"%d",all] forKey:allCount];
     [typeDic setValue:[NSString stringWithFormat:@"%d",corr] forKey:corrCount];
     
     [dic setObject:typeDic forKey:type];
     [[NSUserDefaults standardUserDefaults] setObject:dic forKey:[NSString stringWithFormat:@"level%d",[User shareInstance].level]];
-
+    
+    
+    [self playWithCorOrFalse:b];
 }
 
 + (void)playWithCorOrFalse:(BOOL)b

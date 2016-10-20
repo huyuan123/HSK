@@ -157,7 +157,7 @@
         
     }
     
-    
+    model.correctResponse = choice.correctResponse ;
     
     if (choice.media) {
         [self.manger playWithPath:choice.media.src];
@@ -177,8 +177,12 @@
             [view setIsSelect:NO];
         }
     }
+    
     AssessmentItemRef * model = (AssessmentItemRef *)self.assessection ;
     model.userChoice = bu.titleLabel.text ;
+    
+    [User setStatisticsWithAssessmentItemRef:model];
+    
     
 }
 
@@ -245,12 +249,16 @@
             }
             
             [modelref.userResDic setObject:userRes forKey:num];
+            modelref.correctArr = model.correctResponseArray ;
+            [User setStatisticsWithAssessmentItemRef:modelref andIndex:num];
         }];
         
         if (modelref.astIndex.textPart == 2) {
             [view loadsimpleChoice:model.subItemArr[i]];
         }
     }
+    
+    
     
     if (modelref.astIndex.textPart == 1) {
         [self.manger playWithPath:model.media.src] ;
