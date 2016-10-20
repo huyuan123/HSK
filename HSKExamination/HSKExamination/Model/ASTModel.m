@@ -9,7 +9,7 @@
 #import "ASTModel.h"
 #import "AssessmentSection.h"
 #import "assessmentItemRef.h"
-
+#import "NSMutableArray+Arc4.h"
 TestPart  *  testPartModel ;
 AssessmentSection  *  assessmentSection         ;
 AssessmentItemRef  *  assessmentItem            ;
@@ -141,17 +141,20 @@ AssessmentItemRef  *  assessmentItem            ;
         testPartModel = nil ;
         assessmentItem = nil ;
         assessmentSection = nil ;
+    }else if ([elementName isEqualToString:@"assessmentSection"])
+    {
+        [assessmentSection.assessmentItemRefArray arc4Sort] ;
     }
 }
 
 // 遇到文档结束时触发
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
 //    AssessmentSection * sec = [_testPartArray[0] assessmentSectionArray][0];
-    for (int i = 0; i < _allArray.count; i++) {
-        int m = (arc4random() % (_allArray.count - i)) + i;
-        [_allArray exchangeObjectAtIndex:i withObjectAtIndex:m];
-    }
-    
+//    for (int i = 0; i < _allArray.count; i++) {
+//        int m = (arc4random() % (_allArray.count - i)) + i;
+//        [_allArray exchangeObjectAtIndex:i withObjectAtIndex:m];
+//    }
+    [_allArray arc4Sort];
     TestPart * part = [[TestPart alloc] init];
     part.identifier = @"P04" ;
     
