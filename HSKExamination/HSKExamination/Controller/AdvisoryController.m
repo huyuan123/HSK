@@ -20,11 +20,11 @@
     [super viewDidLoad];
 
     
-    UIButton * bu = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    [bu setTitle:@"统计中心" forState:BuNormal];
-    [self.view addSubview:bu];
-    bu.backgroundColor = [UIColor redColor];
-    [bu addTarget:self action:@selector(statisticalCenter) forControlEvents:BuTouchUpInside];
+//    UIButton * bu = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+//    [bu setTitle:@"统计中心" forState:BuNormal];
+//    [self.view addSubview:bu];
+//    bu.backgroundColor = [UIColor redColor];
+//    [bu addTarget:self action:@selector(statisticalCenter) forControlEvents:BuTouchUpInside];
 }
 
 - (void)statisticalCenter
