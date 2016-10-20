@@ -48,7 +48,12 @@
 {
     BOOL b = NO ;
     if (model.correctArr && model.userResDic) {
-        if ([model.userResDic[index] isEqualToString:model.correctArr[index.intValue -1]]) {
+        
+        NSString    * s1 = [model.userResDic[index] stringByReplacingOccurrencesOfString:@"." withString:@""];
+        NSString    * s2 = [model.correctArr[index.intValue -1] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        s2  = [s2 stringByReplacingOccurrencesOfString:@" " withString:@""];
+        
+        if ([s1 isEqualToString:s2]) {
             b = YES ;
         }
     }

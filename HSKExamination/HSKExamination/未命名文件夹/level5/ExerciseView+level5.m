@@ -140,6 +140,7 @@
     NSString * num = [NSString stringWithFormat:@"%ld",bu.superview.tag -99];
     
     if (modelref.correctResponse) {
+        modelref.userChoice = text ;
         [User setStatisticsWithAssessmentItemRef:modelref];
     }else
     {

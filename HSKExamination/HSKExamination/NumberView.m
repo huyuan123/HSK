@@ -86,7 +86,7 @@
             bu.index = (ASTIndex){partType,section,assrssref};
             [_scorView addSubview:bu];
             
-//            [bu addTarget:self action:@selector(clickBu:) forControlEvents:BuTouchUpInside] ;
+            [bu addTarget:self action:@selector(clickBu:) forControlEvents:BuTouchUpInside] ;
             i ++ ;
             
             [bu setTitle:[NSString stringWithFormat:@"%d",i] forState:BuNormal];
@@ -107,25 +107,25 @@
 }
 
 
-/*
-- (void)clickBu:(UIButton *)bu
-{
-    for(int i = 0; i < _titleArray.count ; i++)
-    {
-        NumberButton * numBu = [_scorView viewWithTag:i + 100];
-        if (bu == numBu) {
-            [numBu setIsSelect:YES];
-        }else
-        {
-            [numBu setIsSelect:NO];
-        }
-    }
+
+//- (void)clickBu:(UIButton *)bu
+//{
+//    for(int i = 0; i < _titleArray.count ; i++)
+//    {
+//        NumberButton * numBu = [_scorView viewWithTag:i + 100];
+//        if (bu == numBu) {
+//            [numBu setIsSelect:YES];
+//        }else
+//        {
+//            [numBu setIsSelect:NO];
+//        }
+//    }
     
-    if (_ClickBlock) {
-        _ClickBlock(_titleArray[bu.tag -100]) ;
-    }
-}
-*/
+//    if (_ClickBlock) {
+//        _ClickBlock(_titleArray[bu.tag -100]) ;
+//    }
+//}
+
 
 - (void)next
 {
@@ -142,10 +142,10 @@
     
     _buttonIndex ++ ;
     
-    NumberButton * numBu = [_scorView viewWithTag:_buttonIndex + 100];
+    if (_buttonIndex < _titleArray.count) {
+        
+        NumberButton * numBu = [_scorView viewWithTag:_buttonIndex + 100];
     
-    if(numBu)
-    {
         [numBu setIsSelect:YES];
 
         if (_ClickBlock) {
