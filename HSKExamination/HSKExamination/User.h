@@ -19,8 +19,11 @@
 
 + (User *)shareInstance ;
 
++ (void)playWithCorOrFalse:(BOOL)b ;
 
 + (NSMutableDictionary *)dictionaryWithLevel:(int)level ;
 
 + (void)setStatisticsWithType:(NSString *)type andIScorrect:(BOOL)b ;
+
+
 @end
