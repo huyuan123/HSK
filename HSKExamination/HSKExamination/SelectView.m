@@ -92,7 +92,6 @@
         [self addSubview:item];
         
         item.imageName = @"点" ;
-//        [item setTitle:s.textString forState:BuNormal];
         [item setTitleColor:[UIColor blackColor] forState:BuNormal];
         item.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -10)  ;
         [item addTarget:self action:@selector(buEvent:) forControlEvents:BuTouchUpInside];
