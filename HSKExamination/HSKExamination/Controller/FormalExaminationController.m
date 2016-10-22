@@ -7,9 +7,12 @@
 //
 
 #import "FormalExaminationController.h"
-
+#import "ConfigureServerView.h"
+#import "ServerController.h"
 @interface FormalExaminationController ()
-
+{
+    ConfigureServerView * _serView ;
+}
 @end
 
 @implementation FormalExaminationController
@@ -19,6 +22,27 @@
     [super viewDidLoad];
     
     [self createView];
+}
+
+- (void)longEvent:(UILongPressGestureRecognizer *)press
+{
+    if (press.state == UIGestureRecognizerStateEnded) {
+        [self.view addSubview:[self serView]];
+    }
+}
+
+- (ConfigureServerView *)serView
+{
+    if (!_serView) {
+        __weak typeof(self) weakSelf = self ;
+        _serView = [[ConfigureServerView alloc] initWithFrame:CGRectZero];
+        [_serView setBlock:^{
+            ServerController * con = [[ServerController alloc] init];
+            [weakSelf.navigationController pushViewController:con animated:YES];
+        }] ;
+    }
+    
+    return _serView ;
 }
 
 - (void)createView
@@ -46,6 +70,9 @@
     [backViw addSubview:imageView];
     imageView.contentMode = UIViewContentModeScaleAspectFit ;
     imageView.image = [UIImage imageNamed:@"logo"];
+    imageView.userInteractionEnabled = YES ;
+    UILongPressGestureRecognizer * longTap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longEvent:)];
+    [imageView addGestureRecognizer:longTap];
     
     
     NSArray * arr = @[@"准考证号",@"考试密码"] ;

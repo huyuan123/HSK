@@ -91,6 +91,10 @@
 //#define DEALLOC_LOG
 //#endif
 
+#define  Alert(A) [ShowHUD showOnlyCustomInfoWithString:(A) configParameter:^(ShowHUD *config) {\
+} duration:2 inView:[UIApplication sharedApplication].keyWindow];
+
+
  static  inline CGFloat  screenWith()
 {
     static CGFloat width = 0;

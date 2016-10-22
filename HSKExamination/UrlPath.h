@@ -9,7 +9,8 @@
 #ifndef UrlPath_h
 #define UrlPath_h
 
-#define  HskYueKao  @"http://mnks.cnhsk.org/hsk/api/reg-online"
+#define  HskYueKao          @"http://mnks.cnhsk.org/hsk/api/reg-online"
+#define  HskServerTest      @"NetExamUtility.svc/GetExamPlanList"
 #endif /* UrlPath_h */
 
 

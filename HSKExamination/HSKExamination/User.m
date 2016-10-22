@@ -57,8 +57,15 @@
     [typeDic setValue:[NSString stringWithFormat:@"%d",corr] forKey:corrCount];
     
     [dic setObject:typeDic forKey:type];
-    [[NSUserDefaults standardUserDefaults] setObject:dic forKey:[NSString stringWithFormat:@"level%d",[User shareInstance].level]];
+    [[NSUserDefaults standardUserDefaults] setObject:dic forKey:[NSString stringWithFormat:@"level%d",[User shareInstance].level]]; 
 
+}
+
+- (void)setSerVerConfig:(NSDictionary *)serVerConfig
+{
+    _serVerConfig = serVerConfig ;
+    [[NSUserDefaults standardUserDefaults] setObject:serVerConfig forKey:SerVerConfig];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end
