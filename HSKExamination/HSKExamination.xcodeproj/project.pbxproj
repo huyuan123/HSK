@@ -89,6 +89,9 @@
 		F608251B1DAB7FDB004FE433 /* SingleChoice4.m in Sources */ = {isa = PBXBuildFile; fileRef = F608251A1DAB7FDB004FE433 /* SingleChoice4.m */; };
 		F62D920B1DAA0311000A1837 /* SingleChoice3.m in Sources */ = {isa = PBXBuildFile; fileRef = F62D920A1DAA0311000A1837 /* SingleChoice3.m */; };
 		F63080041D9D01AF00241D16 /* SelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = F63080031D9D01AF00241D16 /* SelectView.m */; };
+		F6365D521DB86A950003DA41 /* 答错.aiff in Resources */ = {isa = PBXBuildFile; fileRef = F6365D501DB86A950003DA41 /* 答错.aiff */; };
+		F6365D531DB86A950003DA41 /* 答对.aiff in Resources */ = {isa = PBXBuildFile; fileRef = F6365D511DB86A950003DA41 /* 答对.aiff */; };
+		F6365D561DB86DA60003DA41 /* NSMutableArray+Arc4.m in Sources */ = {isa = PBXBuildFile; fileRef = F6365D551DB86DA60003DA41 /* NSMutableArray+Arc4.m */; };
 		F63CA8161D9A4BFC00DFD07A /* ProblemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F63CA8151D9A4BFC00DFD07A /* ProblemModel.m */; };
 		F63CA8191D9A62B900DFD07A /* SingleChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = F63CA8181D9A62B900DFD07A /* SingleChoice.m */; };
 		F641DE541D9903DE0039CBC9 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = F641DE531D9903DE0039CBC9 /* Media.m */; };
@@ -346,6 +349,10 @@
 		F62D920A1DAA0311000A1837 /* SingleChoice3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChoice3.m; sourceTree = "<group>"; };
 		F63080021D9D01AF00241D16 /* SelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectView.h; sourceTree = "<group>"; };
 		F63080031D9D01AF00241D16 /* SelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectView.m; sourceTree = "<group>"; };
+		F6365D501DB86A950003DA41 /* 答错.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "答错.aiff"; sourceTree = "<group>"; };
+		F6365D511DB86A950003DA41 /* 答对.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "答对.aiff"; sourceTree = "<group>"; };
+		F6365D541DB86DA60003DA41 /* NSMutableArray+Arc4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Arc4.h"; sourceTree = "<group>"; };
+		F6365D551DB86DA60003DA41 /* NSMutableArray+Arc4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Arc4.m"; sourceTree = "<group>"; };
 		F63CA8141D9A4BFC00DFD07A /* ProblemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemModel.h; sourceTree = "<group>"; };
 		F63CA8151D9A4BFC00DFD07A /* ProblemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProblemModel.m; sourceTree = "<group>"; };
 		F63CA8171D9A62B900DFD07A /* SingleChoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChoice.h; sourceTree = "<group>"; };
@@ -777,6 +784,8 @@
 		F661A2CB1D910C41003A4DE7 /* DataSoure */ = {
 			isa = PBXGroup;
 			children = (
+				F6365D501DB86A950003DA41 /* 答错.aiff */,
+				F6365D511DB86A950003DA41 /* 答对.aiff */,
 				F661A9351D910FD0003A4DE7 /* iPad.zip */,
 			);
 			path = DataSoure;
@@ -1071,6 +1080,8 @@
 				F6D1F9041D80073500508F09 /* NSArray+JSON.m */,
 				F6D1F9051D80073500508F09 /* NSArray+Sort.h */,
 				F6D1F9061D80073500508F09 /* NSArray+Sort.m */,
+				F6365D541DB86DA60003DA41 /* NSMutableArray+Arc4.h */,
+				F6365D551DB86DA60003DA41 /* NSMutableArray+Arc4.m */,
 			);
 			path = NSArray;
 			sourceTree = "<group>";
@@ -1524,6 +1535,7 @@
 				04F5EB5B1D96889500A0E47E /* 5.png in Resources */,
 				04B41F7B1D99542F00229BA3 /* T-nor@2x.png in Resources */,
 				04F41FA01D9625FF007AB37E /* 报名约考@2x.png in Resources */,
+				F6365D521DB86A950003DA41 /* 答错.aiff in Resources */,
 				040E23531D97F793003A2196 /* 全部图标-nor@2x.png in Resources */,
 				04F5EB5E1D96889C00A0E47E /* 1.png in Resources */,
 				04F5EB581D96889500A0E47E /* 2.png in Resources */,
@@ -1551,6 +1563,7 @@
 				04F41FAF1D9625FF007AB37E /* 左标随身点中@2x.png in Resources */,
 				04F41FA91D9625FF007AB37E /* 我要考试@2x.png in Resources */,
 				04B41F781D99542F00229BA3 /* F-pre@2x.png in Resources */,
+				F6365D531DB86A950003DA41 /* 答对.aiff in Resources */,
 				04F5EB521D96882E00A0E47E /* 选中色块.png in Resources */,
 				F661A9361D910FD0003A4DE7 /* iPad.zip in Resources */,
 				04F41FB31D9625FF007AB37E /* 左标约考点中@2x.png in Resources */,
@@ -1718,6 +1731,7 @@
 				F6D1F9C71D80073500508F09 /* Tools.m in Sources */,
 				F6D1F99D1D80073500508F09 /* BackgroundView.m in Sources */,
 				F6D1F9CC1D80073500508F09 /* UIFont+WDCustomLoader.m in Sources */,
+				F6365D561DB86DA60003DA41 /* NSMutableArray+Arc4.m in Sources */,
 				F6D1F9BF1D80073500508F09 /* NSString+MD5.m in Sources */,
 				F6462EA71DADDB35006FE2B4 /* Cloze.m in Sources */,
 				F6D1F8D41D80040000508F09 /* hmac.c in Sources */,

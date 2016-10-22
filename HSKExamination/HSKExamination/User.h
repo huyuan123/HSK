@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AssessmentItemRef.h"
+
 #define SerVerConfig    @"serVerConfig"
 #define URLSerVer       @"url"
 #define Server          @"Server"
@@ -28,11 +30,13 @@
 
 + (User *)shareInstance ;
 
-
 + (NSMutableDictionary *)dictionaryWithLevel:(int)level ;
 
 + (void)setStatisticsWithType:(NSString *)type andIScorrect:(BOOL)b ;
 
 
++ (void)setStatisticsWithAssessmentItemRef:(AssessmentItemRef *)model ;
+
++ (void)setStatisticsWithAssessmentItemRef:(AssessmentItemRef *)model andIndex:(NSString *)index;
 
 @end

@@ -114,7 +114,7 @@
     } completion:^(BOOL finished) {
         _currentCon = con ;
         if (_currentCon == _advisCon) {
-//            [_advisCon showContents];
+            [_advisCon showContents];
         }else
         {
             [_advisCon hiddenContents];

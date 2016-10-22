@@ -12,6 +12,7 @@
 - (void)loadSingleChoice4:(SingleChoice1 *)choice
 {
     AssessmentItemRef * model = (AssessmentItemRef *)self.assessection ;
+    model.correctResponse = choice.correctResponse ;
     [self.backView addSubview:self.typeImageView];
     [self.backView addSubview:self.countLabel];
     self.countLabel.text = @"1/40" ;
@@ -87,6 +88,10 @@
 
 - (void)loadTextEntry:(TextEntry *)entry
 {
+    
+    AssessmentItemRef * model = (AssessmentItemRef *)self.assessection ;
+    model.correctResponse = entry.correctResponse ;
+    
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 130, self.backView.width, 30)];
     [self.backView addSubview:label];
     label.textColor = RGBCOLOR(188, 225, 84) ;

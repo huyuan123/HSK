@@ -62,7 +62,9 @@
                 modelref.userResDic =  [NSMutableDictionary dictionary] ;
             }
             
+            modelref.correctArr = model.correctResponseArray ;
             [modelref.userResDic setObject:select forKey:num];
+            [User setStatisticsWithAssessmentItemRef:modelref andIndex:num] ;
         }];
         
         [view hiddenNumber];

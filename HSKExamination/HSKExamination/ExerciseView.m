@@ -222,29 +222,7 @@
     {
         model.userChoice = @"F" ;
     }
-
-    
-    NSString * type = nil ;
-    if (model.astIndex.textPart == 1) {
-        type = hearTest ;
-    }else if (model.astIndex.textPart == 2)
-    {
-        type = readTest ;
-    }else if (model.astIndex.textPart == 3)
-    {
-        type = whriteTest ;
-    }
-    
-    if([model.correctResponse isEqualToString:model.userChoice])
-    {
-        [self loadIsCorrect:YES];
-        [User setStatisticsWithType:type andIScorrect:YES];
-    }else
-    {
-        [self loadIsCorrect:NO];
-        [User setStatisticsWithType:type andIScorrect:NO];
-
-    }
+    [User setStatisticsWithAssessmentItemRef:model];
 
 }
 
@@ -299,7 +277,7 @@
     }
      AssessmentItemRef * model = (AssessmentItemRef *)_assessection ;
      model.userChoice = bu.titleLabel.text ;
-    
+    [User setStatisticsWithAssessmentItemRef:model];
 }
 
 
@@ -329,18 +307,6 @@
     }
 }
 
-- (void)loadIsCorrect:(BOOL)b
-{
-    if (b) {
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"答案正确" message:nil delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"下一题", nil];
-        [alert show];
-    }else
-    {
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"答案错误" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alert show];
-
-    }
-}
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex NS_DEPRECATED_IOS(2_0, 9_0)
 {

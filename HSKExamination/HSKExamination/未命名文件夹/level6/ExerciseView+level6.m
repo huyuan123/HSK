@@ -14,7 +14,8 @@
 {
     
     AssessmentItemRef * modelref = (AssessmentItemRef *)self.assessection ;
-
+    modelref.correctResponse =  model.correctResponse ;
+    
     for (int i = 0; i < model.simpleChoiceArray.count; i++) {
         ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(200, 150 + 40*i, 60, 30)];
         [self.backView addSubview:bu];
@@ -57,7 +58,7 @@
     
     modelref.userChoice = bu.titleString ;
     
-    
+    [User setStatisticsWithAssessmentItemRef:modelref];
 }
 
 - (void)loadReadingComprehensionModel6:(ReadingComprehensionModel6 *)model
@@ -68,7 +69,7 @@
     
     AssessmentItemRef * modelRef = (AssessmentItemRef *)self.assessection ;
     NSDictionary * resDic = [modelRef userResDic];
-    
+    modelRef.correctArr = model.correctResponseArray ;
     
     for (int i = 0; i < model.subItemArray.count; i++) {
         UIView * view = [[UIView alloc] initWithFrame:CGRectMake(100, 100 + i * 150, self.backView.width -200, 120)];
@@ -128,7 +129,13 @@
         model.userResDic = [NSMutableDictionary dictionary];
     }
     
+    AssessmentItemRef * modelRef = (AssessmentItemRef *)self.assessection ;
+
     [model.userResDic setObject:button.titleLabel.text forKey:[NSString stringWithFormat:@"%ld",supV.tag -200]];
+    
+    modelRef.userResDic = model.userResDic ;
+    
+    [User setStatisticsWithAssessmentItemRef:modelRef andIndex:[NSString stringWithFormat:@"%ld", button.superview.tag - 199]];
 }
 
 

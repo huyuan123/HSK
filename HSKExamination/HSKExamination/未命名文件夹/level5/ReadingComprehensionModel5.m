@@ -50,6 +50,7 @@
     string = [string stringByReplacingOccurrencesOfString:@"播放音频" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"rdquo;" withString:@"" ];
     string = [string stringByReplacingOccurrencesOfString:@"ldquo;" withString:@"" ];
+    string = [string stringByReplacingOccurrencesOfString:@"hellip;" withString:@"" ];
 
 
     if (_index == 10) {

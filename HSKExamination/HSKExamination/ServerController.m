@@ -121,9 +121,9 @@
         
         NSArray * arr = @[@"ExamPlanName",@"ExamPlanCode",@"ExamPlanInfoID",@"BeginTime",@"EndTime"] ;
         for (int j = 0; j < 5; j++) {
-            UILabel * codeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, nameLabel.bottom + 20, width, 30)];
-            [scor addSubview:codeLabel];
-            codeLabel.text = [dataDic objectForKey:@"ExamPlanCode"] ;
+//            UILabel * codeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, nameLabel.bottom + 20, width, 30)];
+//            [scor addSubview:codeLabel];
+//            codeLabel.text = [dataDic objectForKey:@"ExamPlanCode"] ;
 
         }
         
