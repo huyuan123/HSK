@@ -11,6 +11,9 @@
 
 #define  HskYueKao          @"http://mnks.cnhsk.org/hsk/api/reg-online"
 #define  HskServerTest      @"NetExamUtility.svc/GetExamPlanList"
+#define  HskLogin           @"NetExamUtility.svc/ExamLogin"
+
+
 #endif /* UrlPath_h */
 
 

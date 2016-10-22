@@ -58,6 +58,7 @@
 		04B823D81DB6343800E5B590 /* StatisticalCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823D71DB6343800E5B590 /* StatisticalCenterController.m */; };
 		04B823DB1DBAFFA600E5B590 /* ConfigureServerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823DA1DBAFFA600E5B590 /* ConfigureServerView.m */; };
 		04B823DE1DBB07BF00E5B590 /* ServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823DD1DBB07BF00E5B590 /* ServerController.m */; };
+		04B823E11DBB694000E5B590 /* Candidates.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823E01DBB694000E5B590 /* Candidates.m */; };
 		04CA94041DA9259C00259995 /* ReadingComprehensionModel4.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CA94031DA9259C00259995 /* ReadingComprehensionModel4.m */; };
 		04E492881D969EE200201FDA /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E492871D969EE200201FDA /* TestController.m */; };
 		04E4928A1D96A2D900201FDA /* 返回图标.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E492891D96A2D900201FDA /* 返回图标.png */; };
@@ -310,6 +311,8 @@
 		04B823DA1DBAFFA600E5B590 /* ConfigureServerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigureServerView.m; sourceTree = "<group>"; };
 		04B823DC1DBB07BF00E5B590 /* ServerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerController.h; path = ../ServerController.h; sourceTree = "<group>"; };
 		04B823DD1DBB07BF00E5B590 /* ServerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerController.m; path = ../ServerController.m; sourceTree = "<group>"; };
+		04B823DF1DBB694000E5B590 /* Candidates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Candidates.h; sourceTree = "<group>"; };
+		04B823E01DBB694000E5B590 /* Candidates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Candidates.m; sourceTree = "<group>"; };
 		04CA94021DA9259C00259995 /* ReadingComprehensionModel4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingComprehensionModel4.h; sourceTree = "<group>"; };
 		04CA94031DA9259C00259995 /* ReadingComprehensionModel4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingComprehensionModel4.m; sourceTree = "<group>"; };
 		04E492861D969EE200201FDA /* TestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestController.h; sourceTree = "<group>"; };
@@ -1366,6 +1369,8 @@
 			isa = PBXGroup;
 			children = (
 				F641DE511D9903870039CBC9 /* PaperElement */,
+				04B823DF1DBB694000E5B590 /* Candidates.h */,
+				04B823E01DBB694000E5B590 /* Candidates.m */,
 				F6D1F9F01D80110100508F09 /* TestPaperPackageInfoModel.h */,
 				F6D1F9F11D80110100508F09 /* TestPaperPackageInfoModel.m */,
 				046D698D1DA0E0B4009BCE78 /* BaseModel.h */,
@@ -1627,6 +1632,7 @@
 				F6D1F9D71D80073500508F09 /* UIView+RelativeToUIScreen.m in Sources */,
 				F6D1F9B61D80073500508F09 /* NSObject+Runtime.m in Sources */,
 				F6D1F9CF1D80073500508F09 /* UINavigationController+POP.m in Sources */,
+				04B823E11DBB694000E5B590 /* Candidates.m in Sources */,
 				F6D1F8851D7FFC7E00508F09 /* ViewController.m in Sources */,
 				04F5EB4D1D96792800A0E47E /* FormalExaminationController.m in Sources */,
 				F6D1F9D01D80073500508F09 /* UITheme.m in Sources */,

@@ -32,6 +32,12 @@
     }
 }
 
++ (void)setStatisticsWithType:(NSString *)type andIScorrect:(BOOL)b
+{
+
+}
+
+
 + (void)setStatisticsWithAssessmentItemRef:(AssessmentItemRef *)model ;
 {
     BOOL b = NO ; ;
@@ -98,12 +104,7 @@
     [typeDic setValue:[NSString stringWithFormat:@"%d",corr] forKey:corrCount];
     
     [dic setObject:typeDic forKey:type];
-<<<<<<< HEAD
-    [[NSUserDefaults standardUserDefaults] setObject:dic forKey:[NSString stringWithFormat:@"level%d",[User shareInstance].level]]; 
-=======
     [[NSUserDefaults standardUserDefaults] setObject:dic forKey:[NSString stringWithFormat:@"level%d",[User shareInstance].level]];
-    
-    
     [self playWithCorOrFalse:b];
 }
 
@@ -114,7 +115,6 @@
     NSURL *url=  nil ;
     
     SystemSoundID soundID=0;
->>>>>>> c9e3ed2d6f375d16ca869ab5019aa9d98709759a
 
     if (b) {
         url =    [[NSBundle mainBundle]URLForResource:@"答对.aiff" withExtension:nil];
@@ -138,14 +138,11 @@
     AudioServicesPlaySystemSound(soundID) ;
 }
 
-<<<<<<< HEAD
 - (void)setSerVerConfig:(NSDictionary *)serVerConfig
 {
     _serVerConfig = serVerConfig ;
     [[NSUserDefaults standardUserDefaults] setObject:serVerConfig forKey:SerVerConfig];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
-=======
->>>>>>> c9e3ed2d6f375d16ca869ab5019aa9d98709759a
 
 @end

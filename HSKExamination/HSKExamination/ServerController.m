@@ -39,6 +39,7 @@
     UIButton * backBu = [[UIButton alloc] initWithFrame:CGRectMake(20, 30, 40, 40)];
     [self.view addSubview:backBu];
     [backBu setImage:[UIImage imageNamed:@"返回图标"] forState:BuNormal];
+    [backBu addTarget:self action:@selector(back) forControlEvents:BuTouchUpInside];
     
 }
 
@@ -102,6 +103,8 @@
     UIScrollView * scor = [[UIScrollView alloc] initWithFrame:CGRectMake(420, 90, 420, screenHeight() - 90-80)];
     [_backView addSubview:scor];
 //    scor.backgroundColor = [UIColor redColor];
+    scor.showsVerticalScrollIndicator = scor.showsHorizontalScrollIndicator = NO ;
+    
     
     UIView * lineLeft = [[UIView alloc] initWithFrame:CGRectMake(400, 60, 1, screenHeight())];
     [_backView addSubview:lineLeft];
@@ -112,6 +115,9 @@
 
     NSLog(@"%@",array) ;
     float width = scor.width ;
+    
+    NSArray * arr = @[@"ExamPlanName",@"ExamPlanCode",@"ExamPlanInfoID",@"BeginTime",@"EndTime"] ;
+    NSArray * titleArr = @[@"",@"计划编码:",@"计划信息ID:",@"计划开始时间:",@"计划结束时间:"] ;
     for (int i = 0; i < array.count; i++) {
         NSDictionary * dataDic = array[i] ;
 
@@ -119,14 +125,22 @@
 //        nameLabel.text = [dataDic objectForKey:@"ExamPlanName"] ;
 //        [scor addSubview:nameLabel];
         
-        NSArray * arr = @[@"ExamPlanName",@"ExamPlanCode",@"ExamPlanInfoID",@"BeginTime",@"EndTime"] ;
         for (int j = 0; j < 5; j++) {
-//            UILabel * codeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, nameLabel.bottom + 20, width, 30)];
-//            [scor addSubview:codeLabel];
-//            codeLabel.text = [dataDic objectForKey:@"ExamPlanCode"] ;
+            UILabel * codeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,i*200 +j*30 + 30 , width, 30)];
+            [scor addSubview:codeLabel];
+            codeLabel.text = [titleArr[j]  stringByAppendingString:[NSString stringWithFormat:@"%@",[dataDic  objectForKey:arr[j]]]]  ;
+            
+            if (j == 0) {
+                codeLabel.y -= 20 ;
+                codeLabel.font = [UIFont boldSystemFontOfSize:20] ;
+            }
 
         }
         
+        UIView * line = [[UIView alloc] initWithFrame:CGRectMake(0, 200 * i+190, width, 1)];
+        [scor addSubview:line];
+        line.backgroundColor = LineColor ;
+        scor.contentSize = CGSizeMake(10, line.y) ;
         
     }
 }
@@ -276,12 +290,12 @@
         __weak typeof(self) weakSelf = self ;
         [NetWorking postWithUrl:[u.serVerConfig[URLSerVer] stringByAppendingString:HskServerTest] andParameter:@{@"examSiteID":u.serVerConfig[ServerCode]} andSuccess:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable respon) {
             
-            NSString * s = [respon objectForKey:@"d"];
-          s =  [s stringByReplacingOccurrencesOfString:@"True" withString:@"\"true\""];
+//            NSString * s = [respon objectForKey:@"d"];
+//            s =  [s stringByReplacingOccurrencesOfString:@"True" withString:@"\"true\""];
+//            
+//            NSDictionary * d = [NSJSONSerialization JSONObjectWithData:[s dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
             
-            NSDictionary * d = [NSJSONSerialization JSONObjectWithData:[s dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
-            
-            NSArray * array = [d objectForKey:@"Data"];
+            NSArray * array =  [NetWorking resoveData:respon] ; // [d objectForKey:@"Data"];
             [weakSelf createViewWithArr:array];
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"%@",error) ;

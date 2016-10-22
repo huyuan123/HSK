@@ -149,4 +149,24 @@ failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure
     }];
 }
 
+
+
++ (id)resoveData:(id)data
+{
+    NSString * s = [data objectForKey:@"d"];
+    s =  [s stringByReplacingOccurrencesOfString:@"True" withString:@"\"true\""];
+    s =  [s stringByReplacingOccurrencesOfString:@"False" withString:@"\"false\""];
+
+    NSDictionary * d = [NSJSONSerialization JSONObjectWithData:[s dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+    
+    if ([d[@"isSuccess"] isEqualToString:@"false"]) {
+        Alert(d[@"Message"]) ;
+        return nil;
+    }
+    
+    return  [d objectForKey:@"Data"];
+
+}
+
+
 @end

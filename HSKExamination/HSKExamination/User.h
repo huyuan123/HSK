@@ -34,7 +34,6 @@
 
 + (void)setStatisticsWithType:(NSString *)type andIScorrect:(BOOL)b ;
 
-
 + (void)setStatisticsWithAssessmentItemRef:(AssessmentItemRef *)model ;
 
 + (void)setStatisticsWithAssessmentItemRef:(AssessmentItemRef *)model andIndex:(NSString *)index;
