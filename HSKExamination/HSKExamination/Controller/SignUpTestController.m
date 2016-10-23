@@ -13,6 +13,7 @@
 #import "NetWorking.h"
 #import "CityModel.h"
 #import "CityPickView.h"
+#import "LevelPickView.h"
 @interface SignUpTestController ()<UITextFieldDelegate>  //  报名约考
 @property (nonatomic ,strong)  NSArray      *   cityArray ;
 @end
@@ -21,6 +22,7 @@
 {
     CityPickView    * _pickView ;
     TestCenter      * _center ;
+    LevelPickView   * _levelPickView ;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -89,7 +91,6 @@
     
     for (int i = 0; i < arr.count; i++) {
         
-        
         UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(70, 70 + 50*i, 70, 30)];
         [backViw addSubview:label];
         label.text = arr[i] ;
@@ -125,11 +126,12 @@
         
         field.tag = 100 + i ;
         
-        if (i == 3) {
+        if (i == 3 || i== 4) {
             field.delegate = self ;
             field.font = Font12 ;
             
         }
+        
         
         field.textAlignment = CenterText ;
         
@@ -229,7 +231,13 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    [[self pickView] show];
+    if(textField.tag == 203)
+    {
+        [[self pickView] show];
+    }else
+    {
+        [[self levelPick] show];
+    }
     return NO ;
 }// return NO to disallow editing.
 
@@ -248,4 +256,20 @@
     return _pickView ;
 }
 
+
+- (LevelPickView *)levelPick
+{
+    if(!_levelPickView)
+    {
+        _levelPickView = [[LevelPickView alloc] init];
+        [self.view addSubview:_levelPickView];
+        [_levelPickView loadData:@[@"一级",@"二级",@"三级",@"四级",@"五级",@"六级"]];
+        [_levelPickView setBlock:^(NSString * s) {
+            UITextField * field = [self.view viewWithTag:104];
+            field.text = s ;
+        }];
+    }
+    
+    return _levelPickView ;
+}
 @end

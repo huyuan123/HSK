@@ -59,6 +59,7 @@
 		04B823DB1DBAFFA600E5B590 /* ConfigureServerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823DA1DBAFFA600E5B590 /* ConfigureServerView.m */; };
 		04B823DE1DBB07BF00E5B590 /* ServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823DD1DBB07BF00E5B590 /* ServerController.m */; };
 		04B823E11DBB694000E5B590 /* Candidates.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823E01DBB694000E5B590 /* Candidates.m */; };
+		04B823E41DBC7A0300E5B590 /* LevelPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823E31DBC7A0300E5B590 /* LevelPickView.m */; };
 		04CA94041DA9259C00259995 /* ReadingComprehensionModel4.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CA94031DA9259C00259995 /* ReadingComprehensionModel4.m */; };
 		04E492881D969EE200201FDA /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E492871D969EE200201FDA /* TestController.m */; };
 		04E4928A1D96A2D900201FDA /* 返回图标.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E492891D96A2D900201FDA /* 返回图标.png */; };
@@ -313,6 +314,8 @@
 		04B823DD1DBB07BF00E5B590 /* ServerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerController.m; path = ../ServerController.m; sourceTree = "<group>"; };
 		04B823DF1DBB694000E5B590 /* Candidates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Candidates.h; sourceTree = "<group>"; };
 		04B823E01DBB694000E5B590 /* Candidates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Candidates.m; sourceTree = "<group>"; };
+		04B823E21DBC7A0300E5B590 /* LevelPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelPickView.h; sourceTree = "<group>"; };
+		04B823E31DBC7A0300E5B590 /* LevelPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelPickView.m; sourceTree = "<group>"; };
 		04CA94021DA9259C00259995 /* ReadingComprehensionModel4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingComprehensionModel4.h; sourceTree = "<group>"; };
 		04CA94031DA9259C00259995 /* ReadingComprehensionModel4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingComprehensionModel4.m; sourceTree = "<group>"; };
 		04E492861D969EE200201FDA /* TestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestController.h; sourceTree = "<group>"; };
@@ -753,6 +756,8 @@
 				F63080031D9D01AF00241D16 /* SelectView.m */,
 				0474B4BF1DB360BC00D4A2AF /* CityPickView.h */,
 				0474B4C01DB360BC00D4A2AF /* CityPickView.m */,
+				04B823E21DBC7A0300E5B590 /* LevelPickView.h */,
+				04B823E31DBC7A0300E5B590 /* LevelPickView.m */,
 				04B823D91DBAFFA600E5B590 /* ConfigureServerView.h */,
 				04B823DA1DBAFFA600E5B590 /* ConfigureServerView.m */,
 			);
@@ -1735,6 +1740,7 @@
 				046D69981DA23DC0009BCE78 /* NSString+Chara.m in Sources */,
 				F67FDAC61D8F96930064CF3D /* NetWorking.m in Sources */,
 				F6D1F9C71D80073500508F09 /* Tools.m in Sources */,
+				04B823E41DBC7A0300E5B590 /* LevelPickView.m in Sources */,
 				F6D1F99D1D80073500508F09 /* BackgroundView.m in Sources */,
 				F6D1F9CC1D80073500508F09 /* UIFont+WDCustomLoader.m in Sources */,
 				F6365D561DB86DA60003DA41 /* NSMutableArray+Arc4.m in Sources */,
