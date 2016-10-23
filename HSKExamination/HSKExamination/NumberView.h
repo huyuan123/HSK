@@ -12,6 +12,7 @@
 //  练习部分左侧的目录view
 @interface NumberView : UIView
 
+@property (nonatomic ,weak) UILabel *  countLabel ;
 
 @property (nonatomic ,copy) void(^ClickBlock)(AssessmentItemRef * itemRef) ;
 

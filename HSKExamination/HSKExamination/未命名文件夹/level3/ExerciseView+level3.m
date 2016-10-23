@@ -149,33 +149,72 @@
     
     int count = (int)choice.simpleChoiceArray.count ;
     {
-        x = (self.backView.width - 100*count)/(count +1) ;
-        for (int i = 0; i < choice.simpleChoiceArray.count; i++) {
-            UILabel * textLabel = [[UILabel alloc] initWithFrame:CGRectMake(x + i*(100 + x), 260, 100, 100)];
-            [self.backView addSubview:textLabel];
-            //            textLabel.backgroundColor = [UIColor redColor];
-            SimpleChoice * choiceModel = choice.simpleChoiceArray[i] ;
-            textLabel.numberOfLines = 0 ;
-            textLabel.text = choiceModel.textString ;
-            textLabel.textAlignment = CenterText ;
-            [textLabel adjustsFontSizeToFitWidth];
-            
-            CGRect r = textLabel.frame ;
-            ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(r.origin.x , 300, 100, 100)];
-            [self.backView addSubview:bu];
-            [bu setImageName:@"点"];
-            [bu setTitle:[choice.simpleChoiceArray[i] identifier]  forState:BuNormal];
-            bu.titleLabel.font = [UIFont boldSystemFontOfSize:24] ;
-            [bu setTitleColor:[UIColor blackColor] forState:BuNormal];
-            bu.tag = 1000 + i ;
-            [bu addTarget:self action:@selector(singleChoiceEvent:) forControlEvents:BuTouchUpInside];
-            [bu setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -10)];
-            if (isCanUseString(model.userChoice)) {
-                if ([model.userChoice isEqualToString:bu.titleLabel.text]) {
-                    [bu setIsSelect:YES];
+        if (count < 4) {
+            x = (self.backView.width - 100*count)/(count +1) ;
+            for (int i = 0; i < choice.simpleChoiceArray.count; i++) {
+                UILabel * textLabel = [[UILabel alloc] initWithFrame:CGRectMake(x + i*(100 + x), 260, 100, 100)];
+                [self.backView addSubview:textLabel];
+                //            textLabel.backgroundColor = [UIColor redColor];
+                SimpleChoice * choiceModel = choice.simpleChoiceArray[i] ;
+                textLabel.numberOfLines = 0 ;
+                textLabel.text = choiceModel.textString ;
+                textLabel.textAlignment = CenterText ;
+                [textLabel adjustsFontSizeToFitWidth];
+                
+                CGRect r = textLabel.frame ;
+                ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(r.origin.x , 300, 100, 100)];
+                [self.backView addSubview:bu];
+                [bu setImageName:@"点"];
+                [bu setTitle:[choice.simpleChoiceArray[i] identifier]  forState:BuNormal];
+                bu.titleLabel.font = [UIFont boldSystemFontOfSize:24] ;
+                [bu setTitleColor:[UIColor blackColor] forState:BuNormal];
+                bu.tag = 1000 + i ;
+                [bu addTarget:self action:@selector(singleChoiceEvent:) forControlEvents:BuTouchUpInside];
+                [bu setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -10)];
+                if (isCanUseString(model.userChoice)) {
+                    if ([model.userChoice isEqualToString:bu.titleLabel.text]) {
+                        [bu setIsSelect:YES];
+                    }
                 }
             }
+        }else
+        {
+            x = (self.backView.width - 160*2)/(3) ;
+            for (int i = 0; i < choice.simpleChoiceArray.count; i++) {
+                
+                ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(x + i%2* x*2 , 260 + i/2* 120, 60, 100)];
+                [self.backView addSubview:bu];
+                [bu setImageName:@"点"];
+                [bu setTitle:[choice.simpleChoiceArray[i] identifier]  forState:BuNormal];
+                bu.titleLabel.font = [UIFont boldSystemFontOfSize:24] ;
+                [bu setTitleColor:[UIColor blackColor] forState:BuNormal];
+                bu.tag = 1000 + i ;
+                [bu addTarget:self action:@selector(singleChoiceEvent:) forControlEvents:BuTouchUpInside];
+                [bu setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -10)];
+                
+                
+                CGRect r = bu.frame ;
+                UILabel * textLabel = [[UILabel alloc] initWithFrame:CGRectMake(r.origin.x + r.size.width, r.origin.y, 150, 100)];
+                [self.backView addSubview:textLabel];
+                SimpleChoice * choiceModel = choice.simpleChoiceArray[i] ;
+                textLabel.numberOfLines = 0 ;
+                textLabel.text = choiceModel.textString ;
+//                textLabel.backgroundColor = [UIColor redColor];
+//                textLabel.textAlignment = CenterText ;
+                [textLabel adjustsFontSizeToFitWidth];
+                
+//                CGRect r = textLabel.frame ;
+
+                if (isCanUseString(model.userChoice)) {
+                    if ([model.userChoice isEqualToString:bu.titleLabel.text]) {
+                        [bu setIsSelect:YES];
+                    }
+                }
+            }
+        
         }
+        
+  
         
     }
     

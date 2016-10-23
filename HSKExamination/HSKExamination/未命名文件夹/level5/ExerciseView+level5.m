@@ -88,19 +88,20 @@
     float height = 0 ;
     for(int i = 0 ; i < model.subItemArr.count ; i++)
     {
-        UILabel * tiHaoLabel = [[UILabel alloc] initWithFrame:CGRectMake(360, 120 + i*150, scor.width -390, 30)];
-        [scor addSubview:tiHaoLabel];
-        tiHaoLabel.text = [NSString stringWithFormat:@"%d",i + 1];
-        UIView * view = [[UIView alloc] initWithFrame:CGRectMake(360, 150 + i*150, scor.width - 390, 120)];
+        UIView * view = [[UIView alloc] initWithFrame:CGRectMake(360, 150 + i*60, scor.width - 390, 40)];
         [scor addSubview:view];
         height = view.bottom ;
         view.tag = 100 + i ;
         
+        UILabel * tiHaoLabel = [[UILabel alloc] initWithFrame:CGRectMake(360, 140 + i*60, scor.width -390, 30)];
+        [scor addSubview:tiHaoLabel];
+        tiHaoLabel.text = [NSString stringWithFormat:@"%d",i + 1];
+
         SimpleChoice * choice = [model.subItemArr objectAtIndex:i];
 
         for (int j = 0; j < choice.array.count; j++) {
             SimpleChoice * choiceModel = choice.array[j] ;
-            ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(0, 30*j, 60, 30)];
+            ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(j*60, 30, 60, 30)];
             [view addSubview:bu];
             [bu setImageName:@"点"];
             [bu setTitle:choiceModel.identifier forState:BuNormal];

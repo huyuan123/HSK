@@ -76,7 +76,20 @@
     
     [_backView addSubview:_typeImageView];
     [_backView addSubview:_countLabel];
-    _countLabel.text = @"1/40" ;
+//    _countLabel.text = @"1/40" ;
+    
+    if(assModel.astIndex.textPart == 1)
+    {
+        _typeImageView.image = [UIImage imageNamed:@"听力图标"];
+
+    }else if (assModel.astIndex.textPart == 2)
+    {
+        _typeImageView.image = [UIImage imageNamed:@"阅读图标-pre"];
+
+    }else if (assModel.astIndex.textPart == 3)
+    {
+        _typeImageView.image = [UIImage imageNamed:@"写作图标-pre"];
+    }
     
     if (self.manger) {
         [self.manger stop];
@@ -130,7 +143,6 @@
         BOOL  b7 = level == 3 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 2 ;
         BOOL  b8 = level == 4 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 3;
         BOOL  b9 = level == 4 && assModel.astIndex.textPart == 1 && assModel.astIndex.assessmentSection == 3;
-
         BOOL b10 = level == 6 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 4 ;
 
         if (b1 || b4 || b7 || b8 || b9 || b10) {
@@ -172,6 +184,16 @@
         [extendModel parseInPath:path];
         [self loadWrite:extendModel];
     }
+    
+    
+    NSArray * arr = [_backView subviews];
+    for (UIView * v in arr) {
+        if ([v isKindOfClass:[UIScrollView class]]) {
+            [v addSubview:_countLabel];
+            [v addSubview:_typeImageView];
+        }
+    }
+    
 }
 
 #pragma mark------------------------------   加载写作
