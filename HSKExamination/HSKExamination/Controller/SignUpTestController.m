@@ -85,7 +85,7 @@
     
     view.layer.shadowOffset  = CGSizeMake(1, 1);// 阴影的范围
 
-    NSArray * arr = @[@"姓名",@"性别",@"年龄",@"所在考点",@"报考等级",@"联系电话",@"邮箱"];
+    NSArray * arr = @[@"姓名",@"性别",@"年龄",@"选择考点",@"报考等级",@"联系电话",@"邮箱"];
     
     for (int i = 0; i < arr.count; i++) {
         
@@ -159,7 +159,6 @@
 {
 
     NSString * name = [[self.view viewWithTag:100] text];
-
     NSString * level = [[self.view viewWithTag:104] text];
     NSString * old = [[self.view viewWithTag:102] text];
     NSString * phone = [[self.view viewWithTag:105] text];
@@ -171,30 +170,36 @@
     
     if (!isCanUseString(name)) {
         [[[UIAlertView alloc] initWithTitle:@"请输入姓名" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show] ;
+        return ;
     }
     
     if (!isCanUseString(level)) {
         [[[UIAlertView alloc] initWithTitle:@"请输入等级" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show] ;
+        return ;
 
     }
 
     if (!isCanUseString(phone)) {
         [[[UIAlertView alloc] initWithTitle:@"请输入电话" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show] ;
+        return ;
 
     }
 
     if (!isCanUseString(email)) {
         [[[UIAlertView alloc] initWithTitle:@"请输入邮箱" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show] ;
+        return ;
 
     }
 
     if (!isCanUseString(old)) {
         [[[UIAlertView alloc] initWithTitle:@"请输入年龄" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show] ;
+        return ;
         
     }
 
     if (!_center) {
         [[[UIAlertView alloc] initWithTitle:@"请输入考点" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show] ;
+        return ;
 
     }
 

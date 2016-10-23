@@ -110,20 +110,20 @@
 
 - (void)clickBu:(UIButton *)bu
 {
-//    for(int i = 0; i < _titleArray.count ; i++)
-//    {
-//        NumberButton * numBu = [_scorView viewWithTag:i + 100];
-//        if (bu == numBu) {
-//            [numBu setIsSelect:YES];
-//        }else
-//        {
-//            [numBu setIsSelect:NO];
-//        }
-//    }
+    for(int i = 0; i < _titleArray.count ; i++)
+    {
+        NumberButton * numBu = [_scorView viewWithTag:i + 100];
+        if (bu == numBu) {
+            [numBu setIsSelect:YES];
+        }else
+        {
+            [numBu setIsSelect:NO];
+        }
+    }
     
-//    if (_ClickBlock) {
-//        _ClickBlock(_titleArray[bu.tag -100]) ;
-//    }
+    if (_ClickBlock) {
+        _ClickBlock(_titleArray[bu.tag -100]) ;
+    }
 }
 
 
