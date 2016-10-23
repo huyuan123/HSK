@@ -62,6 +62,8 @@
 		04B823E41DBC7A0300E5B590 /* LevelPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823E31DBC7A0300E5B590 /* LevelPickView.m */; };
 		04B823E71DBC8C1F00E5B590 /* WhriteItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823E61DBC8C1F00E5B590 /* WhriteItemView.m */; };
 		04B823EA1DBC8F3E00E5B590 /* WhriteBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823E91DBC8F3E00E5B590 /* WhriteBackView.m */; };
+		04B823ED1DBCA4B100E5B590 /* TextEntry3.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823EC1DBCA4B100E5B590 /* TextEntry3.m */; };
+		04B823F01DBCAE6400E5B590 /* ExtendedText4.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823EF1DBCAE6400E5B590 /* ExtendedText4.m */; };
 		04CA94041DA9259C00259995 /* ReadingComprehensionModel4.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CA94031DA9259C00259995 /* ReadingComprehensionModel4.m */; };
 		04E492881D969EE200201FDA /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E492871D969EE200201FDA /* TestController.m */; };
 		04E4928A1D96A2D900201FDA /* 返回图标.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E492891D96A2D900201FDA /* 返回图标.png */; };
@@ -322,6 +324,10 @@
 		04B823E61DBC8C1F00E5B590 /* WhriteItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhriteItemView.m; sourceTree = "<group>"; };
 		04B823E81DBC8F3E00E5B590 /* WhriteBackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhriteBackView.h; sourceTree = "<group>"; };
 		04B823E91DBC8F3E00E5B590 /* WhriteBackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhriteBackView.m; sourceTree = "<group>"; };
+		04B823EB1DBCA4B100E5B590 /* TextEntry3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEntry3.h; sourceTree = "<group>"; };
+		04B823EC1DBCA4B100E5B590 /* TextEntry3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEntry3.m; sourceTree = "<group>"; };
+		04B823EE1DBCAE6400E5B590 /* ExtendedText4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendedText4.h; sourceTree = "<group>"; };
+		04B823EF1DBCAE6400E5B590 /* ExtendedText4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendedText4.m; sourceTree = "<group>"; };
 		04CA94021DA9259C00259995 /* ReadingComprehensionModel4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingComprehensionModel4.h; sourceTree = "<group>"; };
 		04CA94031DA9259C00259995 /* ReadingComprehensionModel4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingComprehensionModel4.m; sourceTree = "<group>"; };
 		04E492861D969EE200201FDA /* TestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestController.h; sourceTree = "<group>"; };
@@ -699,6 +705,8 @@
 			children = (
 				042369B41DA7A31C00814AB8 /* ExerciseView+level3.h */,
 				042369B51DA7A31C00814AB8 /* ExerciseView+level3.m */,
+				04B823EB1DBCA4B100E5B590 /* TextEntry3.h */,
+				04B823EC1DBCA4B100E5B590 /* TextEntry3.m */,
 				042369B71DA7A5E800814AB8 /* Judgement3.h */,
 				042369B81DA7A5E800814AB8 /* Judgement3.m */,
 				042369BA1DA7CAA400814AB8 /* ReadingComprehensionModel3.h */,
@@ -741,6 +749,8 @@
 				F608251A1DAB7FDB004FE433 /* SingleChoice4.m */,
 				0474B4A21DABCA8800D4A2AF /* TextEntry.h */,
 				0474B4A31DABCA8800D4A2AF /* TextEntry.m */,
+				04B823EE1DBCAE6400E5B590 /* ExtendedText4.h */,
+				04B823EF1DBCAE6400E5B590 /* ExtendedText4.m */,
 			);
 			path = level4;
 			sourceTree = "<group>";
@@ -1625,9 +1635,11 @@
 				F6D1F9D21D80073500508F09 /* UIView+AddToView.m in Sources */,
 				F6D1F9DE1D80073500508F09 /* WeakRelatedDictionary.m in Sources */,
 				040E23501D97EA3A003A2196 /* RightBu.m in Sources */,
+				04B823ED1DBCA4B100E5B590 /* TextEntry3.m in Sources */,
 				F6FDA4431D93D5DD00C83D58 /* MainController.m in Sources */,
 				046D698C1DA0C71F009BCE78 /* SimpleChoice.m in Sources */,
 				F6D1F8D51D80040000508F09 /* prng.c in Sources */,
+				04B823F01DBCAE6400E5B590 /* ExtendedText4.m in Sources */,
 				0474B4B81DB34F1700D4A2AF /* ExtendedText.m in Sources */,
 				F67FDABF1D8F96160064CF3D /* AFNetworkReachabilityManager.m in Sources */,
 				F6D1F99E1D80073500508F09 /* ChooseOneButton.m in Sources */,

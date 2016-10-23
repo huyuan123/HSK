@@ -241,8 +241,8 @@
         [self.backView addSubview:itemView];
         itemView.text = order.subItemArray[i] ;
         
-        CGFloat x = arc4random()%600 ;
-        CGFloat y = arc4random()%350 + 100 ;
+        CGFloat x = arc4random()%600 + 45 ;
+        CGFloat y = arc4random()%300 + 100 ;
         itemView.center = CGPointMake(x, y) ;
         __weak typeof(backView) weakbackView = backView ;
         __weak typeof (itemView) weakItem = itemView ;
@@ -251,5 +251,19 @@
         }];
     }
 }
+
+- (void)loadTextEntry3:(TextEntry3 *)model
+{
+    
+    UILabel * titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 140, 300, 30)];
+    [self.backView addSubview:titleLabel];
+    [titleLabel setText:@"请写出这句话缺少的字"];
+    
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(100, 150, self.backView.width -200, 300)];
+    [self.backView addSubview:label];
+    label.text = model.textString ;
+    label.numberOfLines = 0 ;
+}
+
 
 @end

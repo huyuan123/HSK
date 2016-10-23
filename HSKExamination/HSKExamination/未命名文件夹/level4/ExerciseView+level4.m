@@ -128,4 +128,45 @@
 }// return NO to not change text
 
 
+- (void)loadExTendedText:(ExtendedText4 *)model
+{
+    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 200)];
+    
+    if (model.img) {
+        imageView.contentMode = UIViewContentModeScaleAspectFit ;
+        [self.backView addSubview:imageView];
+        imageView.image = [UIImage imageWithContentsOfFile:model.img.src];
+        
+        imageView.center = self.backView.center ;
+        
+    }
+    
+    UILabel * textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+    [self.backView addSubview:textLabel];
+    textLabel.text = model.textString ;
+    textLabel.numberOfLines = 0 ;
+    textLabel.center = CGPointMake(imageView.centerX, imageView.bottom + 20) ;
+    textLabel.textAlignment = CenterText ;
+
+    if([User shareInstance].level == 4)
+    {
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 300, 30)];
+        [self.backView addSubview:label];
+        label.text = @"看图,用词造句" ;
+    }else
+    {
+        if (model.img) {
+
+            textLabel.frame = CGRectMake(100, imageView.bottom, self.backView.width -200, 300) ;
+            [textLabel sizeToFit];
+        }else
+        {
+            textLabel.frame = CGRectMake(100, 100, self.backView.width -200, 300) ;
+        }
+    }
+
+
+}
+
+
 @end

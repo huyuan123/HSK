@@ -18,6 +18,7 @@
 #import "ReadingComprehensionModel2.h"
 #import "Header.h"
 #import "Order.h"
+#import "TextEntry3.h"
 @implementation ExerciseView
 
 - (id)initWithFrame:(CGRect)frame
@@ -170,9 +171,22 @@
 
     }else if ([assModel.type isEqualToString:@"textEntry"])
     {
-        TextEntry * model = [[TextEntry alloc] init];
+        ProblemModel * model = nil ;
+        if (level == 3) {
+            model = [[TextEntry3 alloc] init];
+        }else
+        {
+            model =    [[TextEntry alloc] init];
+        }
+        
         [model parseInPath:path];
+        
+        if (level == 3) {
+            [self loadTextEntry3:model];
+        }else
+        {
         [self loadTextEntry:model];
+        }
     }else if ([assModel.type isEqualToString:@"cloze"])
     {
         Cloze * model = [[Cloze alloc] init];
@@ -180,9 +194,19 @@
         [self loadCloze:model];
     }else if ([assModel.type isEqualToString:@"extendedText"])
     {
-        ExtendedText * extendModel = [[ExtendedText alloc] init] ;
-        [extendModel parseInPath:path];
-        [self loadWrite:extendModel];
+        if (level == 6) {
+            ExtendedText * extendModel = [[ExtendedText alloc] init] ;
+            [extendModel parseInPath:path];
+            [self loadWrite:extendModel];
+
+        }else if (level == 4 || level == 5)
+        {
+            ExtendedText4 * extendModel = [[ExtendedText4 alloc] init] ;
+            [extendModel parseInPath:path];
+            [self loadExTendedText:extendModel];
+
+        }
+        
     }else if ([assModel.type isEqualToString:@"order"])
     {
         Order * order = [[Order alloc] init];
@@ -209,10 +233,10 @@
 
 #pragma mark------------------------------   加载排序
 
-- (void)loadTextEntry:(TextEntry *)entry
-{
-
-}
+//- (void)loadTextEntry:(TextEntry *)entry
+//{
+//
+//}
 
 #pragma mark------------------------------   加载判断题
 //  加载判断题

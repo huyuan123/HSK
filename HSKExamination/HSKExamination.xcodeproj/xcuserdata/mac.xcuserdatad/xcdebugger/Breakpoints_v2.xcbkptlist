@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HSKExamination/ExerciseView.m"
-            timestampString = "498884667.908146"
+            timestampString = "498902882.909816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "-loadAssMent:"
             landmarkType = "7">
          </BreakpointContent>
