@@ -60,6 +60,8 @@
 		04B823DE1DBB07BF00E5B590 /* ServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823DD1DBB07BF00E5B590 /* ServerController.m */; };
 		04B823E11DBB694000E5B590 /* Candidates.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823E01DBB694000E5B590 /* Candidates.m */; };
 		04B823E41DBC7A0300E5B590 /* LevelPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823E31DBC7A0300E5B590 /* LevelPickView.m */; };
+		04B823E71DBC8C1F00E5B590 /* WhriteItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823E61DBC8C1F00E5B590 /* WhriteItemView.m */; };
+		04B823EA1DBC8F3E00E5B590 /* WhriteBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B823E91DBC8F3E00E5B590 /* WhriteBackView.m */; };
 		04CA94041DA9259C00259995 /* ReadingComprehensionModel4.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CA94031DA9259C00259995 /* ReadingComprehensionModel4.m */; };
 		04E492881D969EE200201FDA /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E492871D969EE200201FDA /* TestController.m */; };
 		04E4928A1D96A2D900201FDA /* 返回图标.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E492891D96A2D900201FDA /* 返回图标.png */; };
@@ -316,6 +318,10 @@
 		04B823E01DBB694000E5B590 /* Candidates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Candidates.m; sourceTree = "<group>"; };
 		04B823E21DBC7A0300E5B590 /* LevelPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelPickView.h; sourceTree = "<group>"; };
 		04B823E31DBC7A0300E5B590 /* LevelPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelPickView.m; sourceTree = "<group>"; };
+		04B823E51DBC8C1F00E5B590 /* WhriteItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhriteItemView.h; sourceTree = "<group>"; };
+		04B823E61DBC8C1F00E5B590 /* WhriteItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhriteItemView.m; sourceTree = "<group>"; };
+		04B823E81DBC8F3E00E5B590 /* WhriteBackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhriteBackView.h; sourceTree = "<group>"; };
+		04B823E91DBC8F3E00E5B590 /* WhriteBackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhriteBackView.m; sourceTree = "<group>"; };
 		04CA94021DA9259C00259995 /* ReadingComprehensionModel4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingComprehensionModel4.h; sourceTree = "<group>"; };
 		04CA94031DA9259C00259995 /* ReadingComprehensionModel4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingComprehensionModel4.m; sourceTree = "<group>"; };
 		04E492861D969EE200201FDA /* TestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestController.h; sourceTree = "<group>"; };
@@ -699,6 +705,10 @@
 				042369BB1DA7CAA400814AB8 /* ReadingComprehensionModel3.m */,
 				F62D92091DAA0311000A1837 /* SingleChoice3.h */,
 				F62D920A1DAA0311000A1837 /* SingleChoice3.m */,
+				04B823E51DBC8C1F00E5B590 /* WhriteItemView.h */,
+				04B823E61DBC8C1F00E5B590 /* WhriteItemView.m */,
+				04B823E81DBC8F3E00E5B590 /* WhriteBackView.h */,
+				04B823E91DBC8F3E00E5B590 /* WhriteBackView.m */,
 			);
 			path = level3;
 			sourceTree = "<group>";
@@ -1734,6 +1744,7 @@
 				F6D1F9A51D80073500508F09 /* LabelRotateView.m in Sources */,
 				F6D1F9BD1D80073500508F09 /* NSString+DES.m in Sources */,
 				0474B4BE1DB3522F00D4A2AF /* TestCenter.m in Sources */,
+				04B823EA1DBC8F3E00E5B590 /* WhriteBackView.m in Sources */,
 				04B823DB1DBAFFA600E5B590 /* ConfigureServerView.m in Sources */,
 				F6D1F9A01D80073500508F09 /* FastCoder.m in Sources */,
 				F67FDAC01D8F96160064CF3D /* AFSecurityPolicy.m in Sources */,
@@ -1752,6 +1763,7 @@
 				F6D1F9E21D80073500508F09 /* YXEasing.m in Sources */,
 				F6D1F9AD1D80073500508F09 /* NSData+MD5.m in Sources */,
 				F6FDA43A1D93AC5F00C83D58 /* BaseViewController.m in Sources */,
+				04B823E71DBC8C1F00E5B590 /* WhriteItemView.m in Sources */,
 				F6D1F8D01D80040000508F09 /* aeskey.c in Sources */,
 				040E234A1D97DB92003A2196 /* ExerciseView.m in Sources */,
 				F6D1F9C31D80073500508F09 /* NSString+Telephone.m in Sources */,

@@ -17,7 +17,7 @@
 #import "ExerciseView+Read.h"
 #import "ReadingComprehensionModel2.h"
 #import "Header.h"
-
+#import "Order.h"
 @implementation ExerciseView
 
 - (id)initWithFrame:(CGRect)frame
@@ -183,6 +183,11 @@
         ExtendedText * extendModel = [[ExtendedText alloc] init] ;
         [extendModel parseInPath:path];
         [self loadWrite:extendModel];
+    }else if ([assModel.type isEqualToString:@"order"])
+    {
+        Order * order = [[Order alloc] init];
+        [order parseInPath:path];
+        [self loadOrder:order];
     }
     
     
@@ -328,6 +333,14 @@
         [self loadReadingComprehensionModel7:(ReadingComprehensionModel7 *)model];
     }
 }
+
+
+#pragma mark 加载写作题
+
+//- (void)loadOrder:(Order *)order
+//{
+//
+//}
 
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex NS_DEPRECATED_IOS(2_0, 9_0)

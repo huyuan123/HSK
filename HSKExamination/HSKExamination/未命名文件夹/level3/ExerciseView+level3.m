@@ -9,6 +9,8 @@
 #import "ExerciseView+level3.h"
 #import "ItemBu.h"
 #import "SelectView.h"
+#import "WhriteBackView.h"
+#import "WhriteItemView.h"
 @implementation ExerciseView (level3)
 - (void)loadJudgeMent3:(Judgement3 *)judgeModel
 {
@@ -225,5 +227,29 @@
     }
 }
 
+
+
+- (void)loadOrder:(Order *)order
+{
+    
+    WhriteBackView * backView = [[WhriteBackView alloc] initWithFrame:CGRectMake(20, 445, self.backView.width -40, 55)];
+    backView.count = (int)order.subItemArray.count ;
+    backView.cornerRadius = 10 ;
+    [self.backView addSubview:backView];
+    for (int i = 0; i < order.subItemArray.count; i++) {
+        WhriteItemView * itemView = [[WhriteItemView alloc] init];
+        [self.backView addSubview:itemView];
+        itemView.text = order.subItemArray[i] ;
+        
+        CGFloat x = arc4random()%600 ;
+        CGFloat y = arc4random()%350 + 100 ;
+        itemView.center = CGPointMake(x, y) ;
+        __weak typeof(backView) weakbackView = backView ;
+        __weak typeof (itemView) weakItem = itemView ;
+        [itemView setBlock:^{
+            [weakbackView AdsorptionView:weakItem];
+        }];
+    }
+}
 
 @end
