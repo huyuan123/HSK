@@ -47,20 +47,9 @@
         
     }else
     {
-        x = (self.backView.width - 400)/5 ;
+        x = (self.backView.width - 320)/3 ;
         for (int i = 0; i < choice.simpleChoiceArray.count; i++) {
-            UILabel * textLabel = [[UILabel alloc] initWithFrame:CGRectMake(x + i*(100 + x), 220, 100, 100)];
-            [self.backView addSubview:textLabel];
-            //            textLabel.backgroundColor = [UIColor redColor];
-            SimpleChoice * choiceModel = choice.simpleChoiceArray[i] ;
-            textLabel.numberOfLines = 0 ;
-            textLabel.text = [choiceModel.pinYInString stringByAppendingString:@"\n"] ;
-            textLabel.text = [textLabel.text stringByAppendingString:choiceModel.textString] ;
-            textLabel.textAlignment = CenterText ;
-            [textLabel adjustsFontSizeToFitWidth];
-            
-            CGRect r = textLabel.frame ;
-            ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(r.origin.x , 300, 100, 100)];
+            ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(x + i%2* x*2 , 260 + i/2* 120, 60, 100)];
             [self.backView addSubview:bu];
             [bu setImageName:@"点"];
             [bu setTitle:[choice.simpleChoiceArray[i] identifier]  forState:BuNormal];
@@ -69,11 +58,23 @@
             bu.tag = 1000 + i ;
             [bu addTarget:self action:@selector(singleChoiceEvent:) forControlEvents:BuTouchUpInside];
             [bu setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -10)];
-            if (isCanUseString(model.userChoice)) {
-                if ([model.userChoice isEqualToString:bu.titleLabel.text]) {
-                    [bu setIsSelect:YES];
-                }
-            }
+            CGRect r = bu.frame ;
+
+            
+            
+            UILabel * textLabel = [[UILabel alloc] initWithFrame:CGRectMake(r.origin.x + r.size.width, r.origin.y, 150, 100)];
+            [self.backView addSubview:textLabel];
+            SimpleChoice * choiceModel = choice.simpleChoiceArray[i] ;
+            textLabel.numberOfLines = 0 ;
+//            textLabel.text = [choiceModel.pinYInString stringByAppendingString:@"\n"] ;
+            textLabel.text = choiceModel.textString ;
+//            textLabel.textAlignment = CenterText ;
+            
+//            textLabel.backgroundColor = [UIColor redColor];
+            [textLabel adjustsFontSizeToFitWidth];
+            
+
+        
         }
         
     }
@@ -111,8 +112,9 @@
     [self.backView addSubview:textField];
     textField.cornerRadius = 25 ;
     textField.textAlignment = NSTextAlignmentCenter ;
-    textField.backgroundColor = RGBCOLOR(188, 225, 84) ;
-    
+//    textField.backgroundColor = RGBCOLOR(188, 225, 84) ;
+    textField.layer.borderWidth = 1 ;
+    textField.layer.borderColor = RGBCOLOR(188, 225, 84).CGColor ;
     textField.delegate = self ;
     
 }
@@ -124,6 +126,47 @@
     model.userChoice = textField.text ;
     return YES ;
 }// return NO to not change text
+
+
+- (void)loadExTendedText:(ExtendedText4 *)model
+{
+    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 200)];
+    
+    if (model.img) {
+        imageView.contentMode = UIViewContentModeScaleAspectFit ;
+        [self.backView addSubview:imageView];
+        imageView.image = [UIImage imageWithContentsOfFile:model.img.src];
+        
+        imageView.center = self.backView.center ;
+        
+    }
+    
+    UILabel * textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+    [self.backView addSubview:textLabel];
+    textLabel.text = model.textString ;
+    textLabel.numberOfLines = 0 ;
+    textLabel.center = CGPointMake(imageView.centerX, imageView.bottom + 20) ;
+    textLabel.textAlignment = CenterText ;
+
+    if([User shareInstance].level == 4)
+    {
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 300, 30)];
+        [self.backView addSubview:label];
+        label.text = @"看图,用词造句" ;
+    }else
+    {
+        if (model.img) {
+
+            textLabel.frame = CGRectMake(100, imageView.bottom, self.backView.width -200, 300) ;
+            [textLabel sizeToFit];
+        }else
+        {
+            textLabel.frame = CGRectMake(100, 100, self.backView.width -200, 300) ;
+        }
+    }
+
+
+}
 
 
 @end

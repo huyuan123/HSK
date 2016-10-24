@@ -64,7 +64,7 @@
     string = [string stringByReplacingOccurrencesOfString:@"nbsp;" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"&" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"ldquo;" withString:@""];
-    string = [string stringByReplacingOccurrencesOfString:@"rdquo;" withString:@""];
+    string = [string stringByReplacingOccurrencesOfString:@"mdash;" withString:@""];
     
     if ([string isCharacter]) {
         string = [NSString stringWithFormat:@"\n\n%@ ",string];
@@ -85,11 +85,16 @@
         choice.textString = [choice.textString stringByAppendingString:string];
         _index ++ ;
     }
+    
+    NSLog(@"%@",string) ;
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName
 {
     if ([elementName isEqualToString:@"promt"]) {
+        _index ++ ;
+    }else if ([elementName isEqualToString:@"itemBody"])
+    {
         _index ++ ;
     }
 }

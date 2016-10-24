@@ -32,6 +32,12 @@
     }
 }
 
++ (void)setStatisticsWithType:(NSString *)type andIScorrect:(BOOL)b
+{
+
+}
+
+
 + (void)setStatisticsWithAssessmentItemRef:(AssessmentItemRef *)model ;
 {
     BOOL b = NO ; ;
@@ -99,8 +105,6 @@
     
     [dic setObject:typeDic forKey:type];
     [[NSUserDefaults standardUserDefaults] setObject:dic forKey:[NSString stringWithFormat:@"level%d",[User shareInstance].level]];
-    
-    
     [self playWithCorOrFalse:b];
 }
 
@@ -134,5 +138,11 @@
     AudioServicesPlaySystemSound(soundID) ;
 }
 
+- (void)setSerVerConfig:(NSDictionary *)serVerConfig
+{
+    _serVerConfig = serVerConfig ;
+    [[NSUserDefaults standardUserDefaults] setObject:serVerConfig forKey:SerVerConfig];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 @end

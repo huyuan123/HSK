@@ -17,7 +17,8 @@
 #import "ExerciseView+Read.h"
 #import "ReadingComprehensionModel2.h"
 #import "Header.h"
-
+#import "Order.h"
+#import "TextEntry3.h"
 @implementation ExerciseView
 
 - (id)initWithFrame:(CGRect)frame
@@ -76,7 +77,20 @@
     
     [_backView addSubview:_typeImageView];
     [_backView addSubview:_countLabel];
-    _countLabel.text = @"1/40" ;
+//    _countLabel.text = @"1/40" ;
+    
+    if(assModel.astIndex.textPart == 1)
+    {
+        _typeImageView.image = [UIImage imageNamed:@"听力图标"];
+
+    }else if (assModel.astIndex.textPart == 2)
+    {
+        _typeImageView.image = [UIImage imageNamed:@"阅读图标-pre"];
+
+    }else if (assModel.astIndex.textPart == 3)
+    {
+        _typeImageView.image = [UIImage imageNamed:@"写作图标-pre"];
+    }
     
     if (self.manger) {
         [self.manger stop];
@@ -130,7 +144,6 @@
         BOOL  b7 = level == 3 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 2 ;
         BOOL  b8 = level == 4 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 3;
         BOOL  b9 = level == 4 && assModel.astIndex.textPart == 1 && assModel.astIndex.assessmentSection == 3;
-
         BOOL b10 = level == 6 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 4 ;
 
         if (b1 || b4 || b7 || b8 || b9 || b10) {
@@ -158,9 +171,22 @@
 
     }else if ([assModel.type isEqualToString:@"textEntry"])
     {
-        TextEntry * model = [[TextEntry alloc] init];
+        ProblemModel * model = nil ;
+        if (level == 3) {
+            model = [[TextEntry3 alloc] init];
+        }else
+        {
+            model =    [[TextEntry alloc] init];
+        }
+        
         [model parseInPath:path];
+        
+        if (level == 3) {
+            [self loadTextEntry3:model];
+        }else
+        {
         [self loadTextEntry:model];
+        }
     }else if ([assModel.type isEqualToString:@"cloze"])
     {
         Cloze * model = [[Cloze alloc] init];
@@ -168,10 +194,35 @@
         [self loadCloze:model];
     }else if ([assModel.type isEqualToString:@"extendedText"])
     {
-        ExtendedText * extendModel = [[ExtendedText alloc] init] ;
-        [extendModel parseInPath:path];
-        [self loadWrite:extendModel];
+        if (level == 6) {
+            ExtendedText * extendModel = [[ExtendedText alloc] init] ;
+            [extendModel parseInPath:path];
+            [self loadWrite:extendModel];
+
+        }else if (level == 4 || level == 5)
+        {
+            ExtendedText4 * extendModel = [[ExtendedText4 alloc] init] ;
+            [extendModel parseInPath:path];
+            [self loadExTendedText:extendModel];
+
+        }
+        
+    }else if ([assModel.type isEqualToString:@"order"])
+    {
+        Order * order = [[Order alloc] init];
+        [order parseInPath:path];
+        [self loadOrder:order];
     }
+    
+    
+    NSArray * arr = [_backView subviews];
+    for (UIView * v in arr) {
+        if ([v isKindOfClass:[UIScrollView class]]) {
+            [v addSubview:_countLabel];
+            [v addSubview:_typeImageView];
+        }
+    }
+    
 }
 
 #pragma mark------------------------------   加载写作
@@ -182,10 +233,10 @@
 
 #pragma mark------------------------------   加载排序
 
-- (void)loadTextEntry:(TextEntry *)entry
-{
-
-}
+//- (void)loadTextEntry:(TextEntry *)entry
+//{
+//
+//}
 
 #pragma mark------------------------------   加载判断题
 //  加载判断题
@@ -306,6 +357,14 @@
         [self loadReadingComprehensionModel7:(ReadingComprehensionModel7 *)model];
     }
 }
+
+
+#pragma mark 加载写作题
+
+//- (void)loadOrder:(Order *)order
+//{
+//
+//}
 
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex NS_DEPRECATED_IOS(2_0, 9_0)

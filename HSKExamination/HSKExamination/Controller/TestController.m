@@ -106,7 +106,7 @@
     _exerView.manger = _audioManer ;
     [self.view addSubview:_exerView];
     _exerView.delegate = self ;
-    
+    _numberView.countLabel = _exerView.countLabel ;
 //    if (_astModel.testPartArray.count > 0) {
 //        TestPart * part = _astModel.testPartArray[0];
 //        if (part.assessmentSectionArray.count > 0) {

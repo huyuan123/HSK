@@ -23,6 +23,8 @@
 
 + (void)clearDisk ;
 
+
++ (CGFloat)distanceWithPoint1:(CGPoint)p1 andPoint2:(CGPoint)p2 ;
 /**
  生成文件路径
  @param _fileName 文件名

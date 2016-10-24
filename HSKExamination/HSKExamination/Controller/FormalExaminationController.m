@@ -7,9 +7,15 @@
 //
 
 #import "FormalExaminationController.h"
-
+#import "ConfigureServerView.h"
+#import "ServerController.h"
+#import "NetWorking.h"
+#import "Candidates.h"
 @interface FormalExaminationController ()
-
+{
+    ConfigureServerView * _serView ;
+    Candidates          * _candiModel ;
+}
 @end
 
 @implementation FormalExaminationController
@@ -19,6 +25,29 @@
     [super viewDidLoad];
     
     [self createView];
+}
+
+- (void)longEvent:(UILongPressGestureRecognizer *)press
+{
+    if (press.state == UIGestureRecognizerStateEnded) {
+        [self.view addSubview:[self serView]];
+    }
+}
+
+- (ConfigureServerView *)serView
+{
+    if (!_serView) {
+        _serView = [[ConfigureServerView alloc] initWithFrame:CGRectZero];
+        __weak typeof(self) weakSelf = self ;
+        __weak typeof(_serView) weakView = _serView ;
+        [_serView setBlock:^{
+            ServerController * con = [[ServerController alloc] init];
+            [weakSelf.navigationController pushViewController:con animated:YES];
+            [weakView removeFromSuperview];
+        }] ;
+    }
+    
+    return _serView ;
 }
 
 - (void)createView
@@ -46,6 +75,9 @@
     [backViw addSubview:imageView];
     imageView.contentMode = UIViewContentModeScaleAspectFit ;
     imageView.image = [UIImage imageNamed:@"logo"];
+    imageView.userInteractionEnabled = YES ;
+    UILongPressGestureRecognizer * longTap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longEvent:)];
+    [imageView addGestureRecognizer:longTap];
     
     
     NSArray * arr = @[@"准考证号",@"考试密码"] ;
@@ -59,7 +91,7 @@
         [backViw addSubview:field];
         field.layer.borderColor = RGBCOLOR(217, 217, 217).CGColor;
         field.layer.borderWidth = 1 ;
-        
+        field.tag = 600 + i ;
         UIView * v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 30)];
         field.leftView = v ;
         field.leftViewMode = UITextFieldViewModeAlways ;
@@ -79,8 +111,30 @@
 
 - (void)buEvent
 {
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"本功能等待开放" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-    [alert show];
+
+    NSString * count = [[self.view viewWithTag:600] text];
+    NSString * password = [[self.view viewWithTag:601] text];
+
+    if (!isCanUseString(count)) {
+        Alert(@"请输入账号") ;
+    }
+    
+    if (!isCanUseString(password)) {
+        Alert(@"请输入密码") ;
+    }
+    
+    NSDictionary * dic = @{@"examCode":count,@"password":password,@"mGuid":@"1"} ;
+    
+    dic = @{@"examCode":@"th6160389970010009",@"password":@"866456",@"mGuid":@"1"} ;
+    
+    [NetWorking postWithUrl:[[User shareInstance].serVerConfig[URLSerVer] stringByAppendingString: HskLogin] andParameter:dic andSuccess:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable respon) {
+//        NSLog(@"%@",respon) ;
+        NSDictionary * data = [NetWorking resoveData:respon];
+        _candiModel = [[Candidates alloc] initWithDictionary:data];
+    
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error) ;
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

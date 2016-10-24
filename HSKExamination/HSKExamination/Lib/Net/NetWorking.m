@@ -15,7 +15,7 @@
     static AFHTTPSessionManager * manger = nil ;
     if (manger == nil) {
         manger = [AFHTTPSessionManager manager];
-        manger.requestSerializer = [AFHTTPRequestSerializer serializer];
+        manger.requestSerializer = [AFJSONRequestSerializer serializer];
         manger.responseSerializer = [AFHTTPResponseSerializer serializer];
         manger.responseSerializer.acceptableContentTypes = [manger.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
         manger.responseSerializer.acceptableContentTypes = [manger.responseSerializer.acceptableContentTypes setByAddingObject:@"application/json"];
@@ -129,6 +129,8 @@ failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure
 + (void)postWithUrl:(NSString *)urlS andParameter:(NSDictionary *)para andSuccess:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success
             failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure
 {
+    
+//    AFJSONRequestSerializer
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     NSDictionary *parameters = para;
@@ -139,9 +141,32 @@ failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         success(task,responseObject) ;
+        
+//        NSLog(@"%@",responseObject) ;
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(task ,error) ;
     }];
 }
+
+
+
++ (id)resoveData:(id)data
+{
+    NSString * s = [data objectForKey:@"d"];
+    s =  [s stringByReplacingOccurrencesOfString:@"True" withString:@"\"true\""];
+    s =  [s stringByReplacingOccurrencesOfString:@"False" withString:@"\"false\""];
+
+    NSDictionary * d = [NSJSONSerialization JSONObjectWithData:[s dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+    
+    if ([d[@"isSuccess"] isEqualToString:@"false"]) {
+        Alert(d[@"Message"]) ;
+        return nil;
+    }
+    
+    return  [d objectForKey:@"Data"];
+
+}
+
 
 @end

@@ -72,6 +72,7 @@
 
 - (void)loadCloze:(Cloze *)model
 {
+    int level = [User shareInstance].level ;
     UIScrollView * scor = [[UIScrollView alloc] initWithFrame:self.backView.bounds];
     [self.backView addSubview:scor];
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(50, 120, 270, 3000)];
@@ -88,29 +89,43 @@
     float height = 0 ;
     for(int i = 0 ; i < model.subItemArr.count ; i++)
     {
-        UILabel * tiHaoLabel = [[UILabel alloc] initWithFrame:CGRectMake(360, 120 + i*150, scor.width -390, 30)];
-        [scor addSubview:tiHaoLabel];
-        tiHaoLabel.text = [NSString stringWithFormat:@"%d",i + 1];
+//        float height = level == 6?120:40 ;
         UIView * view = [[UIView alloc] initWithFrame:CGRectMake(360, 150 + i*150, scor.width - 390, 120)];
         [scor addSubview:view];
         height = view.bottom ;
         view.tag = 100 + i ;
         
+        UILabel * tiHaoLabel = [[UILabel alloc] initWithFrame:CGRectMake(360, 120 + i*150, scor.width -390, 30)];
+        [scor addSubview:tiHaoLabel];
+        tiHaoLabel.text = [NSString stringWithFormat:@"%d",i + 1];
+        
+        if (level == 6) {
+            view.frame = CGRectMake(360, 150 + i*60, scor.width -390, 40) ;
+            tiHaoLabel.frame = CGRectMake(360, 155 + i*60, scor.width -390, 30) ;
+        }
+        
+
         SimpleChoice * choice = [model.subItemArr objectAtIndex:i];
 
         for (int j = 0; j < choice.array.count; j++) {
             SimpleChoice * choiceModel = choice.array[j] ;
-            ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(0, 30*j, 60, 30)];
+            ItemBu * bu = [[ItemBu alloc] initWithFrame:CGRectMake(j*60, 30, 60, 30)];
+            if (level == 5) {
+                bu.frame = CGRectMake(0, 30*j, 60, 30) ;
+            }
             [view addSubview:bu];
             [bu setImageName:@"点"];
             [bu setTitle:choiceModel.identifier forState:BuNormal];
             [bu setTitleColor:[UIColor blackColor] forState:BuNormal];
             bu.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0) ;
             
-            UILabel * topLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, bu.y, 200, 30)];
-            [view addSubview:topLabel];
-            topLabel.text = choiceModel.textString ;
-            [bu addTarget:self action:@selector(clozeEvent:) forControlEvents:BuTouchUpInside];
+            if (level == 5) {
+                UILabel * topLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, bu.y, 200, 30)];
+                [view addSubview:topLabel];
+                topLabel.text = choiceModel.textString ;
+                [bu addTarget:self action:@selector(clozeEvent:) forControlEvents:BuTouchUpInside];
+                topLabel.adjustsFontSizeToFitWidth = YES ;
+            }
             
         }
     }

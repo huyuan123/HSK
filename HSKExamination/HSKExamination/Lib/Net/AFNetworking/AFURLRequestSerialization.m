@@ -520,15 +520,25 @@ forHTTPHeaderField:(NSString *)field
         }
         
         if (![mutableRequest valueForHTTPHeaderField:@"Content-Type"]) {
-            [mutableRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+//            [mutableRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+            [mutableRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+
         }
-        
-//        query = [[NSString alloc] initWithFormat:@"%@",parameters];
-//        query = [query stringByReplacingOccurrencesOfString:@"=" withString:@":"];
+
 //        if (!query) {
 //            query = @"";
+//        }else{
+//
+//            query = [[NSString alloc] initWithFormat:@"%@",parameters];
+//            query = [query stringByReplacingOccurrencesOfString:@"=" withString:@":"];
 //        }
-        [mutableRequest setHTTPBody:[query dataUsingEncoding:self.stringEncoding]];
+        
+        NSData * data = nil ;
+        if (parameters) {
+            data = [NSJSONSerialization dataWithJSONObject:parameters options:NSJSONWritingPrettyPrinted error:nil];
+        }
+//        NSLog(@"%@",query) ;
+        [mutableRequest setHTTPBody:data];
     }
 
     return mutableRequest;

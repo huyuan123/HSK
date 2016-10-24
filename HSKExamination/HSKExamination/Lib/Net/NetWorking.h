@@ -17,4 +17,6 @@
 
 + (void)downLoadWithUrl:(nonnull NSString *)urlString  completionHandler:(void (^)(NSURLResponse *response, NSURL *filePath, NSError *  error))completionHandler ;
 
+
++ (id)resoveData:(id)data ;
 @end

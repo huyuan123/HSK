@@ -108,23 +108,23 @@
 
 
 
-//- (void)clickBu:(UIButton *)bu
-//{
-//    for(int i = 0; i < _titleArray.count ; i++)
-//    {
-//        NumberButton * numBu = [_scorView viewWithTag:i + 100];
-//        if (bu == numBu) {
-//            [numBu setIsSelect:YES];
-//        }else
-//        {
-//            [numBu setIsSelect:NO];
-//        }
-//    }
+- (void)clickBu:(UIButton *)bu
+{
+    for(int i = 0; i < _titleArray.count ; i++)
+    {
+        NumberButton * numBu = [_scorView viewWithTag:i + 100];
+        if (bu == numBu) {
+            [numBu setIsSelect:YES];
+        }else
+        {
+            [numBu setIsSelect:NO];
+        }
+    }
     
-//    if (_ClickBlock) {
-//        _ClickBlock(_titleArray[bu.tag -100]) ;
-//    }
-//}
+    if (_ClickBlock) {
+        _ClickBlock(_titleArray[bu.tag -100]) ;
+    }
+}
 
 
 - (void)next
@@ -151,7 +151,11 @@
         if (_ClickBlock) {
             _ClickBlock(_titleArray[_buttonIndex]) ;
         }
+        
+        _countLabel.text = [NSString stringWithFormat:@"%d/%ld",_buttonIndex +1,_titleArray.count];
+
     }
+    
 }
 
 

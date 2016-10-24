@@ -172,6 +172,14 @@
     [HUD hide:YES afterDelay:1.5];
 }
 
+
++ (CGFloat)distanceWithPoint1:(CGPoint)p1 andPoint2:(CGPoint)p2
+{
+    float x = p1.x - p2.x ;
+    float y = p1.y - p2.y ;
+    return sqrt(x*x + y*y) ;
+}
+
 + (MBProgressHUD*)showProgressWithTitle:(NSString*)title
 {
     

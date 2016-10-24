@@ -13,6 +13,7 @@
 #import "NetWorking.h"
 #import "CityModel.h"
 #import "CityPickView.h"
+#import "LevelPickView.h"
 @interface SignUpTestController ()<UITextFieldDelegate>  //  报名约考
 @property (nonatomic ,strong)  NSArray      *   cityArray ;
 @end
@@ -21,6 +22,7 @@
 {
     CityPickView    * _pickView ;
     TestCenter      * _center ;
+    LevelPickView   * _levelPickView ;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -85,10 +87,9 @@
     
     view.layer.shadowOffset  = CGSizeMake(1, 1);// 阴影的范围
 
-    NSArray * arr = @[@"姓名",@"性别",@"年龄",@"所在考点",@"报考等级",@"联系电话",@"邮箱"];
+    NSArray * arr = @[@"姓名",@"性别",@"年龄",@"选择考点",@"报考等级",@"联系电话",@"邮箱"];
     
     for (int i = 0; i < arr.count; i++) {
-        
         
         UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(70, 70 + 50*i, 70, 30)];
         [backViw addSubview:label];
@@ -125,11 +126,12 @@
         
         field.tag = 100 + i ;
         
-        if (i == 3) {
+        if (i == 3 || i== 4) {
             field.delegate = self ;
             field.font = Font12 ;
             
         }
+        
         
         field.textAlignment = CenterText ;
         
@@ -159,7 +161,6 @@
 {
 
     NSString * name = [[self.view viewWithTag:100] text];
-
     NSString * level = [[self.view viewWithTag:104] text];
     NSString * old = [[self.view viewWithTag:102] text];
     NSString * phone = [[self.view viewWithTag:105] text];
@@ -171,30 +172,36 @@
     
     if (!isCanUseString(name)) {
         [[[UIAlertView alloc] initWithTitle:@"请输入姓名" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show] ;
+        return ;
     }
     
     if (!isCanUseString(level)) {
         [[[UIAlertView alloc] initWithTitle:@"请输入等级" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show] ;
+        return ;
 
     }
 
     if (!isCanUseString(phone)) {
         [[[UIAlertView alloc] initWithTitle:@"请输入电话" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show] ;
+        return ;
 
     }
 
     if (!isCanUseString(email)) {
         [[[UIAlertView alloc] initWithTitle:@"请输入邮箱" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show] ;
+        return ;
 
     }
 
     if (!isCanUseString(old)) {
         [[[UIAlertView alloc] initWithTitle:@"请输入年龄" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show] ;
+        return ;
         
     }
 
     if (!_center) {
         [[[UIAlertView alloc] initWithTitle:@"请输入考点" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show] ;
+        return ;
 
     }
 
@@ -224,7 +231,13 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    [[self pickView] show];
+    if(textField.tag == 203)
+    {
+        [[self pickView] show];
+    }else
+    {
+        [[self levelPick] show];
+    }
     return NO ;
 }// return NO to disallow editing.
 
@@ -243,4 +256,20 @@
     return _pickView ;
 }
 
+
+- (LevelPickView *)levelPick
+{
+    if(!_levelPickView)
+    {
+        _levelPickView = [[LevelPickView alloc] init];
+        [self.view addSubview:_levelPickView];
+        [_levelPickView loadData:@[@"一级",@"二级",@"三级",@"四级",@"五级",@"六级"]];
+        [_levelPickView setBlock:^(NSString * s) {
+            UITextField * field = [self.view viewWithTag:104];
+            field.text = s ;
+        }];
+    }
+    
+    return _levelPickView ;
+}
 @end

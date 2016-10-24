@@ -146,6 +146,7 @@
     label.text = model.simpleModel.textString ;
     [self.backView addSubview:label];
     label.numberOfLines = 0 ;
+    
     if (label.text.length < 20) {
         label.height = 30 ;
         label.textAlignment = CenterText ;
@@ -156,7 +157,6 @@
     }
     AssessmentItemRef * modelRef = (AssessmentItemRef *)self.assessection ;
 
-    
     NSArray * array = [model.simpleModel array];
     for (int i = 0; i < array.count ; i++) {
         SimpleChoice * choiceModel = array[i] ;
