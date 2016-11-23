@@ -91,6 +91,7 @@
         [_backView addSubview:bu];
         [bu addTarget:self action:@selector(selectLevel:) forControlEvents:BuTouchUpInside];
         [bu addTarget:self action:@selector(setSelect:) forControlEvents:UIControlEventTouchDown];
+        [bu addTarget:self action:@selector(outSide:) forControlEvents:UIControlEventTouchUpOutside];
         bu.tag = 1000 +i ;
         UILabel * titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 400, 120, 30)];
         titleLabel.font = [UIFont boldSystemFontOfSize:30] ;
@@ -109,6 +110,13 @@
         titleLabel.tag = 10 ;
         subtitleLabel.tag = 11 ;
     }
+    
+    UIImageView * iconView = [[UIImageView alloc] initWithFrame:CGRectMake(screenWith() - 250, 30, 198, 43)];
+    iconView.contentMode =  UIViewContentModeScaleAspectFit ;
+    [self.view addSubview:iconView];
+    iconView.image = [UIImage imageNamed:@"首页log"];
+    iconView.centerX = self.view.width-260;
+    iconView.centerY = 60 ;
 }
 
 - (void)selectLevel:(UIButton *)bu
@@ -124,6 +132,15 @@
     [self.navigationController pushViewController:testCon animated:YES];
 }
 
+- (void)outSide:(UIButton *)bu
+{
+    UILabel * l1 = [bu viewWithTag:10];
+    UILabel * l2 = [bu viewWithTag:11];
+    l1.textColor = l2.textColor = RGBCOLOR(133, 154, 53) ;
+    _selectBackView.hidden = YES ;
+
+}
+
 - (void)setSelect:(UIButton *)bu
 {
     _selectBackView.hidden = NO ;
@@ -134,7 +151,7 @@
     l1.textColor = l2.textColor = [UIColor whiteColor];
     
     UILabel * label =  [_selectBackView viewWithTag:10] ;
-    label.text = [NSString stringWithFormat:@"level %d",bu.tag -999];
+    label.text = [NSString stringWithFormat:@"level %d",(int)bu.tag -999];
 }
 
 - (void)didReceiveMemoryWarning {

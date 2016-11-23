@@ -64,6 +64,8 @@
     string = [string stringByReplacingOccurrencesOfString:@"nbsp;" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"mdash;" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"播放音频" withString:@""];
+    string = [string stringByReplacingOccurrencesOfString:@"rdquo;" withString:@""];
+    string = [string stringByReplacingOccurrencesOfString:@"ldquo;" withString:@""];
 
     
     

@@ -537,6 +537,8 @@ forHTTPHeaderField:(NSString *)field
         if (parameters) {
             data = [NSJSONSerialization dataWithJSONObject:parameters options:NSJSONWritingPrettyPrinted error:nil];
         }
+        
+//        NSLog(@"%@",data) ;
 //        NSLog(@"%@",query) ;
         [mutableRequest setHTTPBody:data];
     }

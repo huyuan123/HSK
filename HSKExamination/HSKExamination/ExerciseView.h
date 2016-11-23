@@ -34,6 +34,4 @@
 
 - (void)loadAssMent:(AssessmentItemRef *)model ;
 
-//- (void)loadIsCorrect:(BOOL)b ;
-
 @end

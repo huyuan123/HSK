@@ -8,12 +8,22 @@
 
 #import <Foundation/Foundation.h>
 #import "AssessmentItemRef.h"
+#import "Candidates.h"
+#import "AudioManger.h"
+#import "NetWorking.h"
+#import "AgainExamModel.h"
 
 #define SerVerConfig    @"serVerConfig"
 #define URLSerVer       @"url"
 #define Server          @"Server"
 #define ServerCode      @"ServerCode"
 #define MiddleServer    @"MiddleServer"
+
+#define UserResData    @"UserResData"
+#define ExamCardNumber     @"ExamCardNo"
+
+
+
 
 @interface User : NSObject
 
@@ -27,6 +37,14 @@
 
 @property (nonatomic ,strong) NSDictionary  *  serVerConfig ;
 
+@property (nonatomic ,strong) Candidates  *  candiateModel ;
+
+@property (nonatomic ,strong) AgainExamModel  *  againModel ;
+
+@property (nonatomic ,strong) AudioManger *  audioManger ;
+
+@property (nonatomic ,assign) AFNetworkReachabilityStatus netStatus ;
+
 
 + (User *)shareInstance ;
 
@@ -37,5 +55,9 @@
 + (void)setStatisticsWithAssessmentItemRef:(AssessmentItemRef *)model ;
 
 + (void)setStatisticsWithAssessmentItemRef:(AssessmentItemRef *)model andIndex:(NSString *)index;
+
++ (NSString *)typeNumberWithType:(NSString *)type ;
+
++ (void)saveUserRes:(AssessmentItemRef *)model ;
 
 @end

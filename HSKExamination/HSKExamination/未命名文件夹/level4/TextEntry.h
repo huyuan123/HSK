@@ -14,4 +14,6 @@
 
 @property (nonatomic ,strong) NSString *  correctResponse ;
 
+@property (nonatomic ,strong) NSString *  textString ;
+
 @end

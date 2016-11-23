@@ -11,17 +11,15 @@
 #import "testPart.h"
 
 typedef struct {
-    NSUInteger  textPart ;
-    NSUInteger  assessmentSection ;
-    NSUInteger assessmentItemRef ;
+    int  textPart ;
+    int  assessmentSection ;
+    int assessmentItemRef ;
 }ASTIndex ;
 
 @interface ASTModel : XMLBaseModel
 @property (nonatomic ,strong) NSString * identifier ;  // 试卷ID
 @property (nonatomic ,strong) NSString * title ;  // title
 @property (nonatomic ,strong) NSMutableArray * testPartArray ;  // 试卷的几个块
-
-
 @property (nonatomic ,strong) NSMutableArray * allArray ;  // 试卷的几个块
 
 //@property (nonatomic ,strong) NSString * identifier ;  // 试卷ID

@@ -10,13 +10,14 @@
 #import "AssessmentSection.h"
 #import "assessmentItemRef.h"
 #import "NSMutableArray+Arc4.h"
+
 TestPart  *  testPartModel ;
 AssessmentSection  *  assessmentSection         ;
 AssessmentItemRef  *  assessmentItem            ;
+ASTIndex   astIndex ;
 
 @implementation ASTModel
 {
-    ASTIndex   astIndex ;
 }
 
 - (id)init
@@ -39,9 +40,7 @@ AssessmentItemRef  *  assessmentItem            ;
     NSLog(@"试卷路径--------%@",path) ;
     
     astIndex = (ASTIndex){0,0,0} ;
-    
-//    _testPartArray = [NSMutableArray arrayWithCapacity:3];
-    
+        
     NSString * s = [NSString stringWithContentsOfURL:[NSURL fileURLWithPath:path] encoding:NSUTF8StringEncoding error:nil];
     
     NSMutableString * muS = nil ;
@@ -95,20 +94,20 @@ AssessmentItemRef  *  assessmentItem            ;
         }
     }else if ([elementName isEqualToString:@"rubricBlock"])
     {
-        if (astIndex.assessmentSection > 0) {
-            assessmentSection.rubricBlock = @"-1" ;
-        }else
-        {
-            testPartModel.rubricBlock = @"-1" ;
-        }
-    }else if ([elementName isEqualToString:@"endBlock"])
-    {
-        if (astIndex.assessmentSection > 0) {
-            assessmentSection.endBlock = @"-1" ;
-        }else
-        {
-            testPartModel.endBlock = @"-1" ;
-        }
+//        if (astIndex.assessmentSection > 0) {
+//            assessmentSection.rubricBlock = @"-1" ;
+//        }else
+//        {
+//            testPartModel.rubricBlock = @"-1" ;
+//        }
+//    }else if ([elementName isEqualToString:@"endBlock"])
+//    {
+//        if (astIndex.assessmentSection > 0) {
+//            assessmentSection.endBlock = @"-1" ;
+//        }else
+//        {
+//            testPartModel.endBlock = @"-1" ;
+//        }
     }else if ([elementName isEqualToString:@"prompt"])
     {
         

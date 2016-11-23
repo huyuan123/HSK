@@ -85,7 +85,7 @@
             bu.tag = 100 + i ;
             bu.index = (ASTIndex){partType,section,assrssref};
             [_scorView addSubview:bu];
-            
+//            bu.enabled = NO ;
             [bu addTarget:self action:@selector(clickBu:) forControlEvents:BuTouchUpInside] ;
             i ++ ;
             
@@ -110,30 +110,57 @@
 
 - (void)clickBu:(UIButton *)bu
 {
-    for(int i = 0; i < _titleArray.count ; i++)
-    {
-        NumberButton * numBu = [_scorView viewWithTag:i + 100];
-        if (bu == numBu) {
-            [numBu setIsSelect:YES];
-        }else
-        {
-            [numBu setIsSelect:NO];
+//    for(int i = 0; i < _titleArray.count ; i++)
+//    {
+//        NumberButton * numBu = [_scorView viewWithTag:i + 100];
+//        if (bu == numBu) {
+//            [numBu setIsSelect:YES];
+//        }else
+//        {
+//            [numBu setIsSelect:NO];
+//        }
+//    }
+    
+  
+    
+    if (_buttonIndex > -1 && _buttonIndex < _titleArray.count) {
+        
+        AssessmentItemRef * model = _titleArray[_buttonIndex] ;
+        if (!model.userChoice && !model.userResDic) {
+            [User setStatisticsWithAssessmentItemRef:model];
         }
+        
     }
     
-    if (_ClickBlock) {
-        _ClickBlock(_titleArray[bu.tag -100]) ;
+
+    _buttonIndex = (int)bu.tag - 100 ;
+    
+    if (_buttonIndex < _titleArray.count) {
+        
+        NumberButton * numBu = [_scorView viewWithTag:_buttonIndex + 100];
+        
+        [numBu setIsSelect:YES];
+        
+        if (_ClickBlock) {
+            _ClickBlock(_titleArray[_buttonIndex]) ;
+        }
+        
+        _countLabel.text = [NSString stringWithFormat:@"%d/%ld",_buttonIndex +1,_titleArray.count];
+        
     }
+    
+//    if (_ClickBlock) {
+//        _ClickBlock(_titleArray[bu.tag -100]) ;
+//    }
 }
 
 
 - (void)next
 {
 
-    if (_buttonIndex > -1) {
+    if (_buttonIndex > -1 && _buttonIndex < _titleArray.count) {
+        
         AssessmentItemRef * model = _titleArray[_buttonIndex] ;
-        
-        
         if (!model.userChoice && !model.userResDic) {
             [User setStatisticsWithAssessmentItemRef:model];
         }
@@ -154,8 +181,20 @@
         
         _countLabel.text = [NSString stringWithFormat:@"%d/%ld",_buttonIndex +1,_titleArray.count];
 
+    }else
+    {
+        [[[UIAlertView alloc] initWithTitle:@"本套题目已做完" message:@"即将进入统计页面" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil] show];
     }
     
+}
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex NS_DEPRECATED_IOS(2_0, 9_0)
+{
+        if(_statisBlock)
+        {
+            _statisBlock() ;
+        }
 }
 
 

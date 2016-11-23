@@ -11,7 +11,11 @@
 #import "ServerController.h"
 #import "NetWorking.h"
 #import "Candidates.h"
-@interface FormalExaminationController ()
+#import "ExaminationsInforController.h"
+#import "ExaminationController.h"
+#import "AgainExamModel.h"
+#import "SoundDebugViewController.h"
+@interface FormalExaminationController ()<UITextFieldDelegate>
 {
     ConfigureServerView * _serView ;
     Candidates          * _candiModel ;
@@ -95,7 +99,7 @@
         UIView * v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 30)];
         field.leftView = v ;
         field.leftViewMode = UITextFieldViewModeAlways ;
-
+        field.delegate = self ;
     }
     
     
@@ -117,39 +121,120 @@
 
     if (!isCanUseString(count)) {
         Alert(@"请输入账号") ;
+        return ;
     }
     
     if (!isCanUseString(password)) {
         Alert(@"请输入密码") ;
+        return ;
     }
     
-    NSDictionary * dic = @{@"examCode":count,@"password":password,@"mGuid":@"1"} ;
+//    Alert(@"考试功能正在紧急开发中，敬请期待") ;
+//    
+//    return ;
     
-    dic = @{@"examCode":@"th6160389970010009",@"password":@"866456",@"mGuid":@"1"} ;
+    NSDictionary * dic = @{@"examCode":count,@"password":password,@"mGuid":[[UIDevice currentDevice] identifierForVendor].UUIDString} ;
     
+//    dic = @{@"examCode":@"TH1161189970000007",@"password":@"243423",@"mGuid":[[UIDevice currentDevice] identifierForVendor].UUIDString} ;
+//    dic = @{@"examCode":@"TH1161189970000003",@"password":@"517687",@"mGuid":@"1"} ;
+    
+    
+    //  正式项目要删除
+    
+
+#pragma warning  正式项目要删除
+//    User * u = [User shareInstance] ;
+//    
+//    NSDictionary *   diction = @{
+//            MiddleServer :   @"10000",
+//            Server       :   @"1",
+//            URLSerVer    :   @"http://mnks.cnhsk.org/MnMoblie/",
+//            ServerCode   :   @"20000013"
+//            } ;
+//    
+//    [u setSerVerConfig:diction];
+//  
+
+#pragma warning  正式项目要删除
+    
+    
+    
+    if([User shareInstance].serVerConfig == nil)
+    {
+        Alert(@"请配置服务器") ;
+        return ;
+    }
+    
+    __weak typeof(self) weakSelf = self ;
     [NetWorking postWithUrl:[[User shareInstance].serVerConfig[URLSerVer] stringByAppendingString: HskLogin] andParameter:dic andSuccess:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable respon) {
-//        NSLog(@"%@",respon) ;
         NSDictionary * data = [NetWorking resoveData:respon];
-        _candiModel = [[Candidates alloc] initWithDictionary:data];
-    
+        NSLog(@"------------------%@",data) ;
+        if(data)
+        {
+            [User shareInstance].candiateModel = [[Candidates alloc] initWithDictionary:data];
+
+            if([data[@"IsAgain"] intValue])
+            {
+                [weakSelf againExam];
+            }else
+            {
+                [UserDefault setObject:@"" forKey:UserResData] ;
+                [weakSelf.navigationController pushViewController:[[ExaminationsInforController alloc] init] animated:YES];
+            }
+            
+            NSDictionary * dic = UserDefaultObjectForKet(UserResData);
+            if ([dic isKindOfClass:[NSDictionary class]]) {
+                if (![dic[ExamCardNumber] isEqualToString:[User shareInstance].candiateModel.ExamCardNo]) {
+                        [UserDefault setObject:@"" forKey:UserResData] ;
+                }
+            }
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error) ;
     }];
 }
 
+
+- (void)againExam
+{
+
+    __weak typeof(self) weakSelf = self ;
+    [NetWorking postWithUrl:@"http://mnks.cnhsk.org/MnMoblie/NetExamUtility.svc/GetNavigationInfoForMobile" andParameter:@{@"arrangeId":[User shareInstance].candiateModel.ExamineeArrangeID} andSuccess:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable respon) {
+        NSDictionary * data = [NetWorking resoveData:respon];
+        [User shareInstance].againModel = [[AgainExamModel alloc] initWithDictionary:data] ;
+        [weakSelf agaController];
+//        NSLog(@"====================%@",data) ;
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error) ;
+    }];
+}
+
+
+- (void)agaController
+{
+    NSString * path = [@"TEST" pathWithType:Documents] ;
+
+//    NSLog(@"+++%@",path) ;
+
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+
+        [self.navigationController pushViewController:[[ExaminationController alloc] init] animated:YES];
+    }else
+    {
+        [self.navigationController pushViewController:[[SoundDebugViewController alloc] init] animated:YES];
+
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES ;
+}// called when 'return' key pressed. return NO to ignore.
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -15,6 +15,7 @@
     if (self) {
         _imgArray = [NSMutableArray arrayWithCapacity:6];
         _subItemArr = [NSMutableArray arrayWithCapacity:5];
+//        _textString = @"" ;
     }
     
     return self ;
@@ -72,14 +73,25 @@
         _media.srcType = judgeMent ;
     }else if ([elementName isEqualToString:@"img"])
     {
-        [_imgArray addObject:[[Img alloc] initWithDictionary:attributeDict]];
+        if (_index == 500) {
+            [_imgArray addObject:[[Img alloc] initWithDictionary:attributeDict]];
+        }else if (_index == 300)
+        {
+            _model.img = [[Img alloc] initWithDictionary:attributeDict];
+        }
         
-    }else if ([elementName isEqualToString:@"subItem"])
+    }
+    else if ([elementName isEqualToString:@"compositeInteraction"])
+    {
+        _index = 499 ;
+    }
+    else if ([elementName isEqualToString:@"subItem"])
     {
         NSMutableArray * array = [NSMutableArray arrayWithCapacity:6];
         _model = [[SimpleChoice alloc] init];
         [_subItemArr addObject:_model];
         _model.array = array ;
+        _index = 299 ;
     }else if ([elementName isEqualToString:@"simpleChoice"])
     {
         [_model.array addObject:attributeDict[@"identifier"]];
@@ -96,7 +108,7 @@
     {
         if (_model) {
             _model.pinYInString =   [_model.pinYInString stringByAppendingString:@" "];
-        }else if (_index == 100)
+        }else if (_index == 500)
         {
             SimpleChoice * choice = [_topicArray lastObject];
             choice.pinYInString = [choice.pinYInString stringByAppendingString:@" "];
@@ -106,7 +118,7 @@
     {
         if (_model) {
             _model.textString =    [_model.textString stringByAppendingString:@" "];
-        }else if (_index == 100)
+        }else if (_index == 500)
         {
             SimpleChoice * choice = [_topicArray lastObject];
             choice.textString = [choice.textString stringByAppendingString:@" "];
@@ -122,7 +134,7 @@
     if (_index == 10) {
         [_correctResponseArray addObject:string];
         _index ++ ;
-    }else if (_index == 100)
+    }else if (_index == 500)
     {
         if (string.isCharacter && ![_currentElement isEqualToString:@"rt"] && ![_currentElement isEqualToString:@"rb"]) {
             if(!_topicArray) _topicArray = [NSMutableArray arrayWithCapacity:5];

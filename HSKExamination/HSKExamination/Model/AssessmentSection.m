@@ -9,6 +9,7 @@
 #import "AssessmentSection.h"
 
 @implementation AssessmentSection
+
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
     //    if([key isEqualToString:@"id"]) {
@@ -36,10 +37,15 @@
         {
             [self setValuesForKeysWithDictionary:dictionary];
         }
+        _rubricBlock = @"" ;
     }
-    
-    //    _goods_stockout = @"1" ;
-    
+        
     return self;
+}
+
+- (void)setRubricMedia:(Media *)rubricMedia
+{
+    _rubricMedia = rubricMedia ;
+    _rubricMedia.srcType = testPart ;
 }
 @end

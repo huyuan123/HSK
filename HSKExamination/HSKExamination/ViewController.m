@@ -51,6 +51,34 @@
     imageview.contentMode = UIViewContentModeScaleAspectFit ;
     [self.view addSubview:imageview];
     imageview.image = [UIImage imageNamed:@"首页logo"];
+    
+    UIImageView * logoView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 241, 52.5)];
+    logoView.image = [UIImage imageNamed:@"首页log"];
+    logoView.contentMode =  UIViewContentModeScaleAspectFit ;
+    [self.view addSubview:logoView];
+    
+    logoView.centerX = self.view.width/2 ;
+    logoView.centerY = screenHeight() - 50 ;
+    
+    
+    BOOL b = [[UserDefault objectForKey:@"isHelp"] boolValue];
+    
+    if (!b) {
+        UIButton * helpBu = [[UIButton alloc] initWithFrame:self.view.bounds];
+        [self.view addSubview:helpBu];
+        [helpBu setImage:[UIImage imageNamed:@"1-HSK进入应用-帮助.jpg"] forState:BuNormal];
+        [helpBu setImage:[UIImage imageNamed:@"1-HSK进入应用-帮助.jpg"] forState:UIControlStateHighlighted];
+
+        [helpBu addTarget:self action:@selector(helpEvent:) forControlEvents:BuTouchUpInside];
+        [UserDefault setObject:@YES forKey:@"isHelp"];
+        [UserDefault synchronize] ;
+        helpBu.tag = 100 ;
+    }
+}
+
+- (void)helpEvent:(UIButton *)bu
+{
+    [bu removeFromSuperview];
 }
 
 - (void)buevent:(UIButton *)bu

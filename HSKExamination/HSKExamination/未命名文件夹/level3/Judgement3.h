@@ -7,7 +7,11 @@
 //
 
 #import "Judgement.h"
-
+#import "Img.h"
 @interface Judgement3 : Judgement
+
 @property (nonatomic ,strong) Media         *       media ;
+
+@property (nonatomic ,strong) Img           *       img ;
+
 @end

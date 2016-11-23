@@ -14,6 +14,7 @@
 #import "AssessmentSection.h"
 #import "RightBu.h"
 #import "AudioManger.h"
+#import "StatisticalCenterController.h"
 @interface TestController ()<AVAudioPlayerDelegate>
 {
     NumberView      *   _numberView ;
@@ -33,6 +34,30 @@
     [self loadExaDataWithLevel:_level];
     
     [self createView];
+    
+    [self createHelp];
+}
+
+- (void)createHelp
+{
+    BOOL b = [[UserDefault objectForKey:@"isTestHelp"] boolValue];
+    
+    if (!b) {
+        UIButton * helpBu = [[UIButton alloc] initWithFrame:self.view.bounds];
+        [self.view addSubview:helpBu];
+        [helpBu setImage:[UIImage imageNamed:@"2-HSK随身练习页面帮助.jpg"] forState:BuNormal];
+        [helpBu setImage:[UIImage imageNamed:@"2-HSK随身练习页面帮助.jpg"] forState:UIControlStateHighlighted];
+        
+        [helpBu addTarget:self action:@selector(helpEvent:) forControlEvents:BuTouchUpInside];
+        [UserDefault setObject:@YES forKey:@"isTestHelp"];
+        [UserDefault synchronize] ;
+        helpBu.tag = 100 ;
+    }
+}
+
+- (void)helpEvent:(UIButton *)bu
+{
+    [bu removeFromSuperview];
 }
 
 - (void)initAudio
@@ -74,6 +99,13 @@
         [_numberView loadTestPart:part];
     }
 
+    UIImageView * iconView = [[UIImageView alloc] initWithFrame:CGRectMake(screenWith() - 250, 30, 198, 43)];
+    iconView.contentMode =  UIViewContentModeScaleAspectFit ;
+    [self.view addSubview:iconView];
+    iconView.image = [UIImage imageNamed:@"首页log"];
+    iconView.centerX = self.view.width-180;
+    iconView.centerY = 60 ;
+    
 }
 
 
@@ -86,8 +118,19 @@
     }];
     
     [self.view addSubview:_numberView];
+    
+    [_numberView setStatisBlock:^{
+        [weakSelf toStatisticalCenterController];
+    }] ;
 }
 
+
+- (void)toStatisticalCenterController
+{
+    StatisticalCenterController * con = [[StatisticalCenterController alloc] init];
+    [_exerView.manger stop] ;
+    [self.navigationController pushViewController:con animated:YES];
+}
 
 - (void)loadAssessmentItemRef:(AssessmentItemRef *)ref
 {
@@ -107,15 +150,6 @@
     [self.view addSubview:_exerView];
     _exerView.delegate = self ;
     _numberView.countLabel = _exerView.countLabel ;
-//    if (_astModel.testPartArray.count > 0) {
-//        TestPart * part = _astModel.testPartArray[0];
-//        if (part.assessmentSectionArray.count > 0) {
-//            AssessmentSection * secModel = part.assessmentSectionArray[0] ;
-//            if (secModel.assessmentItemRefArray.count > 0) {
-//                [_exerView loadAssMent:secModel.assessmentItemRefArray[0]];
-//            }
-//        }
-//    }
     
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGesture:)];
     //设置轻扫的方向
@@ -178,18 +212,6 @@
         [_numberView loadTestPart:_astModel.testPartArray[3]];
     }
 
-    
-//    if (_astModel.testPartArray.count > index) {
-//        TestPart * part = _astModel.testPartArray[index];
-//        if (part.assessmentSectionArray.count > 0) {
-//            AssessmentSection * secModel = part.assessmentSectionArray[0] ;
-//            if (secModel.assessmentItemRefArray.count > 0) {
-//                [_exerView loadAssMent:secModel.assessmentItemRefArray[0]];
-//            }
-//        }
-//    }
-    
-
 }
 
 
@@ -210,6 +232,7 @@
 
 - (void)dealloc
 {
+    [_audioManer stop];
     NSLog(@"-----------------测试页面释放了") ;
 }
 

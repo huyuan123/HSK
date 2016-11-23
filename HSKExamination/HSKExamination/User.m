@@ -17,6 +17,7 @@
         u = [[User alloc] init];
     }) ;
     
+    u.netStatus = 1 ;
     return u ;
 }
 
@@ -144,5 +145,47 @@
     [[NSUserDefaults standardUserDefaults] setObject:serVerConfig forKey:SerVerConfig];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
+
++ (NSString *)typeNumberWithType:(NSString *)type
+{
+    NSDictionary * dic =  @{
+        @"unknown":@"0",
+        @"singleChoice":@"1",
+        @"multipleChoice":@"2",
+        @"judgement":@"3",
+        @"textEntry":@"4",
+        @"readingComprehension":@"5",
+        @"extendedText":@"6",
+        @"cloze":@"7",
+        @"match":@"8",
+        @"upload":@"9",
+        @"composite":@"10",
+        @"compositeSingleChoice":@"11",
+        @"compositeMultipleChoice":@"12",
+        @"order":@"13",
+        @"oral":@"14",
+        } ;
+    return dic[type];
+}
+
++ (void)saveUserRes:(AssessmentItemRef *)model
+{
+    NSDictionary * dataDic =  UserDefaultObjectForKet(UserResData);
+    if (![dataDic isKindOfClass:[NSDictionary class]]) {
+        dataDic = @{ExamCardNumber:[User shareInstance].candiateModel.ExamCardNo} ;
+    }
+    
+    NSMutableDictionary * muDic = [NSMutableDictionary dictionaryWithDictionary:dataDic];
+    if (isCanUseString(model.userChoice)) {
+        [muDic setObject:model.userChoice forKey:model.identifier];
+    }else if (model.userResDic)
+    {
+        [muDic setObject:model.userResDic forKey:model.identifier];
+    }
+    [UserDefault setObject:muDic forKey:UserResData];
+    [UserDefault synchronize];
+}
+
 
 @end

@@ -39,10 +39,62 @@
         }
     }
     
-    NSString * path  = [[User shareInstance].paperPath stringByAppendingPathComponent:@"AssessmentItems"];
+    NSFileManager * file = [NSFileManager defaultManager];
+
+    if ([file fileExistsAtPath:[[User shareInstance].paperPath stringByAppendingPathComponent:@"AssessmentItems"]]) {
+
+        NSString * path  = [[User shareInstance].paperPath stringByAppendingPathComponent:@"AssessmentItems"];
+        
+        _src = [path stringByAppendingPathComponent:_src] ;
+
+    }else
+    if ([file fileExistsAtPath:[[User shareInstance].paperPath stringByAppendingPathComponent:@"assessmentitems"]])
+    {
+        NSString * path  = [[User shareInstance].paperPath stringByAppendingPathComponent:@"assessmentitems"];
+        
+        _src = [path stringByAppendingPathComponent:_src] ;
+
+    }
     
-    _src = [path stringByAppendingPathComponent:_src] ;
+    if (!_height) {
+        _height = @"100" ;
+    }
+    
+    if (!_width) {
+        _width = @"128" ;
+    }
+    
+    if (_style) {
+        _style = [_style stringByReplacingOccurrencesOfString:@"px" withString:@""];
+        _style = [_style stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSArray * arr = [_style componentsSeparatedByString:@";"] ;
+        
+        NSString * height = [arr[0] componentsSeparatedByString:@":"][0] ;
+        if ([height isEqualToString:@"height"]) {
+            _height = [arr[0] componentsSeparatedByString:@":"][1] ;
+            _width = [arr[1] componentsSeparatedByString:@":"][1] ;
+
+        }else
+        {
+            _width = [arr[0] componentsSeparatedByString:@":"][1] ;
+            _height = [arr[1] componentsSeparatedByString:@":"][1] ;
+
+        }
+        
+    }
+    
     return self;
 }
+
+//- (NSString *)src
+//{
+//    NSFileManager * file = [NSFileManager defaultManager];
+//    if ([file fileExistsAtPath:_src]) {
+//        return _src ;
+//    }else
+//    {
+//        return [_src stringByReplacingOccurrencesOfString:@"AssessmentItems" withString:@"assessmentitems"];
+//    }
+//}
 
 @end

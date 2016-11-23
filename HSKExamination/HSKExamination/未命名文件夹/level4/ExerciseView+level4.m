@@ -82,7 +82,7 @@
     
     
     if (choice.media) {
-        [self.manger playWithPath:choice.media.src];
+        [self.manger playWithIcon:self AndPath:choice.media.src];
     }
 }
 

@@ -15,6 +15,7 @@
     self = [super init];
     if (self) {
         _subItemArr = [NSMutableArray arrayWithCapacity:5];
+        _textString = @"" ;
     }
     
     return self ;
@@ -73,13 +74,13 @@
         }
         _index = 10 ;
     }
-    
     else if ([elementName isEqualToString:@"subItem"])
     {
         NSMutableArray *  array = [NSMutableArray arrayWithCapacity:6];
         _model = [[SimpleChoice alloc] init];
         [_subItemArr addObject:_model];
         _model.array = array ;
+        _index = 299 ;
     }
      else if ([elementName isEqualToString:@"simpleChoice"])
     {
@@ -92,6 +93,21 @@
     }else if ([elementName isEqualToString:@"prompt"])
     {
         _index ++ ;
+    }else if ([elementName isEqualToString:@"img"])
+    {
+        if (_index == 100) {
+            if(!_img)
+            {
+                _img = [[Img alloc] initWithDictionary:attributeDict];
+            }else
+            {
+                _exampleImg = [[Img alloc] initWithDictionary:attributeDict];
+            }
+        }else if (_index == 300)
+        {
+            _model.img = [[Img alloc] initWithDictionary:attributeDict];
+        }
+        
     }
     
     else if ([elementName isEqualToString:@"rt"] )
@@ -113,12 +129,16 @@
             SimpleChoice * choice = [_topicArray lastObject];
             choice.textString = [choice.textString stringByAppendingString:@" "];
         }
+    }else if ([elementName isEqualToString:@"br"])
+    {
+        _textString  = [_textString stringByAppendingString:@"\n\n"];
     }
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
-    
+//    NSLog(@"+++++++++++++++++%@",_textString) ;
+
     string = [string stringByReplacingOccurrencesOfString:@"+" withString:@""];
     
     if (_index == 10) {
@@ -133,9 +153,19 @@
     else if ([string rangeOfString:@"例"].length)
     {
         _index ++ ;
+        _textString = [_textString stringByAppendingString:string];
+
+    }else if (_index == 101)
+    {
+        _textString = [_textString stringByAppendingString:string];
+
     }
     else if (_index == 100)
     {
+//        NSLog(@"+++++++++++++++++%@",_textString) ;
+
+        _textString = [_textString stringByAppendingString:string];
+
         
         if (string.isContainCharater && ![_currentElement isEqualToString:@"rt"] && ![_currentElement isEqualToString:@"rb"]) {
             if(!_topicArray) _topicArray = [NSMutableArray arrayWithCapacity:5];
@@ -158,6 +188,9 @@
             choice.textString = [choice.textString stringByAppendingString:string];
         }
 
+        
+        //  一下是正式考试部分代码
+     
     }
     else if (_model)
     {
@@ -166,7 +199,6 @@
         }else
         {
             _model.textString = [_model.textString stringByAppendingString:string];
-
         }
     }
 }

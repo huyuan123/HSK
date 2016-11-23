@@ -13,4 +13,5 @@
 @property (nonatomic ,strong) NSString * imageName ;
 
 - (void)setIsSelect:(BOOL)b ;
+
 @end

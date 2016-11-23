@@ -22,6 +22,12 @@
     {
         _index ++ ;
         _simpleChoiceArray = [NSMutableArray array];
+        if (!_textString) {
+            _textString = @"" ;
+        }
+    }else if ([elementName isEqualToString:@"br"])
+    {
+        _textString = [_textString stringByAppendingString:@"\n\n"];
     }
 }
 
@@ -36,6 +42,8 @@
     string = [string stringByReplacingOccurrencesOfString:@"nbsp;" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"&" withString:@""];
 
+    _textString  = [_textString stringByAppendingString:string];
+    
     if (string.isCharacter) {
         _model = [[SimpleChoice alloc] init];
         _model.identifier = string ;

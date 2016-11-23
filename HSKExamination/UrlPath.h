@@ -12,6 +12,9 @@
 #define  HskYueKao          @"http://mnks.cnhsk.org/hsk/api/reg-online"
 #define  HskServerTest      @"NetExamUtility.svc/GetExamPlanList"
 #define  HskLogin           @"NetExamUtility.svc/ExamLogin"
+#define  SaveResponse       [[User shareInstance].serVerConfig[URLSerVer] stringByAppendingString: @"NetExamUtility.svc/SaveResponseForMobile"] 
+#define  EndHearTest        [[User shareInstance].serVerConfig[URLSerVer] stringByAppendingString: @"NetExamUtility.svc/SaveResponseProgressForMobile"]
+#define  SavePaper          [[User shareInstance].serVerConfig[URLSerVer] stringByAppendingString: @"NetExamUtility.svc/SubmitExamForMobile"]
 
 
 #endif /* UrlPath_h */

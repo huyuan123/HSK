@@ -65,7 +65,7 @@
     
     if(model.media)
     {
-        [self.manger playWithPath:model.media.src];
+        [self.manger playWithIcon:self AndPath:model.media.src];
     }
 }
 
@@ -104,7 +104,7 @@
             tiHaoLabel.frame = CGRectMake(360, 155 + i*60, scor.width -390, 30) ;
         }
         
-
+//        view.backgroundColor = [UIColor yellowColor];
         SimpleChoice * choice = [model.subItemArr objectAtIndex:i];
 
         for (int j = 0; j < choice.array.count; j++) {

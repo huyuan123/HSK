@@ -186,7 +186,6 @@
             UILabel * titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 90 + 60*i, 100, 40)];
             [whiteView addSubview:titleLabel];
             titleLabel.text = array[i] ;
-//          titleLabel.backgroundColor = [UIColor redColor];
             
             UITextField * field = [[UITextField alloc] initWithFrame:CGRectMake(titleLabel.right + 10, 90 + 60 *i, 300, 30)];
             [whiteView addSubview:field];
@@ -278,22 +277,17 @@
                                } ;
 
         
-                    dic = @{
-                               MiddleServer :   u.middleServer,
-                               Server       :   @"1",
-                               URLSerVer    :   @"http://mnks.cnhsk.org/MnMoblie/",
-                               ServerCode   :   @"20000013"
-                               } ;
+//                    dic = @{
+//                               MiddleServer :   u.middleServer,
+//                               Server       :   @"1",
+//                               URLSerVer    :   @"http://mnks.cnhsk.org/MnMoblie/",
+//                               ServerCode   :   @"20000013"
+//                               } ;
 
         [u setSerVerConfig:dic];
 
         __weak typeof(self) weakSelf = self ;
         [NetWorking postWithUrl:[u.serVerConfig[URLSerVer] stringByAppendingString:HskServerTest] andParameter:@{@"examSiteID":u.serVerConfig[ServerCode]} andSuccess:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable respon) {
-            
-//            NSString * s = [respon objectForKey:@"d"];
-//            s =  [s stringByReplacingOccurrencesOfString:@"True" withString:@"\"true\""];
-//            
-//            NSDictionary * d = [NSJSONSerialization JSONObjectWithData:[s dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
             
             NSArray * array =  [NetWorking resoveData:respon] ; // [d objectForKey:@"Data"];
             [weakSelf createViewWithArr:array];

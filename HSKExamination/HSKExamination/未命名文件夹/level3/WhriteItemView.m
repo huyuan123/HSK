@@ -34,13 +34,20 @@
 
 - (void)panEvent:(UIPanGestureRecognizer *)pan
 {
-   CGPoint  p = [pan translationInView:[self superview]];
+
+    CGPoint  pt = self.frame.origin ;
+    
+    CGPoint  p = [pan translationInView:[self superview]];
+    
+    if (p.x + pt.x < 0 || p.y + pt.y < 0 || pt.x + p.x > self.superview.width - 90 || p.y + pt.y > self.superview.height - 40) {
+        return ;
+    }
+    
    CGPoint  pCenter = self.center ;
     self.center = CGPointMake(pCenter.x + p.x, pCenter.y + p.y) ;
     [pan setTranslation:CGPointZero inView:[self superview]];
     
     if (pan.state == UIGestureRecognizerStateEnded) {
-//        NSLog(@"====================") ;
         if (_block) {
             _block() ;
         }

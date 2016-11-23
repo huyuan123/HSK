@@ -56,10 +56,17 @@
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
     string = [string stringByReplacingOccurrencesOfString:@"&amp" withString:@""];
-    string = [string stringByReplacingOccurrencesOfString:@"nbsp;" withString:@""];
+    string = [string stringByReplacingOccurrencesOfString:@"nbsp;" withString:@" "];
     string = [string stringByReplacingOccurrencesOfString:@"&" withString:@""];
 
     [super parser:parser foundCharacters:string];
+    
+//    if (_index == 100) {
+//        if (!_textString) {
+//            
+//        }
+//    }
+    
 }
 
 

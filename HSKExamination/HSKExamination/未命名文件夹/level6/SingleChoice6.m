@@ -34,8 +34,11 @@
     }else if ([elementName isEqualToString:@"prompt"])
     {
         _index ++ ;
+    }else if ([elementName isEqualToString:@"u"])
+    {
+//        SimpleChoice * choice = [_simpleModel.array lastObject] ;
+        _simpleModel.textString = [_simpleModel.textString stringByAppendingString:@"____"] ;
     }
-    
 }
 
 
@@ -45,7 +48,7 @@
     string = [string stringByReplacingOccurrencesOfString:@"rdquo;" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"ldquo;" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"&" withString:@""];
-    string = [string stringByReplacingOccurrencesOfString:@"nbsp;" withString:@" "];
+    string = [string stringByReplacingOccurrencesOfString:@"nbsp;" withString:@""];
 
     
     if (_index == 10) {

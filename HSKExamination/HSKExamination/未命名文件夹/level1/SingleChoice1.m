@@ -28,7 +28,8 @@
         }
         [_imgArr addObject:[[Img alloc] initWithDictionary:attributeDict]];
         
-    }else if ([elementName isEqualToString:@"simpleChoice"])
+    }
+    else if ([elementName isEqualToString:@"simpleChoice"])
     {
         if(!_simpleChoiceArray)
         {
@@ -45,11 +46,20 @@
     }else if (_model && [_currentElement isEqualToString:@"rt"])
     {
         _model.pinYInString = [_model.pinYInString stringByAppendingString:@" "];
+        
     }else if (_model && ([_currentElement isEqualToString:@"rb"] || [_currentElement isEqualToString:@"simpleChoice"]))
     {
         _model.textString = [_model.textString stringByAppendingString:@" "];
     }
     
+    
+     if ([elementName isEqualToString:@"ruby"])
+    {
+        _index = 50 ;
+    }else if ([elementName isEqualToString:@"rt"])
+    {
+        _index = 60 ;
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -64,10 +74,14 @@
     }else if (_model && [_currentElement isEqualToString:@"rt"])
     {
         _model.pinYInString = [_model.pinYInString stringByAppendingString:string];
-    }else if (_model && ([_currentElement isEqualToString:@"rb"] || [_currentElement isEqualToString:@"simpleChoice"]))
+        
+    }else if (_model && ([_currentElement isEqualToString:@"ruby"]||[_currentElement isEqualToString:@"rb"] || [_currentElement isEqualToString:@"simpleChoice"]))
     {
         _model.textString = [_model.textString stringByAppendingString:string];
     }
+    
+    
+    
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName
@@ -75,7 +89,15 @@
     if ([elementName isEqualToString:@"simpleChoice"])
     {
         _model = nil ;
+    }else if ([elementName isEqualToString:@"rt"])
+    {
+        _index = 50 ;
+    }else if ([elementName isEqualToString:@""])
+    {
+        _index ++ ;
     }
+    
+    
 }
 @end
 

@@ -12,12 +12,13 @@
 @implementation SelectView
 - (void)loadData:(NSArray *)arr andTitle:(NSString *)title
 {
-    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
     [self addSubview:label];
     label.text = title ;
     label.textColor = [UIColor blackColor];
     label.font = [UIFont boldSystemFontOfSize:15];
     label.tag = 10 ;
+//    [label sizeToFit];
     int i = 0 ;
     for (NSString * s in arr) {
         ItemBu * item = [[ItemBu alloc] initWithFrame:CGRectMake(i*60, 20, 34, 30)];
@@ -40,13 +41,24 @@
 
 - (void)loadsimpleChoice:(SimpleChoice *)model
 {
-    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(20, -20, self.width, 40)];
-    [self addSubview:label];
-    label.numberOfLines = 0 ;
-    label.text = [model.pinYInString stringByAppendingString:@"\n"];
-    label.text = [label.text stringByAppendingString:model.textString];
-    label.textColor = [UIColor blackColor];
-    label.font = [UIFont boldSystemFontOfSize:15];
+    if (model.img) {
+        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, -20, 40*model.img.width.floatValue/model.img.height.floatValue,  40)];
+        imageView.contentMode = UIViewContentModeScaleAspectFit ;
+        [self addSubview:imageView];
+        imageView.image = [UIImage imageWithContentsOfFile:model.img.src];
+
+    }else
+    {
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(20, -20, self.width, 40)];
+        [self addSubview:label];
+        label.numberOfLines = 0 ;
+        label.text = [model.pinYInString stringByAppendingString:@"\n"];
+        label.text = [label.text stringByAppendingString:model.textString];
+        label.textColor = [UIColor blackColor];
+        label.font = [UIFont boldSystemFontOfSize:15];
+        [label sizeToFit];
+
+    }
 }
 
 

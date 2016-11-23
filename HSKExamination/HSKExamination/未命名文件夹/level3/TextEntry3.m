@@ -16,6 +16,9 @@
     {
         _textString  = @"" ;
         _index = 100 ;
+    }else if ([elementName isEqualToString:@"img"])
+    {
+        _img = [[Img alloc] initWithDictionary:attributeDict];
     }
     
 }

@@ -24,4 +24,5 @@
 - (void)loadReadingComprehensionModel7:(ReadingComprehensionModel7 *)model ;
 
 - (void)loadExtendedText:(ExtendedText *)model ;
+
 @end

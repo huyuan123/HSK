@@ -73,7 +73,7 @@
     
     if(judgeModel.media)
     {
-        [self.manger playWithPath:judgeModel.media.src];
+        [self.manger playWithIcon:self AndPath:judgeModel.media.src];
     }
 }
 
@@ -160,7 +160,7 @@
     model.correctResponse = choice.correctResponse ;
     
     if (choice.media) {
-        [self.manger playWithPath:choice.media.src];
+        [self.manger playWithIcon:self AndPath:choice.media.src];
     }
 
 }
@@ -261,7 +261,7 @@
     
     
     if (modelref.astIndex.textPart == 1) {
-        [self.manger playWithPath:model.media.src] ;
+        [self.manger playWithIcon:self AndPath:model.media.src] ;
     }else
     {
         [self.manger stop];

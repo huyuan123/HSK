@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ASTModel.h"
+#import "Media.h"
 @interface AssessmentItemRef : NSObject
 @property (nonatomic ,strong) NSString  *  identifier ;
 @property (nonatomic ,strong) NSString  *  href ;
@@ -20,7 +21,7 @@
 
 @property (nonatomic ,strong) NSString  *  userChoice ;
 @property (nonatomic ,strong) NSMutableDictionary   *       userResDic ;
-
+@property (nonatomic ,strong) Media     *   media  ;
 
 @property (nonatomic ,strong) NSString      *       correctResponse ;
 @property (nonatomic ,strong) NSArray       *       correctArr ;

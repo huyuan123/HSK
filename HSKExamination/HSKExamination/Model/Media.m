@@ -11,16 +11,15 @@
 @implementation Media
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
-    //    if([key isEqualToString:@"id"]) {
-    //        self.productID = value;
-    //    }
+        if([key isEqualToString:@"src"]) {
+            _src = [value lowercaseString];
+        }
 }
 
 - (void)setValue:(id)value forKey:(NSString *)key
 {
     if ([value isKindOfClass:[NSNull class]]) {
         
-        //        NSLog(@"%@------%@",key,value);
         [super setValue:@"" forKey:key] ;
         return;
     }
@@ -39,6 +38,7 @@
     }
     
     _srcType = judgeMent ;
+    _src = [_src lowercaseString];
     return self;
 }
 

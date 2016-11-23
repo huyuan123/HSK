@@ -9,11 +9,15 @@
 #import "AssessmentItemRef.h"
 
 @implementation AssessmentItemRef
+{
+    NSString    *   _userChoice ;
+}
+
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
-    //    if([key isEqualToString:@"id"]) {
-    //        self.productID = value;
-    //    }
+//        if([key isEqualToString:@"href"]) {
+//            _href = [value lowercaseString];
+//        }
 }
 
 - (void)setValue:(id)value forKey:(NSString *)key
@@ -38,8 +42,45 @@
         }
     }
     
-    //    _goods_stockout = @"1" ;
-    
     return self;
+}
+
+- (NSString *)userChoice
+{
+    if (_userChoice) {
+        return _userChoice ;
+    }
+    
+   NSDictionary * dic = [UserDefault objectForKey:UserResData];
+    if ([dic isKindOfClass:[NSDictionary class]]) {
+        if ([dic[_identifier] isKindOfClass:[NSString class]]) {
+            return dic[_identifier];
+        }
+    }
+    
+    return nil ;
+}
+
+- (void)setUserChoice:(NSString *)userChoice
+{
+    if (isCanUseString(userChoice)) {
+        _userChoice = userChoice ;
+    }
+}
+
+- (NSMutableDictionary *)userResDic
+{
+    if (_userResDic) {
+        return _userResDic ;
+    }
+    
+    NSDictionary * dic = [UserDefault objectForKey:UserResData];
+    if ([dic isKindOfClass:[NSDictionary class]]) {
+        NSDictionary * d =  dic[_identifier];
+        if ([d isKindOfClass:[NSDictionary class]]) {
+            return [NSMutableDictionary dictionaryWithDictionary:d];
+        }
+    }
+    return nil ;
 }
 @end

@@ -10,6 +10,12 @@
 
 @interface ReadingComprehensionModel2 : ProblemModel
 
+@property (nonatomic ,strong) Img                   *       img ;
+
+@property (nonatomic ,strong) Img                   *       exampleImg ;
+
+@property (nonatomic ,strong) NSString              *       textString ;
+
 @property (nonatomic ,strong) NSMutableArray        *       subItemArr ;  //  选项数组
 
 @property (nonatomic ,strong) NSMutableArray        *       topicArray ;

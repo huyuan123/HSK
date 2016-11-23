@@ -7,11 +7,13 @@
 //
 
 #import "ProblemModel.h"
-
+#import "Img.h"
 @interface TextEntry3 : ProblemModel
 
 @property (nonatomic ,strong) NSString * correctResponse ;
 
 @property (nonatomic ,strong) NSString * textString ;
+
+@property (nonatomic ,strong) Img * img ;
 
 @end

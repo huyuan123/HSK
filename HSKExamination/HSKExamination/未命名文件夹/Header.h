@@ -33,4 +33,12 @@
 #import "ExerciseView+level4.h"
 #import "ExerciseView+level5.h"
 #import "ExerciseView+level6.h"
+
+#import "RealExerciseView+level1.h"
+#import "RealExerciseView+level4.h"
+#import "RealExerciseView+level5.h"
+#import "RealExerciseView+level6.h"
+#import "RealExerciseView+level2.h"
+#import "RealExerciseView+level3.h"
+
 #endif /* Header_h */

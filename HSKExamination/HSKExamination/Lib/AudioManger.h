@@ -12,7 +12,14 @@
 
 @property (nonatomic ,weak) id <AVAudioPlayerDelegate> delegate ;
 
+@property (nonatomic ,assign) float  soundMax ;
+
+@property (nonatomic ,assign) int  repeatCount ;
+
 - (void)playWithPath:(NSString *)path ;
 
 - (void)stop ;
+
+- (void)playWithIcon:(UIView *)view AndPath:(NSString *)path ;
+
 @end

@@ -60,7 +60,7 @@
     
     if(judgeModel.media)
     {
-        [self.manger playWithPath:judgeModel.media.src];
+        [self.manger playWithIcon:self AndPath:judgeModel.media.src];
     }
 }
 
@@ -223,7 +223,7 @@
     
     
     if (choice.media) {
-        [self.manger playWithPath:choice.media.src];
+        [self.manger playWithIcon:self AndPath:choice.media.src];
     }
 }
 
@@ -231,7 +231,8 @@
 
 - (void)loadOrder:(Order *)order
 {
-    
+    AssessmentItemRef * model = (AssessmentItemRef *)self.assessection ;
+
     WhriteBackView * backView = [[WhriteBackView alloc] initWithFrame:CGRectMake(20, 445, self.backView.width -40, 55)];
     backView.count = (int)order.subItemArray.count ;
     backView.cornerRadius = 10 ;
@@ -241,13 +242,13 @@
         [self.backView addSubview:itemView];
         itemView.text = order.subItemArray[i] ;
         
-        CGFloat x = arc4random()%600 + 45 ;
-        CGFloat y = arc4random()%300 + 100 ;
+        CGFloat x = 100 * i  + 100;
+        CGFloat y = self.backView.width/2 ;
         itemView.center = CGPointMake(x, y) ;
         __weak typeof(backView) weakbackView = backView ;
         __weak typeof (itemView) weakItem = itemView ;
         [itemView setBlock:^{
-            [weakbackView AdsorptionView:weakItem];
+            [weakbackView AdsorptionView:weakItem andRef:model andOrder:order];
         }];
     }
 }
@@ -259,10 +260,18 @@
     [self.backView addSubview:titleLabel];
     [titleLabel setText:@"请写出这句话缺少的字"];
     
-    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(100, 150, self.backView.width -200, 300)];
-    [self.backView addSubview:label];
-    label.text = model.textString ;
-    label.numberOfLines = 0 ;
+    if (model.img) {
+        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 150, model.img.width.floatValue, model.img.height.floatValue)];
+        [self.backView addSubview:imageView];
+        imageView.contentMode = UIViewContentModeScaleAspectFit ;
+        imageView.image = [UIImage imageWithContentsOfFile:model.img.src];
+    }else
+    {
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(100, 150, self.backView.width -200, 300)];
+        [self.backView addSubview:label];
+        label.text = model.textString ;
+        label.numberOfLines = 0 ;
+    }
 }
 
 

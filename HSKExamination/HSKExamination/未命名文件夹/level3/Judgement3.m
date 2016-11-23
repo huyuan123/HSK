@@ -83,6 +83,9 @@
         _media = [[Media alloc] initWithDictionary:attributeDict];
         _media.srcType = judgeMent ;
 
+    }else if ([elementName isEqualToString:@"img"])
+    {
+        _img = [[Img alloc] initWithDictionary:attributeDict] ;
     }
     
     
@@ -98,7 +101,7 @@
         if ([_currentElement isEqualToString:@"rt"])
         {
             self.pinyinString = [self.pinyinString stringByAppendingString:string];
-        }else if ([string isEqualToString:@"★"])
+        }else if ([string rangeOfString:@"★"].length>0)
         {
             self.textString = [self.textString stringByAppendingFormat:@"\n\n%@",string];
         }

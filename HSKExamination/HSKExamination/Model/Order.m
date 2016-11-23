@@ -47,7 +47,7 @@
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
     if (_index == 10) {
-        [_correctResponse stringByAppendingString:string];
+      _correctResponse =  [_correctResponse stringByAppendingString:string];
     }else if (_index == 100)
     {
        _model.textString = [_model.textString stringByAppendingString:string] ;

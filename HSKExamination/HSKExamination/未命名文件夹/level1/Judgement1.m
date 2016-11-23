@@ -36,6 +36,10 @@
 
     [muS replaceOccurrencesOfString:@")" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
 
+    [muS replaceOccurrencesOfString:@"nbsp;" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
+
+    [muS replaceOccurrencesOfString:@"&amp;" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
+
     [muS replaceOccurrencesOfString:@"播放音频" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, muS.length)];
 
     NSLog(@"%@",muS) ;
@@ -88,6 +92,10 @@
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
+    
+//    string = [string stringByReplacingOccurrencesOfString:@"" withString:@""];
+//    string = [string stringByReplacingOccurrencesOfString:@"" withString:@""];
+
     if (_index == 10) {
         self.correctResponse = string ;
         _index ++ ;

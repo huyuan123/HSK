@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Media.h"
 //  部分的对象，第一部分，第二部分
 @interface AssessmentSection : NSObject
 
 @property (nonatomic ,strong) NSString * identifier ; //  "S01"  第一部分    "S02" 第二部分    "S03" 第三部分
-
+@property (nonatomic ,strong) Media    * rubricMedia ;
 @property (nonatomic ,strong) NSString *title  ;
 @property (nonatomic ,strong) NSString *itemCount ;
 

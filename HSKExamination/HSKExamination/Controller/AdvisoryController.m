@@ -19,12 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
-//    UIButton * bu = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-//    [bu setTitle:@"统计中心" forState:BuNormal];
-//    [self.view addSubview:bu];
-//    bu.backgroundColor = [UIColor redColor];
-//    [bu addTarget:self action:@selector(statisticalCenter) forControlEvents:BuTouchUpInside];
 }
 
 - (void)statisticalCenter
@@ -32,11 +26,20 @@
     [self.navigationController pushViewController:[[StatisticalCenterController alloc] init] animated:YES];
 }
 
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+  
+    [NetWorking getWithUrl:@"http://www.baidu.com" andSuccess:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable respos) {
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+  
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)showContents
@@ -49,10 +52,8 @@
 
 - (void)hiddenContents
 {
-    
     [_webView removeFromSuperview];
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
-
+    [[NSURLCache sharedURLCache] removeAllCachedResponses]  ;
 }
 
 @end

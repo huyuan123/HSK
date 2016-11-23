@@ -15,7 +15,11 @@
 
 @property (nonatomic ,strong) NSString          *       textString ;
 
+@property (nonatomic ,strong) NSString          *       examString ;
+
 @property (nonatomic ,strong) NSMutableArray    *       subItemArr ;
+
+@property (nonatomic ,strong) NSMutableArray    *       titleArray ;
 
 @property (nonatomic ,strong) Media             *       media ;
 

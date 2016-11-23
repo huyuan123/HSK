@@ -9,11 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "XMLBaseModel.h"
 #import "SimpleChoice.h"
+#import "AssessmentSection.h"
 extern NSString         *   _currentElement ;
 extern SimpleChoice     *   _model ;
 extern int                  _index ;
 extern BOOL   isCorrectResponse ;
+extern ASTIndex   astIndex ;
 
+extern TestPart  *  testPartModel ;
+extern AssessmentSection  *  assessmentSection         ;
+extern AssessmentItemRef  *  assessmentItem            ;
 
 @interface ProblemModel : XMLBaseModel
 @property (nonatomic ,strong) NSString      *       identifier ;

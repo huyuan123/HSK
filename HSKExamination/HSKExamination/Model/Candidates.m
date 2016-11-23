@@ -33,6 +33,8 @@
             [self setValuesForKeysWithDictionary:dictionary];
         }
     }
+    
+//    _SubjectCode = @"1" ;
 
     return self;
 }

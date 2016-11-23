@@ -30,7 +30,15 @@
     [self initView];
     [self createView];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+
+    [super viewWillAppear:animated];
+
     [self initData];
+
 }
 
 - (void)initData
@@ -78,7 +86,6 @@
     [self.view addSubview:backViw];
     backViw.cornerRadius = 20 ;
     
-//    backViw.layer.masksToBounds = YES ;
     view.layer.shadowOpacity = 0.5;// 阴影透明度
     
     view.layer.shadowColor = [UIColor grayColor].CGColor;// 阴影的颜色
@@ -231,7 +238,7 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    if(textField.tag == 203)
+    if(textField.tag == 103)
     {
         [[self pickView] show];
     }else

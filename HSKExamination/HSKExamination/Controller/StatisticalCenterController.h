@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface StatisticalCenterController : BaseViewController
+@interface StatisticalCenterController : BaseViewController   // 统计页面
 
 @end

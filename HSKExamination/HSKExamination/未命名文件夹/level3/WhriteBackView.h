@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AssessmentItemRef.h"
+#import "Order.h"
 @interface WhriteBackView : UIView
 
 @property (nonatomic ,assign) int count ;
 
-- (void)AdsorptionView:(UIView *)view ;
+- (void)AdsorptionView:(UIView *)view andRef:(AssessmentItemRef *)ref andOrder:(Order *)order;
+
+//- (void)AdsorptionView:(UIView *)view andRef:(AssessmentItemRef *)ref andOrder:();
 
 @end

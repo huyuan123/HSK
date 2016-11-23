@@ -134,7 +134,7 @@
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component __TVOS_PROHIBITED
 {
     if (component == 0) {
-        return 60 ;
+        return 100 ;
     }
     
     return 700 ;

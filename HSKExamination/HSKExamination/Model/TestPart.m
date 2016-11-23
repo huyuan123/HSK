@@ -11,9 +11,7 @@
 @implementation TestPart
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
-    //    if([key isEqualToString:@"id"]) {
-    //        self.productID = value;
-    //    }
+
 }
 
 - (void)setValue:(id)value forKey:(NSString *)key
@@ -36,9 +34,22 @@
         {
             [self setValuesForKeysWithDictionary:dictionary];
         }
+        _assessmentSectionArray = [NSMutableArray arrayWithCapacity:10];
     }
     
     
     return self;
+}
+
+- (void)setRubricBlock:(Media *)rubricBlock
+{
+    _rubricBlock = rubricBlock ;
+    _rubricBlock.srcType = testPart ;
+}
+
+- (void)setEndBlock:(Media *)endBlock
+{
+    _endBlock = endBlock ;
+    _endBlock.srcType = testPart ;
 }
 @end

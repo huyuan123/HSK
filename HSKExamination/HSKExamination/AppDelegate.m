@@ -11,7 +11,9 @@
 #import "NetWorking.h"
 #import "ViewController.h"
 @interface AppDelegate ()
-
+{
+    AFNetworkReachabilityManager * _manger ;
+}
 @end
 
 @implementation AppDelegate
@@ -19,12 +21,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    [self afn];
     [self checkData];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible] ;
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]] ;
-    
     
     return YES;
 }
@@ -98,7 +100,7 @@
 - (void)checkUpData
 {
     [NetWorking downLoadWithUrl:@"http://mnks.cnhsk.org/MnMoblie/json.json" completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
-//        NSLog(@"%@",filePath) ;
+        NSLog(@"%@",filePath) ;
         if (error == nil) {
             NSData * data = [NSData dataWithContentsOfURL:filePath];
             NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -153,6 +155,44 @@
             [manger removeItemAtURL:filePath error:nil];
         }
     }];
+}
+
+
+-(void)afn
+{
+//    //1.创建网络状态监测管理者
+//    _manger = [AFNetworkReachabilityManager manager];
+//    
+//    //2.监听改变
+//    [_manger setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+//        /*
+//         AFNetworkReachabilityStatusUnknown          = -1,
+//         AFNetworkReachabilityStatusNotReachable     = 0,
+//         AFNetworkReachabilityStatusReachableViaWWAN = 1,
+//         AFNetworkReachabilityStatusReachableViaWiFi = 2,
+//         */
+//        switch (status) {
+//            case AFNetworkReachabilityStatusUnknown:
+//                NSLog(@"未知");
+//                break;
+//            case AFNetworkReachabilityStatusNotReachable:
+//                NSLog(@"没有网络");
+//                Alert(@"请检查您的网络") ;
+//                break;
+//            case AFNetworkReachabilityStatusReachableViaWWAN:
+//                NSLog(@"3G|4G");
+//                break;
+//            case AFNetworkReachabilityStatusReachableViaWiFi:
+//                NSLog(@"WiFi");
+//                break;
+//            default:
+//                break;
+//        }
+//        
+//        [User shareInstance].netStatus = status ;
+//        
+//    }];
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -38,7 +38,7 @@
     }
     
     if (model.media) {
-        [self.manger playWithPath:model.media.src];
+        [self.manger playWithIcon:self AndPath:model.media.src];
     }
 }
 
@@ -108,7 +108,7 @@
     }
     
     if (model.media) {
-        [self.manger playWithPath:model.media.src];
+        [self.manger playWithIcon:self AndPath:model.media.src];
     }
 }
 

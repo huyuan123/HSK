@@ -22,12 +22,12 @@
 @property (nonatomic, strong) NSNumber       *SysState;
 @property (nonatomic, strong) NSString       *ExamineeReportFile;
 @property (nonatomic, strong) NSNumber       *ExamPlanInfoID;
-@property (nonatomic, strong) NSString       *ExamineeName;
+@property (nonatomic, strong) NSString       *ExamineeName;  // 姓名
 @property (nonatomic, strong) NSString       *PlanPassword;
-@property (nonatomic, strong) NSString       *ExamCardNo;
+@property (nonatomic, strong) NSString       *ExamCardNo; // 准考证号
 @property (nonatomic, strong) NSNumber       *Sex;
 @property (nonatomic, strong) NSString       *SubjectName;
-@property (nonatomic, strong) NSNumber       *TimeLimits;
+//@property (nonatomic, strong) NSNumber       *TimeLimits;
 @property (nonatomic, strong) NSNumber       *SeatNo;
 @property (nonatomic, strong) NSString       *CertificateNo;
 @property (nonatomic, strong) NSString       *PaperPassword;  //  解压缩的密码
@@ -38,8 +38,8 @@
 @property (nonatomic, strong) NSNumber       *IsAgain;
 @property (nonatomic, strong) NSNumber       *ExamineeID;
 @property (nonatomic, strong) NSNumber       *ExamSubjectID;
-@property (nonatomic, strong) NSString       *PaperPackageFile;  // 试卷地址
-@property (nonatomic, strong) NSString       *SubjectCode;  // 等级
+@property (nonatomic, strong) NSString       *PaperPackageFile;     // 试卷地址
+@property (nonatomic, strong) NSString       *SubjectCode;          // 等级
 @property (nonatomic, strong) NSString       *Nationality;
 @property (nonatomic, strong) NSString       *ApplicationRange;
 @property (nonatomic, strong) NSNumber       *CertificateType;

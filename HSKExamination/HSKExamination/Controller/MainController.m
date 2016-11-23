@@ -31,7 +31,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
  
     [self createView];
 }
@@ -73,7 +72,7 @@
     _signUpCon  = [[SignUpTestController alloc] init];
     _formaCom   = [[FormalExaminationController alloc] init];
     _selectCon.view.frame = _advisCon.view.frame = _signUpCon.view.frame = _formaCom.view.frame = view.bounds ;
-//
+
     [self addChildViewController:_selectCon];
     [self addChildViewController:_advisCon];
     [self addChildViewController:_signUpCon];
@@ -125,7 +124,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)dealloc

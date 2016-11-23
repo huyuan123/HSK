@@ -29,7 +29,6 @@
         self.layer.borderWidth = 2 ;
         self.cornerRadius = 20 ;
 
-        
         CGMutablePathRef path = CGPathCreateMutable() ;
         CAShapeLayer *shapeLayer = [CAShapeLayer layer];
         [shapeLayer setBounds:CGRectMake(0, 0, 1, frame.size.height -40)];
@@ -96,7 +95,7 @@
         [self.manger stop];
     }
     
-    int         level   = [User shareInstance].level ;
+    int        level   = [User shareInstance].level ;
     NSString   *path    = [[User shareInstance].paperPath stringByAppendingPathComponent:assModel.href] ;
     if ([assModel.type isEqualToString:@"judgement"]) {  // 如果是判断题
 
@@ -144,7 +143,7 @@
         BOOL  b7 = level == 3 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 2 ;
         BOOL  b8 = level == 4 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 3;
         BOOL  b9 = level == 4 && assModel.astIndex.textPart == 1 && assModel.astIndex.assessmentSection == 3;
-        BOOL b10 = level == 6 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 4 ;
+        BOOL  b10 = level == 6 && assModel.astIndex.textPart == 2 && assModel.astIndex.assessmentSection == 4 ;
 
         if (b1 || b4 || b7 || b8 || b9 || b10) {
             level ++ ;
@@ -361,11 +360,10 @@
 
 #pragma mark 加载写作题
 
-//- (void)loadOrder:(Order *)order
-//{
-//
-//}
-
+- (void)setManger:(AudioManger *)manger
+{
+    _manger = manger ;
+}
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex NS_DEPRECATED_IOS(2_0, 9_0)
 {

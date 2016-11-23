@@ -7,7 +7,7 @@
 //
 
 #import "StatisticalCenterController.h"
-
+#import "Header.h"
 @interface StatisticalCenterController ()
 {
     UIView * _backView ;
@@ -59,13 +59,16 @@
     
 }
 
-- (void)loadBili
+- (void)loadBiliWith:(int)level
 {
     [[_backView viewWithTag:10000] removeFromSuperview];
+    
+    NSDictionary * dataDic = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"level%d",level]] ;
+    
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(60, 80, screenWith() -120, 550)];
     view.layer.borderColor = RGBCOLOR(143, 170, 74).CGColor ;
     view.layer.borderWidth = 2 ;
-    [_backView addSubview:view];
+    [_backView addSubview:view] ;
     view.cornerRadius = 20 ;
     view.tag = 10000 ;
     
@@ -91,7 +94,8 @@
     rightL.text = @"正确率" ;
     rightL.font = Font20 ;
     
-    
+    NSDictionary * hearDic = dataDic[hearTest] ;
+    NSDictionary * readDic  = dataDic[readTest] ;
     
    NSArray * arr  = @[@"听力",@"阅读",@"写作"] ;
     for (int i = 0; i < 3; i++) {
@@ -109,7 +113,8 @@
         [view addSubview:blueView];
         blueView.backgroundColor = RGBCOLOR(143, 170, 74) ;
         blueView.cornerRadius = 12.5 ;
-        blueView.width = grayView.width/2 ;
+        
+        
         
         UILabel * biliLabel = [[UILabel alloc] initWithFrame:CGRectMake(grayView.right + 10, grayView.y, 100, 25)];
         [view addSubview:biliLabel];
@@ -121,6 +126,24 @@
         [view addSubview:rightLvLabel];
         rightLvLabel.textColor = biliLabel.textColor ;
         rightLvLabel.text = @"40.2%" ;
+        
+        if (i == 0 && hearDic != nil) {
+            blueView.width = grayView.width*[hearDic[@"corrCount"] intValue]/[hearDic[@"allCount"] intValue] ;
+            biliLabel.text = [NSString stringWithFormat:@"%@/%@",hearDic[@"corrCount"],hearDic[@"allCount"]];
+            rightLvLabel.text = [NSString stringWithFormat:@"%.2f",[hearDic[@"corrCount"] intValue]/1.0/[hearDic[@"allCount"] intValue]] ;
+        }else if (i == 1 && readDic != nil)
+        {
+            blueView.width = grayView.width*[readDic[@"corrCount"] intValue]/[readDic[@"allCount"] intValue] ;
+            biliLabel.text = [NSString stringWithFormat:@"%@/%@",readDic[@"corrCount"],readDic[@"allCount"]];
+            rightLvLabel.text = [NSString stringWithFormat:@"%.2f",[readDic[@"corrCount"] intValue]/1.0/[readDic[@"allCount"] intValue]] ;
+
+        }else
+        {
+            blueView.width = 0 ;
+            biliLabel.text = @"0/0" ;
+            rightLvLabel.text = @"0" ;
+        }
+
     }
     
     
@@ -147,7 +170,7 @@
     [button setTitleColor:[UIColor whiteColor] forState:BuNormal];
     button.backgroundColor = RGBCOLOR(143, 170, 74) ;
     
-    [self loadBili];
+    [self loadBiliWith:(int)button.tag -99];
 }
 
 - (void)didReceiveMemoryWarning {
