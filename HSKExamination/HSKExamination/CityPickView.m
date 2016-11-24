@@ -147,10 +147,5 @@
     }
 }
 
-//- (nullable NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component NS_AVAILABLE_IOS(6_0) __TVOS_PROHIBITED
-//{
-//return <#expression#>
-//}// attributed title is favored if both methods are implemented
-
 
 @end

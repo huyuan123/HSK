@@ -8,9 +8,10 @@
 
 #import "AdvisoryController.h"
 #import "StatisticalCenterController.h"
-@interface AdvisoryController ()
+@interface AdvisoryController ()<UIWebViewDelegate>
 {
-    UIWebView * _webView ;
+    UIWebView       *       _webView ;
+    ShowHUD         *       _showHud ;
 }
 @end
 
@@ -18,7 +19,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:_webView];
+    [_webView loadRequest:[NSURLRequest requestWithURL:UrlString(@"http://cnhsk.org/hskpad")]];
+    _webView.delegate = self ;
+    
+    _showHud = [ShowHUD showText:@"正在加载..." configParameter:^(ShowHUD *config) {
+        
+    } inView:self.view];
 }
 
 - (void)statisticalCenter
@@ -29,13 +37,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-  
-    [NetWorking getWithUrl:@"http://www.baidu.com" andSuccess:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable respos) {
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-    }];
-  
+    
+ 
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,16 +48,28 @@
 
 - (void)showContents
 {
-    _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:_webView];
-    [_webView loadRequest:[NSURLRequest requestWithURL:UrlString(@"http://cnhsk.org/hskpad")]];
+//    _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+//    [self.view addSubview:_webView];
+//    [_webView loadRequest:[NSURLRequest requestWithURL:UrlString(@"http://cnhsk.org/hskpad")]];
 
 }
 
 - (void)hiddenContents
 {
-    [_webView removeFromSuperview];
-    [[NSURLCache sharedURLCache] removeAllCachedResponses]  ;
+//    [_webView removeFromSuperview];
+//    [[NSURLCache sharedURLCache] removeAllCachedResponses]  ;
 }
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [_showHud hide];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [_showHud hide];
+    Alert(@"请检查您的网络") ;
+}
+
 
 @end
